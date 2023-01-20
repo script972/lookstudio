@@ -19,8 +19,13 @@ class LoginCubit extends Cubit<LoginState> {
 
   void init() async {
     logger.i('charge list init()');
-
-    //var locationResponse = authRepository.getLocationsList(lat: 46.0, lng: 32.9);
-    emit(LoginState.dataUpdated(1));
+    var responce = await authRepository.login(email: 'ds@a.sa', password: 'password');
+    responce.maybeWhen(
+        ok: (data) {
+          logger.i('process success data');
+        },
+        hostUnavailable: () {},
+        orElse: () {});
+    emit(const LoginState.dataUpdated(1));
   }
 }
