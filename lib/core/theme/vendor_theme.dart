@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/material/theme_data.dart';
-import 'package:solution_starter/core/theme/base_theme.dart';
+import 'package:solution_starter/core/theme/solution_theme.dart';
 
-class SolutionTheme extends BaseCoreTheme {
+class VendorTheme extends BaseCoreTheme {
   @override
   ThemeData get themeData => ThemeData(
         fontFamily: 'Roboto',

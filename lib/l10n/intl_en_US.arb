@@ -1,0 +1,14 @@
+{
+  "@@locale": "en",
+  "username": "Username",
+  "at" : "at",
+  "ok" : "ok",
+  "biometric_touchId" : "touchId",
+  "biometric_fingerprint" : "fingerprint",
+  "biometric_faceId" : "faceId",
+  "biometric_faceUnlock" : "faceUnlock",
+  "dialog_error" : "Error",
+  "dialog_host_unavailable_please_try_again_later" : "host unavailable please try again later",
+  "dialog_newVersionAvailable" : "New version available"
+
+}

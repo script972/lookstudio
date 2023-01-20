@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:local_auth/local_auth.dart';
 import 'package:logger/logger.dart';
 import 'package:solution_starter/core/logger.dart';
+import 'package:solution_starter/generated/l10n.dart';
 
 enum BiometricTypeShort { fingerprint, faceId, none }
 
@@ -60,11 +61,11 @@ class BiometricService {
   String getCurrentMethodTitle() {
     switch (_biometricType) {
       case BiometricTypeShort.fingerprint:
-        if (Platform.isIOS) return S.current.touchId;
-        return S.current.fingerprint;
+        if (Platform.isIOS) return S.current.biometric_touchId;
+        return S.current.biometric_fingerprint;
       case BiometricTypeShort.faceId:
-        if (Platform.isIOS) return S.current.faceId;
-        return S.current.faceUnlock;
+        if (Platform.isIOS) return S.current.biometric_faceId;
+        return S.current.biometric_faceUnlock;
       case BiometricTypeShort.none:
         return 'none';
     }

@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:solution_starter/core/theme/theme_mode_provider.dart';
 
-abstract class CoreTheme {
-  factory CoreTheme(BuildContext context) {
+abstract class SolutionTheme {
+  factory SolutionTheme(BuildContext context) {
     final themeMode = ThemeModeProvider.of(context).value;
     ThemeContainer themeValue = Provider.of<ThemeContainer>(context);
     switch (themeMode) {
@@ -30,7 +30,14 @@ abstract class CoreTheme {
   Color get primaryColor;
   Color get secondaryColor;
 
-  /* //Data
+  /*
+    // Radius
+  double get basicBorderRadius;
+
+  Color get borderColor;
+
+
+   //Data
   String get urlLink;
   String get appealUrlLink;
 
@@ -58,10 +65,7 @@ abstract class CoreTheme {
   SystemUiOverlayStyle get homeScreenBrightness;
   SystemUiOverlayStyle get fullScreenErrorBrightness;
 
-  // Radius
-  double get basicBorderRadius;
 
-  Color get borderColor;
 
   // ------------------------- Colors -------------------------
   // primary
@@ -102,13 +106,13 @@ abstract class CoreTheme {
   Color get backgroundOne;*/
 }
 
-abstract class BaseCoreTheme implements CoreTheme {
+abstract class BaseCoreTheme implements SolutionTheme {
   double borderRadius = 8.0;
 }
 
 class ThemeContainer {
-  final CoreTheme lightTheme;
-  final CoreTheme darkTheme;
+  final SolutionTheme lightTheme;
+  final SolutionTheme darkTheme;
 
   ThemeContainer(this.lightTheme, this.darkTheme);
 }

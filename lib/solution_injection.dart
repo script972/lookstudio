@@ -7,17 +7,21 @@ import 'package:solution_starter/core/app_config.dart';
 import 'package:solution_starter/core/environment/environemt_service.dart';
 import 'package:solution_starter/core/environment/environemt_variables.dart';
 import 'package:solution_starter/core/environment/environment_helper.dart';
-import 'package:solution_starter/core/theme/base_theme.dart';
-import 'package:solution_starter/core/theme/core_theme.dart';
+import 'package:solution_starter/core/theme/solution_theme.dart';
+import 'package:solution_starter/core/theme/vendor_theme.dart';
 import 'package:solution_starter/data/datasource/local/facade/auth_store.dart';
 import 'package:solution_starter/data/datasource/local/hive_auth_store.dart';
+import 'package:solution_starter/domain/repository/auth_repository.dart';
+import 'package:solution_starter/domain/repository/auth_repository_impl.dart';
+import 'package:solution_starter/domain/service/auth_service.dart';
+import 'package:solution_starter/domain/service/auth_service_impl.dart';
 import 'package:solution_starter/network/network_service.dart';
 import 'package:solution_starter/network/token_interceptor.dart';
 import 'package:solution_starter/utils/hive_helper.dart';
 
-class CoreInjection {
+class SolutionInjection {
   static List<SingleChildWidget> getDiList(BuildContext context) {
-    CoreInjection injection = CoreInjection();
+    SolutionInjection injection = SolutionInjection();
     return injection.diFactory(context);
   }
 
@@ -39,22 +43,22 @@ class CoreInjection {
       ),
       Provider.value(
         value: ThemeContainer(
-          SolutionTheme(),
-          SolutionTheme(),
+          VendorTheme(),
+          VendorTheme(),
         ),
       ),
     ];
   }
 
-  //Should be to rewrite on ProxyProvider
   List<SingleChildWidget> _dependentServices(BuildContext context) {
     return [
       ProxyProvider<AppConfig, EnvironmentHelper>(
-          update: (BuildContext context, AppConfig appConfig, EnvironmentHelper? greetingService) => EnvironmentHelper(
-                appConfig: appConfig,
-                environmentValue: EnvironmentVariables.environmentValue,
-                mockValue: EnvironmentVariables.mockValue,
-              )),
+        update: (BuildContext context, AppConfig appConfig, EnvironmentHelper? greetingService) => EnvironmentHelper(
+          appConfig: appConfig,
+          environmentValue: EnvironmentVariables.environmentValue,
+          mockValue: EnvironmentVariables.mockValue,
+        ),
+      ),
 
       ProxyProvider2<AppConfig, EnvironmentHelper, EnvironmentService>(
         update: (BuildContext context, AppConfig appConfig, EnvironmentHelper envHelper,
@@ -107,18 +111,15 @@ class CoreInjection {
         ),
       ),
 
-      /*ProxyProvider<NetworkService, SitesService>(
-          update: (BuildContext context, NetworkService networkService, SitesService? sitesService) {
-        return SitesServiceImpl(networkService: networkService);
+      //Domain services
+      ProxyProvider<NetworkService, AuthService>(
+          update: (BuildContext context, NetworkService networkService, AuthService? authService) {
+        return AuthServiceImpl(networkService: networkService);
       }),
-      ProxyProvider<SitesService, SitesRepository>(
-          update: (BuildContext context, SitesService sitesService, SitesRepository? sitesRepository) {
-        return SitesRepositoryImpl(sitesService: sitesService);
-      }),
-      ProxyProvider<FacadeAuthService, FacadeAuthRepository>(
-          update: (BuildContext context, FacadeAuthService authService, FacadeAuthRepository? facade) {
+      ProxyProvider<AuthService, AuthRepository>(
+          update: (BuildContext context, AuthService authService, AuthRepository? facade) {
         return AuthRepositoryImpl(authService: authService);
-      }),*/
+      }),
     ];
   }
 }

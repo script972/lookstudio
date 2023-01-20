@@ -18,7 +18,7 @@ class AppConfig {
           cognitoPoolId: 'us-east-2_6S0ddsdsds6vMxFx',
           cognitoRegion: 'us-east-2',
         ),
-        /*  EnvironmentType.PROD: const EnvironmentValues(
+        EnvironmentType.PROD: const EnvironmentValues(
           gatewayUrl: 'https://gateway.prod.elevateaccounts.com/',
           portalUrl: 'https://user.elevateaccounts.com/',
           hiveBoxPrefix: 'prod_',
@@ -33,7 +33,7 @@ class AppConfig {
           cognitoAppClientId: '3jtth0gp1fi5klig24pgnk4sfm',
           cognitoPoolId: 'us-east-2_SGdxeWDvY',
           cognitoRegion: 'us-east-2',
-        ),*/
+        ),
       };
 }
 

@@ -1,59 +1,76 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:hive/hive.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:logger/logger.dart';
-import 'package:solution_starter/core/environment/environemt_variables.dart';
+import 'package:provider/provider.dart';
 import 'package:solution_starter/core/firebase_options.dart';
 import 'package:solution_starter/core/logger.dart';
+import 'package:solution_starter/core/theme/solution_theme.dart';
+import 'package:solution_starter/core/theme/theme_mode_provider.dart';
+import 'package:solution_starter/generated/l10n.dart';
+import 'package:solution_starter/router/solution_router.gr.dart';
+import 'package:solution_starter/solution_injection.dart';
 
-Future<void> main() async {
+void main(List<String> args) async {
   final Logger logger = getLogger('main');
 
-  logger.i('in main');
-
-  logger.i('EnvironmentVariables.useFlutterDriver: ${EnvironmentVariables.useFlutterDriver}');
-  if (EnvironmentVariables.useFlutterDriver) {
-    logger.i('enable fluter driver extension');
-
-    // enableFlutterDriverExtension();
-  }
-  logger.i('ensureInitialized');
   WidgetsFlutterBinding.ensureInitialized();
+  logger.i('ensureInitialized');
 
-  logger.i('initialize firebase');
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  await FirebaseRemoteConfig.instance.setConfigSettings(RemoteConfigSettings(
-    fetchTimeout: const Duration(seconds: 5),
-    minimumFetchInterval: const Duration(hours: 1),
-  ));
-  await FirebaseRemoteConfig.instance.setDefaults(const {'min_supported_version': '0.0.0'});
-  await FirebaseRemoteConfig.instance.fetchAndActivate();
+  try {
+    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  } catch (e) {
+    debugPrint('>>>>>>>>>1e${e}');
+  }
 
-  // Make system status and navigation bars transparent
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      systemNavigationBarColor: Colors.transparent,
-    ),
-  );
+  //  asyncMethod();
 
-  // Init DI
-  logger.i('init DI');
-  initDependencies();
+  runApp(SolutionApp());
+}
 
-  // Init DB
-  logger.i('init Hive');
-  await Hive.initFlutter();
+class SolutionApp extends StatelessWidget {
+  SolutionApp({super.key});
 
-  // Init biometrics
-  logger.i('init biometrics');
-  // await GetIt.I.get<BiometricService>().init();
+  final SolutionRouter _coreRouter = SolutionRouter();
 
-  // Init authentication status
-  logger.i('init SessionCubit');
-  // await GetIt.I.get<SessionCubit>().init();
+  ThemeMode getThemeMode(AsyncSnapshot<int?> snapshot) {
+    if (snapshot.hasData) {
+      return ThemeMode.values[snapshot.data!];
+    } else {
+      return ThemeMode.system;
+    }
+  }
 
-  logger.i('run app');
-  runApp(MyApp());
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: SolutionInjection.getDiList(context),
+      child: Builder(builder: (BuildContext context) {
+        return FutureBuilder(
+            future: Future.value(null),
+            builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+              return ThemeModeProvider(
+                themeMode: getThemeMode(snapshot as AsyncSnapshot<int?>),
+                builder: (_, themeMode) {
+                  return MaterialApp.router(
+                    title: 'Solution',
+                    theme: Provider.of<ThemeContainer>(context).lightTheme.themeData,
+                    darkTheme: Provider.of<ThemeContainer>(context).darkTheme.themeData,
+                    themeMode: themeMode,
+                    routerDelegate: _coreRouter.delegate(),
+                    routeInformationParser: _coreRouter.defaultRouteParser(),
+                    localizationsDelegates: const [
+                      S.delegate,
+                      GlobalMaterialLocalizations.delegate,
+                      GlobalWidgetsLocalizations.delegate,
+                      GlobalCupertinoLocalizations.delegate,
+                    ],
+                    supportedLocales: S.delegate.supportedLocales,
+                  );
+                },
+              );
+            });
+      }),
+    );
+  }
 }

@@ -1,9 +1,13 @@
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logger/logger.dart';
-import 'package:solution_starter/core/app_update/app_update_aware_state.dart';
 import 'package:solution_starter/core/logger.dart';
 import 'package:upgrader/upgrader.dart';
 import 'package:version/version.dart';
+
+part 'app_update_aware_cubit.freezed.dart';
+part 'app_update_aware_state.dart';
 
 class AppUpdateAwareCubit extends Cubit<AppUpdateAwareState> {
   final Logger _logger = getLogger('AppUpdateAwareCubit');

@@ -1,4 +1,5 @@
 import 'package:intl/intl.dart';
+import 'package:solution_starter/generated/l10n.dart';
 
 abstract class DateHelper {
   static final longDateFormat = DateFormat("MMMM dd, yyyy '${S.current.at}' h:mm a");
