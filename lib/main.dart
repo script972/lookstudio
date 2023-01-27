@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
 import 'package:solution_starter/core/firebase_options.dart';
@@ -15,6 +17,8 @@ void main(List<String> args) async {
   final Logger logger = getLogger('main');
 
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+
   logger.i('ensureInitialized');
 
   try {
