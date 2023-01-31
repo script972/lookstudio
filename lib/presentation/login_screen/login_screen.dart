@@ -8,6 +8,8 @@ import 'package:solution_starter/presentation/login_screen/login_layout.dart';
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
+  static const path = 'login_screen';
+
   @override
   Widget build(BuildContext context) {
     var authRepository = Provider.of<AuthRepository>(context);

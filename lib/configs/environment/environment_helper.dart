@@ -1,10 +1,6 @@
-import 'package:solution_starter/core/app_config.dart';
+import 'package:solution_starter/configs/app_config.dart';
 
 class EnvironmentHelper {
-  final AppConfig _appConfig;
-  final String _environmentValue;
-  final String _mockValue;
-
   EnvironmentHelper({
     required AppConfig appConfig,
     required String environmentValue,
@@ -12,6 +8,10 @@ class EnvironmentHelper {
   })  : _appConfig = appConfig,
         _environmentValue = environmentValue,
         _mockValue = mockValue;
+
+  final AppConfig _appConfig;
+  final String _environmentValue;
+  final String _mockValue;
 
   MockType currentMock() {
     final mock = _mockValue.toLowerCase();

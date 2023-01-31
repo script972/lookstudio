@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'network_response.dart';
 
@@ -31,15 +31,15 @@ mixin _$NetworkResponse<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(T data)? ok,
-    TResult Function(String message)? invalidParameters,
-    TResult Function(String message)? noAuth,
-    TResult Function(String message)? noAccess,
-    TResult Function(String message)? badRequest,
-    TResult Function(String message)? notFound,
-    TResult Function(String message)? conflict,
-    TResult Function(String message)? noData,
-    TResult Function()? hostUnavailable,
+    TResult? Function(T data)? ok,
+    TResult? Function(String message)? invalidParameters,
+    TResult? Function(String message)? noAuth,
+    TResult? Function(String message)? noAccess,
+    TResult? Function(String message)? badRequest,
+    TResult? Function(String message)? notFound,
+    TResult? Function(String message)? conflict,
+    TResult? Function(String message)? noData,
+    TResult? Function()? hostUnavailable,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,15 +71,15 @@ mixin _$NetworkResponse<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Ok<T> value)? ok,
-    TResult Function(InvalidParameters<T> value)? invalidParameters,
-    TResult Function(NoAuth<T> value)? noAuth,
-    TResult Function(NoAccess<T> value)? noAccess,
-    TResult Function(BadRequest<T> value)? badRequest,
-    TResult Function(NotFound<T> value)? notFound,
-    TResult Function(Conflict<T> value)? conflict,
-    TResult Function(NoData<T> value)? noData,
-    TResult Function(HostUnavailable<T> value)? hostUnavailable,
+    TResult? Function(Ok<T> value)? ok,
+    TResult? Function(InvalidParameters<T> value)? invalidParameters,
+    TResult? Function(NoAuth<T> value)? noAuth,
+    TResult? Function(NoAccess<T> value)? noAccess,
+    TResult? Function(BadRequest<T> value)? badRequest,
+    TResult? Function(NotFound<T> value)? notFound,
+    TResult? Function(Conflict<T> value)? conflict,
+    TResult? Function(NoData<T> value)? noData,
+    TResult? Function(HostUnavailable<T> value)? hostUnavailable,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -102,41 +102,42 @@ mixin _$NetworkResponse<T> {
 abstract class $NetworkResponseCopyWith<T, $Res> {
   factory $NetworkResponseCopyWith(
           NetworkResponse<T> value, $Res Function(NetworkResponse<T>) then) =
-      _$NetworkResponseCopyWithImpl<T, $Res>;
+      _$NetworkResponseCopyWithImpl<T, $Res, NetworkResponse<T>>;
 }
 
 /// @nodoc
-class _$NetworkResponseCopyWithImpl<T, $Res>
+class _$NetworkResponseCopyWithImpl<T, $Res, $Val extends NetworkResponse<T>>
     implements $NetworkResponseCopyWith<T, $Res> {
   _$NetworkResponseCopyWithImpl(this._value, this._then);
 
-  final NetworkResponse<T> _value;
   // ignore: unused_field
-  final $Res Function(NetworkResponse<T>) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
 abstract class _$$OkCopyWith<T, $Res> {
   factory _$$OkCopyWith(_$Ok<T> value, $Res Function(_$Ok<T>) then) =
       __$$OkCopyWithImpl<T, $Res>;
+  @useResult
   $Res call({T data});
 }
 
 /// @nodoc
-class __$$OkCopyWithImpl<T, $Res> extends _$NetworkResponseCopyWithImpl<T, $Res>
+class __$$OkCopyWithImpl<T, $Res>
+    extends _$NetworkResponseCopyWithImpl<T, $Res, _$Ok<T>>
     implements _$$OkCopyWith<T, $Res> {
   __$$OkCopyWithImpl(_$Ok<T> _value, $Res Function(_$Ok<T>) _then)
-      : super(_value, (v) => _then(v as _$Ok<T>));
+      : super(_value, _then);
 
-  @override
-  _$Ok<T> get _value => super._value as _$Ok<T>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? data = freezed,
   }) {
     return _then(_$Ok<T>(
-      data == freezed
+      freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as T,
@@ -171,6 +172,7 @@ class _$Ok<T> implements Ok<T> {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$OkCopyWith<T, _$Ok<T>> get copyWith =>
       __$$OkCopyWithImpl<T, _$Ok<T>>(this, _$identity);
 
@@ -193,15 +195,15 @@ class _$Ok<T> implements Ok<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(T data)? ok,
-    TResult Function(String message)? invalidParameters,
-    TResult Function(String message)? noAuth,
-    TResult Function(String message)? noAccess,
-    TResult Function(String message)? badRequest,
-    TResult Function(String message)? notFound,
-    TResult Function(String message)? conflict,
-    TResult Function(String message)? noData,
-    TResult Function()? hostUnavailable,
+    TResult? Function(T data)? ok,
+    TResult? Function(String message)? invalidParameters,
+    TResult? Function(String message)? noAuth,
+    TResult? Function(String message)? noAccess,
+    TResult? Function(String message)? badRequest,
+    TResult? Function(String message)? notFound,
+    TResult? Function(String message)? conflict,
+    TResult? Function(String message)? noData,
+    TResult? Function()? hostUnavailable,
   }) {
     return ok?.call(data);
   }
@@ -245,15 +247,15 @@ class _$Ok<T> implements Ok<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Ok<T> value)? ok,
-    TResult Function(InvalidParameters<T> value)? invalidParameters,
-    TResult Function(NoAuth<T> value)? noAuth,
-    TResult Function(NoAccess<T> value)? noAccess,
-    TResult Function(BadRequest<T> value)? badRequest,
-    TResult Function(NotFound<T> value)? notFound,
-    TResult Function(Conflict<T> value)? conflict,
-    TResult Function(NoData<T> value)? noData,
-    TResult Function(HostUnavailable<T> value)? hostUnavailable,
+    TResult? Function(Ok<T> value)? ok,
+    TResult? Function(InvalidParameters<T> value)? invalidParameters,
+    TResult? Function(NoAuth<T> value)? noAuth,
+    TResult? Function(NoAccess<T> value)? noAccess,
+    TResult? Function(BadRequest<T> value)? badRequest,
+    TResult? Function(NotFound<T> value)? notFound,
+    TResult? Function(Conflict<T> value)? conflict,
+    TResult? Function(NoData<T> value)? noData,
+    TResult? Function(HostUnavailable<T> value)? hostUnavailable,
   }) {
     return ok?.call(this);
   }
@@ -292,26 +294,25 @@ abstract class _$$InvalidParametersCopyWith<T, $Res> {
   factory _$$InvalidParametersCopyWith(_$InvalidParameters<T> value,
           $Res Function(_$InvalidParameters<T>) then) =
       __$$InvalidParametersCopyWithImpl<T, $Res>;
+  @useResult
   $Res call({String message});
 }
 
 /// @nodoc
 class __$$InvalidParametersCopyWithImpl<T, $Res>
-    extends _$NetworkResponseCopyWithImpl<T, $Res>
+    extends _$NetworkResponseCopyWithImpl<T, $Res, _$InvalidParameters<T>>
     implements _$$InvalidParametersCopyWith<T, $Res> {
   __$$InvalidParametersCopyWithImpl(_$InvalidParameters<T> _value,
       $Res Function(_$InvalidParameters<T>) _then)
-      : super(_value, (v) => _then(v as _$InvalidParameters<T>));
+      : super(_value, _then);
 
-  @override
-  _$InvalidParameters<T> get _value => super._value as _$InvalidParameters<T>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = freezed,
+    Object? message = null,
   }) {
     return _then(_$InvalidParameters<T>(
-      message == freezed
+      null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -337,15 +338,15 @@ class _$InvalidParameters<T> implements InvalidParameters<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InvalidParameters<T> &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$InvalidParametersCopyWith<T, _$InvalidParameters<T>> get copyWith =>
       __$$InvalidParametersCopyWithImpl<T, _$InvalidParameters<T>>(
           this, _$identity);
@@ -369,15 +370,15 @@ class _$InvalidParameters<T> implements InvalidParameters<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(T data)? ok,
-    TResult Function(String message)? invalidParameters,
-    TResult Function(String message)? noAuth,
-    TResult Function(String message)? noAccess,
-    TResult Function(String message)? badRequest,
-    TResult Function(String message)? notFound,
-    TResult Function(String message)? conflict,
-    TResult Function(String message)? noData,
-    TResult Function()? hostUnavailable,
+    TResult? Function(T data)? ok,
+    TResult? Function(String message)? invalidParameters,
+    TResult? Function(String message)? noAuth,
+    TResult? Function(String message)? noAccess,
+    TResult? Function(String message)? badRequest,
+    TResult? Function(String message)? notFound,
+    TResult? Function(String message)? conflict,
+    TResult? Function(String message)? noData,
+    TResult? Function()? hostUnavailable,
   }) {
     return invalidParameters?.call(message);
   }
@@ -421,15 +422,15 @@ class _$InvalidParameters<T> implements InvalidParameters<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Ok<T> value)? ok,
-    TResult Function(InvalidParameters<T> value)? invalidParameters,
-    TResult Function(NoAuth<T> value)? noAuth,
-    TResult Function(NoAccess<T> value)? noAccess,
-    TResult Function(BadRequest<T> value)? badRequest,
-    TResult Function(NotFound<T> value)? notFound,
-    TResult Function(Conflict<T> value)? conflict,
-    TResult Function(NoData<T> value)? noData,
-    TResult Function(HostUnavailable<T> value)? hostUnavailable,
+    TResult? Function(Ok<T> value)? ok,
+    TResult? Function(InvalidParameters<T> value)? invalidParameters,
+    TResult? Function(NoAuth<T> value)? noAuth,
+    TResult? Function(NoAccess<T> value)? noAccess,
+    TResult? Function(BadRequest<T> value)? badRequest,
+    TResult? Function(NotFound<T> value)? notFound,
+    TResult? Function(Conflict<T> value)? conflict,
+    TResult? Function(NoData<T> value)? noData,
+    TResult? Function(HostUnavailable<T> value)? hostUnavailable,
   }) {
     return invalidParameters?.call(this);
   }
@@ -470,25 +471,24 @@ abstract class _$$NoAuthCopyWith<T, $Res> {
   factory _$$NoAuthCopyWith(
           _$NoAuth<T> value, $Res Function(_$NoAuth<T>) then) =
       __$$NoAuthCopyWithImpl<T, $Res>;
+  @useResult
   $Res call({String message});
 }
 
 /// @nodoc
 class __$$NoAuthCopyWithImpl<T, $Res>
-    extends _$NetworkResponseCopyWithImpl<T, $Res>
+    extends _$NetworkResponseCopyWithImpl<T, $Res, _$NoAuth<T>>
     implements _$$NoAuthCopyWith<T, $Res> {
   __$$NoAuthCopyWithImpl(_$NoAuth<T> _value, $Res Function(_$NoAuth<T>) _then)
-      : super(_value, (v) => _then(v as _$NoAuth<T>));
+      : super(_value, _then);
 
-  @override
-  _$NoAuth<T> get _value => super._value as _$NoAuth<T>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = freezed,
+    Object? message = null,
   }) {
     return _then(_$NoAuth<T>(
-      message == freezed
+      null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -514,15 +514,15 @@ class _$NoAuth<T> implements NoAuth<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NoAuth<T> &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$NoAuthCopyWith<T, _$NoAuth<T>> get copyWith =>
       __$$NoAuthCopyWithImpl<T, _$NoAuth<T>>(this, _$identity);
 
@@ -545,15 +545,15 @@ class _$NoAuth<T> implements NoAuth<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(T data)? ok,
-    TResult Function(String message)? invalidParameters,
-    TResult Function(String message)? noAuth,
-    TResult Function(String message)? noAccess,
-    TResult Function(String message)? badRequest,
-    TResult Function(String message)? notFound,
-    TResult Function(String message)? conflict,
-    TResult Function(String message)? noData,
-    TResult Function()? hostUnavailable,
+    TResult? Function(T data)? ok,
+    TResult? Function(String message)? invalidParameters,
+    TResult? Function(String message)? noAuth,
+    TResult? Function(String message)? noAccess,
+    TResult? Function(String message)? badRequest,
+    TResult? Function(String message)? notFound,
+    TResult? Function(String message)? conflict,
+    TResult? Function(String message)? noData,
+    TResult? Function()? hostUnavailable,
   }) {
     return noAuth?.call(message);
   }
@@ -597,15 +597,15 @@ class _$NoAuth<T> implements NoAuth<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Ok<T> value)? ok,
-    TResult Function(InvalidParameters<T> value)? invalidParameters,
-    TResult Function(NoAuth<T> value)? noAuth,
-    TResult Function(NoAccess<T> value)? noAccess,
-    TResult Function(BadRequest<T> value)? badRequest,
-    TResult Function(NotFound<T> value)? notFound,
-    TResult Function(Conflict<T> value)? conflict,
-    TResult Function(NoData<T> value)? noData,
-    TResult Function(HostUnavailable<T> value)? hostUnavailable,
+    TResult? Function(Ok<T> value)? ok,
+    TResult? Function(InvalidParameters<T> value)? invalidParameters,
+    TResult? Function(NoAuth<T> value)? noAuth,
+    TResult? Function(NoAccess<T> value)? noAccess,
+    TResult? Function(BadRequest<T> value)? badRequest,
+    TResult? Function(NotFound<T> value)? notFound,
+    TResult? Function(Conflict<T> value)? conflict,
+    TResult? Function(NoData<T> value)? noData,
+    TResult? Function(HostUnavailable<T> value)? hostUnavailable,
   }) {
     return noAuth?.call(this);
   }
@@ -645,26 +645,25 @@ abstract class _$$NoAccessCopyWith<T, $Res> {
   factory _$$NoAccessCopyWith(
           _$NoAccess<T> value, $Res Function(_$NoAccess<T>) then) =
       __$$NoAccessCopyWithImpl<T, $Res>;
+  @useResult
   $Res call({String message});
 }
 
 /// @nodoc
 class __$$NoAccessCopyWithImpl<T, $Res>
-    extends _$NetworkResponseCopyWithImpl<T, $Res>
+    extends _$NetworkResponseCopyWithImpl<T, $Res, _$NoAccess<T>>
     implements _$$NoAccessCopyWith<T, $Res> {
   __$$NoAccessCopyWithImpl(
       _$NoAccess<T> _value, $Res Function(_$NoAccess<T>) _then)
-      : super(_value, (v) => _then(v as _$NoAccess<T>));
+      : super(_value, _then);
 
-  @override
-  _$NoAccess<T> get _value => super._value as _$NoAccess<T>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = freezed,
+    Object? message = null,
   }) {
     return _then(_$NoAccess<T>(
-      message == freezed
+      null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -690,15 +689,15 @@ class _$NoAccess<T> implements NoAccess<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NoAccess<T> &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$NoAccessCopyWith<T, _$NoAccess<T>> get copyWith =>
       __$$NoAccessCopyWithImpl<T, _$NoAccess<T>>(this, _$identity);
 
@@ -721,15 +720,15 @@ class _$NoAccess<T> implements NoAccess<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(T data)? ok,
-    TResult Function(String message)? invalidParameters,
-    TResult Function(String message)? noAuth,
-    TResult Function(String message)? noAccess,
-    TResult Function(String message)? badRequest,
-    TResult Function(String message)? notFound,
-    TResult Function(String message)? conflict,
-    TResult Function(String message)? noData,
-    TResult Function()? hostUnavailable,
+    TResult? Function(T data)? ok,
+    TResult? Function(String message)? invalidParameters,
+    TResult? Function(String message)? noAuth,
+    TResult? Function(String message)? noAccess,
+    TResult? Function(String message)? badRequest,
+    TResult? Function(String message)? notFound,
+    TResult? Function(String message)? conflict,
+    TResult? Function(String message)? noData,
+    TResult? Function()? hostUnavailable,
   }) {
     return noAccess?.call(message);
   }
@@ -773,15 +772,15 @@ class _$NoAccess<T> implements NoAccess<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Ok<T> value)? ok,
-    TResult Function(InvalidParameters<T> value)? invalidParameters,
-    TResult Function(NoAuth<T> value)? noAuth,
-    TResult Function(NoAccess<T> value)? noAccess,
-    TResult Function(BadRequest<T> value)? badRequest,
-    TResult Function(NotFound<T> value)? notFound,
-    TResult Function(Conflict<T> value)? conflict,
-    TResult Function(NoData<T> value)? noData,
-    TResult Function(HostUnavailable<T> value)? hostUnavailable,
+    TResult? Function(Ok<T> value)? ok,
+    TResult? Function(InvalidParameters<T> value)? invalidParameters,
+    TResult? Function(NoAuth<T> value)? noAuth,
+    TResult? Function(NoAccess<T> value)? noAccess,
+    TResult? Function(BadRequest<T> value)? badRequest,
+    TResult? Function(NotFound<T> value)? notFound,
+    TResult? Function(Conflict<T> value)? conflict,
+    TResult? Function(NoData<T> value)? noData,
+    TResult? Function(HostUnavailable<T> value)? hostUnavailable,
   }) {
     return noAccess?.call(this);
   }
@@ -821,26 +820,25 @@ abstract class _$$BadRequestCopyWith<T, $Res> {
   factory _$$BadRequestCopyWith(
           _$BadRequest<T> value, $Res Function(_$BadRequest<T>) then) =
       __$$BadRequestCopyWithImpl<T, $Res>;
+  @useResult
   $Res call({String message});
 }
 
 /// @nodoc
 class __$$BadRequestCopyWithImpl<T, $Res>
-    extends _$NetworkResponseCopyWithImpl<T, $Res>
+    extends _$NetworkResponseCopyWithImpl<T, $Res, _$BadRequest<T>>
     implements _$$BadRequestCopyWith<T, $Res> {
   __$$BadRequestCopyWithImpl(
       _$BadRequest<T> _value, $Res Function(_$BadRequest<T>) _then)
-      : super(_value, (v) => _then(v as _$BadRequest<T>));
+      : super(_value, _then);
 
-  @override
-  _$BadRequest<T> get _value => super._value as _$BadRequest<T>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = freezed,
+    Object? message = null,
   }) {
     return _then(_$BadRequest<T>(
-      message == freezed
+      null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -866,15 +864,15 @@ class _$BadRequest<T> implements BadRequest<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BadRequest<T> &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$BadRequestCopyWith<T, _$BadRequest<T>> get copyWith =>
       __$$BadRequestCopyWithImpl<T, _$BadRequest<T>>(this, _$identity);
 
@@ -897,15 +895,15 @@ class _$BadRequest<T> implements BadRequest<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(T data)? ok,
-    TResult Function(String message)? invalidParameters,
-    TResult Function(String message)? noAuth,
-    TResult Function(String message)? noAccess,
-    TResult Function(String message)? badRequest,
-    TResult Function(String message)? notFound,
-    TResult Function(String message)? conflict,
-    TResult Function(String message)? noData,
-    TResult Function()? hostUnavailable,
+    TResult? Function(T data)? ok,
+    TResult? Function(String message)? invalidParameters,
+    TResult? Function(String message)? noAuth,
+    TResult? Function(String message)? noAccess,
+    TResult? Function(String message)? badRequest,
+    TResult? Function(String message)? notFound,
+    TResult? Function(String message)? conflict,
+    TResult? Function(String message)? noData,
+    TResult? Function()? hostUnavailable,
   }) {
     return badRequest?.call(message);
   }
@@ -949,15 +947,15 @@ class _$BadRequest<T> implements BadRequest<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Ok<T> value)? ok,
-    TResult Function(InvalidParameters<T> value)? invalidParameters,
-    TResult Function(NoAuth<T> value)? noAuth,
-    TResult Function(NoAccess<T> value)? noAccess,
-    TResult Function(BadRequest<T> value)? badRequest,
-    TResult Function(NotFound<T> value)? notFound,
-    TResult Function(Conflict<T> value)? conflict,
-    TResult Function(NoData<T> value)? noData,
-    TResult Function(HostUnavailable<T> value)? hostUnavailable,
+    TResult? Function(Ok<T> value)? ok,
+    TResult? Function(InvalidParameters<T> value)? invalidParameters,
+    TResult? Function(NoAuth<T> value)? noAuth,
+    TResult? Function(NoAccess<T> value)? noAccess,
+    TResult? Function(BadRequest<T> value)? badRequest,
+    TResult? Function(NotFound<T> value)? notFound,
+    TResult? Function(Conflict<T> value)? conflict,
+    TResult? Function(NoData<T> value)? noData,
+    TResult? Function(HostUnavailable<T> value)? hostUnavailable,
   }) {
     return badRequest?.call(this);
   }
@@ -997,26 +995,25 @@ abstract class _$$NotFoundCopyWith<T, $Res> {
   factory _$$NotFoundCopyWith(
           _$NotFound<T> value, $Res Function(_$NotFound<T>) then) =
       __$$NotFoundCopyWithImpl<T, $Res>;
+  @useResult
   $Res call({String message});
 }
 
 /// @nodoc
 class __$$NotFoundCopyWithImpl<T, $Res>
-    extends _$NetworkResponseCopyWithImpl<T, $Res>
+    extends _$NetworkResponseCopyWithImpl<T, $Res, _$NotFound<T>>
     implements _$$NotFoundCopyWith<T, $Res> {
   __$$NotFoundCopyWithImpl(
       _$NotFound<T> _value, $Res Function(_$NotFound<T>) _then)
-      : super(_value, (v) => _then(v as _$NotFound<T>));
+      : super(_value, _then);
 
-  @override
-  _$NotFound<T> get _value => super._value as _$NotFound<T>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = freezed,
+    Object? message = null,
   }) {
     return _then(_$NotFound<T>(
-      message == freezed
+      null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1042,15 +1039,15 @@ class _$NotFound<T> implements NotFound<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NotFound<T> &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$NotFoundCopyWith<T, _$NotFound<T>> get copyWith =>
       __$$NotFoundCopyWithImpl<T, _$NotFound<T>>(this, _$identity);
 
@@ -1073,15 +1070,15 @@ class _$NotFound<T> implements NotFound<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(T data)? ok,
-    TResult Function(String message)? invalidParameters,
-    TResult Function(String message)? noAuth,
-    TResult Function(String message)? noAccess,
-    TResult Function(String message)? badRequest,
-    TResult Function(String message)? notFound,
-    TResult Function(String message)? conflict,
-    TResult Function(String message)? noData,
-    TResult Function()? hostUnavailable,
+    TResult? Function(T data)? ok,
+    TResult? Function(String message)? invalidParameters,
+    TResult? Function(String message)? noAuth,
+    TResult? Function(String message)? noAccess,
+    TResult? Function(String message)? badRequest,
+    TResult? Function(String message)? notFound,
+    TResult? Function(String message)? conflict,
+    TResult? Function(String message)? noData,
+    TResult? Function()? hostUnavailable,
   }) {
     return notFound?.call(message);
   }
@@ -1125,15 +1122,15 @@ class _$NotFound<T> implements NotFound<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Ok<T> value)? ok,
-    TResult Function(InvalidParameters<T> value)? invalidParameters,
-    TResult Function(NoAuth<T> value)? noAuth,
-    TResult Function(NoAccess<T> value)? noAccess,
-    TResult Function(BadRequest<T> value)? badRequest,
-    TResult Function(NotFound<T> value)? notFound,
-    TResult Function(Conflict<T> value)? conflict,
-    TResult Function(NoData<T> value)? noData,
-    TResult Function(HostUnavailable<T> value)? hostUnavailable,
+    TResult? Function(Ok<T> value)? ok,
+    TResult? Function(InvalidParameters<T> value)? invalidParameters,
+    TResult? Function(NoAuth<T> value)? noAuth,
+    TResult? Function(NoAccess<T> value)? noAccess,
+    TResult? Function(BadRequest<T> value)? badRequest,
+    TResult? Function(NotFound<T> value)? notFound,
+    TResult? Function(Conflict<T> value)? conflict,
+    TResult? Function(NoData<T> value)? noData,
+    TResult? Function(HostUnavailable<T> value)? hostUnavailable,
   }) {
     return notFound?.call(this);
   }
@@ -1173,26 +1170,25 @@ abstract class _$$ConflictCopyWith<T, $Res> {
   factory _$$ConflictCopyWith(
           _$Conflict<T> value, $Res Function(_$Conflict<T>) then) =
       __$$ConflictCopyWithImpl<T, $Res>;
+  @useResult
   $Res call({String message});
 }
 
 /// @nodoc
 class __$$ConflictCopyWithImpl<T, $Res>
-    extends _$NetworkResponseCopyWithImpl<T, $Res>
+    extends _$NetworkResponseCopyWithImpl<T, $Res, _$Conflict<T>>
     implements _$$ConflictCopyWith<T, $Res> {
   __$$ConflictCopyWithImpl(
       _$Conflict<T> _value, $Res Function(_$Conflict<T>) _then)
-      : super(_value, (v) => _then(v as _$Conflict<T>));
+      : super(_value, _then);
 
-  @override
-  _$Conflict<T> get _value => super._value as _$Conflict<T>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = freezed,
+    Object? message = null,
   }) {
     return _then(_$Conflict<T>(
-      message == freezed
+      null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1218,15 +1214,15 @@ class _$Conflict<T> implements Conflict<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$Conflict<T> &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ConflictCopyWith<T, _$Conflict<T>> get copyWith =>
       __$$ConflictCopyWithImpl<T, _$Conflict<T>>(this, _$identity);
 
@@ -1249,15 +1245,15 @@ class _$Conflict<T> implements Conflict<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(T data)? ok,
-    TResult Function(String message)? invalidParameters,
-    TResult Function(String message)? noAuth,
-    TResult Function(String message)? noAccess,
-    TResult Function(String message)? badRequest,
-    TResult Function(String message)? notFound,
-    TResult Function(String message)? conflict,
-    TResult Function(String message)? noData,
-    TResult Function()? hostUnavailable,
+    TResult? Function(T data)? ok,
+    TResult? Function(String message)? invalidParameters,
+    TResult? Function(String message)? noAuth,
+    TResult? Function(String message)? noAccess,
+    TResult? Function(String message)? badRequest,
+    TResult? Function(String message)? notFound,
+    TResult? Function(String message)? conflict,
+    TResult? Function(String message)? noData,
+    TResult? Function()? hostUnavailable,
   }) {
     return conflict?.call(message);
   }
@@ -1301,15 +1297,15 @@ class _$Conflict<T> implements Conflict<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Ok<T> value)? ok,
-    TResult Function(InvalidParameters<T> value)? invalidParameters,
-    TResult Function(NoAuth<T> value)? noAuth,
-    TResult Function(NoAccess<T> value)? noAccess,
-    TResult Function(BadRequest<T> value)? badRequest,
-    TResult Function(NotFound<T> value)? notFound,
-    TResult Function(Conflict<T> value)? conflict,
-    TResult Function(NoData<T> value)? noData,
-    TResult Function(HostUnavailable<T> value)? hostUnavailable,
+    TResult? Function(Ok<T> value)? ok,
+    TResult? Function(InvalidParameters<T> value)? invalidParameters,
+    TResult? Function(NoAuth<T> value)? noAuth,
+    TResult? Function(NoAccess<T> value)? noAccess,
+    TResult? Function(BadRequest<T> value)? badRequest,
+    TResult? Function(NotFound<T> value)? notFound,
+    TResult? Function(Conflict<T> value)? conflict,
+    TResult? Function(NoData<T> value)? noData,
+    TResult? Function(HostUnavailable<T> value)? hostUnavailable,
   }) {
     return conflict?.call(this);
   }
@@ -1349,25 +1345,24 @@ abstract class _$$NoDataCopyWith<T, $Res> {
   factory _$$NoDataCopyWith(
           _$NoData<T> value, $Res Function(_$NoData<T>) then) =
       __$$NoDataCopyWithImpl<T, $Res>;
+  @useResult
   $Res call({String message});
 }
 
 /// @nodoc
 class __$$NoDataCopyWithImpl<T, $Res>
-    extends _$NetworkResponseCopyWithImpl<T, $Res>
+    extends _$NetworkResponseCopyWithImpl<T, $Res, _$NoData<T>>
     implements _$$NoDataCopyWith<T, $Res> {
   __$$NoDataCopyWithImpl(_$NoData<T> _value, $Res Function(_$NoData<T>) _then)
-      : super(_value, (v) => _then(v as _$NoData<T>));
+      : super(_value, _then);
 
-  @override
-  _$NoData<T> get _value => super._value as _$NoData<T>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = freezed,
+    Object? message = null,
   }) {
     return _then(_$NoData<T>(
-      message == freezed
+      null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1393,15 +1388,15 @@ class _$NoData<T> implements NoData<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NoData<T> &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$NoDataCopyWith<T, _$NoData<T>> get copyWith =>
       __$$NoDataCopyWithImpl<T, _$NoData<T>>(this, _$identity);
 
@@ -1424,15 +1419,15 @@ class _$NoData<T> implements NoData<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(T data)? ok,
-    TResult Function(String message)? invalidParameters,
-    TResult Function(String message)? noAuth,
-    TResult Function(String message)? noAccess,
-    TResult Function(String message)? badRequest,
-    TResult Function(String message)? notFound,
-    TResult Function(String message)? conflict,
-    TResult Function(String message)? noData,
-    TResult Function()? hostUnavailable,
+    TResult? Function(T data)? ok,
+    TResult? Function(String message)? invalidParameters,
+    TResult? Function(String message)? noAuth,
+    TResult? Function(String message)? noAccess,
+    TResult? Function(String message)? badRequest,
+    TResult? Function(String message)? notFound,
+    TResult? Function(String message)? conflict,
+    TResult? Function(String message)? noData,
+    TResult? Function()? hostUnavailable,
   }) {
     return noData?.call(message);
   }
@@ -1476,15 +1471,15 @@ class _$NoData<T> implements NoData<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Ok<T> value)? ok,
-    TResult Function(InvalidParameters<T> value)? invalidParameters,
-    TResult Function(NoAuth<T> value)? noAuth,
-    TResult Function(NoAccess<T> value)? noAccess,
-    TResult Function(BadRequest<T> value)? badRequest,
-    TResult Function(NotFound<T> value)? notFound,
-    TResult Function(Conflict<T> value)? conflict,
-    TResult Function(NoData<T> value)? noData,
-    TResult Function(HostUnavailable<T> value)? hostUnavailable,
+    TResult? Function(Ok<T> value)? ok,
+    TResult? Function(InvalidParameters<T> value)? invalidParameters,
+    TResult? Function(NoAuth<T> value)? noAuth,
+    TResult? Function(NoAccess<T> value)? noAccess,
+    TResult? Function(BadRequest<T> value)? badRequest,
+    TResult? Function(NotFound<T> value)? notFound,
+    TResult? Function(Conflict<T> value)? conflict,
+    TResult? Function(NoData<T> value)? noData,
+    TResult? Function(HostUnavailable<T> value)? hostUnavailable,
   }) {
     return noData?.call(this);
   }
@@ -1528,14 +1523,11 @@ abstract class _$$HostUnavailableCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$HostUnavailableCopyWithImpl<T, $Res>
-    extends _$NetworkResponseCopyWithImpl<T, $Res>
+    extends _$NetworkResponseCopyWithImpl<T, $Res, _$HostUnavailable<T>>
     implements _$$HostUnavailableCopyWith<T, $Res> {
   __$$HostUnavailableCopyWithImpl(
       _$HostUnavailable<T> _value, $Res Function(_$HostUnavailable<T>) _then)
-      : super(_value, (v) => _then(v as _$HostUnavailable<T>));
-
-  @override
-  _$HostUnavailable<T> get _value => super._value as _$HostUnavailable<T>;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1576,15 +1568,15 @@ class _$HostUnavailable<T> implements HostUnavailable<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(T data)? ok,
-    TResult Function(String message)? invalidParameters,
-    TResult Function(String message)? noAuth,
-    TResult Function(String message)? noAccess,
-    TResult Function(String message)? badRequest,
-    TResult Function(String message)? notFound,
-    TResult Function(String message)? conflict,
-    TResult Function(String message)? noData,
-    TResult Function()? hostUnavailable,
+    TResult? Function(T data)? ok,
+    TResult? Function(String message)? invalidParameters,
+    TResult? Function(String message)? noAuth,
+    TResult? Function(String message)? noAccess,
+    TResult? Function(String message)? badRequest,
+    TResult? Function(String message)? notFound,
+    TResult? Function(String message)? conflict,
+    TResult? Function(String message)? noData,
+    TResult? Function()? hostUnavailable,
   }) {
     return hostUnavailable?.call();
   }
@@ -1628,15 +1620,15 @@ class _$HostUnavailable<T> implements HostUnavailable<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Ok<T> value)? ok,
-    TResult Function(InvalidParameters<T> value)? invalidParameters,
-    TResult Function(NoAuth<T> value)? noAuth,
-    TResult Function(NoAccess<T> value)? noAccess,
-    TResult Function(BadRequest<T> value)? badRequest,
-    TResult Function(NotFound<T> value)? notFound,
-    TResult Function(Conflict<T> value)? conflict,
-    TResult Function(NoData<T> value)? noData,
-    TResult Function(HostUnavailable<T> value)? hostUnavailable,
+    TResult? Function(Ok<T> value)? ok,
+    TResult? Function(InvalidParameters<T> value)? invalidParameters,
+    TResult? Function(NoAuth<T> value)? noAuth,
+    TResult? Function(NoAccess<T> value)? noAccess,
+    TResult? Function(BadRequest<T> value)? badRequest,
+    TResult? Function(NotFound<T> value)? notFound,
+    TResult? Function(Conflict<T> value)? conflict,
+    TResult? Function(NoData<T> value)? noData,
+    TResult? Function(HostUnavailable<T> value)? hostUnavailable,
   }) {
     return hostUnavailable?.call(this);
   }

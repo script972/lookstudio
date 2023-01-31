@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'api_response.dart';
 
@@ -26,10 +26,10 @@ mixin _$ApiResponse<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(T data)? ok,
-    TResult Function()? noAuth,
-    TResult Function()? hostUnavailable,
-    TResult Function(String? message)? unknownError,
+    TResult? Function(T data)? ok,
+    TResult? Function()? noAuth,
+    TResult? Function()? hostUnavailable,
+    TResult? Function(String? message)? unknownError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,10 +51,10 @@ mixin _$ApiResponse<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Ok<T> value)? ok,
-    TResult Function(NoAuth<T> value)? noAuth,
-    TResult Function(HostUnavailable<T> value)? hostUnavailable,
-    TResult Function(UnknownError<T> value)? unknownError,
+    TResult? Function(Ok<T> value)? ok,
+    TResult? Function(NoAuth<T> value)? noAuth,
+    TResult? Function(HostUnavailable<T> value)? hostUnavailable,
+    TResult? Function(UnknownError<T> value)? unknownError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,41 +72,42 @@ mixin _$ApiResponse<T> {
 abstract class $ApiResponseCopyWith<T, $Res> {
   factory $ApiResponseCopyWith(
           ApiResponse<T> value, $Res Function(ApiResponse<T>) then) =
-      _$ApiResponseCopyWithImpl<T, $Res>;
+      _$ApiResponseCopyWithImpl<T, $Res, ApiResponse<T>>;
 }
 
 /// @nodoc
-class _$ApiResponseCopyWithImpl<T, $Res>
+class _$ApiResponseCopyWithImpl<T, $Res, $Val extends ApiResponse<T>>
     implements $ApiResponseCopyWith<T, $Res> {
   _$ApiResponseCopyWithImpl(this._value, this._then);
 
-  final ApiResponse<T> _value;
   // ignore: unused_field
-  final $Res Function(ApiResponse<T>) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
 abstract class _$$OkCopyWith<T, $Res> {
   factory _$$OkCopyWith(_$Ok<T> value, $Res Function(_$Ok<T>) then) =
       __$$OkCopyWithImpl<T, $Res>;
+  @useResult
   $Res call({T data});
 }
 
 /// @nodoc
-class __$$OkCopyWithImpl<T, $Res> extends _$ApiResponseCopyWithImpl<T, $Res>
+class __$$OkCopyWithImpl<T, $Res>
+    extends _$ApiResponseCopyWithImpl<T, $Res, _$Ok<T>>
     implements _$$OkCopyWith<T, $Res> {
   __$$OkCopyWithImpl(_$Ok<T> _value, $Res Function(_$Ok<T>) _then)
-      : super(_value, (v) => _then(v as _$Ok<T>));
+      : super(_value, _then);
 
-  @override
-  _$Ok<T> get _value => super._value as _$Ok<T>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? data = freezed,
   }) {
     return _then(_$Ok<T>(
-      data == freezed
+      freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as T,
@@ -141,6 +142,7 @@ class _$Ok<T> implements Ok<T> {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$OkCopyWith<T, _$Ok<T>> get copyWith =>
       __$$OkCopyWithImpl<T, _$Ok<T>>(this, _$identity);
 
@@ -158,10 +160,10 @@ class _$Ok<T> implements Ok<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(T data)? ok,
-    TResult Function()? noAuth,
-    TResult Function()? hostUnavailable,
-    TResult Function(String? message)? unknownError,
+    TResult? Function(T data)? ok,
+    TResult? Function()? noAuth,
+    TResult? Function()? hostUnavailable,
+    TResult? Function(String? message)? unknownError,
   }) {
     return ok?.call(data);
   }
@@ -195,10 +197,10 @@ class _$Ok<T> implements Ok<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Ok<T> value)? ok,
-    TResult Function(NoAuth<T> value)? noAuth,
-    TResult Function(HostUnavailable<T> value)? hostUnavailable,
-    TResult Function(UnknownError<T> value)? unknownError,
+    TResult? Function(Ok<T> value)? ok,
+    TResult? Function(NoAuth<T> value)? noAuth,
+    TResult? Function(HostUnavailable<T> value)? hostUnavailable,
+    TResult? Function(UnknownError<T> value)? unknownError,
   }) {
     return ok?.call(this);
   }
@@ -235,13 +237,11 @@ abstract class _$$NoAuthCopyWith<T, $Res> {
 }
 
 /// @nodoc
-class __$$NoAuthCopyWithImpl<T, $Res> extends _$ApiResponseCopyWithImpl<T, $Res>
+class __$$NoAuthCopyWithImpl<T, $Res>
+    extends _$ApiResponseCopyWithImpl<T, $Res, _$NoAuth<T>>
     implements _$$NoAuthCopyWith<T, $Res> {
   __$$NoAuthCopyWithImpl(_$NoAuth<T> _value, $Res Function(_$NoAuth<T>) _then)
-      : super(_value, (v) => _then(v as _$NoAuth<T>));
-
-  @override
-  _$NoAuth<T> get _value => super._value as _$NoAuth<T>;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -277,10 +277,10 @@ class _$NoAuth<T> implements NoAuth<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(T data)? ok,
-    TResult Function()? noAuth,
-    TResult Function()? hostUnavailable,
-    TResult Function(String? message)? unknownError,
+    TResult? Function(T data)? ok,
+    TResult? Function()? noAuth,
+    TResult? Function()? hostUnavailable,
+    TResult? Function(String? message)? unknownError,
   }) {
     return noAuth?.call();
   }
@@ -314,10 +314,10 @@ class _$NoAuth<T> implements NoAuth<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Ok<T> value)? ok,
-    TResult Function(NoAuth<T> value)? noAuth,
-    TResult Function(HostUnavailable<T> value)? hostUnavailable,
-    TResult Function(UnknownError<T> value)? unknownError,
+    TResult? Function(Ok<T> value)? ok,
+    TResult? Function(NoAuth<T> value)? noAuth,
+    TResult? Function(HostUnavailable<T> value)? hostUnavailable,
+    TResult? Function(UnknownError<T> value)? unknownError,
   }) {
     return noAuth?.call(this);
   }
@@ -351,14 +351,11 @@ abstract class _$$HostUnavailableCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$HostUnavailableCopyWithImpl<T, $Res>
-    extends _$ApiResponseCopyWithImpl<T, $Res>
+    extends _$ApiResponseCopyWithImpl<T, $Res, _$HostUnavailable<T>>
     implements _$$HostUnavailableCopyWith<T, $Res> {
   __$$HostUnavailableCopyWithImpl(
       _$HostUnavailable<T> _value, $Res Function(_$HostUnavailable<T>) _then)
-      : super(_value, (v) => _then(v as _$HostUnavailable<T>));
-
-  @override
-  _$HostUnavailable<T> get _value => super._value as _$HostUnavailable<T>;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -394,10 +391,10 @@ class _$HostUnavailable<T> implements HostUnavailable<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(T data)? ok,
-    TResult Function()? noAuth,
-    TResult Function()? hostUnavailable,
-    TResult Function(String? message)? unknownError,
+    TResult? Function(T data)? ok,
+    TResult? Function()? noAuth,
+    TResult? Function()? hostUnavailable,
+    TResult? Function(String? message)? unknownError,
   }) {
     return hostUnavailable?.call();
   }
@@ -431,10 +428,10 @@ class _$HostUnavailable<T> implements HostUnavailable<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Ok<T> value)? ok,
-    TResult Function(NoAuth<T> value)? noAuth,
-    TResult Function(HostUnavailable<T> value)? hostUnavailable,
-    TResult Function(UnknownError<T> value)? unknownError,
+    TResult? Function(Ok<T> value)? ok,
+    TResult? Function(NoAuth<T> value)? noAuth,
+    TResult? Function(HostUnavailable<T> value)? hostUnavailable,
+    TResult? Function(UnknownError<T> value)? unknownError,
   }) {
     return hostUnavailable?.call(this);
   }
@@ -464,26 +461,25 @@ abstract class _$$UnknownErrorCopyWith<T, $Res> {
   factory _$$UnknownErrorCopyWith(
           _$UnknownError<T> value, $Res Function(_$UnknownError<T>) then) =
       __$$UnknownErrorCopyWithImpl<T, $Res>;
+  @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
 class __$$UnknownErrorCopyWithImpl<T, $Res>
-    extends _$ApiResponseCopyWithImpl<T, $Res>
+    extends _$ApiResponseCopyWithImpl<T, $Res, _$UnknownError<T>>
     implements _$$UnknownErrorCopyWith<T, $Res> {
   __$$UnknownErrorCopyWithImpl(
       _$UnknownError<T> _value, $Res Function(_$UnknownError<T>) _then)
-      : super(_value, (v) => _then(v as _$UnknownError<T>));
+      : super(_value, _then);
 
-  @override
-  _$UnknownError<T> get _value => super._value as _$UnknownError<T>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? message = freezed,
   }) {
     return _then(_$UnknownError<T>(
-      message: message == freezed
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -509,15 +505,15 @@ class _$UnknownError<T> implements UnknownError<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UnknownError<T> &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$UnknownErrorCopyWith<T, _$UnknownError<T>> get copyWith =>
       __$$UnknownErrorCopyWithImpl<T, _$UnknownError<T>>(this, _$identity);
 
@@ -535,10 +531,10 @@ class _$UnknownError<T> implements UnknownError<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(T data)? ok,
-    TResult Function()? noAuth,
-    TResult Function()? hostUnavailable,
-    TResult Function(String? message)? unknownError,
+    TResult? Function(T data)? ok,
+    TResult? Function()? noAuth,
+    TResult? Function()? hostUnavailable,
+    TResult? Function(String? message)? unknownError,
   }) {
     return unknownError?.call(message);
   }
@@ -572,10 +568,10 @@ class _$UnknownError<T> implements UnknownError<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Ok<T> value)? ok,
-    TResult Function(NoAuth<T> value)? noAuth,
-    TResult Function(HostUnavailable<T> value)? hostUnavailable,
-    TResult Function(UnknownError<T> value)? unknownError,
+    TResult? Function(Ok<T> value)? ok,
+    TResult? Function(NoAuth<T> value)? noAuth,
+    TResult? Function(HostUnavailable<T> value)? hostUnavailable,
+    TResult? Function(UnknownError<T> value)? unknownError,
   }) {
     return unknownError?.call(this);
   }

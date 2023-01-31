@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'network_request_body.dart';
 
@@ -25,9 +25,9 @@ mixin _$NetworkRequestBody {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? empty,
-    TResult Function(Map<String, dynamic> data)? json,
-    TResult Function(String data)? text,
+    TResult? Function()? empty,
+    TResult? Function(Map<String, dynamic> data)? json,
+    TResult? Function(String data)? text,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,9 +47,9 @@ mixin _$NetworkRequestBody {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Empty value)? empty,
-    TResult Function(Json value)? json,
-    TResult Function(Text value)? text,
+    TResult? Function(Empty value)? empty,
+    TResult? Function(Json value)? json,
+    TResult? Function(Text value)? text,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,17 +66,18 @@ mixin _$NetworkRequestBody {
 abstract class $NetworkRequestBodyCopyWith<$Res> {
   factory $NetworkRequestBodyCopyWith(
           NetworkRequestBody value, $Res Function(NetworkRequestBody) then) =
-      _$NetworkRequestBodyCopyWithImpl<$Res>;
+      _$NetworkRequestBodyCopyWithImpl<$Res, NetworkRequestBody>;
 }
 
 /// @nodoc
-class _$NetworkRequestBodyCopyWithImpl<$Res>
+class _$NetworkRequestBodyCopyWithImpl<$Res, $Val extends NetworkRequestBody>
     implements $NetworkRequestBodyCopyWith<$Res> {
   _$NetworkRequestBodyCopyWithImpl(this._value, this._then);
 
-  final NetworkRequestBody _value;
   // ignore: unused_field
-  final $Res Function(NetworkRequestBody) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -86,13 +87,11 @@ abstract class _$$EmptyCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$EmptyCopyWithImpl<$Res> extends _$NetworkRequestBodyCopyWithImpl<$Res>
+class __$$EmptyCopyWithImpl<$Res>
+    extends _$NetworkRequestBodyCopyWithImpl<$Res, _$Empty>
     implements _$$EmptyCopyWith<$Res> {
   __$$EmptyCopyWithImpl(_$Empty _value, $Res Function(_$Empty) _then)
-      : super(_value, (v) => _then(v as _$Empty));
-
-  @override
-  _$Empty get _value => super._value as _$Empty;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -127,9 +126,9 @@ class _$Empty implements Empty {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? empty,
-    TResult Function(Map<String, dynamic> data)? json,
-    TResult Function(String data)? text,
+    TResult? Function()? empty,
+    TResult? Function(Map<String, dynamic> data)? json,
+    TResult? Function(String data)? text,
   }) {
     return empty?.call();
   }
@@ -161,9 +160,9 @@ class _$Empty implements Empty {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Empty value)? empty,
-    TResult Function(Json value)? json,
-    TResult Function(Text value)? text,
+    TResult? Function(Empty value)? empty,
+    TResult? Function(Json value)? json,
+    TResult? Function(Text value)? text,
   }) {
     return empty?.call(this);
   }
@@ -191,24 +190,24 @@ abstract class Empty implements NetworkRequestBody {
 abstract class _$$JsonCopyWith<$Res> {
   factory _$$JsonCopyWith(_$Json value, $Res Function(_$Json) then) =
       __$$JsonCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$JsonCopyWithImpl<$Res> extends _$NetworkRequestBodyCopyWithImpl<$Res>
+class __$$JsonCopyWithImpl<$Res>
+    extends _$NetworkRequestBodyCopyWithImpl<$Res, _$Json>
     implements _$$JsonCopyWith<$Res> {
   __$$JsonCopyWithImpl(_$Json _value, $Res Function(_$Json) _then)
-      : super(_value, (v) => _then(v as _$Json));
+      : super(_value, _then);
 
-  @override
-  _$Json get _value => super._value as _$Json;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$Json(
-      data == freezed
+      null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
@@ -224,6 +223,7 @@ class _$Json implements Json {
   final Map<String, dynamic> _data;
   @override
   Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_data);
   }
@@ -247,6 +247,7 @@ class _$Json implements Json {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$JsonCopyWith<_$Json> get copyWith =>
       __$$JsonCopyWithImpl<_$Json>(this, _$identity);
 
@@ -263,9 +264,9 @@ class _$Json implements Json {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? empty,
-    TResult Function(Map<String, dynamic> data)? json,
-    TResult Function(String data)? text,
+    TResult? Function()? empty,
+    TResult? Function(Map<String, dynamic> data)? json,
+    TResult? Function(String data)? text,
   }) {
     return json?.call(data);
   }
@@ -297,9 +298,9 @@ class _$Json implements Json {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Empty value)? empty,
-    TResult Function(Json value)? json,
-    TResult Function(Text value)? text,
+    TResult? Function(Empty value)? empty,
+    TResult? Function(Json value)? json,
+    TResult? Function(Text value)? text,
   }) {
     return json?.call(this);
   }
@@ -331,24 +332,24 @@ abstract class Json implements NetworkRequestBody {
 abstract class _$$TextCopyWith<$Res> {
   factory _$$TextCopyWith(_$Text value, $Res Function(_$Text) then) =
       __$$TextCopyWithImpl<$Res>;
+  @useResult
   $Res call({String data});
 }
 
 /// @nodoc
-class __$$TextCopyWithImpl<$Res> extends _$NetworkRequestBodyCopyWithImpl<$Res>
+class __$$TextCopyWithImpl<$Res>
+    extends _$NetworkRequestBodyCopyWithImpl<$Res, _$Text>
     implements _$$TextCopyWith<$Res> {
   __$$TextCopyWithImpl(_$Text _value, $Res Function(_$Text) _then)
-      : super(_value, (v) => _then(v as _$Text));
+      : super(_value, _then);
 
-  @override
-  _$Text get _value => super._value as _$Text;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$Text(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as String,
@@ -374,15 +375,15 @@ class _$Text implements Text {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$Text &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$TextCopyWith<_$Text> get copyWith =>
       __$$TextCopyWithImpl<_$Text>(this, _$identity);
 
@@ -399,9 +400,9 @@ class _$Text implements Text {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? empty,
-    TResult Function(Map<String, dynamic> data)? json,
-    TResult Function(String data)? text,
+    TResult? Function()? empty,
+    TResult? Function(Map<String, dynamic> data)? json,
+    TResult? Function(String data)? text,
   }) {
     return text?.call(data);
   }
@@ -433,9 +434,9 @@ class _$Text implements Text {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Empty value)? empty,
-    TResult Function(Json value)? json,
-    TResult Function(Text value)? text,
+    TResult? Function(Empty value)? empty,
+    TResult? Function(Json value)? json,
+    TResult? Function(Text value)? text,
   }) {
     return text?.call(this);
   }

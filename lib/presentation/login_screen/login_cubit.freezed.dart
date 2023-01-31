@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'login_cubit.dart';
 
@@ -28,11 +28,12 @@ mixin _$LoginState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(int value)? dataUpdated,
-    TResult Function(String? message, VoidCallback retryCallback)? unknownError,
-    TResult Function()? hostUnavailableError,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(int value)? dataUpdated,
+    TResult? Function(String? message, VoidCallback retryCallback)?
+        unknownError,
+    TResult? Function()? hostUnavailableError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,11 +57,11 @@ mixin _$LoginState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(DataUpdated value)? dataUpdated,
-    TResult Function(UnknownError value)? unknownError,
-    TResult Function(HostUnavailableError value)? hostUnavailableError,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(DataUpdated value)? dataUpdated,
+    TResult? Function(UnknownError value)? unknownError,
+    TResult? Function(HostUnavailableError value)? hostUnavailableError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -79,16 +80,18 @@ mixin _$LoginState {
 abstract class $LoginStateCopyWith<$Res> {
   factory $LoginStateCopyWith(
           LoginState value, $Res Function(LoginState) then) =
-      _$LoginStateCopyWithImpl<$Res>;
+      _$LoginStateCopyWithImpl<$Res, LoginState>;
 }
 
 /// @nodoc
-class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
+class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
+    implements $LoginStateCopyWith<$Res> {
   _$LoginStateCopyWithImpl(this._value, this._then);
 
-  final LoginState _value;
   // ignore: unused_field
-  final $Res Function(LoginState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -98,13 +101,11 @@ abstract class _$$InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$InitialCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
+class __$$InitialCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res, _$Initial>
     implements _$$InitialCopyWith<$Res> {
   __$$InitialCopyWithImpl(_$Initial _value, $Res Function(_$Initial) _then)
-      : super(_value, (v) => _then(v as _$Initial));
-
-  @override
-  _$Initial get _value => super._value as _$Initial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -142,11 +143,12 @@ class _$Initial implements Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(int value)? dataUpdated,
-    TResult Function(String? message, VoidCallback retryCallback)? unknownError,
-    TResult Function()? hostUnavailableError,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(int value)? dataUpdated,
+    TResult? Function(String? message, VoidCallback retryCallback)?
+        unknownError,
+    TResult? Function()? hostUnavailableError,
   }) {
     return initial?.call();
   }
@@ -182,11 +184,11 @@ class _$Initial implements Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(DataUpdated value)? dataUpdated,
-    TResult Function(UnknownError value)? unknownError,
-    TResult Function(HostUnavailableError value)? hostUnavailableError,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(DataUpdated value)? dataUpdated,
+    TResult? Function(UnknownError value)? unknownError,
+    TResult? Function(HostUnavailableError value)? hostUnavailableError,
   }) {
     return initial?.call(this);
   }
@@ -219,13 +221,11 @@ abstract class _$$LoadingCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$LoadingCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
+class __$$LoadingCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res, _$Loading>
     implements _$$LoadingCopyWith<$Res> {
   __$$LoadingCopyWithImpl(_$Loading _value, $Res Function(_$Loading) _then)
-      : super(_value, (v) => _then(v as _$Loading));
-
-  @override
-  _$Loading get _value => super._value as _$Loading;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -263,11 +263,12 @@ class _$Loading implements Loading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(int value)? dataUpdated,
-    TResult Function(String? message, VoidCallback retryCallback)? unknownError,
-    TResult Function()? hostUnavailableError,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(int value)? dataUpdated,
+    TResult? Function(String? message, VoidCallback retryCallback)?
+        unknownError,
+    TResult? Function()? hostUnavailableError,
   }) {
     return loading?.call();
   }
@@ -303,11 +304,11 @@ class _$Loading implements Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(DataUpdated value)? dataUpdated,
-    TResult Function(UnknownError value)? unknownError,
-    TResult Function(HostUnavailableError value)? hostUnavailableError,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(DataUpdated value)? dataUpdated,
+    TResult? Function(UnknownError value)? unknownError,
+    TResult? Function(HostUnavailableError value)? hostUnavailableError,
   }) {
     return loading?.call(this);
   }
@@ -338,25 +339,25 @@ abstract class _$$DataUpdatedCopyWith<$Res> {
   factory _$$DataUpdatedCopyWith(
           _$DataUpdated value, $Res Function(_$DataUpdated) then) =
       __$$DataUpdatedCopyWithImpl<$Res>;
+  @useResult
   $Res call({int value});
 }
 
 /// @nodoc
-class __$$DataUpdatedCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
+class __$$DataUpdatedCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res, _$DataUpdated>
     implements _$$DataUpdatedCopyWith<$Res> {
   __$$DataUpdatedCopyWithImpl(
       _$DataUpdated _value, $Res Function(_$DataUpdated) _then)
-      : super(_value, (v) => _then(v as _$DataUpdated));
+      : super(_value, _then);
 
-  @override
-  _$DataUpdated get _value => super._value as _$DataUpdated;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
     return _then(_$DataUpdated(
-      value == freezed
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as int,
@@ -382,15 +383,15 @@ class _$DataUpdated implements DataUpdated {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DataUpdated &&
-            const DeepCollectionEquality().equals(other.value, value));
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$DataUpdatedCopyWith<_$DataUpdated> get copyWith =>
       __$$DataUpdatedCopyWithImpl<_$DataUpdated>(this, _$identity);
 
@@ -410,11 +411,12 @@ class _$DataUpdated implements DataUpdated {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(int value)? dataUpdated,
-    TResult Function(String? message, VoidCallback retryCallback)? unknownError,
-    TResult Function()? hostUnavailableError,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(int value)? dataUpdated,
+    TResult? Function(String? message, VoidCallback retryCallback)?
+        unknownError,
+    TResult? Function()? hostUnavailableError,
   }) {
     return dataUpdated?.call(value);
   }
@@ -450,11 +452,11 @@ class _$DataUpdated implements DataUpdated {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(DataUpdated value)? dataUpdated,
-    TResult Function(UnknownError value)? unknownError,
-    TResult Function(HostUnavailableError value)? hostUnavailableError,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(DataUpdated value)? dataUpdated,
+    TResult? Function(UnknownError value)? unknownError,
+    TResult? Function(HostUnavailableError value)? hostUnavailableError,
   }) {
     return dataUpdated?.call(this);
   }
@@ -490,30 +492,30 @@ abstract class _$$UnknownErrorCopyWith<$Res> {
   factory _$$UnknownErrorCopyWith(
           _$UnknownError value, $Res Function(_$UnknownError) then) =
       __$$UnknownErrorCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? message, VoidCallback retryCallback});
 }
 
 /// @nodoc
-class __$$UnknownErrorCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
+class __$$UnknownErrorCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res, _$UnknownError>
     implements _$$UnknownErrorCopyWith<$Res> {
   __$$UnknownErrorCopyWithImpl(
       _$UnknownError _value, $Res Function(_$UnknownError) _then)
-      : super(_value, (v) => _then(v as _$UnknownError));
+      : super(_value, _then);
 
-  @override
-  _$UnknownError get _value => super._value as _$UnknownError;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? message = freezed,
-    Object? retryCallback = freezed,
+    Object? retryCallback = null,
   }) {
     return _then(_$UnknownError(
-      message: message == freezed
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-      retryCallback: retryCallback == freezed
+      retryCallback: null == retryCallback
           ? _value.retryCallback
           : retryCallback // ignore: cast_nullable_to_non_nullable
               as VoidCallback,
@@ -541,17 +543,17 @@ class _$UnknownError implements UnknownError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UnknownError &&
-            const DeepCollectionEquality().equals(other.message, message) &&
+            (identical(other.message, message) || other.message == message) &&
             (identical(other.retryCallback, retryCallback) ||
                 other.retryCallback == retryCallback));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(message), retryCallback);
+  int get hashCode => Object.hash(runtimeType, message, retryCallback);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$UnknownErrorCopyWith<_$UnknownError> get copyWith =>
       __$$UnknownErrorCopyWithImpl<_$UnknownError>(this, _$identity);
 
@@ -571,11 +573,12 @@ class _$UnknownError implements UnknownError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(int value)? dataUpdated,
-    TResult Function(String? message, VoidCallback retryCallback)? unknownError,
-    TResult Function()? hostUnavailableError,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(int value)? dataUpdated,
+    TResult? Function(String? message, VoidCallback retryCallback)?
+        unknownError,
+    TResult? Function()? hostUnavailableError,
   }) {
     return unknownError?.call(message, retryCallback);
   }
@@ -611,11 +614,11 @@ class _$UnknownError implements UnknownError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(DataUpdated value)? dataUpdated,
-    TResult Function(UnknownError value)? unknownError,
-    TResult Function(HostUnavailableError value)? hostUnavailableError,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(DataUpdated value)? dataUpdated,
+    TResult? Function(UnknownError value)? unknownError,
+    TResult? Function(HostUnavailableError value)? hostUnavailableError,
   }) {
     return unknownError?.call(this);
   }
@@ -658,14 +661,11 @@ abstract class _$$HostUnavailableErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$HostUnavailableErrorCopyWithImpl<$Res>
-    extends _$LoginStateCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res, _$HostUnavailableError>
     implements _$$HostUnavailableErrorCopyWith<$Res> {
   __$$HostUnavailableErrorCopyWithImpl(_$HostUnavailableError _value,
       $Res Function(_$HostUnavailableError) _then)
-      : super(_value, (v) => _then(v as _$HostUnavailableError));
-
-  @override
-  _$HostUnavailableError get _value => super._value as _$HostUnavailableError;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -703,11 +703,12 @@ class _$HostUnavailableError implements HostUnavailableError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(int value)? dataUpdated,
-    TResult Function(String? message, VoidCallback retryCallback)? unknownError,
-    TResult Function()? hostUnavailableError,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(int value)? dataUpdated,
+    TResult? Function(String? message, VoidCallback retryCallback)?
+        unknownError,
+    TResult? Function()? hostUnavailableError,
   }) {
     return hostUnavailableError?.call();
   }
@@ -743,11 +744,11 @@ class _$HostUnavailableError implements HostUnavailableError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(DataUpdated value)? dataUpdated,
-    TResult Function(UnknownError value)? unknownError,
-    TResult Function(HostUnavailableError value)? hostUnavailableError,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(DataUpdated value)? dataUpdated,
+    TResult? Function(UnknownError value)? unknownError,
+    TResult? Function(HostUnavailableError value)? hostUnavailableError,
   }) {
     return hostUnavailableError?.call(this);
   }
