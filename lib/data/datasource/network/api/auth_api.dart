@@ -1,10 +1,13 @@
 import 'package:solution_starter/data/model/login_request.dart';
 import 'package:solution_starter/data/model/login_response.dart';
-import 'package:solution_starter/domain/service/auth_service.dart';
 import 'package:solution_starter/network/network_request.dart';
 import 'package:solution_starter/network/network_request_body.dart';
 import 'package:solution_starter/network/network_response.dart';
 import 'package:solution_starter/network/network_service.dart';
+
+abstract class AuthService {
+  Future<NetworkResponse<LoginResponse>> login({required LoginRequest loginRequest});
+}
 
 class AuthServiceImpl extends AuthService {
   final NetworkService _networkService;
@@ -26,7 +29,7 @@ class AuthServiceImpl extends AuthService {
         (data) => LoginResponse.fromJson(data),
       );
 
-  /* @override
+/* @override
   Future<NetworkResponse<LoginResponse>> login({required LoginRequest loginRequest}) async {
     await _networkService.execute<LoginResponse>(
       const NetworkRequest(

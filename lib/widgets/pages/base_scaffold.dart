@@ -4,6 +4,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:solution_starter/core/logger.dart';
+import 'package:solution_starter/widgets/tokens/spacing.dart';
 
 class BaseScaffold extends StatefulWidget {
   final Widget body;
@@ -151,7 +152,7 @@ class _BaseScaffoldState extends State<BaseScaffold> with TickerProviderStateMix
             mainAxisAlignment: MainAxisAlignment.end,
             children: const [
               Padding(
-                padding: EdgeInsets.only(bottom: 8.0),
+                padding: EdgeInsets.only(bottom: Spacing.defaultPadding),
                 child: Text(
                   'no internet connection',
                   /*style: CoreTheme(context).b1_16Regular.copyWith(

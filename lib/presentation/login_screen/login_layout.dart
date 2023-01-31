@@ -1,10 +1,12 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:solution_starter/core/theme/solution_theme.dart';
-import 'package:solution_starter/presentation/login_screen/login_cubit.dart';
-import 'package:solution_starter/ui/molecula/button_item.dart';
-import 'package:solution_starter/ui/molecula/input_item.dart';
+import 'package:solution_starter/navigation/app_router.dart';
+import 'package:solution_starter/presentation/login_screen/bloc/login_cubit.dart';
+import 'package:solution_starter/widgets/molecules/button_item.dart';
+import 'package:solution_starter/widgets/molecules/input_item.dart';
 
 class LoginLayout extends StatefulWidget {
   const LoginLayout({Key? key}) : super(key: key);
@@ -171,10 +173,10 @@ class _LoginLayoutState extends State<LoginLayout> {
                               //BlocProvider.of<LoginCubit>(context).onFormFieldUpdated();
                             },
                             autofillHints: const [AutofillHints.password],
-                            hideSvgModel: SvgHideModel(
-                              svgPathHide: 'assets/ic_password.svg',
-                              svgPathShow: 'assets/ic_password_show.svg',
-                            ),
+                            // hideSvgModel: SvgHideModel(
+                            //   svgPathHide: 'assets/ic_password.svg',
+                            //   svgPathShow: 'assets/ic_password_show.svg',
+                            // ),
                           ),
                         ),
                         const SizedBox(
@@ -188,6 +190,7 @@ class _LoginLayoutState extends State<LoginLayout> {
                             context,
                             text: 'Sign in',
                             onPressed: () {
+                              context.router.push(const HomeRoute());
                               final form = _formKey.currentState;
                               if (form!.validate()) {
                                 /*BlocProvider.of<LoginCubit>(context).onLogin(

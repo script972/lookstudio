@@ -7,6 +7,7 @@ import 'package:solution_starter/core/logger.dart';
 import 'package:solution_starter/domain/repository/auth_repository.dart';
 
 part 'login_cubit.freezed.dart';
+
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {

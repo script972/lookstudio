@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dialogs/flutter_dialogs.dart';
 import 'package:launch_review/launch_review.dart';
 import 'package:solution_starter/generated/l10n.dart';
-import 'package:solution_starter/ui/dialog/dialog_model.dart';
+import 'package:solution_starter/widgets/templates/dialog_model.dart';
 
 class _CommonDialogKey {
   static const Key yesLogOutKey = Key('yesLogOutKey');

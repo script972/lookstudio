@@ -23,13 +23,13 @@ class TokenInterceptor extends Interceptor {
     //Get token from store. If token is null, pass empty string to as token,
     //failed response will be then handled later in [NetworkService]
     // fqRMDPoNQte2BTug0gqpJS:APA91bFE0-IMmmHIh1y3hlT51HR7qmSIFENWQdI_-4yRDGiGJrXCDtUdI-JY37E2YHPwHiZuDS6m7XcNBH0SCmLhmnM4ucywV1Ssgsrw2eHZckb7P0D5VfvfHR75qIvdJmVA9aw6nZfk
-    var ddd = await FirebaseAuth.instance.signInWithEmailAndPassword(email: 'demo@wattev.com', password: 'demo123A\$');
-    var authFirebase = FirebaseAuth.instance.currentUser;
-    var tokenFirebase = await authFirebase?.getIdToken(true);
+    // var ddd = await FirebaseAuth.instance.signInWithEmailAndPassword(email: 'demo@wattev.com', password: 'demo123A\$');
+    // var authFirebase = FirebaseAuth.instance.currentUser;
+    // var tokenFirebase = await authFirebase?.getIdToken(true);
     //final String token = await _authStore.getToken() ?? '';
 
     //Attach token
-    options.headers['Authorization'] = 'Bearer $tokenFirebase';
+    // options.headers['Authorization'] = 'Bearer $tokenFirebase';
 
     super.onRequest(options, handler);
   }
