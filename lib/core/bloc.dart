@@ -1,0 +1,28 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:solution_starter/data/datasource/network/exchange_models/network_errors.dart';
+import 'package:solution_starter/data/datasource/network/exchange_models/response.dart';
+
+/// Override [handleError], [onConnectionError], [onAuthorizationError], [onUnexpectedError] for your Bloc to change error handling
+mixin CommonErrorsHandler<E, S> on Bloc<E, S> {
+  void handleError(Failure error) {
+    if (error is ConnectionError) {
+      onConnectionError();
+    } else if (error is UnauthorizedError) {
+      onAuthorizationError();
+    } else {
+      onUnexpectedError();
+    }
+  }
+
+  void onConnectionError() {
+    // TODO(AndriiD): handle Connection Error
+  }
+
+  void onAuthorizationError() {
+    // TODO(AndriiD): handle Authorization Error
+  }
+
+  void onUnexpectedError() {
+    // TODO(AndriiD): handle Unexpected Error
+  }
+}

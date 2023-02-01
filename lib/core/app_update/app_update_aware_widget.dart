@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:solution_starter/core/app_update/app_update_aware_cubit.dart';
-import 'package:solution_starter/ui/dialog/common_dialog.dart';
+import 'package:solution_starter/widgets/organisms/common_dialog.dart';
 
 class AppUpdateAware extends StatelessWidget {
   const AppUpdateAware({super.key, required this.child});

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'app_update_aware_cubit.dart';
 
@@ -25,9 +25,9 @@ mixin _$AppUpdateAwareState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? hardUpdateRequired,
-    TResult Function()? softUpdateAvailable,
+    TResult? Function()? initial,
+    TResult? Function()? hardUpdateRequired,
+    TResult? Function()? softUpdateAvailable,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,9 +47,9 @@ mixin _$AppUpdateAwareState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(HardUpdateRequired value)? hardUpdateRequired,
-    TResult Function(SoftUpdateAvailable value)? softUpdateAvailable,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(HardUpdateRequired value)? hardUpdateRequired,
+    TResult? Function(SoftUpdateAvailable value)? softUpdateAvailable,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,17 +66,18 @@ mixin _$AppUpdateAwareState {
 abstract class $AppUpdateAwareStateCopyWith<$Res> {
   factory $AppUpdateAwareStateCopyWith(
           AppUpdateAwareState value, $Res Function(AppUpdateAwareState) then) =
-      _$AppUpdateAwareStateCopyWithImpl<$Res>;
+      _$AppUpdateAwareStateCopyWithImpl<$Res, AppUpdateAwareState>;
 }
 
 /// @nodoc
-class _$AppUpdateAwareStateCopyWithImpl<$Res>
+class _$AppUpdateAwareStateCopyWithImpl<$Res, $Val extends AppUpdateAwareState>
     implements $AppUpdateAwareStateCopyWith<$Res> {
   _$AppUpdateAwareStateCopyWithImpl(this._value, this._then);
 
-  final AppUpdateAwareState _value;
   // ignore: unused_field
-  final $Res Function(AppUpdateAwareState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -87,13 +88,10 @@ abstract class _$$InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialCopyWithImpl<$Res>
-    extends _$AppUpdateAwareStateCopyWithImpl<$Res>
+    extends _$AppUpdateAwareStateCopyWithImpl<$Res, _$Initial>
     implements _$$InitialCopyWith<$Res> {
   __$$InitialCopyWithImpl(_$Initial _value, $Res Function(_$Initial) _then)
-      : super(_value, (v) => _then(v as _$Initial));
-
-  @override
-  _$Initial get _value => super._value as _$Initial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -128,9 +126,9 @@ class _$Initial implements Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? hardUpdateRequired,
-    TResult Function()? softUpdateAvailable,
+    TResult? Function()? initial,
+    TResult? Function()? hardUpdateRequired,
+    TResult? Function()? softUpdateAvailable,
   }) {
     return initial?.call();
   }
@@ -162,9 +160,9 @@ class _$Initial implements Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(HardUpdateRequired value)? hardUpdateRequired,
-    TResult Function(SoftUpdateAvailable value)? softUpdateAvailable,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(HardUpdateRequired value)? hardUpdateRequired,
+    TResult? Function(SoftUpdateAvailable value)? softUpdateAvailable,
   }) {
     return initial?.call(this);
   }
@@ -197,14 +195,11 @@ abstract class _$$HardUpdateRequiredCopyWith<$Res> {
 
 /// @nodoc
 class __$$HardUpdateRequiredCopyWithImpl<$Res>
-    extends _$AppUpdateAwareStateCopyWithImpl<$Res>
+    extends _$AppUpdateAwareStateCopyWithImpl<$Res, _$HardUpdateRequired>
     implements _$$HardUpdateRequiredCopyWith<$Res> {
   __$$HardUpdateRequiredCopyWithImpl(
       _$HardUpdateRequired _value, $Res Function(_$HardUpdateRequired) _then)
-      : super(_value, (v) => _then(v as _$HardUpdateRequired));
-
-  @override
-  _$HardUpdateRequired get _value => super._value as _$HardUpdateRequired;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -239,9 +234,9 @@ class _$HardUpdateRequired implements HardUpdateRequired {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? hardUpdateRequired,
-    TResult Function()? softUpdateAvailable,
+    TResult? Function()? initial,
+    TResult? Function()? hardUpdateRequired,
+    TResult? Function()? softUpdateAvailable,
   }) {
     return hardUpdateRequired?.call();
   }
@@ -273,9 +268,9 @@ class _$HardUpdateRequired implements HardUpdateRequired {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(HardUpdateRequired value)? hardUpdateRequired,
-    TResult Function(SoftUpdateAvailable value)? softUpdateAvailable,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(HardUpdateRequired value)? hardUpdateRequired,
+    TResult? Function(SoftUpdateAvailable value)? softUpdateAvailable,
   }) {
     return hardUpdateRequired?.call(this);
   }
@@ -308,14 +303,11 @@ abstract class _$$SoftUpdateAvailableCopyWith<$Res> {
 
 /// @nodoc
 class __$$SoftUpdateAvailableCopyWithImpl<$Res>
-    extends _$AppUpdateAwareStateCopyWithImpl<$Res>
+    extends _$AppUpdateAwareStateCopyWithImpl<$Res, _$SoftUpdateAvailable>
     implements _$$SoftUpdateAvailableCopyWith<$Res> {
   __$$SoftUpdateAvailableCopyWithImpl(
       _$SoftUpdateAvailable _value, $Res Function(_$SoftUpdateAvailable) _then)
-      : super(_value, (v) => _then(v as _$SoftUpdateAvailable));
-
-  @override
-  _$SoftUpdateAvailable get _value => super._value as _$SoftUpdateAvailable;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -350,9 +342,9 @@ class _$SoftUpdateAvailable implements SoftUpdateAvailable {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? hardUpdateRequired,
-    TResult Function()? softUpdateAvailable,
+    TResult? Function()? initial,
+    TResult? Function()? hardUpdateRequired,
+    TResult? Function()? softUpdateAvailable,
   }) {
     return softUpdateAvailable?.call();
   }
@@ -384,9 +376,9 @@ class _$SoftUpdateAvailable implements SoftUpdateAvailable {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(HardUpdateRequired value)? hardUpdateRequired,
-    TResult Function(SoftUpdateAvailable value)? softUpdateAvailable,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(HardUpdateRequired value)? hardUpdateRequired,
+    TResult? Function(SoftUpdateAvailable value)? softUpdateAvailable,
   }) {
     return softUpdateAvailable?.call(this);
   }
