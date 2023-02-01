@@ -21,8 +21,7 @@ import 'package:solution_starter/data/repositories/auth_repository_impl.dart';
 import 'package:solution_starter/data/datasource/network/api/auth_api.dart';
 import 'package:solution_starter/domain/repository/breeds_repository.dart';
 import 'package:solution_starter/domain/use_cases/breeds_use_case.dart';
-import 'package:solution_starter/network/network_service.dart' as old;
-import 'package:solution_starter/network/token_interceptor.dart';
+import 'package:solution_starter/data/datasource/network/interceptors/token_interceptor.dart';
 import 'package:solution_starter/utils/hive_helper.dart';
 
 class SolutionInjection {
@@ -95,25 +94,6 @@ class SolutionInjection {
         },
       ),
 
-      //process
-      ProxyProvider2<EnvironmentService, AuthStore, Dio>(
-        update: (BuildContext context, EnvironmentService environmentService, AuthStore authStore, Dio? dio) {
-          final Dio dio = Dio();
-          final Interceptor tokenInterceptor = TokenInterceptor(authStore: authStore);
-          dio.options.baseUrl = environmentService.config.gatewayUrl;
-          dio.options.headers['Content-Type'] = 'application/json';
-          dio.interceptors.add(tokenInterceptor);
-          dio.interceptors.add(LogInterceptor());
-
-          return dio;
-        },
-      ),
-
-      ProxyProvider<Dio, old.NetworkService>(
-        update: (BuildContext context, Dio dio, old.NetworkService? networkService) => old.NetworkService(
-          dio: dio,
-        ),
-      ),
       ProxyProvider<AppConfig, EnvironmentHelper>(
         update: (BuildContext context, AppConfig appConfig, EnvironmentHelper? greetingService) => EnvironmentHelper(
           appConfig: appConfig,
@@ -122,21 +102,13 @@ class SolutionInjection {
         ),
       ),
 
-      //Domain services
-      ProxyProvider<old.NetworkService, AuthService>(
-        update: (BuildContext context, old.NetworkService networkService, AuthService? authService) {
-          return AuthServiceImpl(networkService: networkService);
-        },
-      ),
-      ProxyProvider<AuthService, AuthRepository>(
-        update: (BuildContext context, AuthService authService, AuthRepository? facade) {
-          return AuthRepositoryImpl(authService: authService);
-        },
-      ),
-
       ProxyProvider2<EnvironmentService, AuthStore, NetworkService>(
-        update: (BuildContext context, EnvironmentService environmentService, AuthStore authStore,
-            NetworkService? networkService) {
+        update: (
+          BuildContext context,
+          EnvironmentService environmentService,
+          AuthStore authStore,
+          NetworkService? networkService,
+        ) {
           const int defaultTimeout = 5000;
           final dio = Dio(
             BaseOptions(
@@ -156,7 +128,21 @@ class SolutionInjection {
         },
       ),
 
+      //Domain services
+      ProxyProvider<NetworkService, AuthApi>(
+        // TODO(AndriiD): why we not inject base url here?
+        update: (BuildContext context, NetworkService networkService, AuthApi? authService) {
+          return AuthApiImpl(networkService: networkService);
+        },
+      ),
+      ProxyProvider<AuthApi, AuthRepository>(
+        update: (BuildContext context, AuthApi authService, AuthRepository? facade) {
+          return AuthRepositoryImpl(authService: authService);
+        },
+      ),
+
       ProxyProvider<NetworkService, BreedsApi>(
+        // TODO(AndriiD): we can have different base url for each repository!
         update: (BuildContext context, NetworkService networkService, BreedsApi? breedsApi) =>
             BreedsApiImpl(networkService),
       ),

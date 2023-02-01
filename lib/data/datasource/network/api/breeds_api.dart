@@ -1,3 +1,4 @@
+import 'package:solution_starter/data/datasource/network/exchange_models/network_request_body.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/request.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/response.dart';
 import 'package:solution_starter/data/datasource/network/network_service.dart';
@@ -22,7 +23,7 @@ class BreedsApiImpl implements BreedsApi {
         const NetworkRequest(
           method: NetworkRequestType.get,
           path: BreedsApi._breedsPath,
-          data: null,
+          data: NetworkRequestBody.empty(),
         ),
         (response) {
           return BreedsModel.fromJson(response);

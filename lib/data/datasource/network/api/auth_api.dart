@@ -1,47 +1,26 @@
+import 'package:solution_starter/data/datasource/network/exchange_models/network_request_body.dart';
+import 'package:solution_starter/data/datasource/network/exchange_models/request.dart';
+import 'package:solution_starter/data/datasource/network/exchange_models/response.dart';
+import 'package:solution_starter/data/datasource/network/network_service.dart';
 import 'package:solution_starter/data/model/login_request.dart';
 import 'package:solution_starter/data/model/login_response.dart';
-import 'package:solution_starter/network/network_request.dart';
-import 'package:solution_starter/network/network_request_body.dart';
-import 'package:solution_starter/network/network_response.dart';
-import 'package:solution_starter/network/network_service.dart';
 
-abstract class AuthService {
+abstract class AuthApi {
   Future<NetworkResponse<LoginResponse>> login({required LoginRequest loginRequest});
 }
 
-class AuthServiceImpl extends AuthService {
+class AuthApiImpl extends AuthApi {
+  AuthApiImpl({required NetworkService networkService}) : _networkService = networkService;
   final NetworkService _networkService;
-
-  AuthServiceImpl({required NetworkService networkService}) : _networkService = networkService;
 
   @override
   Future<NetworkResponse<LoginResponse>> login({required LoginRequest loginRequest}) async =>
-      await _networkService.execute<LoginResponse>(
-        const NetworkRequest(
-          type: NetworkRequestType.GET,
-          path: '/login',
-          data: NetworkRequestBody.empty(),
-          /*queryParams: {
-    'email': email,
-    'password': lng,
-  }*/
-        ),
-        (data) => LoginResponse.fromJson(data),
-      );
-
-/* @override
-  Future<NetworkResponse<LoginResponse>> login({required LoginRequest loginRequest}) async {
-    await _networkService.execute<LoginResponse>(
-      const NetworkRequest(
-        type: NetworkRequestType.GET,
-        path: '/taas-evg-cnms/sites',
-        data: NetworkRequestBody.empty(),
-        */ /*queryParams: {
-              'email': email,
-              'password': lng,
-            }*/ /*
-      ),
-      (data) => LoginResponse.fromJson(data),
-    );
-  }*/
+      await _networkService.request<LoginResponse>(
+          const NetworkRequest(
+            method: NetworkRequestType.get,
+            path: '/login',
+            data: NetworkRequestBody.empty(),
+          ), (response) {
+        return LoginResponse.fromJson(response);
+      });
 }
