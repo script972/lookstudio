@@ -3,7 +3,7 @@ import 'package:solution_starter/data/datasource/network/exchange_models/network
 import 'package:solution_starter/data/datasource/network/exchange_models/response.dart';
 
 /// Override [handleError], [onConnectionError], [onAuthorizationError], [onUnexpectedError] for your Bloc to change error handling
-mixin CommonErrorsHandler<T, S> on Bloc<T, S> {
+mixin CommonErrorsHandler<E, S> on Bloc<E, S> {
   void handleError(Failure error) {
     if (error is ConnectionError) {
       onConnectionError();

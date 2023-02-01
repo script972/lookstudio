@@ -22,8 +22,6 @@ class AppEntry extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final list = SolutionInjection.getDiList(context);
-    print('$list');
     return MultiProvider(
       providers: SolutionInjection.getDiList(context),
       child: Builder(

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:dio_smart_retry/dio_smart_retry.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
@@ -52,9 +53,6 @@ class SolutionInjection {
           VendorTheme(),
         ),
       ),
-      Provider.value(
-        value: NetworkService(),
-      ),
     ];
   }
 
@@ -69,35 +67,39 @@ class SolutionInjection {
       ),
 
       ProxyProvider2<AppConfig, EnvironmentHelper, EnvironmentService>(
-        update: (BuildContext context, AppConfig appConfig, EnvironmentHelper envHelper,
-                EnvironmentService? greetingService,) =>
+        update: (
+          BuildContext context,
+          AppConfig appConfig,
+          EnvironmentHelper envHelper,
+          EnvironmentService? greetingService,
+        ) =>
             EnvironmentService(
           environment: envHelper.currentEnvironment(),
           appConfig: appConfig,
         ),
       ),
 
-      ProxyProvider2<EnvironmentService, HiveHelper, AuthStore>(update: (BuildContext context,
-          EnvironmentService environmentService, HiveHelper hiveHelper, AuthStore? greetingService,) {
-        final HiveInterface hive = Hive;
-        return HiveAuthStore(
-          hive: hive,
-          boxPrefix: environmentService.config.hiveBoxPrefix,
-          hiveHelper: hiveHelper,
-        );
-      },),
+      ProxyProvider2<EnvironmentService, HiveHelper, AuthStore>(
+        update: (
+          BuildContext context,
+          EnvironmentService environmentService,
+          HiveHelper hiveHelper,
+          AuthStore? greetingService,
+        ) {
+          final HiveInterface hive = Hive;
+          return HiveAuthStore(
+            hive: hive,
+            boxPrefix: environmentService.config.hiveBoxPrefix,
+            hiveHelper: hiveHelper,
+          );
+        },
+      ),
 
       //process
       ProxyProvider2<EnvironmentService, AuthStore, Dio>(
         update: (BuildContext context, EnvironmentService environmentService, AuthStore authStore, Dio? dio) {
           final Dio dio = Dio();
           final Interceptor tokenInterceptor = TokenInterceptor(authStore: authStore);
-
-          /*  // Config for Proxyman. Applied only if not prod and local IP provided
-          if (!kReleaseMode && EnvironmentVariables.localIp.isNotEmpty) {
-            ProxymanConfig().config(dio: dio, ip: EnvironmentVariables.localIp);
-          }*/
-
           dio.options.baseUrl = environmentService.config.gatewayUrl;
           dio.options.headers['Content-Type'] = 'application/json';
           dio.interceptors.add(tokenInterceptor);
@@ -108,9 +110,10 @@ class SolutionInjection {
       ),
 
       ProxyProvider<Dio, old.NetworkService>(
-          update: (BuildContext context, Dio dio, old.NetworkService? networkService) => old.NetworkService(
-                dio: dio,
-              ),),
+        update: (BuildContext context, Dio dio, old.NetworkService? networkService) => old.NetworkService(
+          dio: dio,
+        ),
+      ),
       ProxyProvider<AppConfig, EnvironmentHelper>(
         update: (BuildContext context, AppConfig appConfig, EnvironmentHelper? greetingService) => EnvironmentHelper(
           appConfig: appConfig,
@@ -128,6 +131,28 @@ class SolutionInjection {
       ProxyProvider<AuthService, AuthRepository>(
         update: (BuildContext context, AuthService authService, AuthRepository? facade) {
           return AuthRepositoryImpl(authService: authService);
+        },
+      ),
+
+      ProxyProvider2<EnvironmentService, AuthStore, NetworkService>(
+        update: (BuildContext context, EnvironmentService environmentService, AuthStore authStore,
+            NetworkService? networkService) {
+          const int defaultTimeout = 5000;
+          final dio = Dio(
+            BaseOptions(
+              baseUrl: environmentService.config.portalUrl,
+              connectTimeout: defaultTimeout,
+              receiveTimeout: defaultTimeout,
+              sendTimeout: defaultTimeout,
+            ),
+          );
+          dio.interceptors.addAll([
+            RetryInterceptor(dio: dio, retryDelays: [for (int i = 1; i <= 3; i++) Duration(milliseconds: 500 * i)]),
+            LogInterceptor(),
+            TokenInterceptor(authStore: authStore)
+          ]);
+
+          return NetworkServiceImpl(dio: dio);
         },
       ),
 

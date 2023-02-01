@@ -17,7 +17,7 @@ void main(List<String> args) async {
   try {
     await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   } catch (e) {
-    debugPrint('>>>>>>>>>1e$e');
+    logger.e('>>>>>>>>>1e$e');
   }
 
   //  asyncMethod();

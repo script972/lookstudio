@@ -8,45 +8,24 @@ import 'package:solution_starter/data/datasource/network/exchange_models/respons
 typedef OnParse<T> = T Function(dynamic);
 
 abstract class NetworkService {
-  factory NetworkService({
-    String baseUrl,
-    int connectTimeout,
-    int receiveTimeout,
-    int sendTimeout,
-    Iterable<Interceptor>? interceptors,
-  }) = _NetworkServiceImpl;
+  NetworkService({
+    required Dio dio,
+  });
 
   set baseUrl(String url);
 
   Future<NetworkResponse<T>> request<T>(
-      NetworkRequest request,
-      OnParse onParse, {
-        ProgressCallback? onSentProgress,
-        ProgressCallback? onReceiveProgress,
-      });
+    NetworkRequest request,
+    OnParse onParse, {
+    ProgressCallback? onSentProgress,
+    ProgressCallback? onReceiveProgress,
+  });
 }
 
-class _NetworkServiceImpl implements NetworkService {
-  _NetworkServiceImpl({
-    String baseUrl = '',
-    int connectTimeout = defaultTimeout,
-    int receiveTimeout = defaultTimeout,
-    int sendTimeout = defaultTimeout,
-    Iterable<Interceptor>? interceptors,
-  }) : _dio = Dio(
-    BaseOptions(
-      baseUrl: baseUrl,
-      connectTimeout: connectTimeout,
-      receiveTimeout: receiveTimeout,
-      sendTimeout: sendTimeout,
-    ),
-  )..interceptors.addAll([...?interceptors]) {
-    _dio.interceptors.add(
-      RetryInterceptor(dio: _dio, retryDelays: [for (int i = 1; i <= 3; i++) Duration(milliseconds: 500 * i)]),
-    );
-  }
-
-  static const int defaultTimeout = 5000;
+class NetworkServiceImpl implements NetworkService {
+  NetworkServiceImpl({
+    required Dio dio,
+  }) : _dio = dio;
 
   final Dio _dio;
 
@@ -60,11 +39,11 @@ class _NetworkServiceImpl implements NetworkService {
 
   @override
   Future<NetworkResponse<T>> request<T>(
-      NetworkRequest request,
-      OnParse onParse, {
-        ProgressCallback? onSentProgress,
-        ProgressCallback? onReceiveProgress,
-      }) async {
+    NetworkRequest request,
+    OnParse onParse, {
+    ProgressCallback? onSentProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
     final options = Options()
       ..method = request.method.name
       ..headers = request.headers ?? <String, dynamic>{}

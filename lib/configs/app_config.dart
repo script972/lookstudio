@@ -22,7 +22,7 @@ class AppConfig {
         ),
         EnvironmentType.UAT: const EnvironmentValues(
           gatewayUrl: 'https://gateway.uat.elevateaccounts.com/',
-          portalUrl: 'https://user.uat.elevateaccounts.com/',
+          portalUrl: 'https://dog.ceo',
           hiveBoxPrefix: 'uat_',
         ),
       };
