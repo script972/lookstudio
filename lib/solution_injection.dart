@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:dio_smart_retry/dio_smart_retry.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
@@ -109,22 +108,8 @@ class SolutionInjection {
           AuthStore authStore,
           NetworkService? networkService,
         ) {
-          const int defaultTimeout = 5000;
-          final dio = Dio(
-            BaseOptions(
-              baseUrl: environmentService.config.portalUrl,
-              connectTimeout: defaultTimeout,
-              receiveTimeout: defaultTimeout,
-              sendTimeout: defaultTimeout,
-            ),
-          );
-          dio.interceptors.addAll([
-            RetryInterceptor(dio: dio, retryDelays: [for (int i = 1; i <= 3; i++) Duration(milliseconds: 500 * i)]),
-            LogInterceptor(),
-            TokenInterceptor(authStore: authStore)
-          ]);
-
-          return NetworkServiceImpl(dio: dio);
+          final interceptors = [LogInterceptor(), TokenInterceptor(authStore: authStore)];
+          return NetworkServiceImpl(baseUrl: environmentService.config.portalUrl, interceptors: interceptors);
         },
       ),
 

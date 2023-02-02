@@ -9,7 +9,11 @@ typedef OnParse<T> = T Function(dynamic);
 
 abstract class NetworkService {
   NetworkService({
-    required Dio dio,
+    String? baseUrl,
+    int? connectTimeout,
+    int? receiveTimeout,
+    int? sendTimeout,
+    Iterable<Interceptor>? interceptors,
   });
 
   set baseUrl(String url);
@@ -24,8 +28,25 @@ abstract class NetworkService {
 
 class NetworkServiceImpl implements NetworkService {
   NetworkServiceImpl({
-    required Dio dio,
-  }) : _dio = dio;
+    String baseUrl = '',
+    int connectTimeout = defaultTimeout,
+    int receiveTimeout = defaultTimeout,
+    int sendTimeout = defaultTimeout,
+    Iterable<Interceptor>? interceptors,
+  }) : _dio = Dio(
+          BaseOptions(
+            baseUrl: baseUrl,
+            connectTimeout: connectTimeout,
+            receiveTimeout: receiveTimeout,
+            sendTimeout: sendTimeout,
+          ),
+        )..interceptors.addAll([...?interceptors]) {
+    _dio.interceptors.add(
+      RetryInterceptor(dio: _dio, retryDelays: [for (int i = 1; i <= 3; i++) Duration(milliseconds: 500 * i)]),
+    );
+  }
+
+  static const int defaultTimeout = 5000;
 
   final Dio _dio;
 
