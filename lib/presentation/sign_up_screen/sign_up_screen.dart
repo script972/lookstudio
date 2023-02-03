@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-import 'package:solution_starter/domain/use_cases/sign_up_use_case.dart';
+import 'package:solution_starter/domain/repository/auth_repository.dart';
 import 'package:solution_starter/presentation/sign_up_screen/cubit/sign_up_cubit.dart';
 import 'package:solution_starter/presentation/sign_up_screen/sign_up_layout.dart';
 
@@ -12,11 +12,9 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final useCase = Provider.of<SignUpUseCase>(context);
+    final repository = Provider.of<AuthRepository>(context);
     return BlocProvider(
-      create: (context) => SignUpCubit(
-        useCase,
-      ),
+      create: (context) => SignUpCubit(repository),
       child: const SignUpLayout(),
     );
   }

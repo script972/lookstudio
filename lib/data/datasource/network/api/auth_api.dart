@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart' as auth;
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/network_errors.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/response.dart';
 import 'package:solution_starter/domain/entities/user.dart';
@@ -13,6 +14,8 @@ abstract class AuthApi {
     String email,
     String password,
   );
+
+  Future<NetworkResponse<User>> googleLogin();
 }
 
 class AuthApiImpl extends AuthApi {
@@ -48,6 +51,18 @@ class AuthApiImpl extends AuthApi {
     }
 
     final user = User(id: credential.credential?.providerId, email: email);
+    return NetworkResponse.success(user);
+  }
+
+  @override
+  Future<NetworkResponse<User>> googleLogin() async {
+    GoogleSignInAccount? googleAccount;
+    try {
+      googleAccount = await GoogleSignIn().signIn();
+    } catch (e) {
+      return NetworkResponse.failure(UnauthorizedError(error: e));
+    }
+    final user = User(id: googleAccount?.id, email: googleAccount?.email);
     return NetworkResponse.success(user);
   }
 

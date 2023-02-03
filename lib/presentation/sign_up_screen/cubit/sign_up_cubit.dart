@@ -1,23 +1,31 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:solution_starter/core/cubit.dart';
-import 'package:solution_starter/data/model/login_request.dart';
-import 'package:solution_starter/domain/use_cases/sign_up_use_case.dart';
+import 'package:solution_starter/domain/repository/auth_repository.dart';
 
 part 'sign_up_state.dart';
 
 part 'sign_up_cubit.freezed.dart';
 
 class SignUpCubit extends Cubit<SignUpState> with CommonErrorsHandler<SignUpState> {
-  SignUpCubit(this._useCase) : super(const SignUpState.initial());
+  SignUpCubit(this._repository) : super(const SignUpState.initial());
 
-  final SignUpUseCase _useCase;
+  final AuthRepository _repository;
 
   void signUp({
     required String username,
     required String password,
   }) async {
-    final response = await _useCase.execute(LoginRequest(email: username, password: password));
+    final response = await _repository.register(email: username, password: password);
+    response.maybeWhen(
+      success: (data) => emit(const SignUpState.signUpped()),
+      error: (error) => handleError,
+      orElse: () {},
+    );
+  }
+
+  void googleLogin() async {
+    final response = await _repository.googleLogin();
     response.maybeWhen(
       success: (data) => emit(const SignUpState.signUpped()),
       error: (error) => handleError,

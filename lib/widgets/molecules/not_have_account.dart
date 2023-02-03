@@ -5,11 +5,10 @@ import 'package:solution_starter/navigation/app_router.dart';
 class NotHaveAccount extends StatelessWidget {
   const NotHaveAccount({super.key});
 
-  static const spaceTextSpan = TextSpan(text: ' ', style:textSpanStyle);
+  static const spaceTextSpan = TextSpan(text: ' ', style: textSpanStyle);
   static const padding = EdgeInsets.all(8.0);
   static const textSpanStyle = TextStyle(fontSize: 16, color: Colors.black);
-  static const boldTextStyle =
-  TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold);
+  static const boldTextStyle = TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold);
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +23,7 @@ class NotHaveAccount extends StatelessWidget {
                 text: 'Don`t have an account yet?',
                 children: [
                   spaceTextSpan,
-                  TextSpan(
-                    text: 'Sign Up',
-                    style: boldTextStyle
-                  ),
+                  TextSpan(text: 'Sign Up', style: boldTextStyle),
                 ],
               ),
             ),

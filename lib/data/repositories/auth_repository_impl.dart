@@ -27,4 +27,13 @@ class AuthRepositoryImpl extends AuthRepository {
       failure: Result.error,
     );
   }
+
+  @override
+  Future<Result<User>> googleLogin() async {
+    final response = await _authService.googleLogin();
+    return response.when(
+      success: Result<User>.success,
+      failure: Result.error,
+    );
+  }
 }
