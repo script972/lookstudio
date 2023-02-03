@@ -3,24 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
+import 'package:solution_starter/configs/app_config.dart';
+import 'package:solution_starter/configs/environment/environment_helper.dart';
 import 'package:solution_starter/configs/environment/environment_service.dart';
 import 'package:solution_starter/configs/environment/environment_variables.dart';
-import 'package:solution_starter/configs/environment/environment_helper.dart';
-import 'package:solution_starter/configs/app_config.dart';
 import 'package:solution_starter/core/theme/solution_theme.dart';
 import 'package:solution_starter/core/theme/vendor_theme.dart';
 import 'package:solution_starter/core/use_case.dart';
 import 'package:solution_starter/data/datasource/local/facade/auth_store.dart';
 import 'package:solution_starter/data/datasource/local/hive_auth_store.dart';
+import 'package:solution_starter/data/datasource/network/api/auth_api.dart';
 import 'package:solution_starter/data/datasource/network/api/breeds_api.dart';
+import 'package:solution_starter/data/datasource/network/interceptors/token_interceptor.dart';
 import 'package:solution_starter/data/datasource/network/network_service.dart';
+import 'package:solution_starter/data/repositories/auth_repository_impl.dart';
 import 'package:solution_starter/data/repositories/breeds_repository.dart';
 import 'package:solution_starter/domain/repository/auth_repository.dart';
-import 'package:solution_starter/data/repositories/auth_repository_impl.dart';
-import 'package:solution_starter/data/datasource/network/api/auth_api.dart';
 import 'package:solution_starter/domain/repository/breeds_repository.dart';
 import 'package:solution_starter/domain/use_cases/breeds_use_case.dart';
-import 'package:solution_starter/data/datasource/network/interceptors/token_interceptor.dart';
 import 'package:solution_starter/utils/hive_helper.dart';
 
 class SolutionInjection {
@@ -112,6 +112,8 @@ class SolutionInjection {
           return NetworkServiceImpl(baseUrl: environmentService.config.portalUrl, interceptors: interceptors);
         },
       ),
+
+      // TODO(AndiiD): please separate it
 
       //Domain services
       ProxyProvider<NetworkService, AuthApi>(
