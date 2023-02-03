@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
@@ -13,14 +14,16 @@ import 'package:solution_starter/core/use_case.dart';
 import 'package:solution_starter/data/datasource/local/facade/auth_store.dart';
 import 'package:solution_starter/data/datasource/local/hive_auth_store.dart';
 import 'package:solution_starter/data/datasource/network/api/breeds_api.dart';
-import 'package:solution_starter/data/datasource/network/network_service.dart';
+import 'package:solution_starter/data/datasource/network/services/network_service.dart';
 import 'package:solution_starter/data/repositories/breeds_repository.dart';
 import 'package:solution_starter/domain/repository/auth_repository.dart';
 import 'package:solution_starter/data/repositories/auth_repository_impl.dart';
 import 'package:solution_starter/data/datasource/network/api/auth_api.dart';
 import 'package:solution_starter/domain/repository/breeds_repository.dart';
+import 'package:solution_starter/domain/use_cases/auth_use_case.dart';
 import 'package:solution_starter/domain/use_cases/breeds_use_case.dart';
 import 'package:solution_starter/data/datasource/network/interceptors/token_interceptor.dart';
+import 'package:solution_starter/domain/use_cases/sign_up_use_case.dart';
 import 'package:solution_starter/utils/hive_helper.dart';
 
 class SolutionInjection {
@@ -117,12 +120,25 @@ class SolutionInjection {
       ProxyProvider<NetworkService, AuthApi>(
         // TODO(AndriiD): why we not inject base url here?
         update: (BuildContext context, NetworkService networkService, AuthApi? authService) {
-          return AuthApiImpl(networkService: networkService);
+          final firebaseAuth = FirebaseAuth.instance;
+          return AuthApiImpl(firebaseAuth: firebaseAuth);
         },
       ),
       ProxyProvider<AuthApi, AuthRepository>(
         update: (BuildContext context, AuthApi authService, AuthRepository? facade) {
           return AuthRepositoryImpl(authService: authService);
+        },
+      ),
+
+      ProxyProvider<AuthRepository, AuthUseCase>(
+        update: (BuildContext context, AuthRepository authRepository, UseCase? facade) {
+          return AuthUseCase(authRepository);
+        },
+      ),
+
+      ProxyProvider<AuthRepository, SignUpUseCase>(
+        update: (BuildContext context, AuthRepository authRepository, UseCase? facade) {
+          return SignUpUseCase(authRepository);
         },
       ),
 
