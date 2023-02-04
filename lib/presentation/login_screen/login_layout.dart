@@ -1,9 +1,6 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:solution_starter/core/theme/solution_theme.dart';
-import 'package:solution_starter/navigation/app_router.dart';
 import 'package:solution_starter/presentation/login_screen/bloc/login_cubit.dart';
 import 'package:solution_starter/widgets/molecules/button_item.dart';
 import 'package:solution_starter/widgets/molecules/input_item.dart';
@@ -51,7 +48,7 @@ class _LoginLayoutState extends State<LoginLayout> {
         child: Scaffold(
           backgroundColor: Colors.white,
           appBar: AppBar(
-            title: Text('Charge login'),
+            title: Text('Jaguar '),
           ),
           body: BlocConsumer<LoginCubit, LoginState>(
             // Listener
@@ -190,7 +187,7 @@ class _LoginLayoutState extends State<LoginLayout> {
                             context,
                             text: 'Sign in',
                             onPressed: () {
-                              context.router.push(const HomeRoute());
+                              //context.router.push(const HomeRoute());
                               final form = _formKey.currentState;
                               if (form!.validate()) {
                                 /*BlocProvider.of<LoginCubit>(context).onLogin(
@@ -209,28 +206,5 @@ class _LoginLayoutState extends State<LoginLayout> {
                 ),
               ),
             ));
-  }
-
-  Widget _welcomeCharge(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Image.asset(
-                'assets/ic_small_logo.png',
-                width: SolutionTheme(context).iconSize,
-                height: SolutionTheme(context).iconSize,
-              ),
-            ],
-          ),
-          Text('By continuing you agree to our:'),
-          Text('Terms and services'),
-          Text('Privacy policy'),
-        ],
-      ),
-    );
   }
 }

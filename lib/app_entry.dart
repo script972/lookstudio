@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:solution_starter/navigation/app_router.dart';
 import 'package:solution_starter/core/theme/solution_theme.dart';
 import 'package:solution_starter/core/theme/theme_mode_provider.dart';
 import 'package:solution_starter/generated/l10n.dart';
+import 'package:solution_starter/navigation/app_router.dart';
 import 'package:solution_starter/solution_injection.dart';
 
 class AppEntry extends StatelessWidget {
@@ -33,7 +33,7 @@ class AppEntry extends StatelessWidget {
                 themeMode: getThemeMode(snapshot as AsyncSnapshot<int?>),
                 builder: (_, themeMode) {
                   return MaterialApp.router(
-                    title: 'Solution',
+                    title: 'Silverstone',
                     theme: Provider.of<ThemeContainer>(context).lightTheme.themeData,
                     darkTheme: Provider.of<ThemeContainer>(context).darkTheme.themeData,
                     themeMode: themeMode,

@@ -20,7 +20,5 @@ void main(List<String> args) async {
     logger.e('>>>>>>>>>1e$e');
   }
 
-  //  asyncMethod();
-
   runApp(AppEntry());
 }
