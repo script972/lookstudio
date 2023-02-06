@@ -16,7 +16,7 @@ class BreedCellWidget extends StatelessWidget {
       child: ListTile(
         title: Row(
           children: [
-            Assets.images.icons.dogIcon.svg(width: 15, height: 15),
+            Assets.images.icons.dogIcon.image(width: 15, height: 15),
             const SizedBox(
               width: 15,
             ),
