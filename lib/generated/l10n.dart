@@ -130,10 +130,10 @@ class S {
     );
   }
 
-  /// `host unavailable please try again later`
+  /// `Host unavailable please try again later`
   String get dialog_host_unavailable_please_try_again_later {
     return Intl.message(
-      'host unavailable please try again later',
+      'Host unavailable please try again later',
       name: 'dialog_host_unavailable_please_try_again_later',
       desc: '',
       args: [],
@@ -149,6 +149,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Password`
+  String get password {
+    return Intl.message(
+      'Password',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in`
+  String get sign_in {
+    return Intl.message(
+      'Sign in',
+      name: 'sign_in',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Charge login`
+  String get paid {
+    return Intl.message(
+      'Charge login',
+      name: 'paid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Breed list`
+  String get breed_list {
+    return Intl.message(
+      'Breed list',
+      name: 'breed_list',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expectation`
+  String get expectation {
+    return Intl.message(
+      'Expectation',
+      name: 'expectation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Charge registration`
+  String get charge_registration {
+    return Intl.message(
+      'Charge registration',
+      name: 'charge_registration',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign up`
+  String get sign_up {
+    return Intl.message(
+      'Sign up',
+      name: 'sign_up',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in with Google`
+  String get sign_in_with_google {
+    return Intl.message(
+      'Sign in with Google',
+      name: 'sign_in_with_google',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already have an account?`
+  String get already_have_an_account {
+    return Intl.message(
+      'Already have an account?',
+      name: 'already_have_an_account',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -157,6 +247,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en', countryCode: 'US'),
+      Locale.fromSubtags(languageCode: 'ua', countryCode: 'UA'),
     ];
   }
 

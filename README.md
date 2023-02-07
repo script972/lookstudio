@@ -5,4 +5,5 @@ start project first time
 4. generate annotations flutter packages pub run build_runner build
 5. specify the path to generate "fluttergen -c pubspec.yaml" 
 6. Put away conflicting dependencies "flutter packages pub run build_runner build --delete-conflicting-outputs"
+7. Generation for unsplash assets "flutter pub run flutter_native_splash:create"
 

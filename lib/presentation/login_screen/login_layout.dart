@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:solution_starter/generated/l10n.dart';
 import 'package:solution_starter/navigation/app_router.dart';
 import 'package:solution_starter/presentation/login_screen/bloc/login_cubit.dart';
 import 'package:solution_starter/widgets/molecules/button_item.dart';
@@ -51,7 +52,7 @@ class _LoginLayoutState extends State<LoginLayout> {
         child: Scaffold(
           backgroundColor: Colors.white,
           appBar: AppBar(
-            title: const Text('Charge login'),
+            title:  Text(S.of(context).paid),
           ),
           body: BlocConsumer<LoginCubit, LoginState>(
             // Listener
@@ -103,15 +104,11 @@ class _LoginLayoutState extends State<LoginLayout> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Spacer(flex: 1),
-
                   // Username title
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
-                    child: Text(
-                      'User name',
-                    ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Text(S.of(context).username),
                   ),
-
                   // Username field
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -120,7 +117,7 @@ class _LoginLayoutState extends State<LoginLayout> {
                       autofocus: true,
                       focusNode: _usernameFocusNode,
                       // errorText: _usernameError(state),
-                      hintText: 'User name',
+                      hintText: S.of(context).username,
                       onEditingComplete: () => _passwordFocusNode.requestFocus(),
                       value: _password,
                       onChanged: (String value) {
@@ -130,15 +127,11 @@ class _LoginLayoutState extends State<LoginLayout> {
                       autofillHints: const [AutofillHints.email],
                     ),
                   ),
-
                   // Password title
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
-                    child: Text(
-                      'Password',
-                    ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Text(S.of(context).password),
                   ),
-
                   // Password field
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -148,7 +141,7 @@ class _LoginLayoutState extends State<LoginLayout> {
                       obscureText: true,
                       //errorText: _passwordError(state),
                       focusNode: _passwordFocusNode,
-                      hintText: 'Password',
+                      hintText: S.of(context).password,
                       onFieldSubmitted: (_) {
                         /*BlocProvider.of<LoginScreenCubit>(context).onLogin(
                                 username: _username,
@@ -192,7 +185,7 @@ class _LoginLayoutState extends State<LoginLayout> {
                     width: double.infinity,
                     child: ButtonItem(
                       context,
-                      text: 'Sign in',
+                      text: S.of(context).sign_in,
                       onPressed: () {
                         final form = _formKey.currentState;
                         if (form!.validate()) {
