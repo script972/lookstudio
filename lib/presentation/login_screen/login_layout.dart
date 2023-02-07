@@ -1,12 +1,15 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:solution_starter/navigation/app_router.dart';
 import 'package:solution_starter/presentation/login_screen/bloc/login_cubit.dart';
 import 'package:solution_starter/widgets/molecules/button_item.dart';
 import 'package:solution_starter/widgets/molecules/input_item.dart';
+import 'package:solution_starter/widgets/molecules/not_have_account.dart';
 
 class LoginLayout extends StatefulWidget {
-  const LoginLayout({Key? key}) : super(key: key);
+  const LoginLayout({super.key});
 
   @override
   State<LoginLayout> createState() => _LoginLayoutState();
@@ -48,16 +51,20 @@ class _LoginLayoutState extends State<LoginLayout> {
         child: Scaffold(
           backgroundColor: Colors.white,
           appBar: AppBar(
-            title: Text('Jaguar '),
+            title: const Text('Charge login'),
           ),
           body: BlocConsumer<LoginCubit, LoginState>(
             // Listener
-            listener: (context, state) {},
+            listener: (context, state) {
+              if (state == const LoginState.successfullyLogin()) {
+                context.router.replace(const HomeRoute());
+              }
+            },
             // Builder
             builder: (context, state) => state.maybeWhen(
-              loading: () => SizedBox(),
-              dataUpdated: (data) => _buildScreenContent(data),
-              orElse: () => SizedBox(),
+              loading: () => const SizedBox(),
+              initial: _buildScreenContent,
+              orElse: () => const SizedBox(),
             ),
           ),
         ),
@@ -65,7 +72,7 @@ class _LoginLayoutState extends State<LoginLayout> {
     );
   }
 
-  Widget _buildScreenContent(int data) => Builder(
+  Widget _buildScreenContent() => Builder(
         builder: (context) {
           return Column(
             mainAxisSize: MainAxisSize.min,
@@ -73,82 +80,82 @@ class _LoginLayoutState extends State<LoginLayout> {
               // Form
               Flexible(
                 flex: 1,
-                child: _buildForm(data),
+                child: _buildForm(),
               ),
             ],
           );
         },
       );
 
-  Widget _buildForm(int data) {
+  Widget _buildForm() {
     return Builder(
-        builder: (context) => Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 8,
-              ),
-              child: Form(
-                key: _formKey,
-                child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxHeight: 500),
-                  child: AutofillGroup(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Spacer(flex: 1),
+      builder: (context) => Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 8,
+        ),
+        child: Form(
+          key: _formKey,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxHeight: 500),
+            child: AutofillGroup(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Spacer(flex: 1),
 
-                        // Username title
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: Text(
-                            'User name',
-                          ),
-                        ),
+                  // Username title
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    child: Text(
+                      'User name',
+                    ),
+                  ),
 
-                        // Username field
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: InputItem(
-                            showErrorText: false,
-                            autofocus: true,
-                            focusNode: _usernameFocusNode,
-                            // errorText: _usernameError(state),
-                            hintText: 'User name',
-                            onEditingComplete: () => _passwordFocusNode.requestFocus(),
-                            value: _password,
-                            onChanged: (String value) {
-                              _username = value;
-                              //BlocProvider.of<LoginCubit>(context).onFormFieldUpdated();
-                            },
-                            autofillHints: const [AutofillHints.email],
-                          ),
-                        ),
+                  // Username field
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: InputItem(
+                      showErrorText: false,
+                      autofocus: true,
+                      focusNode: _usernameFocusNode,
+                      // errorText: _usernameError(state),
+                      hintText: 'User name',
+                      onEditingComplete: () => _passwordFocusNode.requestFocus(),
+                      value: _password,
+                      onChanged: (String value) {
+                        _username = value;
+                        //BlocProvider.of<LoginCubit>(context).onFormFieldUpdated();
+                      },
+                      autofillHints: const [AutofillHints.email],
+                    ),
+                  ),
 
-                        // Password title
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: Text(
-                            'Password',
-                          ),
-                        ),
+                  // Password title
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    child: Text(
+                      'Password',
+                    ),
+                  ),
 
-                        // Password field
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: InputItem(
-                            //errorKey: LoginScreenKey.passwordErrorKey,
-                            showErrorText: true,
-                            obscureText: true,
-                            //errorText: _passwordError(state),
-                            focusNode: _passwordFocusNode,
-                            hintText: 'Password',
-                            onFieldSubmitted: (_) {
-                              /*BlocProvider.of<LoginScreenCubit>(context).onLogin(
+                  // Password field
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: InputItem(
+                      //errorKey: LoginScreenKey.passwordErrorKey,
+                      showErrorText: true,
+                      obscureText: true,
+                      //errorText: _passwordError(state),
+                      focusNode: _passwordFocusNode,
+                      hintText: 'Password',
+                      onFieldSubmitted: (_) {
+                        /*BlocProvider.of<LoginScreenCubit>(context).onLogin(
                                 username: _username,
                                 password: _password,
                               );*/
-                            },
-                            /*
+                      },
+                      /*
                             TODO
                             validateFunction: (_, __) =>
                                 state.whenOrNull<String?>(fieldIsEmptyError: (_, isPasswordEmpty) {
@@ -157,54 +164,58 @@ class _LoginLayoutState extends State<LoginLayout> {
                               }
                               return null;
                             }),*/
-                            onEditingComplete: () {
-                              /* BlocProvider.of<LoginCubit>(context).onLogin(
+                      onEditingComplete: () {
+                        /* BlocProvider.of<LoginCubit>(context).onLogin(
                                 username: _username,
                                 password: _password,
                               );*/
-                            },
-                            value: _password,
-                            onChanged: (String value) {
-                              _password = value;
+                      },
+                      value: _password,
+                      onChanged: (String value) {
+                        _password = value;
 
-                              //BlocProvider.of<LoginCubit>(context).onFormFieldUpdated();
-                            },
-                            autofillHints: const [AutofillHints.password],
-                            // hideSvgModel: SvgHideModel(
-                            //   svgPathHide: 'assets/ic_password.svg',
-                            //   svgPathShow: 'assets/ic_password_show.svg',
-                            // ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
-                        // Sign In button
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          width: double.infinity,
-                          child: ButtonItem(
-                            context,
-                            text: 'Sign in',
-                            onPressed: () {
-                              //context.router.push(const HomeRoute());
-                              final form = _formKey.currentState;
-                              if (form!.validate()) {
-                                /*BlocProvider.of<LoginCubit>(context).onLogin(
-                                  username: _username,
-                                  password: _password,
-                                );*/
-                              }
-                            },
-                            buttonType: ButtonType.L,
-                          ),
-                        ),
-                        const Spacer(flex: 5),
-                      ],
+                        //BlocProvider.of<LoginCubit>(context).onFormFieldUpdated();
+                      },
+                      autofillHints: const [AutofillHints.password],
+                      // hideSvgModel: SvgHideModel(
+                      //   svgPathHide: 'assets/ic_password.svg',
+                      //   svgPathShow: 'assets/ic_password_show.svg',
+                      // ),
                     ),
                   ),
-                ),
+                  const SizedBox(
+                    height: 16.0,
+                  ),
+                  // Sign In button
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    width: double.infinity,
+                    child: ButtonItem(
+                      context,
+                      text: 'Sign in',
+                      onPressed: () {
+                        final form = _formKey.currentState;
+                        if (form!.validate()) {
+                          BlocProvider.of<LoginCubit>(context).login(
+                            username: _username,
+                            password: _password,
+                          );
+                        }
+                      },
+                      buttonType: ButtonType.L,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 16.0,
+                  ),
+                  const NotHaveAccount(),
+                  const Spacer(flex: 5),
+                ],
               ),
-            ));
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

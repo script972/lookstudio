@@ -13,21 +13,23 @@ part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> with CommonErrorsHandler<LoginState> {
   LoginCubit({
-    required this.authRepository,
-  }) : super(const LoginState.loading());
+    required this.repository,
+  }) : super(const LoginState.initial());
   final Logger logger = getLogger('ChargeListCubit');
-  final AuthRepository authRepository;
+  final AuthRepository repository;
 
-  void init() async {
+  void login({
+    required String username,
+    required String password,
+  }) async {
     logger.i('charge list init()');
-    final response = await authRepository.login(email: 'ds@a.sa', password: 'password');
+    final response = await repository.login(email: username, password: password);
     response.maybeWhen(
       success: (data) {
-        logger.i('process success data');
+        emit(const LoginState.successfullyLogin());
       },
       error: (error) => handleError,
       orElse: () {},
     );
-    emit(const LoginState.dataUpdated(1));
   }
 }

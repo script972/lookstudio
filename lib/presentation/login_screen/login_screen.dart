@@ -6,17 +6,15 @@ import 'package:solution_starter/presentation/login_screen/bloc/login_cubit.dart
 import 'package:solution_starter/presentation/login_screen/login_layout.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   static const path = 'login_screen';
 
   @override
   Widget build(BuildContext context) {
-    var authRepository = Provider.of<AuthRepository>(context);
+    final repository = Provider.of<AuthRepository>(context);
     return BlocProvider(
-      create: (context) => LoginCubit(
-        authRepository: authRepository,
-      )..init(),
+      create: (context) => LoginCubit(repository: repository),
       child: const LoginLayout(),
     );
   }

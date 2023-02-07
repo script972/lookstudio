@@ -7,18 +7,19 @@ import 'package:solution_starter/core/firebase_options.dart';
 import 'package:solution_starter/core/logger.dart';
 
 void main(List<String> args) async {
+   await configureApp();
+  runApp(AppEntry());
+}
+
+Future configureApp() async {
   final Logger logger = getLogger('main');
 
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
 
-  logger.i('ensureInitialized');
-
   try {
     await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  } catch (e) {
-    logger.e('>>>>>>>>>1e$e');
+  } catch (exception, stackTrace) {
+    logger.e('New uncatched exception: $exception, st: $stackTrace');
   }
-
-  runApp(AppEntry());
 }
