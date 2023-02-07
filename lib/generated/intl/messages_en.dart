@@ -22,6 +22,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "already_have_an_account":
+            MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "at": MessageLookupByLibrary.simpleMessage("at"),
         "biometric_faceId": MessageLookupByLibrary.simpleMessage("faceId"),
         "biometric_faceUnlock":
@@ -29,13 +31,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "biometric_fingerprint":
             MessageLookupByLibrary.simpleMessage("fingerprint"),
         "biometric_touchId": MessageLookupByLibrary.simpleMessage("touchId"),
+        "breed_list": MessageLookupByLibrary.simpleMessage("Breed list"),
+        "charge_registration":
+            MessageLookupByLibrary.simpleMessage("Charge registration"),
         "dialog_error": MessageLookupByLibrary.simpleMessage("Error"),
         "dialog_host_unavailable_please_try_again_later":
             MessageLookupByLibrary.simpleMessage(
-                "host unavailable please try again later"),
+                "Host unavailable please try again later"),
         "dialog_newVersionAvailable":
             MessageLookupByLibrary.simpleMessage("New version available"),
+        "expectation": MessageLookupByLibrary.simpleMessage("Expectation"),
         "ok": MessageLookupByLibrary.simpleMessage("ok"),
+        "paid": MessageLookupByLibrary.simpleMessage("Charge login"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "sign_in": MessageLookupByLibrary.simpleMessage("Sign in"),
+        "sign_in_with_google":
+            MessageLookupByLibrary.simpleMessage("Sign in with Google"),
+        "sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
         "username": MessageLookupByLibrary.simpleMessage("Username")
       };
 }
