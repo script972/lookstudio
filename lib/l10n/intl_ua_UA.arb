@@ -19,5 +19,5 @@
   "sign_up" : "Зареєструватися",
   "sign_in_with_google" : "Увійдіть за допомогою Google",
   "already_have_an_account" : "Вже є аккаунт",
-  "dont_have_an_account_yet" : "Ще не маєте облікового запису?"
+  "not_have_an_account" : "Ще не маєте облікового запису?"
 }
