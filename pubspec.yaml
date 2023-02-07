@@ -49,6 +49,22 @@ dev_dependencies:
   flutter_gen: ^5.1.0+1
   flutter_lints: ^2.0.1
 
+
+
+flutter_native_splash:
+  image: assets/images/icons/dog_icon.png
+  color: "#ffffff"
+  branding: assets/images/icons/dog_icon.png
+  color_dark: "#121212"
+  image_dark: assets/images/icons/dog_icon.png
+  branding_dark: assets/images/icons/dog_icon.png
+
+  android_12:
+    image: assets/images/icons/dog_icon.png
+    icon_background_color: "#ffffff"
+    image_dark: assets/images/icons/dog_icon.png
+    icon_background_color_dark: "#121212"
+
 flutter_gen:
   output: lib/generated/assets
   integrations:
