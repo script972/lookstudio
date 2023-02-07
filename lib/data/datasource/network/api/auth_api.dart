@@ -1,26 +1,64 @@
-import 'package:solution_starter/data/datasource/network/exchange_models/network_request_body.dart';
-import 'package:solution_starter/data/datasource/network/exchange_models/request.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
+import 'package:solution_starter/data/datasource/network/exchange_models/network_errors.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/response.dart';
-import 'package:solution_starter/data/datasource/network/network_service.dart';
-import 'package:solution_starter/data/model/login_request.dart';
-import 'package:solution_starter/data/model/login_response.dart';
+import 'package:solution_starter/domain/entities/user.dart';
 
 abstract class AuthApi {
-  Future<NetworkResponse<LoginResponse>> login({required LoginRequest loginRequest});
+  Future<NetworkResponse<User>> register(
+    String email,
+    String password,
+  );
+
+  Future<NetworkResponse<User>> login(
+    String email,
+    String password,
+  );
 }
 
 class AuthApiImpl extends AuthApi {
-  AuthApiImpl({required NetworkService networkService}) : _networkService = networkService;
-  final NetworkService _networkService;
+  AuthApiImpl({required auth.FirebaseAuth firebaseAuth}) : _firebaseAuth = firebaseAuth;
+  final auth.FirebaseAuth _firebaseAuth;
 
   @override
-  Future<NetworkResponse<LoginResponse>> login({required LoginRequest loginRequest}) async =>
-      await _networkService.request<LoginResponse>(
-          const NetworkRequest(
-            method: NetworkRequestType.get,
-            path: '/login',
-            data: NetworkRequestBody.empty(),
-          ), (response) {
-        return LoginResponse.fromJson(response);
-      });
+  Future<NetworkResponse<User>> login(String email, String password) async {
+    auth.UserCredential? credential;
+    try {
+      credential = await _firebaseAuth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+    } on auth.FirebaseAuthException catch (e) {
+      return NetworkResponse.failure(UnauthorizedError(error: e));
+    }
+    final user = User(id: credential.credential?.providerId, email: email);
+    return NetworkResponse.success(user);
+  }
+
+  @override
+  Future<NetworkResponse<User>> register(String email, String password) async {
+    auth.UserCredential? credential;
+
+    try {
+      credential = await _firebaseAuth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+    } on auth.FirebaseAuthException catch (e) {
+      return NetworkResponse.failure(UnauthorizedError(error: e));
+    }
+
+    final user = User(id: credential.credential?.providerId, email: email);
+    return NetworkResponse.success(user);
+  }
+
+// @override
+// Future<NetworkResponse<LoginResponse>> login({required LoginRequest loginRequest}) async =>
+//     await _networkService.request<LoginResponse>(
+//         const NetworkRequest(
+//           method: NetworkRequestType.get,
+//           path: '/login',
+//           data: NetworkRequestBody.empty(),
+//         ), (response) {
+//       return LoginResponse.fromJson(response);
+//     });
 }
