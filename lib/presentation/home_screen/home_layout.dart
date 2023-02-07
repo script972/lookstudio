@@ -27,7 +27,7 @@ class _BreedsLayoutState extends State<HomeLayout> {
         child: BlocConsumer<HomeBloc, HomeState>(
           listener: (BuildContext context, state) {
             state.mapOrNull(
-                showInfo: (breedInfo) => print('todo'), //TODO(AdnriiD): implement item navigation
+              showInfo: (breedInfo) => print('todo'),//TODO (AdnriiD: implemen item navigation)
             );
           },
           builder: (context, state) {
