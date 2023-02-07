@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:solution_starter/generated/l10n.dart';
 import 'package:solution_starter/navigation/app_router.dart';
 
 class NotHaveAccount extends StatelessWidget {
@@ -17,13 +18,13 @@ class NotHaveAccount extends StatelessWidget {
       child: Column(
         children: [
           InkWell(
-            child: const Text.rich(
+            child:  Text.rich(
               textAlign: TextAlign.center,
               TextSpan(
-                text: 'Don`t have an account yet?',
+                text: S.of(context).dont_have_an_account_yet,
                 children: [
                   spaceTextSpan,
-                  TextSpan(text: 'Sign Up', style: boldTextStyle),
+                  TextSpan(text: S.of(context).sign_up, style: boldTextStyle),
                 ],
               ),
             ),

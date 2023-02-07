@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:solution_starter/generated/l10n.dart';
 import 'package:solution_starter/navigation/app_router.dart';
 
 class AlreadyHaveAnAccountWidget extends StatelessWidget {
@@ -15,13 +16,13 @@ class AlreadyHaveAnAccountWidget extends StatelessWidget {
     return Padding(
       padding: padding,
       child: InkWell(
-        child: const Text.rich(
+        child:  Text.rich(
           TextSpan(
-            text: 'Already have an account?',
+            text: S.of(context).already_have_an_account,
             children: [
               spaceTextSpan,
               TextSpan(
-                text: 'Sign In',
+                text: S.of(context).sign_in,
                 style: boldTextStyle,
               ),
             ],

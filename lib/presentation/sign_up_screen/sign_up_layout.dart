@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:solution_starter/generated/l10n.dart';
 import 'package:solution_starter/navigation/app_router.dart';
 import 'package:solution_starter/presentation/sign_up_screen/cubit/sign_up_cubit.dart';
 import 'package:solution_starter/widgets/molecules/already_have_account.dart';
@@ -51,7 +52,7 @@ class _SignUpLayoutState extends State<SignUpLayout> {
         child: Scaffold(
           backgroundColor: Colors.white,
           appBar: AppBar(
-            title: const Text('Charge registration'),
+            title: Text(S.of(context).charge_registration),
           ),
           body: BlocConsumer<SignUpCubit, SignUpState>(
             // Listener
@@ -105,14 +106,10 @@ class _SignUpLayoutState extends State<SignUpLayout> {
                   const Spacer(flex: 1),
 
                   // Username title
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
-                    child: Text(
-                      'User name',
-                    ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Text(S.of(context).username),
                   ),
-
-                  // Username field
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: InputItem(
@@ -120,8 +117,9 @@ class _SignUpLayoutState extends State<SignUpLayout> {
                       autofocus: true,
                       focusNode: _usernameFocusNode,
                       // errorText: _usernameError(state),
-                      hintText: 'User name',
-                      onEditingComplete: () => _passwordFocusNode.requestFocus(),
+                      hintText: S.of(context).username,
+                      onEditingComplete: () =>
+                          _passwordFocusNode.requestFocus(),
                       value: _password,
                       onChanged: (String value) {
                         _username = value;
@@ -130,15 +128,11 @@ class _SignUpLayoutState extends State<SignUpLayout> {
                       autofillHints: const [AutofillHints.email],
                     ),
                   ),
-
                   // Password title
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
-                    child: Text(
-                      'Password',
-                    ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Text(S.of(context).password),
                   ),
-
                   // Password field
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -148,7 +142,7 @@ class _SignUpLayoutState extends State<SignUpLayout> {
                       obscureText: true,
                       //errorText: _passwordError(state),
                       focusNode: _passwordFocusNode,
-                      hintText: 'Password',
+                      hintText: S.of(context).password,
                       value: _password,
                       onChanged: (String value) {
                         _password = value;
@@ -167,7 +161,7 @@ class _SignUpLayoutState extends State<SignUpLayout> {
                     width: double.infinity,
                     child: ButtonItem(
                       context,
-                      text: 'Sign up',
+                      text: S.of(context).sign_up,
                       onPressed: () {
                         final form = _formKey.currentState;
                         if (form!.validate()) {
@@ -189,7 +183,7 @@ class _SignUpLayoutState extends State<SignUpLayout> {
                         BlocProvider.of<SignUpCubit>(context).googleLogin();
                       },
                       icon: const Icon(Icons.login),
-                      label: const Text('Sign in with Google'),
+                      label:  Text(S.of(context).sign_in_with_google),
                     ),
                   ),
                   const SizedBox(
