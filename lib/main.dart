@@ -18,7 +18,7 @@ Future configureApp() async {
   await Hive.initFlutter();
 
   try {
-    await Firebase.initializeApp();
+    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   } catch (exception, stackTrace) {
     logger.e('New uncatched exception: $exception, st: $stackTrace');
   }

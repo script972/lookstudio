@@ -183,6 +183,18 @@ class _SignUpLayoutState extends State<SignUpLayout> {
                   const SizedBox(
                     height: 16.0,
                   ),
+                  Center(
+                    child: FloatingActionButton.extended(
+                      onPressed: () {
+                        BlocProvider.of<SignUpCubit>(context).googleLogin();
+                      },
+                      icon: const Icon(Icons.login),
+                      label: const Text('Sign in with Google'),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 16.0,
+                  ),
                   const AlreadyHaveAnAccountWidget(),
                   const Spacer(flex: 5),
                 ],

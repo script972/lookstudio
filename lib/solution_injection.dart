@@ -20,10 +20,8 @@ import 'package:solution_starter/domain/repository/auth_repository.dart';
 import 'package:solution_starter/data/repositories/auth_repository_impl.dart';
 import 'package:solution_starter/data/datasource/network/api/auth_api.dart';
 import 'package:solution_starter/domain/repository/breeds_repository.dart';
-import 'package:solution_starter/domain/use_cases/auth_use_case.dart';
 import 'package:solution_starter/domain/use_cases/breeds_use_case.dart';
 import 'package:solution_starter/data/datasource/network/interceptors/token_interceptor.dart';
-import 'package:solution_starter/domain/use_cases/sign_up_use_case.dart';
 import 'package:solution_starter/utils/hive_helper.dart';
 
 class SolutionInjection {
@@ -127,18 +125,6 @@ class SolutionInjection {
       ProxyProvider<AuthApi, AuthRepository>(
         update: (BuildContext context, AuthApi authService, AuthRepository? facade) {
           return AuthRepositoryImpl(authService: authService);
-        },
-      ),
-
-      ProxyProvider<AuthRepository, AuthUseCase>(
-        update: (BuildContext context, AuthRepository authRepository, UseCase? facade) {
-          return AuthUseCase(authRepository);
-        },
-      ),
-
-      ProxyProvider<AuthRepository, SignUpUseCase>(
-        update: (BuildContext context, AuthRepository authRepository, UseCase? facade) {
-          return SignUpUseCase(authRepository);
         },
       ),
 

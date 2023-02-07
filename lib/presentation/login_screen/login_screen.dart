@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-import 'package:solution_starter/domain/use_cases/auth_use_case.dart';
+import 'package:solution_starter/domain/repository/auth_repository.dart';
 import 'package:solution_starter/presentation/login_screen/bloc/login_cubit.dart';
 import 'package:solution_starter/presentation/login_screen/login_layout.dart';
 
@@ -12,11 +12,9 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final useCase = Provider.of<AuthUseCase>(context);
+    final repository = Provider.of<AuthRepository>(context);
     return BlocProvider(
-      create: (context) => LoginCubit(
-        authUseCase: useCase,
-      ),
+      create: (context) => LoginCubit(repository: repository),
       child: const LoginLayout(),
     );
   }
