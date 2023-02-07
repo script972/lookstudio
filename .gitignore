@@ -93,3 +93,4 @@ app.*.map.json
 # Genereted code
 *.g.dart
 *.freezed.dart
+*.gen.dart

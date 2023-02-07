@@ -1,6 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -18,17 +19,15 @@ class S {
   static S? _current;
 
   static S get current {
-    assert(_current != null,
-        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
+    assert(
+        _current != null, 'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
     return _current!;
   }
 
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false)
-        ? locale.languageCode
-        : locale.toString();
+    final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -235,6 +234,36 @@ class S {
     return Intl.message(
       'Already have an account?',
       name: 'already_have_an_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Username shouldn't be empty`
+  String get usernameShouldntBeEmpty {
+    return Intl.message(
+      'Username shouldn\'t be empty',
+      name: 'usernameShouldntBeEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password shouldn't be empty`
+  String get passwordShouldntBeEmpty {
+    return Intl.message(
+      'Password shouldn\'t be empty',
+      name: 'passwordShouldntBeEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Incorrect username or password`
+  String get incorrectUsernameOrPassword {
+    return Intl.message(
+      'Incorrect username or password',
+      name: 'incorrectUsernameOrPassword',
       desc: '',
       args: [],
     );
