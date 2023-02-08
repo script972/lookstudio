@@ -21,7 +21,7 @@ class NotHaveAccount extends StatelessWidget {
             child:  Text.rich(
               textAlign: TextAlign.center,
               TextSpan(
-                text: S.of(context).not_have_an_account,
+                text: S.of(context).not_have_acc,
                 children: [
                   spaceTextSpan,
                   TextSpan(text: S.of(context).sign_up, style: boldTextStyle),
