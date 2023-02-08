@@ -97,3 +97,4 @@ app.*.map.json
 *.freezed.dart
 lib/generated/intl/*.dart
 lib/core/app_update/*.freezed.dart
+lib/generated/assets/*.gen.dart
