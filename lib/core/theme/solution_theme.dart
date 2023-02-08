@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
+import 'dart:ui';
 
+import 'package:flutter/material.dart';
 
 class LightPalette {
   static const greenColor = Color(0xFF004D40);
@@ -15,35 +16,68 @@ class DarkPalette {
   static const secondColor = Color(0xFF0E1B16);
 }
 
-class RadiusExtension {
- final buttonBorderRadius = 8.0;
+// todo: separated every extension as another file
+class RadiusExtension extends ThemeExtension<RadiusExtension> {
+  const RadiusExtension._({required this.buttonBorderRadius});
+
+
+  static const _buttonBorderRadiusValue = 8.0;
+
+  static const instance = RadiusExtension._(
+    buttonBorderRadius: _buttonBorderRadiusValue,
+  );
+
+  final double buttonBorderRadius;
+
+  @override
+  ThemeExtension<RadiusExtension> copyWith({
+    double? buttonBorderRadius,
+  }) =>
+      RadiusExtension._(
+        buttonBorderRadius: buttonBorderRadius ?? this.buttonBorderRadius,
+      );
+
+  // Controls how the properties change on theme changes
+  @override
+  ThemeExtension<RadiusExtension> lerp(
+    ThemeExtension<RadiusExtension>? other,
+    double t,
+  ) {
+    if (other is! RadiusExtension) return this;
+
+    return RadiusExtension._(
+      buttonBorderRadius:
+          lerpDouble(buttonBorderRadius, other.buttonBorderRadius, t) ?? 0,
+    );
+  }
 }
 
 class SizeExtension {
   final iconSize = 24.0;
 }
 
-
 class ThemeHolder {
-  static List<ThemeExtension> extensions = [];
-
+  static final extensions = <ThemeExtension>[
+    RadiusExtension.instance,
+  ];
+// todo: separated themeData to another file
   static ThemeData get lightTHeme {
     return ThemeData(
       primaryColor: LightPalette.primaryColor,
-      colorScheme: ColorScheme.fromSwatch().copyWith(
-        secondary: LightPalette.secondColor),
+      colorScheme: ColorScheme.fromSwatch()
+          .copyWith(secondary: LightPalette.secondColor),
       backgroundColor: Colors.white,
       extensions: extensions,
     );
   }
 
   static ThemeData get darkTheme => ThemeData(
-    primaryColor: DarkPalette.primaryColor,
-    colorScheme: ColorScheme.fromSwatch().copyWith(
-      secondary: DarkPalette.secondColor),
-    backgroundColor: Colors.white,
-    extensions: extensions,
-  );
+        primaryColor: DarkPalette.primaryColor,
+        colorScheme: ColorScheme.fromSwatch()
+            .copyWith(secondary: DarkPalette.secondColor),
+        backgroundColor: Colors.white,
+        extensions: extensions,
+      );
 }
 
 /*
@@ -120,6 +154,5 @@ class ThemeHolder {
 
   // background
   Color get backgroundOne;*/
-
 
 //
