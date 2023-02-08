@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:solution_starter/core/theme/solution_theme.dart';
 import 'package:solution_starter/core/theme/theme_mode_provider.dart';
 import 'package:solution_starter/generated/l10n.dart';
 import 'package:solution_starter/navigation/app_router.dart';
@@ -34,8 +33,8 @@ class AppEntry extends StatelessWidget {
                 builder: (_, themeMode) {
                   return MaterialApp.router(
                     title: 'Silverstone',
-                    theme: Provider.of<ThemeContainer>(context).lightTheme.themeData,
-                    darkTheme: Provider.of<ThemeContainer>(context).darkTheme.themeData,
+                    theme: ThemeData.light(),
+                    darkTheme: ThemeData.dark(),
                     themeMode: themeMode,
                     routerDelegate: _router.delegate(),
                     routeInformationParser: _router.defaultRouteParser(),
@@ -56,3 +55,4 @@ class AppEntry extends StatelessWidget {
     );
   }
 }
+
