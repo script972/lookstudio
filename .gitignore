@@ -92,7 +92,6 @@ flutter_native_splash.yml
 **/ios/Flutter/flutter_export_environment.sh
 **/ios/Flutter/Flutter.podspec
 **/ios/build/
-**/ios/Runner/GoogleService-Info.plist
 
 # Exceptions to above rules.
 !**/ios/**/default.mode1v3
