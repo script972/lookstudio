@@ -239,6 +239,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Don't have an account yet?`
+  String get not_have_an_account {
+    return Intl.message(
+      'Don`t have an account yet?',
+      name: 'not_have_an_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Breeds`
+  String get breeds {
+    return Intl.message(
+      'Breeds',
+      name: 'breeds',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Clients`
+  String get clients {
+    return Intl.message(
+      'Clients',
+      name: 'clients',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile`
+  String get profile {
+    return Intl.message(
+      'Profile',
+      name: 'profile',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

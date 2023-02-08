@@ -32,8 +32,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("fingerprint"),
         "biometric_touchId": MessageLookupByLibrary.simpleMessage("touchId"),
         "breed_list": MessageLookupByLibrary.simpleMessage("Breed list"),
+        "breeds": MessageLookupByLibrary.simpleMessage("Breeds"),
         "charge_registration":
             MessageLookupByLibrary.simpleMessage("Charge registration"),
+        "clients": MessageLookupByLibrary.simpleMessage("Clients"),
         "dialog_error": MessageLookupByLibrary.simpleMessage("Error"),
         "dialog_host_unavailable_please_try_again_later":
             MessageLookupByLibrary.simpleMessage(
@@ -41,9 +43,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialog_newVersionAvailable":
             MessageLookupByLibrary.simpleMessage("New version available"),
         "expectation": MessageLookupByLibrary.simpleMessage("Expectation"),
+        "not_have_an_account":
+            MessageLookupByLibrary.simpleMessage("Don`t have an account yet?"),
         "ok": MessageLookupByLibrary.simpleMessage("ok"),
         "paid": MessageLookupByLibrary.simpleMessage("Charge login"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "sign_in": MessageLookupByLibrary.simpleMessage("Sign in"),
         "sign_in_with_google":
             MessageLookupByLibrary.simpleMessage("Sign in with Google"),
