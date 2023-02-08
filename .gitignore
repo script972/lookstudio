@@ -96,3 +96,4 @@ app.*.map.json
 *.gen.dart
 *.freezed.dart
 lib/generated/intl/*.dart
+lib/core/app_update/*.freezed.dart
