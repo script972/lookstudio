@@ -19,5 +19,5 @@
   "sign_up" : "Sign up",
   "sign_in_with_google" : "Sign in with Google",
   "already_have_an_account" : "Already have an account?",
-  "not_have_an_account" : "Don`t have an account yet?"
+  "not_have_acc" : "Don`t have an account yet?"
 }
