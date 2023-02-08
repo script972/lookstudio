@@ -32,7 +32,6 @@ migrate_working_dir/
 .pub/
 /build/
 /ios/build
-/pubspec.lock
 build/
 
 # Symbolication related
