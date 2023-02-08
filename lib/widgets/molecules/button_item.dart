@@ -123,7 +123,7 @@ class ButtonItem extends TextButton {
               overlayColor: MaterialStateProperty.all<Color>(Colors.transparent),
               foregroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
               backgroundColor: MaterialStateProperty.all<Color>(
-                SolutionTheme(context).primaryColor,
+                Theme.of(context).primaryColor,
               ),
             );
 
@@ -134,20 +134,23 @@ class ButtonItem extends TextButton {
     Color? forceBgColor,
   }) {
     if (filledType == BackgroundType.empty) {
+
+      final radiusTheme = Theme.of(context).extension<RadiusExtension>()!;
       return MaterialStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(SolutionTheme(context).buttonBorderRadius),
+          borderRadius: BorderRadius.circular(radiusTheme.buttonBorderRadius),
           side: BorderSide(
-            color: emergency ? Theme.of(context).errorColor : forceBgColor ?? SolutionTheme(context).primaryColor,
+            color: emergency ? Theme.of(context).errorColor : forceBgColor ?? Theme.of(context).primaryColor,
             width: 2,
           ),
         ),
       );
     }
-
+    final radiusTheme = Theme.of(context).extension<RadiusExtension>()!;
     return MaterialStateProperty.all<RoundedRectangleBorder>(
+
       RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(SolutionTheme(context).buttonBorderRadius),
+        borderRadius: BorderRadius.circular(radiusTheme.buttonBorderRadius),
       ),
     );
   }
@@ -173,11 +176,11 @@ class ButtonItem extends TextButton {
     }
     switch (backgroundType) {
       case BackgroundType.empty:
-        return MaterialStateProperty.all<Color>(SolutionTheme(context).themeData.backgroundColor);
+        return MaterialStateProperty.all<Color>(Theme.of(context).backgroundColor);
       case BackgroundType.fill:
-        return MaterialStateProperty.all<Color>(SolutionTheme(context).primaryColor);
+        return MaterialStateProperty.all<Color>(Theme.of(context).primaryColor);
       case BackgroundType.tertiary:
-        return MaterialStateProperty.all<Color>(SolutionTheme(context).secondaryColor);
+        return MaterialStateProperty.all<Color>(Theme.of(context).colorScheme.secondary);
     }
   }
 }
