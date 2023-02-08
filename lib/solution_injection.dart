@@ -46,12 +46,6 @@ class SolutionInjection {
       Provider.value(
         value: HiveHelper(),
       ),
-      Provider.value(
-        value: ThemeContainer(
-          VendorTheme(),
-          VendorTheme(),
-        ),
-      ),
     ];
   }
 

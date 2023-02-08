@@ -1,36 +1,52 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
-import 'package:solution_starter/core/theme/theme_mode_provider.dart';
 
-abstract class SolutionTheme {
-  factory SolutionTheme(BuildContext context) {
-    final themeMode = ThemeModeProvider.of(context).value;
-    ThemeContainer themeValue = Provider.of<ThemeContainer>(context);
-    switch (themeMode) {
-      case ThemeMode.light:
-        return themeValue.lightTheme;
-      case ThemeMode.dark:
-        return themeValue.darkTheme;
-      default:
-        if (MediaQuery.of(context).platformBrightness == Brightness.dark) {
-          return themeValue.darkTheme;
-        } else {
-          return themeValue.darkTheme;
-        }
-    }
+
+class LightPalette {
+  static const greenColor = Color(0xFF004D40);
+  static const yellow = Color(0xFF004D20);
+  static const primaryColor = Color(0xFF1F3C31);
+  static const secondColor = Color(0xFF0E1B16);
+}
+
+class DarkPalette {
+  static const greenColor = Color(0xFF004D40);
+  static const yellow = Color(0xFF004D20);
+  static const primaryColor = Color(0xFF1F3C31);
+  static const secondColor = Color(0xFF0E1B16);
+}
+
+class RadiusExtension {
+ final buttonBorderRadius = 8.0;
+}
+
+class SizeExtension {
+  final iconSize = 24.0;
+}
+
+
+class ThemeHolder {
+  static List<ThemeExtension> extensions = [];
+
+  static ThemeData get lightTHeme {
+    return ThemeData(
+      primaryColor: LightPalette.primaryColor,
+      colorScheme: ColorScheme.fromSwatch().copyWith(
+        secondary: LightPalette.secondColor),
+      backgroundColor: Colors.white,
+      extensions: extensions,
+    );
   }
 
-  ThemeData get themeData;
+  static ThemeData get darkTheme => ThemeData(
+    primaryColor: DarkPalette.primaryColor,
+    colorScheme: ColorScheme.fromSwatch().copyWith(
+      secondary: DarkPalette.secondColor),
+    backgroundColor: Colors.white,
+    extensions: extensions,
+  );
+}
 
-  Color get testThemeColor;
-
-  double get iconSize;
-  double get buttonBorderRadius;
-  Color get primaryColor;
-  Color get secondaryColor;
-
-  /*
+/*
     // Radius
   double get basicBorderRadius;
 
@@ -104,15 +120,6 @@ abstract class SolutionTheme {
 
   // background
   Color get backgroundOne;*/
-}
 
-abstract class BaseCoreTheme implements SolutionTheme {
-  double borderRadius = 8.0;
-}
 
-class ThemeContainer {
-  final SolutionTheme lightTheme;
-  final SolutionTheme darkTheme;
-
-  ThemeContainer(this.lightTheme, this.darkTheme);
-}
+//
