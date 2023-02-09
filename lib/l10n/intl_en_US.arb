@@ -20,7 +20,7 @@
   "sign_in_with_google" : "Sign in with Google",
   "already_have_an_account" : "Already have an account?",
   "not_have_an_account" : "Don`t have an account yet?",
-  "usernameShouldntBeEmpty" : "Username shouldn't be empty",
-  "passwordShouldntBeEmpty": "Password shouldn't be empty",
-  "incorrectUsernameOrPassword" : "Incorrect username or password"
+  "breeds" : "Breeds",
+  "clients": "Clients",
+  "profile": "Profile"
 }
