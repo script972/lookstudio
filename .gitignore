@@ -32,7 +32,7 @@ migrate_working_dir/
 .pub/
 /build/
 /ios/build
-pubspec.lock
+build/
 
 # Symbolication related
 app.*.symbols
@@ -53,6 +53,15 @@ app.*.map.json
 **/android/gradlew.bat
 **/android/local.properties
 **/android/**/GeneratedPluginRegistrant.java
+.gradle/
+**/android/key.properties
+*.jks
+**/android/**/gen
+
+# Web related
+lib/generated_plugin_registrant.dart
+
+flutter_native_splash.yml
 
 # iOS/XCode related
 **/ios/**/*.mode1v3
@@ -81,6 +90,7 @@ app.*.map.json
 **/ios/Runner/GeneratedPluginRegistrant.*
 **/ios/Flutter/flutter_export_environment.sh
 **/ios/Flutter/Flutter.podspec
+**/ios/build/
 
 # Exceptions to above rules.
 !**/ios/**/default.mode1v3
@@ -90,12 +100,17 @@ app.*.map.json
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 **/Flutter/.last_build_id
 
+# macOS related
+**/macos/**/Pods/
+**/macos/**/.symlinks/
+**/macos/build/
+**/macos/Flutter/ephemeral/
+**/macos/**/dgph
+**/macos/**/xcuserdata/
+
 # Genereted code
 *.g.dart
 *.gr.dart
 *.gen.dart
 *.freezed.dart
-lib/generated/intl/*.dart
-lib/core/app_update/*.freezed.dart
-lib/generated/assets/*.gen.dart
-lib/generated/l10n.dart
+lib/generated/**

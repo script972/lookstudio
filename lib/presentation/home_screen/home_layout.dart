@@ -1,47 +1,60 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:solution_starter/generated/l10n.dart';
-import 'package:solution_starter/presentation/home_screen/bloc/home_bloc.dart';
-import 'package:solution_starter/widgets/organisms/home_list.dart';
+import 'package:solution_starter/navigation/app_router.dart';
 
-class HomeLayout extends StatefulWidget {
+class HomeLayout extends StatelessWidget {
   const HomeLayout({super.key});
 
   @override
-  State<HomeLayout> createState() => _BreedsLayoutState();
-}
-
-class _BreedsLayoutState extends State<HomeLayout> {
-  @override
-  void initState() {
-    super.initState();
-    context.read<HomeBloc>().add(const HomeEvent.loaded());
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title:  Text(S.of(context).breed_list),
-      ),
-      body: Center(
-        child: BlocConsumer<HomeBloc, HomeState>(
-          listener: (BuildContext context, state) {
-            state.mapOrNull(
-              showInfo: (breedInfo) => print('todo'),//TODO (AdnriiD: implemen item navigation)
-            );
-          },
-          builder: (context, state) {
-            return state.maybeWhen(
-              initial: () => Center(child: Text(S.of(context).expectation)),
-              loading: () => const Center(child: CircularProgressIndicator()),
-              loaded: (breeds) => DogBreedListWidget(breeds: breeds),
-              error: (error) => Center(child: Text('$error')),
-              orElse: () => const Center(child: Text('text')),
-            );
-          },
-        ),
-      ),
+    return AutoTabsScaffold(
+      backgroundColor: Colors.lightBlue,
+      routes: const [
+        BreedsRoute(),
+        ClientsBaseRouter(),
+        ProfileBaseRouter(),
+      ],
+      bottomNavigationBuilder: (_, tabsRouter) {
+        return SalomonBottomBar(
+          margin: const EdgeInsets.symmetric(
+            horizontal: 20,
+            vertical: 10,
+          ),
+          currentIndex: tabsRouter.activeIndex,
+          onTap: tabsRouter.setActiveIndex,
+          items: [
+            SalomonBottomBarItem(
+              selectedColor: Colors.black,
+              unselectedColor: Colors.blueGrey,
+              icon: const Icon(
+                Icons.post_add,
+                size: 30,
+              ),
+              title: Text(S.of(context).breeds),
+            ),
+            SalomonBottomBarItem(
+              selectedColor: Colors.black,
+              unselectedColor: Colors.blueGrey,
+              icon: const Icon(
+                Icons.person,
+                size: 30,
+              ),
+              title: Text(S.of(context).clients),
+            ),
+            SalomonBottomBarItem(
+              selectedColor: Colors.black,
+              unselectedColor: Colors.blueGrey,
+              icon: const Icon(
+                Icons.settings,
+                size: 30,
+              ),
+              title: Text(S.of(context).profile),
+            )
+          ],
+        );
+      },
     );
   }
 }

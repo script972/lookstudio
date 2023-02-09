@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:solution_starter/domain/entities/breed_info.dart';
 import 'package:solution_starter/generated/assets/assets.gen.dart';
 import 'package:solution_starter/generated/assets/fonts.gen.dart';
-import 'package:solution_starter/presentation/home_screen/bloc/home_bloc.dart';
+import 'package:solution_starter/presentation/breeds_screen/bloc/breeds_bloc.dart';
 
 class BreedCellWidget extends StatelessWidget {
   const BreedCellWidget({super.key, required this.breed});
@@ -26,7 +26,7 @@ class BreedCellWidget extends StatelessWidget {
             )
           ],
         ),
-        onTap: () => context.read<HomeBloc>().add(HomeEvent.showInfo(breedInfo: breed)),
+        onTap: () => context.read<BreedsBloc>().add(BreedsEvent.showInfo(breedInfo: breed)),
       ),
     );
   }
