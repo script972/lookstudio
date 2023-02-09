@@ -10,14 +10,14 @@ class ThemeHolder {
     final themeMode = ThemeModeProvider.of(context).value;
     switch (themeMode) {
       case ThemeMode.light:
-        return ThemeHolder.lightTHeme as ThemeHolder;
+        return ThemeHolder.lightTheme as ThemeHolder;
       case ThemeMode.dark:
         return ThemeHolder.darkTheme as ThemeHolder;
       default:
         if (MediaQuery.of(context).platformBrightness == Brightness.dark) {
           return ThemeHolder.darkTheme as ThemeHolder;
         } else {
-          return ThemeHolder.lightTHeme as ThemeHolder;
+          return ThemeHolder.lightTheme as ThemeHolder;
         }
     }
   }
@@ -27,7 +27,7 @@ class ThemeHolder {
     RadiusExtension.instance,
   ];
 
-  static ThemeData get lightTHeme {
+  static ThemeData get lightTheme {
     return ThemeData(
       primarySwatch: Colors.purple,
       primaryColor: DefaultPalette.deepPurpleAccent,
