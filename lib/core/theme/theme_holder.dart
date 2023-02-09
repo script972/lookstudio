@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:solution_starter/core/theme/theme_extension/redius_extension.dart';
-import 'package:solution_starter/core/theme/theme_palette/dark_palette.dart';
-import 'package:solution_starter/core/theme/theme_palette/light_palette,dart.dart';
+import 'package:solution_starter/core/theme/theme_palette/default_palette.dart';
+
 
 class ThemeHolder {
   static final extensions = <ThemeExtension>[
@@ -10,19 +10,35 @@ class ThemeHolder {
 
   static ThemeData get lightTHeme {
     return ThemeData(
-      primaryColor: LightPalette.primaryColor,
-      colorScheme: ColorScheme.fromSwatch()
-          .copyWith(secondary: LightPalette.secondColor),
-      backgroundColor: Colors.white,
+      primarySwatch: Colors.purple,
+      primaryColor: DefaultPalette.deepPurpleAccent,
+      appBarTheme: const AppBarTheme(
+        color: DefaultPalette.deepPurpleAccent,
+      ),
+      inputDecorationTheme: const InputDecorationTheme(
+        filled: true,
+        fillColor: DefaultPalette.whiteBackground,
+      ),
+      errorColor: DefaultPalette.redAccent,
+      scaffoldBackgroundColor: DefaultPalette.whiteBackground,
       extensions: extensions,
     );
   }
 
-  static ThemeData get darkTheme => ThemeData(
-    primaryColor: DarkPalette.primaryColor,
-    colorScheme: ColorScheme.fromSwatch()
-        .copyWith(secondary: DarkPalette.secondColor),
-    backgroundColor: Colors.white,
-    extensions: extensions,
-  );
+  static ThemeData get darkTheme {
+    return ThemeData(
+      primarySwatch: Colors.pink,
+      primaryColor: DefaultPalette.pinkAccent,
+      appBarTheme: const AppBarTheme(
+        color: DefaultPalette.pinkAccent,
+      ),
+      inputDecorationTheme: const InputDecorationTheme(
+        filled: true, //<-- SEE HERE
+        fillColor: DefaultPalette.greyBackground,
+      ),
+      errorColor: DefaultPalette.redAccent,
+      scaffoldBackgroundColor: DefaultPalette.greyBackground,
+      extensions: extensions,
+    );
+  }
 }
