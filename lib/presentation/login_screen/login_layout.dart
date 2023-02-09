@@ -52,7 +52,7 @@ class _LoginLayoutState extends State<LoginLayout> {
         child: Scaffold(
           backgroundColor: Colors.white,
           appBar: AppBar(
-            title:  Text(S.of(context).paid),
+            title: Text(S.of(context).paid),
           ),
           body: BlocConsumer<LoginCubit, LoginState>(
             // Listener
@@ -61,11 +61,12 @@ class _LoginLayoutState extends State<LoginLayout> {
                 context.router.replace(const HomeRoute());
               }
             },
+            buildWhen: (context, state) => state != const LoginState.successfullyLogin(),
             // Builder
             builder: (context, state) => state.maybeWhen(
               loading: () => const SizedBox(),
-              initial: _buildScreenContent,
-              orElse: () => const SizedBox(),
+              //success state with main content
+              orElse: () => _buildScreenContent(state),
             ),
           ),
         ),
@@ -73,7 +74,7 @@ class _LoginLayoutState extends State<LoginLayout> {
     );
   }
 
-  Widget _buildScreenContent() => Builder(
+  Widget _buildScreenContent(LoginState state) => Builder(
         builder: (context) {
           return Column(
             mainAxisSize: MainAxisSize.min,
@@ -81,14 +82,14 @@ class _LoginLayoutState extends State<LoginLayout> {
               // Form
               Flexible(
                 flex: 1,
-                child: _buildForm(),
+                child: _buildForm(state),
               ),
             ],
           );
         },
       );
 
-  Widget _buildForm() {
+  Widget _buildForm(LoginState state) {
     return Builder(
       builder: (context) => Padding(
         padding: const EdgeInsets.symmetric(
@@ -116,13 +117,12 @@ class _LoginLayoutState extends State<LoginLayout> {
                       showErrorText: false,
                       autofocus: true,
                       focusNode: _usernameFocusNode,
-                      // errorText: _usernameError(state),
                       hintText: S.of(context).username,
+                      errorText: _usernameError(state),
                       onEditingComplete: () => _passwordFocusNode.requestFocus(),
                       value: _password,
                       onChanged: (String value) {
                         _username = value;
-                        //BlocProvider.of<LoginCubit>(context).onFormFieldUpdated();
                       },
                       autofillHints: const [AutofillHints.email],
                     ),
@@ -136,44 +136,26 @@ class _LoginLayoutState extends State<LoginLayout> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: InputItem(
-                      //errorKey: LoginScreenKey.passwordErrorKey,
                       showErrorText: true,
                       obscureText: true,
-                      //errorText: _passwordError(state),
+                      errorText: _passwordError(state),
                       focusNode: _passwordFocusNode,
                       hintText: S.of(context).password,
                       onFieldSubmitted: (_) {
-                        /*BlocProvider.of<LoginScreenCubit>(context).onLogin(
-                                username: _username,
-                                password: _password,
-                              );*/
+                        _signInButton();
                       },
-                      /*
-                            TODO
-                            validateFunction: (_, __) =>
-                                state.whenOrNull<String?>(fieldIsEmptyError: (_, isPasswordEmpty) {
-                              if (isPasswordEmpty) {
-                                return 'Password should not be empty';
-                              }
-                              return null;
-                            }),*/
-                      onEditingComplete: () {
-                        /* BlocProvider.of<LoginCubit>(context).onLogin(
-                                username: _username,
-                                password: _password,
-                              );*/
+                      validateFunction: (value, context) {
+                        if (value == null || value.isEmpty) {
+                          return S.of(context).passwordShouldntBeEmpty;
+                        }
+                        return null;
                       },
+                      onEditingComplete: _signInButton,
                       value: _password,
                       onChanged: (String value) {
                         _password = value;
-
-                        //BlocProvider.of<LoginCubit>(context).onFormFieldUpdated();
                       },
                       autofillHints: const [AutofillHints.password],
-                      // hideSvgModel: SvgHideModel(
-                      //   svgPathHide: 'assets/ic_password.svg',
-                      //   svgPathShow: 'assets/ic_password_show.svg',
-                      // ),
                     ),
                   ),
                   const SizedBox(
@@ -186,15 +168,7 @@ class _LoginLayoutState extends State<LoginLayout> {
                     child: ButtonItem(
                       context,
                       text: S.of(context).sign_in,
-                      onPressed: () {
-                        final form = _formKey.currentState;
-                        if (form!.validate()) {
-                          BlocProvider.of<LoginCubit>(context).login(
-                            username: _username,
-                            password: _password,
-                          );
-                        }
-                      },
+                      onPressed: _signInButton,
                       buttonType: ButtonType.L,
                     ),
                   ),
@@ -210,5 +184,31 @@ class _LoginLayoutState extends State<LoginLayout> {
         ),
       ),
     );
+  }
+
+  String? _usernameError(LoginState state) => state.whenOrNull<String?>(
+        fieldIsEmptyError: (isUsernameEmpty, _) {
+          if (isUsernameEmpty) return S.of(context).usernameShouldntBeEmpty;
+          return null;
+        },
+      );
+
+  String? _passwordError(LoginState state) => state.whenOrNull<String?>(
+        fieldIsEmptyError: (_, isPasswordEmpty) {
+          if (isPasswordEmpty) return S.of(context).passwordShouldntBeEmpty;
+          return null;
+        },
+        wrongCredentialsError: () => S.of(context).incorrectUsernameOrPassword,
+      );
+
+  void _signInButton() {
+    final form = _formKey.currentState;
+    if (form!.validate()) {
+      form.save();
+      BlocProvider.of<LoginCubit>(context).login(
+        username: _username,
+        password: _password,
+      );
+    }
   }
 }

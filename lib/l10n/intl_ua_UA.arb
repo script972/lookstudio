@@ -22,5 +22,8 @@
   "not_have_an_account" : "Ще не маєте облікового запису?",
   "breeds" : "Породи",
   "clients": "Клієнти",
-  "profile": "Профіль"
+  "profile": "Профіль",
+  "incorrectUsernameOrPassword" : "Не вірний email або пароль",
+  "passwordShouldntBeEmpty" : "Password should not be empty",
+  "usernameShouldntBeEmpty" : "Username should not be empty"
 }
