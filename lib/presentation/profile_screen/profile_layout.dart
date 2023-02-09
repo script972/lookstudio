@@ -1,7 +1,7 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:solution_global_provider/solution_global_provider.dart';
 import 'package:solution_starter/generated/l10n.dart';
-import 'package:solution_starter/navigation/app_router.dart';
+import 'package:solution_starter/widgets/molecules/button_item.dart';
 
 class ProfileLayout extends StatefulWidget {
   const ProfileLayout({super.key});
@@ -23,9 +23,46 @@ class _ProfileLayoutState extends State<ProfileLayout> {
         title: Text(S.of(context).profile),
       ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () => context.router.push(const SettingsRoute()),
-          child: Text(S.of(context).profile),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ButtonItem(
+                  context,
+                  onPressed: () => GlobalProvider.of<Locale>(context).value = const Locale('uk'),
+                  text: S.current.ukraine,
+                ),
+                const SizedBox(
+                  width: 15,
+                ),
+                ButtonItem(
+                  context,
+                  onPressed: () => GlobalProvider.of<Locale>(context).value = const Locale('en'),
+                  text: S.current.english,
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ButtonItem(
+                  context,
+                  onPressed: () => GlobalProvider.of<ThemeMode>(context).value = ThemeMode.light,
+                  text: S.current.light,
+                ),
+                const SizedBox(
+                  width: 15,
+                ),
+                ButtonItem(
+                  context,
+                  onPressed: () => GlobalProvider.of<ThemeMode>(context).value = ThemeMode.dark,
+                  text: S.current.dark,
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:solution_starter/core/theme/theme_mode_provider.dart';
+import 'package:solution_global_provider/solution_global_provider.dart';
 
 abstract class SolutionTheme {
   factory SolutionTheme(BuildContext context) {
-    final themeMode = ThemeModeProvider.of(context).value;
-    ThemeContainer themeValue = Provider.of<ThemeContainer>(context);
+    final themeMode = GlobalProvider.of<ThemeMode>(context).value;
+    final themeValue = Provider.of<ThemeContainer>(context);
     switch (themeMode) {
       case ThemeMode.light:
         return themeValue.lightTheme;

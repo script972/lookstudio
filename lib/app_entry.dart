@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:solution_global_provider/solution_global_provider.dart';
 import 'package:solution_starter/core/theme/solution_theme.dart';
-import 'package:solution_starter/core/theme/theme_mode_provider.dart';
 import 'package:solution_starter/generated/l10n.dart';
 import 'package:solution_starter/navigation/app_router.dart';
 import 'package:solution_starter/solution_injection.dart';
@@ -26,12 +26,16 @@ class AppEntry extends StatelessWidget {
       providers: SolutionInjection.getDiList(context),
       child: Builder(
         builder: (BuildContext context) {
-          return FutureBuilder(
-            future: Future.value(null),
-            builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-              return ThemeModeProvider(
-                themeMode: getThemeMode(snapshot as AsyncSnapshot<int?>),
-                builder: (_, themeMode) {
+          return GlobalProvider<ThemeMode, ThemeMode>(
+            shouldNotify: (newMode, oldMode) => newMode.index != oldMode.index,
+            future: ThemeMode.dark,
+            initValue: ThemeMode.system,
+            builder: (_, themeMode) {
+              return GlobalProvider<Locale, Locale>(
+                shouldNotify: (newMode, oldMode) => newMode.languageCode != oldMode.languageCode,
+                future: const Locale('en', 'US'),
+                initValue: const Locale('en', 'US'),
+                builder: (context, locale) {
                   return MaterialApp.router(
                     title: 'Silverstone',
                     theme: Provider.of<ThemeContainer>(context).lightTheme.themeData,
@@ -46,6 +50,7 @@ class AppEntry extends StatelessWidget {
                       GlobalCupertinoLocalizations.delegate,
                     ],
                     supportedLocales: S.delegate.supportedLocales,
+                    locale: locale,
                   );
                 },
               );
