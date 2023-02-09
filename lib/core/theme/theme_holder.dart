@@ -1,9 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:solution_starter/core/theme/theme_extension/redius_extension.dart';
+import 'package:solution_starter/core/theme/theme_mode_provider.dart';
 import 'package:solution_starter/core/theme/theme_palette/default_palette.dart';
 
 
 class ThemeHolder {
+
+  factory ThemeHolder(BuildContext context) {
+    final themeMode = ThemeModeProvider.of(context).value;
+    switch (themeMode) {
+      case ThemeMode.light:
+        return ThemeHolder.lightTHeme as ThemeHolder;
+      case ThemeMode.dark:
+        return ThemeHolder.darkTheme as ThemeHolder;
+      default:
+        if (MediaQuery.of(context).platformBrightness == Brightness.dark) {
+          return ThemeHolder.darkTheme as ThemeHolder;
+        } else {
+          return ThemeHolder.lightTHeme as ThemeHolder;
+        }
+    }
+  }
+
+
   static final extensions = <ThemeExtension>[
     RadiusExtension.instance,
   ];
@@ -33,7 +52,7 @@ class ThemeHolder {
         color: DefaultPalette.pinkAccent,
       ),
       inputDecorationTheme: const InputDecorationTheme(
-        filled: true, //<-- SEE HERE
+        filled: true,
         fillColor: DefaultPalette.greyBackground,
       ),
       errorColor: DefaultPalette.redAccent,
