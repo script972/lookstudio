@@ -49,6 +49,7 @@ dev_dependencies:
   auto_route_generator: ^5.0.1
   flutter_gen: ^5.1.0+1
   flutter_lints: ^2.0.1
+  flutter_stripe: ^8.0.0+1
 
 
 
