@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:solution_starter/core/theme/solution_theme.dart';
+import 'package:solution_starter/core/theme/theme_extension/size_extension.dart';
 
 class SvgHideModel {
   final String svgPathShow;
