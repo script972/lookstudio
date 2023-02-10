@@ -110,7 +110,16 @@ class _LoginSuccessLayoutState extends State<LoginSuccessLayout> {
                   ),
                 ),
                 spacer,
-                _SignInButton(onPressed: onSignInButtonPressed),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  width: double.infinity,
+                  child: ButtonItem(
+                    context,
+                    text: S.of(context).sign_in,
+                    onPressed: onSignInButtonPressed,
+                    buttonType: ButtonType.L,
+                  ),
+                ),
                 spacer,
                 const NotHaveAccount(),
                 const Spacer(flex: 5),
@@ -124,22 +133,3 @@ class _LoginSuccessLayoutState extends State<LoginSuccessLayout> {
 }
 
 
-class _SignInButton extends StatelessWidget {
-  const _SignInButton({required this.onPressed});
-
-  final VoidCallback onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      width: double.infinity,
-      child: ButtonItem(
-        context,
-        text: S.of(context).sign_in,
-        onPressed: onPressed,
-        buttonType: ButtonType.L,
-      ),
-    );
-  }
-}
