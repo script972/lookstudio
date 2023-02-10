@@ -4,6 +4,7 @@ import 'package:solution_starter/core/logger.dart';
 import 'package:solution_starter/data/datasource/local/facade/auth_store.dart';
 
 class TokenInterceptor extends Interceptor {
+  // TODO(DenisM): please lock at this Interceptor or add implementation from your previous projects
   TokenInterceptor({
     required AuthStore authStore,
   }) : _authStore = authStore {

@@ -27,14 +27,10 @@ class AppUpdateAware extends StatelessWidget {
         const Duration(milliseconds: 500),
         () => state.whenOrNull(
           softUpdateAvailable: () async {
-            // Notify Cubit so notification wouldn't be showed again
-            BlocProvider.of<AppUpdateAwareCubit>(context).confirmUserNotified();
-
-            // Show dialog
+            await BlocProvider.of<AppUpdateAwareCubit>(context).confirmUserNotified();
             showSoftUpdateDialog(
               context: context,
             );
-
             return;
           },
         ),

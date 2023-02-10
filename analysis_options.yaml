@@ -29,6 +29,7 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
+    depend_on_referenced_packages: false # https://dart-lang.github.io/linter/lints/depend_on_referenced_packages.html
     require_trailing_commas: true # https://dart-lang.github.io/linter/lints/require_trailing_commas.html
     unawaited_futures: true # https://dart-lang.github.io/linter/lints/unawaited_futures.html
     always_use_package_imports: true # https://dart-lang.github.io/linter/lints/always_use_package_imports.html
