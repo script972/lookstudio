@@ -65,8 +65,10 @@ class _LoginSuccessLayoutState extends State<LoginSuccessLayout> {
               children: [
                 const Spacer(flex: 1),
                 // Username title
-                TitleWidget(text: (S.of(context).username)),
-                // Username field
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Text(S.of(context).username),
+              ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: InputItem(
@@ -83,7 +85,10 @@ class _LoginSuccessLayoutState extends State<LoginSuccessLayout> {
                     autofillHints: const [AutofillHints.email],
                   ),
                 ),
-                TitleWidget(text: S.current.password),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Text(S.of(context).password),
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: InputItem(
