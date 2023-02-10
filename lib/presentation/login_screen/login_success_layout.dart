@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:solution_starter/form_validation.dart';
+import 'package:solution_starter/widgets/templates/form_validation.dart';
 import 'package:solution_starter/generated/l10n.dart';
 import 'package:solution_starter/presentation/login_screen/bloc/login_cubit.dart';
 import 'package:solution_starter/widgets/molecules/button_item.dart';
@@ -64,10 +64,10 @@ class _LoginSuccessLayoutState extends State<LoginSuccessLayout> {
               children: [
                 const Spacer(flex: 1),
                 // Username title
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Text(S.of(context).username),
-              ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Text(S.of(context).username),
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: InputItem(
@@ -93,7 +93,7 @@ class _LoginSuccessLayoutState extends State<LoginSuccessLayout> {
                   child: InputItem(
                     showErrorText: true,
                     obscureText: true,
-                    //        errorText: _passwordError(state),
+                    errorText: FormValidation.usernameError(widget.loginState),
                     focusNode: _passwordFocusNode,
                     hintText: S.of(context).password,
                     onFieldSubmitted: (_) => onSignInButtonPressed(),

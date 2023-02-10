@@ -7,8 +7,6 @@ import 'package:solution_starter/navigation/app_router.dart';
 import 'package:solution_starter/presentation/login_screen/bloc/login_cubit.dart';
 import 'package:solution_starter/presentation/login_screen/login_success_layout.dart';
 
-
-
 class LoginLayout extends StatelessWidget {
   const LoginLayout({super.key});
 
