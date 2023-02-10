@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:solution_starter/core/theme/theme_extension/redius_extension.dart';
+import 'package:solution_starter/core/theme/theme_extension/radius_extension.dart';
 import 'package:solution_starter/core/theme/theme_holder.dart';
 import 'package:solution_starter/core/theme/theme_mode_provider.dart';
 import 'package:solution_starter/generated/l10n.dart';
@@ -36,11 +36,11 @@ class AppEntry extends StatelessWidget {
                 builder: (_, themeMode) {
                   return MaterialApp.router(
                     title: 'Silverstone',
-                      theme: ThemeHolder.lightTheme.copyWith(
+                      theme: lightTheme.copyWith(
                     extensions: <ThemeExtension>[
                       RadiusExtension.instance,
                     ],),
-                    darkTheme: ThemeHolder.darkTheme.copyWith(
+                    darkTheme: darkTheme.copyWith(
                   extensions: <ThemeExtension>[
                   RadiusExtension.instance,],),
                     themeMode: themeMode,

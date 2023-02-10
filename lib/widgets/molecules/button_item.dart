@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:solution_starter/core/theme/solution_theme.dart';
-import 'package:solution_starter/core/theme/theme_extension/redius_extension.dart';
+import 'package:solution_starter/core/theme/theme_extension/radius_extension.dart';
 
 enum ButtonType {
   S,
