@@ -18,7 +18,7 @@ class NotHaveAccount extends StatelessWidget {
       child: Column(
         children: [
           InkWell(
-            child:  Text.rich(
+            child: Text.rich(
               textAlign: TextAlign.center,
               TextSpan(
                 text: S.of(context).not_have_acc,

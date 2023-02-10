@@ -8,28 +8,35 @@ import 'package:solution_starter/core/logger.dart';
 import 'package:solution_starter/domain/repository/auth_repository.dart';
 
 part 'login_cubit.freezed.dart';
-
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> with CommonErrorsHandler<LoginState> {
   LoginCubit({
     required this.repository,
   }) : super(const LoginState.initial());
-  final Logger logger = getLogger('ChargeListCubit');
+  final Logger logger = getLogger('LoginCubit');
   final AuthRepository repository;
 
   void login({
     required String username,
     required String password,
   }) async {
-    logger.i('charge list init()');
+    logger.i('Login state');
+    if (username.isEmpty || password.isEmpty) {
+      emit(LoginState.fieldIsEmptyError(isUsernameEmpty: username.isEmpty, isPasswordEmpty: password.isEmpty));
+    }
     final response = await repository.login(email: username, password: password);
     response.maybeWhen(
       success: (data) {
         emit(const LoginState.successfullyLogin());
       },
-      error: (error) => handleError,
-      orElse: () {},
+      error: (error) {
+        //TODO(DenisM): Process error states
+        emit(const LoginState.wrongCredentialsError());
+      },
+      orElse: () {
+        emit(const LoginState.wrongCredentialsError());
+      },
     );
   }
 }
