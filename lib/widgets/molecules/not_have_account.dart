@@ -18,10 +18,10 @@ class NotHaveAccount extends StatelessWidget {
       child: Column(
         children: [
           InkWell(
-            child:  Text.rich(
+            child: Text.rich(
               textAlign: TextAlign.center,
               TextSpan(
-                text: S.of(context).not_have_an_account,
+                text: 'Not have account',
                 children: [
                   spaceTextSpan,
                   TextSpan(text: S.of(context).sign_up, style: boldTextStyle),
