@@ -6,7 +6,6 @@ import 'package:solution_starter/presentation/login_screen/bloc/login_cubit.dart
 import 'package:solution_starter/widgets/molecules/button_item.dart';
 import 'package:solution_starter/widgets/molecules/input_item.dart';
 import 'package:solution_starter/widgets/molecules/not_have_account.dart';
-import 'package:solution_starter/widgets/molecules/title_widget.dart';
 
 class LoginSuccessLayout extends StatefulWidget {
   const LoginSuccessLayout({super.key, required this.loginState});
