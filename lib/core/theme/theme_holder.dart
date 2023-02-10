@@ -17,7 +17,7 @@ class ThemeHolder {
         if (MediaQuery.of(context).platformBrightness == Brightness.dark) {
           return ThemeHolder.darkTheme as ThemeHolder;
         } else {
-          return ThemeHolder.lightTheme as ThemeHolder;
+          return ThemeHolder.darkTheme as ThemeHolder;
         }
     }
   }

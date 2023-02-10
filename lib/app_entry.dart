@@ -36,11 +36,11 @@ class AppEntry extends StatelessWidget {
                 builder: (_, themeMode) {
                   return MaterialApp.router(
                     title: 'Silverstone',
-                      theme: ThemeHolder.darkTheme.copyWith(
+                      theme: ThemeHolder.lightTheme.copyWith(
                     extensions: <ThemeExtension>[
                       RadiusExtension.instance,
                     ],),
-                    darkTheme: ThemeHolder.lightTHeme.copyWith(
+                    darkTheme: ThemeHolder.darkTheme.copyWith(
                   extensions: <ThemeExtension>[
                   RadiusExtension.instance,],),
                     themeMode: themeMode,
