@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:provider/provider.dart';
 import 'package:solution_starter/core/theme/solution_theme.dart';
 import 'package:solution_starter/core/theme/theme_mode_provider.dart';
@@ -22,6 +23,7 @@ class AppEntry extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    FlutterNativeSplash.remove();
     return MultiProvider(
       providers: SolutionInjection.getDiList(context),
       child: Builder(
