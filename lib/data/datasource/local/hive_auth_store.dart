@@ -3,10 +3,6 @@ import 'package:solution_starter/data/datasource/local/facade/auth_store.dart';
 import 'package:solution_starter/utils/hive_helper.dart';
 
 class HiveAuthStore implements AuthStore {
-  // Static fields
-  static const String tokenKey = 'token_key';
-  static const String refreshTokenKey = 'refresh_token_key';
-  static const String boxId = 'auth_box';
 
   // Constructor
   HiveAuthStore({
@@ -16,6 +12,10 @@ class HiveAuthStore implements AuthStore {
   })  : _hive = hive,
         _hiveHelper = hiveHelper,
         _boxName = boxPrefix + boxId;
+  // Static fields
+  static const String tokenKey = 'token_key';
+  static const String refreshTokenKey = 'refresh_token_key';
+  static const String boxId = 'auth_box';
 
   // Dependencies
   final HiveInterface _hive;

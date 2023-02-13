@@ -10,12 +10,12 @@ part 'app_update_aware_cubit.freezed.dart';
 part 'app_update_aware_state.dart';
 
 class AppUpdateAwareCubit extends Cubit<AppUpdateAwareState> {
-  final Logger _logger = getLogger('AppUpdateAwareCubit');
 
   AppUpdateAwareCubit({required Upgrader upgrader, required FirebaseRemoteConfig firebaseRemoteConfig})
       : _upgrader = upgrader,
         _firebaseRemoteConfig = firebaseRemoteConfig,
         super(const AppUpdateAwareState.initial());
+  final Logger _logger = getLogger('AppUpdateAwareCubit');
 
   final Upgrader _upgrader;
   final FirebaseRemoteConfig _firebaseRemoteConfig;

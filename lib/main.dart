@@ -9,7 +9,6 @@ import 'package:solution_starter/core/logger.dart';
 
 void main(List<String> args) async {
   await configureApp();
-  FlutterNativeSplash.remove();
   runApp(AppEntry());
 }
 
