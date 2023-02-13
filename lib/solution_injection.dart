@@ -12,6 +12,7 @@ import 'package:solution_starter/core/use_case.dart';
 import 'package:solution_starter/data/datasource/local/facade/auth_store.dart';
 import 'package:solution_starter/data/datasource/local/hive_auth_store.dart';
 import 'package:solution_starter/data/datasource/network/api/breeds_api.dart';
+import 'package:solution_starter/data/datasource/network/api/breeds_api_impl.dart';
 import 'package:solution_starter/data/datasource/network/services/authentication_service/authentication_service.dart';
 import 'package:solution_starter/data/datasource/network/services/authentication_service/authentication_service_firebase_impl.dart';
 import 'package:solution_starter/data/datasource/network/services/network_service/network_service.dart';
