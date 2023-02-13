@@ -9,14 +9,12 @@ class DogBreedListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: ListView.builder(
+      return ListView.separated(
         itemCount: breeds.length,
         itemBuilder: (context, index) {
           final breed = breeds[index];
           return BreedCellWidget(breed: breed);
-        },
-      ),
+        }, separatorBuilder: (BuildContext context, int index) => const Divider(thickness: 1, height: 0),
     );
   }
 }
