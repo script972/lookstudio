@@ -20,7 +20,6 @@ class LoginLayout extends StatelessWidget {
         value: SystemUiOverlayStyle.dark,
         // check to base scaffold
         child: Scaffold(
-          backgroundColor: Colors.white,
           appBar: AppBar(
             title: Text(S.of(context).paid),
           ),

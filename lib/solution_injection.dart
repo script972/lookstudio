@@ -8,8 +8,6 @@ import 'package:solution_starter/configs/environment/environment_service.dart';
 import 'package:solution_starter/configs/environment/environment_variables.dart';
 import 'package:solution_starter/configs/environment/environment_helper.dart';
 import 'package:solution_starter/configs/app_config.dart';
-import 'package:solution_starter/core/theme/solution_theme.dart';
-import 'package:solution_starter/core/theme/vendor_theme.dart';
 import 'package:solution_starter/core/use_case.dart';
 import 'package:solution_starter/data/datasource/local/facade/auth_store.dart';
 import 'package:solution_starter/data/datasource/local/hive_auth_store.dart';
@@ -45,12 +43,6 @@ class SolutionInjection {
       ),
       Provider.value(
         value: HiveHelper(),
-      ),
-      Provider.value(
-        value: ThemeContainer(
-          VendorTheme(),
-          VendorTheme(),
-        ),
       ),
     ];
   }

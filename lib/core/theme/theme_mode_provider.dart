@@ -4,9 +4,8 @@ import 'package:solution_starter/core/theme/notifiable_builder.dart';
 typedef ThemedChildBuilder = Widget Function(BuildContext, ThemeMode);
 
 class ThemeModeProvider extends StatelessWidget {
-  ThemeModeProvider({Key? key, required ThemeMode themeMode, required this.builder})
-      : themeMode = ValueNotifier<ThemeMode>(themeMode),
-        super(key: key);
+  ThemeModeProvider({super.key, required ThemeMode themeMode, required this.builder})
+      : themeMode = ValueNotifier<ThemeMode>(themeMode);
   final ValueNotifier<ThemeMode> themeMode;
   final ThemedChildBuilder builder;
 
@@ -23,7 +22,7 @@ class ThemeModeProvider extends StatelessWidget {
             themeMode: themeMode,
             child: builder(context, themeMode.value),
           );
-        });
+        },);
   }
 }
 
