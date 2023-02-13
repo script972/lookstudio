@@ -1,5 +1,5 @@
 {
-  "@@locale": "ua",
+  "@@locale": "uk",
   "username": "Користувач",
   "at" : "у",
   "ok" : "ok",
@@ -25,5 +25,9 @@
   "profile": "Профіль",
   "incorrectUsernameOrPassword" : "Не вірний email або пароль",
   "passwordShouldntBeEmpty" : "Password should not be empty",
-  "usernameShouldntBeEmpty" : "Username should not be empty"
+  "usernameShouldntBeEmpty" : "Username should not be empty",
+  "light": "Світла",
+  "dark": "Темна",
+  "ukraine": "Українська",
+  "english": "Англійська"
 }

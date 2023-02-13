@@ -25,5 +25,9 @@
   "profile": "Profile",
   "incorrectUsernameOrPassword" : "incorrect username or password",
   "passwordShouldntBeEmpty" : "Password should not be empty",
-  "usernameShouldntBeEmpty" : "Username should not be empty"
+  "usernameShouldntBeEmpty" : "Username should not be empty",
+  "light": "Light",
+  "dark": "Dark",
+  "ukraine": "Ukrainian",
+  "english": "English"
 }
