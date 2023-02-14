@@ -1,13 +1,14 @@
+import 'package:solution_starter/data/datasource/network/services/authentication_service/authentication_service.dart';
 import 'package:solution_starter/domain/entities/result.dart';
 import 'package:solution_starter/domain/entities/user.dart';
 import 'package:solution_starter/domain/repository/auth_repository.dart';
-import 'package:solution_starter/data/datasource/network/api/auth_api.dart';
+
 
 class AuthRepositoryImpl extends AuthRepository {
   AuthRepositoryImpl({
-    required AuthApi authService,
+    required AuthenticationService authService,
   }) : _authService = authService;
-  final AuthApi _authService;
+  final AuthenticationService _authService;
 
   @override
   Future<Result<User>> login({required String email, required String password}) async {

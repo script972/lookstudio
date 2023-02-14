@@ -12,11 +12,14 @@ import 'package:solution_starter/core/use_case.dart';
 import 'package:solution_starter/data/datasource/local/facade/auth_store.dart';
 import 'package:solution_starter/data/datasource/local/hive_auth_store.dart';
 import 'package:solution_starter/data/datasource/network/api/breeds_api.dart';
-import 'package:solution_starter/data/datasource/network/services/network_service.dart';
+import 'package:solution_starter/data/datasource/network/api/breeds_api_impl.dart';
+import 'package:solution_starter/data/datasource/network/services/authentication_service/authentication_service.dart';
+import 'package:solution_starter/data/datasource/network/services/authentication_service/authentication_service_firebase_impl.dart';
+import 'package:solution_starter/data/datasource/network/services/network_service/network_service.dart';
+import 'package:solution_starter/data/datasource/network/services/network_service/network_service_impl.dart';
 import 'package:solution_starter/data/repositories/breeds_repository.dart';
 import 'package:solution_starter/domain/repository/auth_repository.dart';
 import 'package:solution_starter/data/repositories/auth_repository_impl.dart';
-import 'package:solution_starter/data/datasource/network/api/auth_api.dart';
 import 'package:solution_starter/domain/repository/breeds_repository.dart';
 import 'package:solution_starter/domain/use_cases/breeds_use_case.dart';
 import 'package:solution_starter/data/datasource/network/interceptors/token_interceptor.dart';
@@ -107,15 +110,15 @@ class SolutionInjection {
       ),
 
       //Domain services
-      ProxyProvider<NetworkService, AuthApi>(
+      ProxyProvider<NetworkService, AuthenticationService>(
         // TODO(AndriiD): why we not inject base url here?
-        update: (BuildContext context, NetworkService networkService, AuthApi? authService) {
+        update: (BuildContext context, NetworkService networkService, AuthenticationService? authService) {
           final firebaseAuth = FirebaseAuth.instance;
-          return AuthApiImpl(firebaseAuth: firebaseAuth);
+          return AuthServiceFirebaseImplementation(firebaseAuth: firebaseAuth);
         },
       ),
-      ProxyProvider<AuthApi, AuthRepository>(
-        update: (BuildContext context, AuthApi authService, AuthRepository? facade) {
+      ProxyProvider<AuthenticationService, AuthRepository>(
+        update: (BuildContext context, AuthenticationService authService, AuthRepository? facade) {
           return AuthRepositoryImpl(authService: authService);
         },
       ),
