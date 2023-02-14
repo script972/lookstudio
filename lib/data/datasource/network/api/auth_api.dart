@@ -33,7 +33,11 @@ class AuthApiImpl extends AuthApi {
     } on auth.FirebaseAuthException catch (e) {
       return NetworkResponse.failure(UnauthorizedError(error: e));
     }
-    final user = User(id: credential.credential?.providerId, email: email);
+    final user = User(
+      id: credential.credential?.providerId ?? '',
+      email: email,
+      loginDate: DateTime.now(),
+    );
     return NetworkResponse.success(user);
   }
 
@@ -50,7 +54,11 @@ class AuthApiImpl extends AuthApi {
       return NetworkResponse.failure(UnauthorizedError(error: e));
     }
 
-    final user = User(id: credential.credential?.providerId, email: email);
+    final user = User(
+      id: credential.credential?.providerId ?? '',
+      email: email,
+      loginDate: DateTime.now(),
+    );
     return NetworkResponse.success(user);
   }
 
@@ -62,7 +70,11 @@ class AuthApiImpl extends AuthApi {
     } catch (e) {
       return NetworkResponse.failure(UnauthorizedError(error: e));
     }
-    final user = User(id: googleAccount?.id, email: googleAccount?.email);
+    final user = User(
+      id: googleAccount?.id ?? '',
+      email: googleAccount?.email,
+      loginDate: DateTime.now(),
+    );
     return NetworkResponse.success(user);
   }
 

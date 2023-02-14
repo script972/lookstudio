@@ -36,6 +36,7 @@ dependencies:
   flutter_native_splash: ^2.2.17
   intl_utils: ^2.8.1
   salomon_bottom_bar: ^3.3.1
+  floor: ^1.4.1
   solution_global_provider:
     git:
       url: https://gitlab.oneplusone.solutions/mobile-department/inhouse/solution_global_provider.git
@@ -49,8 +50,7 @@ dev_dependencies:
   flutter_gen: ^5.1.0+1
   flutter_lints: ^2.0.1
   flutter_stripe: ^8.0.0+1
-
-
+  floor_generator: ^1.4.1
 
 flutter_native_splash:
   image: assets/images/icons/dog_icon.png

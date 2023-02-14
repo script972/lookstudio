@@ -5,12 +5,15 @@ import 'package:provider/provider.dart';
 import 'package:solution_global_provider/solution_global_provider.dart';
 import 'package:solution_starter/core/theme/theme_extension/radius_extension.dart';
 import 'package:solution_starter/core/theme/theme_holder.dart';
+import 'package:solution_starter/data/datasource/local/app_database.dart';
 import 'package:solution_starter/generated/l10n.dart';
 import 'package:solution_starter/navigation/app_router.dart';
 import 'package:solution_starter/solution_injection.dart';
 
 class AppEntry extends StatelessWidget {
-  AppEntry({super.key});
+
+  AppEntry({required this.database, super.key});
+  final AppDatabase database;
 
   final _router = AppRouter();
 
@@ -26,7 +29,7 @@ class AppEntry extends StatelessWidget {
   Widget build(BuildContext context) {
     FlutterNativeSplash.remove();
     return MultiProvider(
-      providers: SolutionInjection.getDiList(context),
+      providers: SolutionInjection.getDiList(context, database),
       child: Builder(
         builder: (BuildContext context) {
           return GlobalProvider<ThemeMode, ThemeMode>(
