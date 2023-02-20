@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:solution_starter/data/datasource/network/services/storage_service/storage_service.dart';
 import 'package:solution_starter/domain/entities/result.dart';
-import 'package:solution_starter/domain/repository/storage_helper.dart';
+import 'package:solution_starter/utils/storage_helper.dart';
 
 class StorageHelperImpl extends StorageHelper{
   StorageHelperImpl(this.storageService);
