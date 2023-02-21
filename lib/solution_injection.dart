@@ -9,6 +9,7 @@ import 'package:solution_starter/configs/environment/environment_variables.dart'
 import 'package:solution_starter/configs/environment/environment_helper.dart';
 import 'package:solution_starter/configs/app_config.dart';
 import 'package:solution_starter/core/use_case.dart';
+import 'package:solution_starter/data/datasource/local/app_database.dart';
 import 'package:solution_starter/data/datasource/local/facade/auth_store.dart';
 import 'package:solution_starter/data/datasource/local/hive_auth_store.dart';
 import 'package:solution_starter/data/datasource/network/api/breeds_api.dart';
@@ -26,20 +27,20 @@ import 'package:solution_starter/data/datasource/network/interceptors/token_inte
 import 'package:solution_starter/utils/hive_helper.dart';
 
 class SolutionInjection {
-  static List<SingleChildWidget> getDiList(BuildContext context) {
+  static List<SingleChildWidget> getDiList(BuildContext context, AppDatabase database) {
     final SolutionInjection injection = SolutionInjection();
-    return injection.diFactory(context);
+    return injection.diFactory(context, database);
   }
 
-  List<SingleChildWidget> diFactory(BuildContext context) {
+  List<SingleChildWidget> diFactory(BuildContext context, AppDatabase database) {
     return [
-      ..._buildIndependentServices(),
+      ..._buildIndependentServices(database),
       ..._dependentServices(context),
     ];
   }
 
   //Feel free to expand this
-  List<SingleChildWidget> _buildIndependentServices() {
+  List<SingleChildWidget> _buildIndependentServices(AppDatabase database) {
     return [
       Provider.value(
         value: AppConfig(),
@@ -47,6 +48,7 @@ class SolutionInjection {
       Provider.value(
         value: HiveHelper(),
       ),
+      Provider.value(value: database),
     ];
   }
 
@@ -117,9 +119,9 @@ class SolutionInjection {
           return AuthServiceFirebaseImplementation(firebaseAuth: firebaseAuth);
         },
       ),
-      ProxyProvider<AuthenticationService, AuthRepository>(
-        update: (BuildContext context, AuthenticationService authService, AuthRepository? facade) {
-          return AuthRepositoryImpl(authService: authService);
+      ProxyProvider2<AuthApi, AppDatabase, AuthRepository>(
+        update: (BuildContext context, AuthApi authService, AppDatabase dataBase, AuthRepository? facade) {
+          return AuthRepositoryImpl(authService: authService, appDatabase: dataBase);
         },
       ),
 

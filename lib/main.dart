@@ -5,10 +5,12 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:logger/logger.dart';
 import 'package:solution_starter/app_entry.dart';
 import 'package:solution_starter/core/logger.dart';
+import 'package:solution_starter/data/datasource/local/app_database.dart';
 
 void main(List<String> args) async {
   await configureApp();
-  runApp(AppEntry());
+  final database = await $FloorAppDatabase.databaseBuilder('app_database.db').build();
+  runApp(AppEntry(database: database));
 }
 
 Future configureApp() async {

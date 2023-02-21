@@ -28,6 +28,7 @@ class LoginCubit extends Cubit<LoginState> with CommonErrorsHandler<LoginState> 
     final response = await repository.login(email: username, password: password);
     response.maybeWhen(
       success: (data) {
+        repository.insertUser(data);
         emit(const LoginState.successfullyLogin());
       },
       error: (error) {

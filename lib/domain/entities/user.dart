@@ -1,7 +1,12 @@
-class User {
-  User({this.id, this.email, this.password});
+import 'package:floor/floor.dart';
 
-  final String? id;
+@entity
+class User {
+  User({required this.id, this.email, this.password, required this.loginDate});
+
+  @PrimaryKey()
+  final String id;
   final String? email;
   final String? password;
+  final DateTime loginDate;
 }

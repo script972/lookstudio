@@ -21,7 +21,11 @@ class AuthServiceFirebaseImplementation extends AuthenticationService {
     } on auth.FirebaseAuthException catch (e) {
       return NetworkResponse.failure(UnauthorizedError(error: e));
     }
-    final user = User(id: credential.credential?.providerId, email: email);
+    final user = User(
+      id: credential.credential?.providerId ?? '',
+      email: email,
+      loginDate: DateTime.now(),
+    );
     return NetworkResponse.success(user);
   }
 
@@ -38,7 +42,11 @@ class AuthServiceFirebaseImplementation extends AuthenticationService {
       return NetworkResponse.failure(UnauthorizedError(error: e));
     }
 
-    final user = User(id: credential.credential?.providerId, email: email);
+    final user = User(
+      id: credential.credential?.providerId ?? '',
+      email: email,
+      loginDate: DateTime.now(),
+    );
     return NetworkResponse.success(user);
   }
 
@@ -50,7 +58,11 @@ class AuthServiceFirebaseImplementation extends AuthenticationService {
     } catch (e) {
       return NetworkResponse.failure(UnauthorizedError(error: e));
     }
-    final user = User(id: googleAccount?.id, email: googleAccount?.email);
+    final user = User(
+      id: googleAccount?.id ?? '',
+      email: googleAccount?.email,
+      loginDate: DateTime.now(),
+    );
     return NetworkResponse.success(user);
   }
 }
