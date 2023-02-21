@@ -12,22 +12,22 @@ class BreedCellWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        title: Row(
-          children: [
-            Assets.images.icons.dogIcon.image(width: 15, height: 15),
-            const SizedBox(
-              width: 15,
-            ),
-            Text(
-              breed.nameFormatter,
-              style: const TextStyle(fontFamily: FontFamily.roboto),
-            )
-          ],
+    return InkWell(
+      onTap: () => context.read<BreedsBloc>().add(BreedsEvent.showInfo(breedInfo: breed)),
+        child: ListTile(
+          title: Row(
+            children: [
+              Assets.images.icons.dogIcon.image(width: 15, height: 15),
+              const SizedBox(
+                width: 15,
+              ),
+              Text(
+                breed.nameFormatter,
+                style: const TextStyle(fontFamily: FontFamily.roboto),
+              )
+            ],
+          ),
         ),
-        onTap: () => context.read<BreedsBloc>().add(BreedsEvent.showInfo(breedInfo: breed)),
-      ),
     );
   }
 }
