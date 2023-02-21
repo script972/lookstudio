@@ -9,10 +9,29 @@ class SettingCubit extends Cubit<SettingState>{
   SettingCubit({required this.storageHelper}) : super(const SettingState.initial());
     void saveThemeConfig(ThemeMode themeMode) async {
       emit(const SettingState.savingSettingState());
-      await storageHelper.saveThemeConfiguration(themeMode);
+      final result =  await storageHelper.saveThemeConfiguration(themeMode);
+    result.maybeWhen(
+      success: (data) {
+        const SettingState.successfullySavingState();
+      },
+      error: (data) {
+        const SettingState.errorSavingState();
+      },
+      orElse: SettingState.errorSavingState,
+    );
     }
      void saveLocaleConfig(String language) async {
-       await storageHelper.saveLocaleConfiguration(language);
+       emit(const SettingState.savingSettingState());
+       final result = await storageHelper.saveLocaleConfiguration(language);
+        result.maybeWhen(
+         success: (data) {
+           const SettingState.successfullySavingState();
+         },
+         error: (data) {
+           const SettingState.errorSavingState();
+         },
+         orElse: SettingState.errorSavingState,
+       );
      }
 
   final StorageHelper storageHelper;
