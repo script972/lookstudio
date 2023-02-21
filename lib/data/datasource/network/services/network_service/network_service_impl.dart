@@ -1,30 +1,9 @@
-import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:dio_smart_retry/dio_smart_retry.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/network_errors.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/request.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/response.dart';
-
-typedef OnParse<T> = T Function(dynamic);
-
-abstract class NetworkService {
-  NetworkService({
-    String? baseUrl,
-    int? connectTimeout,
-    int? receiveTimeout,
-    int? sendTimeout,
-    Iterable<Interceptor>? interceptors,
-  });
-
-  set baseUrl(String url);
-
-  Future<NetworkResponse<T>> request<T>(
-    NetworkRequest request,
-    OnParse onParse, {
-    ProgressCallback? onSentProgress,
-    ProgressCallback? onReceiveProgress,
-  });
-}
+import 'package:solution_starter/data/datasource/network/services/network_service/network_service.dart';
 
 class NetworkServiceImpl implements NetworkService {
   NetworkServiceImpl({
@@ -34,13 +13,13 @@ class NetworkServiceImpl implements NetworkService {
     int sendTimeout = defaultTimeout,
     Iterable<Interceptor>? interceptors,
   }) : _dio = Dio(
-          BaseOptions(
-            baseUrl: baseUrl,
-            connectTimeout: connectTimeout,
-            receiveTimeout: receiveTimeout,
-            sendTimeout: sendTimeout,
-          ),
-        )..interceptors.addAll([...?interceptors]) {
+    BaseOptions(
+      baseUrl: baseUrl,
+      connectTimeout: connectTimeout,
+      receiveTimeout: receiveTimeout,
+      sendTimeout: sendTimeout,
+    ),
+  )..interceptors.addAll([...?interceptors]) {
     _dio.interceptors.add(
       RetryInterceptor(dio: _dio, retryDelays: [for (int i = 1; i <= 3; i++) Duration(milliseconds: 500 * i)]),
     );
@@ -60,11 +39,11 @@ class NetworkServiceImpl implements NetworkService {
 
   @override
   Future<NetworkResponse<T>> request<T>(
-    NetworkRequest request,
-    OnParse onParse, {
-    ProgressCallback? onSentProgress,
-    ProgressCallback? onReceiveProgress,
-  }) async {
+      NetworkRequest request,
+      OnParse onParse, {
+        ProgressCallback? onSentProgress,
+        ProgressCallback? onReceiveProgress,
+      }) async {
     final options = Options()
       ..method = request.method.name
       ..headers = request.headers ?? <String, dynamic>{}
