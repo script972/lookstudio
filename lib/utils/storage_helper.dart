@@ -6,7 +6,7 @@ abstract class StorageHelper{
 
   Future<int?> getThemeConfiguration();
 
-  Future<void> saveLocaleConfiguration(String language);
+  Future<Result<void>> saveLocaleConfiguration(String language);
 
   Future<String?> getLocaleConfiguration();
 }

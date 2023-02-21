@@ -26,7 +26,7 @@ class StorageHelperImpl extends StorageHelper{
   }
 
   @override
-  Future<void> saveLocaleConfiguration(String language) {
+  Future<Result<void>> saveLocaleConfiguration(String language) {
     return storageService.saveLocaleConfiguration(language);
   }
 }

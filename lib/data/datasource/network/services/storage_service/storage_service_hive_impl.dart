@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:solution_starter/data/datasource/network/exchange_models/action_errors.dart';
 import 'package:solution_starter/data/datasource/network/services/storage_service/storage_service.dart';
 import 'package:solution_starter/domain/entities/result.dart';
 
@@ -13,8 +14,16 @@ class StorageServiceHiveImpl extends StorageService{
 
   @override
   Future<Result<void>> saveThemeConfiguration(ThemeMode themeMode) async {
-    final box = await Hive.openBox(_themeBoxKey);
-    await box.put(_themeValueKey, themeMode.index);
+    final data = themeMode.index;
+
+    try{
+      final box = await Hive.openBox(_themeBoxKey);
+      final result = await box.put(_themeValueKey, data);
+      return Result.success(result);
+    }
+    catch(error){
+      return Result.error(SavingError(error, boxName: _themeBoxKey, boxKey: _themeValueKey));
+    }
   }
 
   @override
@@ -25,9 +34,15 @@ class StorageServiceHiveImpl extends StorageService{
   }
 
   @override
-  Future<void> saveLocaleConfiguration(String language) async {
-    final box = await Hive.openBox(_localeBoxKey);
-    await box.put(_localeValueKey, language);
+  Future<Result<void>> saveLocaleConfiguration(String language) async {
+    try{
+      final box = await Hive.openBox(_localeBoxKey);
+      final result = await box.put(_localeValueKey, language);
+      return Result.success(result);
+    }
+    catch(error) {
+      return Result.error(SavingError(error, boxName: _localeBoxKey, boxKey: _localeValueKey));
+    }
   }
 
   @override
