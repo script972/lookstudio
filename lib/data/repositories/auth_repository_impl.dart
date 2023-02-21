@@ -2,6 +2,7 @@ import 'package:solution_starter/data/datasource/network/services/authentication
 import 'package:solution_starter/domain/entities/result.dart';
 import 'package:solution_starter/domain/entities/user.dart';
 import 'package:solution_starter/domain/repository/auth_repository.dart';
+import 'package:solution_starter/data/datasource/network/exchange_models/action_errors.dart';
 
 
 class AuthRepositoryImpl extends AuthRepository {

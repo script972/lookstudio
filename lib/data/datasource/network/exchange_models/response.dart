@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:solution_starter/data/datasource/network/exchange_models/network_errors.dart';
+import 'package:solution_starter/data/datasource/network/exchange_models/action_errors.dart';
 
 part 'response.freezed.dart';
 
