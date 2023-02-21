@@ -1,4 +1,5 @@
 import 'package:solution_starter/data/datasource/local/app_database.dart';
+import 'package:solution_starter/data/datasource/network/api/auth_api.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/local_errors.dart';
 import 'package:solution_starter/domain/entities/result.dart';
 import 'package:solution_starter/domain/entities/user.dart';
