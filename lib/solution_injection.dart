@@ -18,16 +18,14 @@ import 'package:solution_starter/data/datasource/network/services/authentication
 import 'package:solution_starter/data/datasource/network/services/network_service/network_service.dart';
 import 'package:solution_starter/data/datasource/network/services/network_service/network_service_impl.dart';
 import 'package:solution_starter/data/repositories/breeds_repository.dart';
-import 'package:solution_starter/utils/storage_helper_impl.dart';
+import 'package:solution_starter/data/datasource/local/storage_helper_impl.dart';
 import 'package:solution_starter/domain/repository/auth_repository.dart';
 import 'package:solution_starter/data/repositories/auth_repository_impl.dart';
 import 'package:solution_starter/domain/repository/breeds_repository.dart';
-import 'package:solution_starter/utils/storage_helper.dart';
+import 'package:solution_starter/data/datasource/local/storage_helper.dart';
 import 'package:solution_starter/domain/use_cases/breeds_use_case.dart';
 import 'package:solution_starter/data/datasource/network/interceptors/token_interceptor.dart';
 import 'package:solution_starter/utils/hive_helper.dart';
-
-import 'data/datasource/network/services/storage_service/storage_service.dart';
 import 'data/datasource/network/services/storage_service/storage_service_hive_impl.dart';
 
 class SolutionInjection {

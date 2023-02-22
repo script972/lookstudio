@@ -4,7 +4,7 @@ import 'package:solution_starter/data/datasource/network/exchange_models/action_
 import 'package:solution_starter/data/datasource/network/services/storage_service/storage_service.dart';
 import 'package:solution_starter/domain/entities/result.dart';
 
-class StorageServiceHiveImpl extends StorageService{
+class StorageServiceHiveImpl extends LocaleStorageAssistant{
 
   static const _themeBoxKey = 'themeBox';
   static const _themeValueKey = 'themeValue';

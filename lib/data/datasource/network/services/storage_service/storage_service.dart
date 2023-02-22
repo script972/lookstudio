@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:solution_starter/domain/entities/result.dart';
 
-abstract class StorageService{
+abstract class LocaleStorageAssistant{
   Future<Result<void>> saveThemeConfiguration(ThemeMode themeMode);
 
   Future<int?> getThemeConfiguration();

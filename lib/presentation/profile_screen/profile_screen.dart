@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-import 'package:solution_starter/utils/storage_helper.dart';
+import 'package:solution_starter/data/datasource/local/storage_helper.dart';
 import 'package:solution_starter/presentation/profile_screen/bloc/setting_cubit.dart';
 import 'package:solution_starter/presentation/profile_screen/profile_layout.dart';
 

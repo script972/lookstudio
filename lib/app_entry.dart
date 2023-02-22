@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:solution_global_provider/solution_global_provider.dart';
 import 'package:solution_starter/core/theme/theme_extension/radius_extension.dart';
 import 'package:solution_starter/core/theme/theme_holder.dart';
-import 'package:solution_starter/utils/storage_helper.dart';
+import 'package:solution_starter/data/datasource/local/storage_helper.dart';
 import 'package:solution_starter/generated/l10n.dart';
 import 'package:solution_starter/navigation/app_router.dart';
 import 'package:solution_starter/solution_injection.dart';
