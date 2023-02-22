@@ -5,6 +5,7 @@ import 'package:solution_starter/presentation/breeds_screen/breeds_screen.dart';
 import 'package:solution_starter/presentation/clients_screen/client_info_screen.dart';
 import 'package:solution_starter/presentation/clients_screen/clients_screen.dart';
 import 'package:solution_starter/presentation/home_screen/home_screen.dart';
+import 'package:solution_starter/presentation/home_screen/home_wrapper.dart';
 import 'package:solution_starter/presentation/login_screen/login_screen.dart';
 import 'package:solution_starter/presentation/profile_screen/profile_screen.dart';
 import 'package:solution_starter/presentation/profile_screen/settings/setting_screen.dart';
