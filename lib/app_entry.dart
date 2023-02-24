@@ -44,16 +44,16 @@ class AppEntry extends StatelessWidget {
                             future: getLocale(context),
                             initValue: const Locale('en'),
                             builder: (context, locale) {
+                              final themeExtensions = <ThemeExtension>[
+                                RadiusExtension.instance,
+                              ];
+
                               return MaterialApp.router(
                                 title: 'Silverstone',
-                                theme: lightTheme.copyWith(
-                                  extensions: <ThemeExtension>[
-                                    RadiusExtension.instance,
-                                  ],),
-                                darkTheme: darkTheme.copyWith(
-                                  extensions: <ThemeExtension>[
-                                    RadiusExtension.instance,
-                                  ],),
+                                theme: ThemeContainer.lightTheme.copyWith(
+                                  extensions: themeExtensions),
+                                darkTheme: ThemeContainer.darkTheme.copyWith(
+                                  extensions: themeExtensions),
                                 themeMode: themeMode,
                                 routerDelegate: _router.delegate(),
                                 routeInformationParser: _router

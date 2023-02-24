@@ -1,236 +1,508 @@
 import 'package:flutter/material.dart';
+import 'package:solution_starter/configs/environment/environment_variables.dart';
 import 'package:solution_starter/core/theme/theme_palette/default_palette.dart';
 
-ThemeData get lightTheme {
-  return ThemeData(
-    primarySwatch: DefaultPalette.kToDark,
-    backgroundColor: DefaultPalette.deepPurpleAccent,
-    disabledColor: DefaultPalette.deepPurpleAccent,
-    primaryColor: DefaultPalette.deepPurpleAccent,
-    dividerColor: DefaultPalette.deepPurpleAccent,
-    unselectedWidgetColor: DefaultPalette.deepPurpleAccent,
-    toggleableActiveColor: DefaultPalette.deepPurpleAccent,
-    hintColor: DefaultPalette.deepPurpleAccent,
-    appBarTheme: const AppBarTheme(
-      shadowColor: DefaultPalette.deepPurpleAccent,
-      color: DefaultPalette.deepPurpleAccent,
-    ),
-    iconTheme: const IconThemeData(color: DefaultPalette.deepPurpleAccent),
-    inputDecorationTheme: const InputDecorationTheme(
-      errorBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent),
-      ),
-      focusedErrorBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
-      )),
-    errorColor: DefaultPalette.redAccent,
-    scaffoldBackgroundColor: DefaultPalette.whiteBackground,
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: DefaultPalette.whiteBackground,
-      elevation: 8.0,
-      selectedItemColor: DefaultPalette.whiteBackground,
-      unselectedItemColor: DefaultPalette.whiteBackground,
-    ),
-    textTheme: const TextTheme(
-      headline1: TextStyle(
-        color: DefaultPalette.deepPurpleAccent,
-        fontWeight: FontWeight.w400,
-        fontSize: 96,
-        letterSpacing: -1.5,
-      ),
-      headline2: TextStyle(
-        color: DefaultPalette.deepPurpleAccent,
-        fontWeight: FontWeight.w400,
-        fontSize: 60,
-        letterSpacing: -0.5,
-      ),
-      headline3: TextStyle(
-        color: DefaultPalette.deepPurpleAccent,
-        fontWeight: FontWeight.w400,
-        fontSize: 48,
-        letterSpacing: 0,
-      ),
-      headline4: TextStyle(
-        color: DefaultPalette.deepPurpleAccent,
-        fontWeight: FontWeight.w400,
-        fontSize: 34,
-        letterSpacing: 0,
-      ),
-      headline5: TextStyle(
-        color: DefaultPalette.deepPurpleAccent,
-        fontSize: 24,
-        letterSpacing: 0.18,
-        fontWeight: FontWeight.w400,
-      ),
-      headline6: TextStyle(
-        color: DefaultPalette.deepPurpleAccent,
-        fontSize: 20,
-        letterSpacing: 0.15,
-        fontWeight: FontWeight.w500,
-      ),
-      subtitle1: TextStyle(
-        color: DefaultPalette.deepPurpleAccent,
-        fontWeight: FontWeight.w400,
-        fontSize: 16,
-        letterSpacing: 0.15,
-      ),
-      subtitle2: TextStyle(
-        color: DefaultPalette.deepPurpleAccent,
-        fontWeight: FontWeight.w500,
-        fontSize: 14,
-        letterSpacing: 0.1,
-      ),
-      bodyText1: TextStyle(
-        color: DefaultPalette.deepPurpleAccent,
-        fontWeight: FontWeight.w400,
-        fontSize: 16,
-        letterSpacing: 0.5,
-      ),
-      bodyText2: TextStyle(
-        color: DefaultPalette.deepPurpleAccent,
-        fontWeight: FontWeight.w400,
-        fontSize: 14,
-        letterSpacing: 0.25,
-      ),
-      button: TextStyle(
-        color: DefaultPalette.deepPurpleAccent,
-        fontWeight: FontWeight.w500,
-        fontSize: 14,
-        letterSpacing: 1.25,
-      ),
-      caption: TextStyle(
-        color: DefaultPalette.deepPurpleAccent,
-        fontWeight: FontWeight.w400, // Normal
-        fontSize: 12,
-        letterSpacing: 0.4,
-      ),
-      overline: TextStyle(
-        color: DefaultPalette.deepPurpleAccent,
-        fontSize: 10,
-        letterSpacing: 1.5,
-        fontWeight: FontWeight.w500,
-      ),
-    ).apply(fontFamily: 'Roboto'),
-  );
+abstract class ThemeContainer {
+  static ThemeData get lightTheme => _vendorTheme.lightTheme;
 
+  static ThemeData get darkTheme => _vendorTheme.darkTheme;
+
+  static const _isVendorTheme1 = EnvironmentVariables.vendorThemeConfiguration == 1;
+  static const _isVendorTheme2 = EnvironmentVariables.vendorThemeConfiguration == 2;
+
+  static final _vendorTheme1 = VendorTheme1();
+  static final _vendorTheme2 = VendorTheme2();
+  static final _defaultVendorTheme = _vendorTheme1;
+
+  static VendorTheme get _vendorTheme {
+    if (_isVendorTheme1) return _vendorTheme1;
+    if (_isVendorTheme2) return _vendorTheme2;
+    return _defaultVendorTheme;
+  }
 }
 
-ThemeData get darkTheme {
-  return ThemeData(
-    primarySwatch: DefaultPalette.kToDark,
-    backgroundColor: DefaultPalette.deepPurpleAccent,
-    disabledColor: DefaultPalette.deepPurpleAccent,
-    primaryColor: DefaultPalette.deepPurpleAccent,
-    dividerColor: DefaultPalette.deepPurpleAccent,
-    unselectedWidgetColor: DefaultPalette.deepPurpleAccent,
-    toggleableActiveColor: DefaultPalette.deepPurpleAccent,
-    hintColor: DefaultPalette.deepPurpleAccent,
-    appBarTheme: const AppBarTheme(
-      shadowColor: Colors.black,
-      color: DefaultPalette.deepPurpleAccent,
-    ),
-    iconTheme: const IconThemeData(color: DefaultPalette.deepPurpleAccent),
-    inputDecorationTheme: const InputDecorationTheme(
-        errorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent),
+abstract class VendorTheme {
+  ThemeData get lightTheme;
+
+  ThemeData get darkTheme;
+}
+
+class VendorTheme1 implements VendorTheme {
+  @override
+  ThemeData get lightTheme {
+    return ThemeData(
+      primarySwatch: DefaultPalette.kToDark,
+      backgroundColor: DefaultPalette.deepPurpleAccent,
+      disabledColor: DefaultPalette.deepPurpleAccent,
+      primaryColor: DefaultPalette.deepPurpleAccent,
+      dividerColor: DefaultPalette.deepPurpleAccent,
+      unselectedWidgetColor: DefaultPalette.deepPurpleAccent,
+      toggleableActiveColor: DefaultPalette.deepPurpleAccent,
+      hintColor: DefaultPalette.deepPurpleAccent,
+      appBarTheme: const AppBarTheme(
+        shadowColor: DefaultPalette.deepPurpleAccent,
+        color: DefaultPalette.deepPurpleAccent,
+      ),
+      iconTheme: const IconThemeData(color: DefaultPalette.deepPurpleAccent),
+      inputDecorationTheme: const InputDecorationTheme(
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderSide:
+                BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide:
+                BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
+          )),
+      errorColor: DefaultPalette.redAccent,
+      scaffoldBackgroundColor: DefaultPalette.whiteBackground,
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        backgroundColor: DefaultPalette.whiteBackground,
+        elevation: 8.0,
+        selectedItemColor: DefaultPalette.whiteBackground,
+        unselectedItemColor: DefaultPalette.whiteBackground,
+      ),
+      textTheme: const TextTheme(
+        headline1: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontWeight: FontWeight.w400,
+          fontSize: 96,
+          letterSpacing: -1.5,
         ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
+        headline2: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontWeight: FontWeight.w400,
+          fontSize: 60,
+          letterSpacing: -0.5,
         ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
-        )),
-    errorColor: DefaultPalette.redAccent,
-    scaffoldBackgroundColor: DefaultPalette.whiteBackground,
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: DefaultPalette.whiteBackground,
-      elevation: 8.0,
-      selectedItemColor: DefaultPalette.whiteBackground,
-      unselectedItemColor: DefaultPalette.whiteBackground,
-    ),
-    textTheme: const TextTheme(
-      headline1: TextStyle(
-        color: DefaultPalette.whiteBackground,
-        fontWeight: FontWeight.w400,
-        fontSize: 96,
-        letterSpacing: -1.5,
-      ),
-      headline2: TextStyle(
-        color: DefaultPalette.whiteBackground,
-        fontWeight: FontWeight.w400,
-        fontSize: 60,
-        letterSpacing: -0.5,
-      ),
-      headline3: TextStyle(
-        color: DefaultPalette.whiteBackground,
-        fontWeight: FontWeight.w400,
-        fontSize: 48,
-        letterSpacing: 0,
-      ),
-      headline4: TextStyle(
-        color: DefaultPalette.whiteBackground,
-        fontWeight: FontWeight.w400,
-        fontSize: 34,
-        letterSpacing: 0,
-      ),
-      headline5: TextStyle(
-        color: DefaultPalette.whiteBackground,
-        fontSize: 24,
-        letterSpacing: 0.18,
-        fontWeight: FontWeight.w400,
-      ),
-      headline6: TextStyle(
-        color: DefaultPalette.whiteBackground,
-        fontSize: 20,
-        letterSpacing: 0.15,
-        fontWeight: FontWeight.w500,
-      ),
-      subtitle1: TextStyle(
-        color: DefaultPalette.whiteBackground,
-        fontWeight: FontWeight.w400,
-        fontSize: 16,
-        letterSpacing: 0.15,
-      ),
-      subtitle2: TextStyle(
-        color: DefaultPalette.whiteBackground,
-        fontWeight: FontWeight.w500,
-        fontSize: 14,
-        letterSpacing: 0.1,
-      ),
-      bodyText1: TextStyle(
-        color: DefaultPalette.whiteBackground,
-        fontWeight: FontWeight.w400,
-        fontSize: 16,
-        letterSpacing: 0.5,
-      ),
-      bodyText2: TextStyle(
-        color: DefaultPalette.whiteBackground,
-        fontWeight: FontWeight.w400,
-        fontSize: 14,
-        letterSpacing: 0.25,
-      ),
-      button: TextStyle(
-        color: DefaultPalette.whiteBackground,
-        fontWeight: FontWeight.w500,
-        fontSize: 14,
-        letterSpacing: 1.25,
-      ),
-      caption: TextStyle(
-        color: DefaultPalette.whiteBackground,
-        fontWeight: FontWeight.w400, // Normal
-        fontSize: 12,
-        letterSpacing: 0.4,
-      ),
-      overline: TextStyle(
-        color: DefaultPalette.whiteBackground,
-        fontSize: 10,
-        letterSpacing: 1.5,
-        fontWeight: FontWeight.w500,
-      ),
-    ).apply(fontFamily: 'Roboto'), // Todo: check generation assets
-  );
+        headline3: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontWeight: FontWeight.w400,
+          fontSize: 48,
+          letterSpacing: 0,
+        ),
+        headline4: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontWeight: FontWeight.w400,
+          fontSize: 34,
+          letterSpacing: 0,
+        ),
+        headline5: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontSize: 24,
+          letterSpacing: 0.18,
+          fontWeight: FontWeight.w400,
+        ),
+        headline6: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontSize: 20,
+          letterSpacing: 0.15,
+          fontWeight: FontWeight.w500,
+        ),
+        subtitle1: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontWeight: FontWeight.w400,
+          fontSize: 16,
+          letterSpacing: 0.15,
+        ),
+        subtitle2: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontWeight: FontWeight.w500,
+          fontSize: 14,
+          letterSpacing: 0.1,
+        ),
+        bodyText1: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontWeight: FontWeight.w400,
+          fontSize: 16,
+          letterSpacing: 0.5,
+        ),
+        bodyText2: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+          letterSpacing: 0.25,
+        ),
+        button: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontWeight: FontWeight.w500,
+          fontSize: 14,
+          letterSpacing: 1.25,
+        ),
+        caption: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontWeight: FontWeight.w400, // Normal
+          fontSize: 12,
+          letterSpacing: 0.4,
+        ),
+        overline: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontSize: 10,
+          letterSpacing: 1.5,
+          fontWeight: FontWeight.w500,
+        ),
+      ).apply(fontFamily: 'Roboto'),
+    );
   }
 
+  @override
+  ThemeData get darkTheme {
+    return ThemeData(
+      primarySwatch: DefaultPalette.kToDark,
+      backgroundColor: DefaultPalette.deepPurpleAccent,
+      disabledColor: DefaultPalette.deepPurpleAccent,
+      primaryColor: DefaultPalette.deepPurpleAccent,
+      dividerColor: DefaultPalette.deepPurpleAccent,
+      unselectedWidgetColor: DefaultPalette.deepPurpleAccent,
+      toggleableActiveColor: DefaultPalette.deepPurpleAccent,
+      hintColor: DefaultPalette.deepPurpleAccent,
+      appBarTheme: const AppBarTheme(
+        shadowColor: Colors.black,
+        color: DefaultPalette.deepPurpleAccent,
+      ),
+      iconTheme: const IconThemeData(color: DefaultPalette.deepPurpleAccent),
+      inputDecorationTheme: const InputDecorationTheme(
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderSide:
+                BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide:
+                BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
+          )),
+      errorColor: DefaultPalette.redAccent,
+      scaffoldBackgroundColor: DefaultPalette.whiteBackground,
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        backgroundColor: DefaultPalette.whiteBackground,
+        elevation: 8.0,
+        selectedItemColor: DefaultPalette.whiteBackground,
+        unselectedItemColor: DefaultPalette.whiteBackground,
+      ),
+      textTheme: const TextTheme(
+        headline1: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w400,
+          fontSize: 96,
+          letterSpacing: -1.5,
+        ),
+        headline2: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w400,
+          fontSize: 60,
+          letterSpacing: -0.5,
+        ),
+        headline3: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w400,
+          fontSize: 48,
+          letterSpacing: 0,
+        ),
+        headline4: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w400,
+          fontSize: 34,
+          letterSpacing: 0,
+        ),
+        headline5: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontSize: 24,
+          letterSpacing: 0.18,
+          fontWeight: FontWeight.w400,
+        ),
+        headline6: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontSize: 20,
+          letterSpacing: 0.15,
+          fontWeight: FontWeight.w500,
+        ),
+        subtitle1: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w400,
+          fontSize: 16,
+          letterSpacing: 0.15,
+        ),
+        subtitle2: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w500,
+          fontSize: 14,
+          letterSpacing: 0.1,
+        ),
+        bodyText1: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w400,
+          fontSize: 16,
+          letterSpacing: 0.5,
+        ),
+        bodyText2: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+          letterSpacing: 0.25,
+        ),
+        button: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w500,
+          fontSize: 14,
+          letterSpacing: 1.25,
+        ),
+        caption: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w400, // Normal
+          fontSize: 12,
+          letterSpacing: 0.4,
+        ),
+        overline: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontSize: 10,
+          letterSpacing: 1.5,
+          fontWeight: FontWeight.w500,
+        ),
+      ).apply(fontFamily: 'Roboto'), // Todo: check generation assets
+    );
+  }
+}
+
+class VendorTheme2 implements VendorTheme {
+  @override
+  ThemeData get lightTheme {
+    return ThemeData(
+      primarySwatch: DefaultPalette.kToDark,
+      backgroundColor: DefaultPalette.deepPurpleAccent,
+      disabledColor: DefaultPalette.redAccent,
+      primaryColor: DefaultPalette.redAccent,
+      dividerColor: DefaultPalette.redAccent,
+      unselectedWidgetColor: DefaultPalette.redAccent,
+      toggleableActiveColor: DefaultPalette.redAccent,
+      hintColor: DefaultPalette.redAccent,
+      appBarTheme: const AppBarTheme(
+        shadowColor: DefaultPalette.redAccent,
+        color: DefaultPalette.redAccent,
+      ),
+      iconTheme: const IconThemeData(color: DefaultPalette.redAccent),
+      inputDecorationTheme: const InputDecorationTheme(
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderSide:
+                BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide:
+                BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
+          )),
+      errorColor: DefaultPalette.redAccent,
+      scaffoldBackgroundColor: DefaultPalette.whiteBackground,
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        backgroundColor: DefaultPalette.redAccent,
+        elevation: 8.0,
+        selectedItemColor: DefaultPalette.redAccent,
+        unselectedItemColor: DefaultPalette.redAccent,
+      ),
+      textTheme: const TextTheme(
+        headline1: TextStyle(
+          color: DefaultPalette.redAccent,
+          fontWeight: FontWeight.w400,
+          fontSize: 96,
+          letterSpacing: -1.5,
+        ),
+        headline2: TextStyle(
+          color: DefaultPalette.redAccent,
+          fontWeight: FontWeight.w400,
+          fontSize: 60,
+          letterSpacing: -0.5,
+        ),
+        headline3: TextStyle(
+          color: DefaultPalette.redAccent,
+          fontWeight: FontWeight.w400,
+          fontSize: 48,
+          letterSpacing: 0,
+        ),
+        headline4: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontWeight: FontWeight.w400,
+          fontSize: 34,
+          letterSpacing: 0,
+        ),
+        headline5: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontSize: 24,
+          letterSpacing: 0.18,
+          fontWeight: FontWeight.w400,
+        ),
+        headline6: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontSize: 20,
+          letterSpacing: 0.15,
+          fontWeight: FontWeight.w500,
+        ),
+        subtitle1: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontWeight: FontWeight.w400,
+          fontSize: 16,
+          letterSpacing: 0.15,
+        ),
+        subtitle2: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontWeight: FontWeight.w500,
+          fontSize: 14,
+          letterSpacing: 0.1,
+        ),
+        bodyText1: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontWeight: FontWeight.w400,
+          fontSize: 16,
+          letterSpacing: 0.5,
+        ),
+        bodyText2: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+          letterSpacing: 0.25,
+        ),
+        button: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontWeight: FontWeight.w500,
+          fontSize: 14,
+          letterSpacing: 1.25,
+        ),
+        caption: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontWeight: FontWeight.w400, // Normal
+          fontSize: 12,
+          letterSpacing: 0.4,
+        ),
+        overline: TextStyle(
+          color: DefaultPalette.deepPurpleAccent,
+          fontSize: 10,
+          letterSpacing: 1.5,
+          fontWeight: FontWeight.w500,
+        ),
+      ).apply(fontFamily: 'Roboto'),
+    );
+  }
+
+  @override
+  ThemeData get darkTheme {
+    return ThemeData(
+      primarySwatch: DefaultPalette.kToDark,
+      backgroundColor: DefaultPalette.deepPurpleAccent,
+      disabledColor: DefaultPalette.deepPurpleAccent,
+      primaryColor: DefaultPalette.deepPurpleAccent,
+      dividerColor: DefaultPalette.deepPurpleAccent,
+      unselectedWidgetColor: DefaultPalette.deepPurpleAccent,
+      toggleableActiveColor: DefaultPalette.deepPurpleAccent,
+      hintColor: DefaultPalette.deepPurpleAccent,
+      appBarTheme: const AppBarTheme(
+        shadowColor: Colors.black,
+        color: DefaultPalette.deepPurpleAccent,
+      ),
+      iconTheme: const IconThemeData(color: DefaultPalette.deepPurpleAccent),
+      inputDecorationTheme: const InputDecorationTheme(
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderSide:
+                BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide:
+                BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
+          )),
+      errorColor: DefaultPalette.redAccent,
+      scaffoldBackgroundColor: DefaultPalette.whiteBackground,
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        backgroundColor: DefaultPalette.whiteBackground,
+        elevation: 8.0,
+        selectedItemColor: DefaultPalette.whiteBackground,
+        unselectedItemColor: DefaultPalette.whiteBackground,
+      ),
+      textTheme: const TextTheme(
+        headline1: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w400,
+          fontSize: 96,
+          letterSpacing: -1.5,
+        ),
+        headline2: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w400,
+          fontSize: 60,
+          letterSpacing: -0.5,
+        ),
+        headline3: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w400,
+          fontSize: 48,
+          letterSpacing: 0,
+        ),
+        headline4: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w400,
+          fontSize: 34,
+          letterSpacing: 0,
+        ),
+        headline5: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontSize: 24,
+          letterSpacing: 0.18,
+          fontWeight: FontWeight.w400,
+        ),
+        headline6: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontSize: 20,
+          letterSpacing: 0.15,
+          fontWeight: FontWeight.w500,
+        ),
+        subtitle1: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w400,
+          fontSize: 16,
+          letterSpacing: 0.15,
+        ),
+        subtitle2: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w500,
+          fontSize: 14,
+          letterSpacing: 0.1,
+        ),
+        bodyText1: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w400,
+          fontSize: 16,
+          letterSpacing: 0.5,
+        ),
+        bodyText2: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+          letterSpacing: 0.25,
+        ),
+        button: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w500,
+          fontSize: 14,
+          letterSpacing: 1.25,
+        ),
+        caption: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w400, // Normal
+          fontSize: 12,
+          letterSpacing: 0.4,
+        ),
+        overline: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontSize: 10,
+          letterSpacing: 1.5,
+          fontWeight: FontWeight.w500,
+        ),
+      ).apply(fontFamily: 'Roboto'), // Todo: check generation assets
+    );
+  }
+}
