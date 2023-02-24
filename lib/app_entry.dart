@@ -11,9 +11,10 @@ import 'package:solution_starter/navigation/app_router.dart';
 import 'package:solution_starter/solution_injection.dart';
 
 class AppEntry extends StatelessWidget {
+  AppEntry({required this.database, super.key, required this.authenticated});
 
-  AppEntry({required this.database, super.key});
   final AppDatabase database;
+  final bool authenticated;
 
   final _router = AppRouter();
 
@@ -44,15 +45,20 @@ class AppEntry extends StatelessWidget {
                 builder: (context, locale) {
                   return MaterialApp.router(
                     title: 'Silverstone',
-                      theme: lightTheme.copyWith(
-                    extensions: <ThemeExtension>[
-                      RadiusExtension.instance,
-                    ],),
+                    theme: lightTheme.copyWith(
+                      extensions: <ThemeExtension>[
+                        RadiusExtension.instance,
+                      ],
+                    ),
                     darkTheme: darkTheme.copyWith(
-                  extensions: <ThemeExtension>[
-                  RadiusExtension.instance,],),
+                      extensions: <ThemeExtension>[
+                        RadiusExtension.instance,
+                      ],
+                    ),
                     themeMode: themeMode,
-                    routerDelegate: _router.delegate(),
+                    routerDelegate: _router.delegate(
+                      initialRoutes: [authenticated ? const HomeRoute() : const LoginRoute()],
+                    ),
                     routeInformationParser: _router.defaultRouteParser(),
                     localizationsDelegates: const [
                       S.delegate,
@@ -72,4 +78,3 @@ class AppEntry extends StatelessWidget {
     );
   }
 }
-
