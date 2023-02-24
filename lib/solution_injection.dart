@@ -119,8 +119,8 @@ class SolutionInjection {
           return AuthServiceFirebaseImplementation(firebaseAuth: firebaseAuth);
         },
       ),
-      ProxyProvider2<AuthApi, AppDatabase, AuthRepository>(
-        update: (BuildContext context, AuthApi authService, AppDatabase dataBase, AuthRepository? facade) {
+      ProxyProvider2<AuthenticationService, AppDatabase, AuthRepository>(
+        update: (BuildContext context, AuthenticationService authService, AppDatabase dataBase, AuthRepository? facade) {
           return AuthRepositoryImpl(authService: authService, appDatabase: dataBase);
         },
       ),

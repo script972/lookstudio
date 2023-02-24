@@ -1,6 +1,6 @@
 import 'package:solution_starter/data/datasource/local/app_database.dart';
-import 'package:solution_starter/data/datasource/network/api/auth_api.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/local_errors.dart';
+import 'package:solution_starter/data/datasource/network/services/authentication_service/authentication_service.dart';
 import 'package:solution_starter/domain/entities/result.dart';
 import 'package:solution_starter/domain/entities/user.dart';
 import 'package:solution_starter/domain/repository/auth_repository.dart';
@@ -8,11 +8,11 @@ import 'package:solution_starter/domain/repository/auth_repository.dart';
 
 class AuthRepositoryImpl extends AuthRepository {
   AuthRepositoryImpl({
-    required AuthApi authService,
+    required AuthenticationService authService,
     required AppDatabase appDatabase,
   })  : _authService = authService,
         _appDatabase = appDatabase;
-  final AuthApi _authService;
+  final AuthenticationService _authService;
   final AppDatabase _appDatabase;
 
   @override
