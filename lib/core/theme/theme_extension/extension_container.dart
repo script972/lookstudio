@@ -15,7 +15,7 @@ class ExtensionContainer{
 
   final themeExtensions1 = <ThemeExtension>[
     RadiusExtension1.instance,
-    SizeExtension.instance
+    SizeExtension1.instance
   ];
 
   final themeExtensions2 = [

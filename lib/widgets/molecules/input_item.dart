@@ -162,7 +162,7 @@ class _InputItemState extends State<InputItem> {
 
 
   Widget _selectHideIcon() {
-    final sizeTheme = Theme.of(context).extension<SizeExtension>()!;
+    final sizeTheme = Theme.of(context).extension<SizeExtension1>()!;
     return GestureDetector(
       onTap: () {
         _toggleObscure();
