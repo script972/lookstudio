@@ -44,10 +44,7 @@ class AppEntry extends StatelessWidget {
                             future: getLocale(context),
                             initValue: const Locale('en'),
                             builder: (context, locale) {
-                              final themeExtensions = <ThemeExtension>[
-                                RadiusExtension.instance,
-                              ];
-
+                              final themeExtensions = ExtensionContainer().returnExtension();
                               return MaterialApp.router(
                                 title: 'Silverstone',
                                 theme: ThemeContainer.lightTheme.copyWith(

@@ -134,7 +134,7 @@ class ButtonItem extends TextButton {
     Color? forceBgColor,
   }) {
     if (filledType == BackgroundType.empty) {
-      final radiusTheme = Theme.of(context).extension<RadiusExtension>()!;
+      final radiusTheme = Theme.of(context).extension<RadiusExtension1>()!;
       return MaterialStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(radiusTheme.buttonBorderRadius),
@@ -145,7 +145,7 @@ class ButtonItem extends TextButton {
         ),
       );
     }
-    final radiusTheme = Theme.of(context).extension<RadiusExtension>()!;
+    final radiusTheme = Theme.of(context).extension<RadiusExtension1>()!;
     return MaterialStateProperty.all<RoundedRectangleBorder>(
 
       RoundedRectangleBorder(
