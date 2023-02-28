@@ -71,8 +71,17 @@ class AuthRepositoryImpl extends AuthRepository {
   }
 
   @override
-  Future<void> removeUser(User model) async => ToUserEntity().call(model);
+  Future<void> removeUser(User user) async {
+    final castModel = ToUserEntity().call(user);
+    await _appDatabase.userDao.deleteUser(castModel);
+  }
 
+  @override
+  Future<User?> findPersonById(User user) async {
+    final castModel =  ToUserEntity().call(user);
+    await _appDatabase.userDao.findPersonById(castModel.id as int);
+    return null;
+  }
 }
 
 

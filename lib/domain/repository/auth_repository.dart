@@ -14,9 +14,11 @@ abstract class AuthRepository {
 
   Future<Result<User>> googleLogin();
 
-  Future<void> removeUser(User model);
+  Future<void> removeUser(User user);
 
   Future<void> addUser(User user);
 
   Future<Result<List<User>>> getSavedUsers();
+
+  Future<User?> findPersonById(User user);
 }
