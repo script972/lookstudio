@@ -7,11 +7,12 @@ import 'package:solution_starter/app_entry.dart';
 import 'package:solution_starter/core/logger.dart';
 import 'package:solution_starter/data/datasource/local/app_database.dart';
 
+
 void main(List<String> args) async {
   await configureApp();
   final database = await $FloorAppDatabase.databaseBuilder('app_database.db').build();
-  final usersList =  await database.userDao.getAllUsers();
-  runApp(AppEntry(database: database, authenticated:usersList.isNotEmpty));
+  final table = await database.database.rawQuery('SELECT * FROM UserEntity');
+  runApp(AppEntry(database: database, authenticated: [database.userDao.getAllUsers()].isNotEmpty && table.isNotEmpty));
 }
 
 Future configureApp() async {
