@@ -9,6 +9,9 @@ abstract class UserDao {
   @Insert(onConflict: OnConflictStrategy.replace)
   Future<void> insertUser(UserEntity user);
 
+  @Query('SELECT * FROM UserEntity WHERE id = :id')
+  Future<UserEntity?> findPersonById(int id);
+
   @delete
-  Future<void> deleteUser(UserEntity model);
+  Future<void> deleteUser(UserEntity user);
 }
