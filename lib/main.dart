@@ -11,7 +11,8 @@ import 'package:solution_starter/data/datasource/local/app_database.dart';
 void main(List<String> args) async {
   await configureApp();
   final database = await $FloorAppDatabase.databaseBuilder('app_database.db').build();
-  runApp(AppEntry(database: database));
+  final usersList =  await database.userDao.getAllUsers();
+  runApp(AppEntry(database: database, authenticated:usersList.isNotEmpty));
 }
 
 Future configureApp() async {
