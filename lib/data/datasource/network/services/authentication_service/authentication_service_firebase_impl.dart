@@ -3,7 +3,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/network_errors.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/response.dart';
 import 'package:solution_starter/data/datasource/network/services/authentication_service/authentication_service.dart';
-import 'package:solution_starter/domain/entities/user.dart';
+import 'package:solution_starter/data/model/user.dart';
 
 class AuthServiceFirebaseImplementation extends AuthenticationService {
   AuthServiceFirebaseImplementation({required auth.FirebaseAuth firebaseAuth})

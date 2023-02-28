@@ -1,5 +1,5 @@
 import 'package:solution_starter/domain/entities/result.dart';
-import 'package:solution_starter/domain/entities/user.dart';
+import 'package:solution_starter/data/model/user.dart';
 
 abstract class AuthRepository {
   Future<Result<User>> register({
@@ -16,7 +16,7 @@ abstract class AuthRepository {
 
   Future<void> removeUser(User model);
 
-  Future<void> insertUser(User model);
+  Future<void> addUser(User user);
 
   Future<Result<List<User>>> getSavedUsers();
 }

@@ -2,8 +2,10 @@ import 'package:solution_starter/data/datasource/local/app_database.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/local_errors.dart';
 import 'package:solution_starter/data/datasource/network/services/authentication_service/authentication_service.dart';
 import 'package:solution_starter/domain/entities/result.dart';
-import 'package:solution_starter/domain/entities/user.dart';
+import 'package:solution_starter/data/model/user.dart';
+import 'package:solution_starter/domain/entities/user_entity.dart';
 import 'package:solution_starter/domain/repository/auth_repository.dart';
+import 'package:solution_starter/domain/use_cases/maper.dart';
 
 
 class AuthRepositoryImpl extends AuthRepository {
@@ -44,19 +46,33 @@ class AuthRepositoryImpl extends AuthRepository {
   }
 
   @override
-  Future<Result<List<User>>> getSavedUsers() async {
-    late final List<User> users;
+  Future<Result<List<User>>>getSavedUsers() async {
+    late final List<UserEntity> entityUser;
     try {
-      users = await _appDatabase.userDao.getAllUsers();
+      entityUser = await _appDatabase.userDao.getAllUsers();
     } catch (e) {
       return Result.error(DataBaseError(error: e, query: 'getSavedUsers'));
     }
+
+    final List<User> users = [];
+
+    for(var user in entityUser){
+      final result = ToModel().call(user);
+      users.add(result);
+    }
+
     return Result.success(users);
   }
 
   @override
-  Future<void> insertUser(User model) async => _appDatabase.userDao.insertUser(model);
+  Future<void> addUser(User user) async {
+    final castModel = ToUserEntity().call(user);
+    await _appDatabase.userDao.insertUser(castModel);
+  }
 
   @override
-  Future<void> removeUser(User model) async => _appDatabase.userDao.deleteUser(model);
+  Future<void> removeUser(User model) async => ToUserEntity().call(model);
+
 }
+
+
