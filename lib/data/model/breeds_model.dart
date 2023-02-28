@@ -20,7 +20,7 @@ class BreedsModel extends Breeds {
           dogs.add(BreedInfo(breed, subBreed));
         }
       } else {
-        dogs.add(BreedInfo(breed));
+        dogs.add(BreedInfo(breed),);
       }
     });
     return BreedsModel(breedList: dogs, status: status);
