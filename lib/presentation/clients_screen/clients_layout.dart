@@ -12,17 +12,24 @@ class ClientsLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final router = AppRouter();
     final clients = Client.clients;
     return BlocConsumer<ClientCubit, ClientScreenState>(
       listener: (context, state) {
-
+        if(state is ErrorState) {
+          const Center(child: Text('ErrorState'));
+        }
       },
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
             actions: [
               IconButton(
-                onPressed: () => context.read<ClientCubit>().logOutUser(),
+                onPressed: () {
+                 context.read<ClientCubit>().logOutUser();
+                 AutoRouter.of(context);
+                 context.router.popAndPush(const SignUpRoute());
+                 },
                 icon: const Icon(Icons.remove_circle_outline_rounded),
               )
             ],
