@@ -12,13 +12,15 @@ class AuthRepositoryImpl extends AuthRepository {
   AuthRepositoryImpl({
     required AuthenticationService authService,
     required AppDatabase appDatabase,
-  })  : _authService = authService,
+  })
+      : _authService = authService,
         _appDatabase = appDatabase;
   final AuthenticationService _authService;
   final AppDatabase _appDatabase;
 
   @override
-  Future<Result<User>> login({required String email, required String password}) async {
+  Future<Result<User>> login(
+      {required String email, required String password}) async {
     // Request
     final response = await _authService.login(email, password);
     return response.when(
@@ -28,7 +30,8 @@ class AuthRepositoryImpl extends AuthRepository {
   }
 
   @override
-  Future<Result<User>> register({required String email, required String password}) async {
+  Future<Result<User>> register(
+      {required String email, required String password}) async {
     final response = await _authService.register(email, password);
     return response.when(
       success: Result<User>.success,
@@ -46,7 +49,7 @@ class AuthRepositoryImpl extends AuthRepository {
   }
 
   @override
-  Future<Result<List<User>>>getSavedUsers() async {
+  Future<Result<List<User>>> getSavedUsers() async {
     late final List<UserEntity> entityUser;
     try {
       entityUser = await _appDatabase.userDao.getAllUsers();
@@ -56,7 +59,7 @@ class AuthRepositoryImpl extends AuthRepository {
 
     final List<User> users = [];
 
-    for(var user in entityUser){
+    for (var user in entityUser) {
       final result = ToModel().call(user);
       users.add(result);
     }
@@ -64,24 +67,27 @@ class AuthRepositoryImpl extends AuthRepository {
     return Result.success(users);
   }
 
+
   @override
   Future<void> addUser(User user) async {
     final castModel = ToUserEntity().call(user);
-    await _appDatabase.userDao.insertUser(castModel);
+   await _appDatabase.userDao.insertUser(castModel);
   }
+
+
 
   @override
   Future<void> removeUser(User user) async {
     final castModel = ToUserEntity().call(user);
-    await _appDatabase.userDao.deleteUser(castModel);
+     await _appDatabase.userDao.deleteUser(castModel);
   }
 
   @override
-  Future<User?> findPersonById(User user) async {
-    final castModel =  ToUserEntity().call(user);
-    await _appDatabase.userDao.findPersonById(castModel.id as int);
-    return null;
+  Future<User?> getInsertUser() async {
+    final insertUser = await _appDatabase.userDao.getSavedUser();
+    final castModel = ToModel().call(insertUser!);
+    return castModel;
   }
+
+
 }
-
-

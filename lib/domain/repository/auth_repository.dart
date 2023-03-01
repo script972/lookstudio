@@ -20,5 +20,5 @@ abstract class AuthRepository {
 
   Future<Result<List<User>>> getSavedUsers();
 
-  Future<User?> findPersonById(User user);
+  Future<User?> getInsertUser();
 }
