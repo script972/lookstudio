@@ -28,7 +28,7 @@ class ClientsLayout extends StatelessWidget {
                 onPressed: () {
                  context.read<ClientCubit>().logOutUser();
                  AutoRouter.of(context);
-                 context.router.popAndPush(const SignUpRoute());
+                 context.replaceRoute(const SignUpRoute());
                  },
                 icon: const Icon(Icons.remove_circle_outline_rounded),
               )
