@@ -9,6 +9,7 @@ import 'package:solution_starter/configs/environment/environment_variables.dart'
 import 'package:solution_starter/configs/environment/environment_helper.dart';
 import 'package:solution_starter/configs/app_config.dart';
 import 'package:solution_starter/core/use_case.dart';
+import 'package:solution_starter/data/datasource/local/app_database.dart';
 import 'package:solution_starter/data/datasource/local/facade/auth_store.dart';
 import 'package:solution_starter/data/datasource/local/hive_auth_store.dart';
 import 'package:solution_starter/data/datasource/network/api/breeds_api.dart';
@@ -29,20 +30,20 @@ import 'package:solution_starter/utils/hive_helper.dart';
 import 'data/datasource/network/services/storage_service/storage_service_hive_impl.dart';
 
 class SolutionInjection {
-  static List<SingleChildWidget> getDiList(BuildContext context) {
+  static List<SingleChildWidget> getDiList(BuildContext context, AppDatabase database) {
     final SolutionInjection injection = SolutionInjection();
-    return injection.diFactory(context);
+    return injection.diFactory(context, database);
   }
 
-  List<SingleChildWidget> diFactory(BuildContext context) {
+  List<SingleChildWidget> diFactory(BuildContext context, AppDatabase database) {
     return [
-      ..._buildIndependentServices(),
+      ..._buildIndependentServices(database),
       ..._dependentServices(context),
     ];
   }
 
   //Feel free to expand this
-  List<SingleChildWidget> _buildIndependentServices() {
+  List<SingleChildWidget> _buildIndependentServices(AppDatabase database) {
     return [
       Provider.value(
         value: AppConfig(),
@@ -51,6 +52,7 @@ class SolutionInjection {
         value: HiveHelper(),
       ),
       Provider.value(value: StorageServiceHiveImpl()),
+      Provider.value(value: database),
     ];
   }
 
@@ -121,18 +123,21 @@ class SolutionInjection {
           return AuthServiceFirebaseImplementation(firebaseAuth: firebaseAuth);
         },
       ),
-
-
-      ProxyProvider<StorageServiceHiveImpl, StorageHelper>(
-        update: (BuildContext context, StorageServiceHiveImpl storageService, StorageHelper? storageRepo) {
-          return StorageHelperImpl(storageService);
+      ProxyProvider2<AuthenticationService, AppDatabase, AuthRepository>(
+        update: (BuildContext context, AuthenticationService authService, AppDatabase dataBase, AuthRepository? facade) {
+          return AuthRepositoryImpl(authService: authService, appDatabase: dataBase);
         },
       ),
-      ProxyProvider<AuthenticationService, AuthRepository>(
-        update: (BuildContext context, AuthenticationService authService, AuthRepository? facade) {
-          return AuthRepositoryImpl(authService: authService);
-        },
-      ),
+
+    ProxyProvider<StorageServiceHiveImpl, StorageHelper>(
+    update: (BuildContext context, StorageServiceHiveImpl storageService, StorageHelper? storageRepo) {
+    return StorageHelperImpl(storageService);
+    },
+    ),
+    ProxyProvider<AuthenticationService, AuthRepository>(
+    update: (BuildContext context, AuthenticationService authService, AuthRepository? facade) {
+    return AuthRepositoryImpl(authService: authService);
+    },
 
       ProxyProvider<NetworkService, BreedsApi>(
         // TODO(AndriiD): we can have different base url for each repository!

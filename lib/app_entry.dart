@@ -5,12 +5,18 @@ import 'package:provider/provider.dart';
 import 'package:solution_global_provider/solution_global_provider.dart';
 import 'package:solution_starter/core/theme/theme_container.dart';
 import 'package:solution_starter/data/datasource/local/storage_helper.dart';
+import 'package:solution_starter/core/theme/theme_extension/radius_extension.dart';
+import 'package:solution_starter/core/theme/theme_holder.dart';
+import 'package:solution_starter/data/datasource/local/app_database.dart';
 import 'package:solution_starter/generated/l10n.dart';
 import 'package:solution_starter/navigation/app_router.dart';
 import 'package:solution_starter/solution_injection.dart';
 
 class AppEntry extends StatelessWidget {
-  AppEntry({super.key});
+  AppEntry({required this.database, super.key, required this.authenticated});
+
+  final AppDatabase database;
+  final bool authenticated;
 
   final _router = AppRouter();
 
@@ -30,40 +36,41 @@ class AppEntry extends StatelessWidget {
   Widget build(BuildContext context) {
     FlutterNativeSplash.remove();
     return MultiProvider(
-      providers: SolutionInjection.getDiList(context),
+      providers: SolutionInjection.getDiList(context, database),
       child: Builder(
         builder: (BuildContext context) {
           return GlobalProvider<ThemeMode, ThemeMode>(
-              shouldNotify: (newMode, oldMode) =>
-                  newMode.index != oldMode.index,
-              future: getThemeMode(context),
-              initValue: ThemeMode.system,
-              builder: (_, themeMode) {
-                return GlobalProvider<Locale, Locale>(
-                  shouldNotify: (newMode, oldMode) =>
-                      newMode.languageCode != oldMode.languageCode,
-                  future: getLocale(context),
-                  initValue: const Locale('en'),
-                  builder: (context, locale) {
-                    return MaterialApp.router(
-                      title: 'Silverstone',
-                      theme: ThemeFactory.lightTheme.themeData,
-                      darkTheme: ThemeFactory.darkTheme.themeData,
-                      themeMode: themeMode,
-                      routerDelegate: _router.delegate(),
-                      routeInformationParser: _router.defaultRouteParser(),
-                      localizationsDelegates: const [
-                        S.delegate,
-                        GlobalMaterialLocalizations.delegate,
-                        GlobalWidgetsLocalizations.delegate,
-                        GlobalCupertinoLocalizations.delegate,
-                      ],
-                      supportedLocales: S.delegate.supportedLocales,
-                      locale: locale,
-                    );
-                  },
-                );
-              });
+            shouldNotify: (newMode, oldMode) => newMode.index != oldMode.index,
+            future: getThemeMode(context),
+            initValue: ThemeMode.system,
+            builder: (_, themeMode) {
+              return GlobalProvider<Locale, Locale>(
+                shouldNotify: (newMode, oldMode) => newMode.languageCode != oldMode.languageCode,
+                future: const Locale('en', 'US'),
+                initValue: const Locale('en', 'US'),
+                builder: (context, locale) {
+                  return MaterialApp.router(
+                    title: 'Silverstone',
+                    theme: ThemeFactory.lightTheme.themeData,
+                    darkTheme: ThemeFactory.darkTheme.themeData,
+                    themeMode: themeMode,
+                    routerDelegate: _router.delegate(
+                      initialRoutes: [authenticated ? const HomeRoute() : const LoginRoute()],
+                    ),
+                    routeInformationParser: _router.defaultRouteParser(),
+                    localizationsDelegates: const [
+                      S.delegate,
+                      GlobalMaterialLocalizations.delegate,
+                      GlobalWidgetsLocalizations.delegate,
+                      GlobalCupertinoLocalizations.delegate,
+                    ],
+                    supportedLocales: S.delegate.supportedLocales,
+                    locale: locale,
+                  );
+                },
+              );
+            },
+          );
         },
       ),
     );

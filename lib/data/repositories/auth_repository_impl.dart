@@ -1,3 +1,5 @@
+import 'package:solution_starter/data/datasource/local/app_database.dart';
+import 'package:solution_starter/data/datasource/network/exchange_models/local_errors.dart';
 import 'package:solution_starter/data/datasource/network/services/authentication_service/authentication_service.dart';
 import 'package:solution_starter/domain/entities/result.dart';
 import 'package:solution_starter/domain/entities/user.dart';
@@ -8,8 +10,11 @@ import 'package:solution_starter/data/datasource/network/exchange_models/action_
 class AuthRepositoryImpl extends AuthRepository {
   AuthRepositoryImpl({
     required AuthenticationService authService,
-  }) : _authService = authService;
+    required AppDatabase appDatabase,
+  })  : _authService = authService,
+        _appDatabase = appDatabase;
   final AuthenticationService _authService;
+  final AppDatabase _appDatabase;
 
   @override
   Future<Result<User>> login({required String email, required String password}) async {
@@ -38,4 +43,21 @@ class AuthRepositoryImpl extends AuthRepository {
       failure: Result.error,
     );
   }
+
+  @override
+  Future<Result<List<User>>> getSavedUsers() async {
+    late final List<User> users;
+    try {
+      users = await _appDatabase.userDao.getAllUsers();
+    } catch (e) {
+      return Result.error(DataBaseError(error: e, query: 'getSavedUsers'));
+    }
+    return Result.success(users);
+  }
+
+  @override
+  Future<void> insertUser(User model) async => _appDatabase.userDao.insertUser(model);
+
+  @override
+  Future<void> removeUser(User model) async => _appDatabase.userDao.deleteUser(model);
 }
