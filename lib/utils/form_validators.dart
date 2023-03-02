@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// todo: Can I refactored validator? (Georg)
+
 class FormValidators {
   static String? Function(String?, BuildContext context) emailValidateFunction = (String? value, BuildContext context) {
     if (value!.isEmpty) {

@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:dio_smart_retry/dio_smart_retry.dart';
-import 'package:solution_starter/data/datasource/network/exchange_models/network_errors.dart';
+import 'package:solution_starter/data/datasource/network/exchange_models/action_errors.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/request.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/response.dart';
 import 'package:solution_starter/data/datasource/network/services/network_service/network_service.dart';

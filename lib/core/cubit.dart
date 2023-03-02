@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:solution_starter/data/datasource/network/exchange_models/network_errors.dart';
+import 'package:solution_starter/data/datasource/network/exchange_models/action_errors.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/response.dart';
 
 /// Override [handleError], [onConnectionError], [onAuthorizationError], [onUnexpectedError] for your Cubit to change error handling

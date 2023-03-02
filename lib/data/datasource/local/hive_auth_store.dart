@@ -13,9 +13,9 @@ class HiveAuthStore implements AuthStore {
         _hiveHelper = hiveHelper,
         _boxName = boxPrefix + boxId;
   // Static fields
-  static const String tokenKey = 'token_key';
-  static const String refreshTokenKey = 'refresh_token_key';
-  static const String boxId = 'auth_box';
+  static const tokenKey = 'token_key';
+  static const refreshTokenKey = 'refresh_token_key';
+  static const boxId = 'auth_box';
 
   // Dependencies
   final HiveInterface _hive;
