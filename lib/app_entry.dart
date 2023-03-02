@@ -47,8 +47,8 @@ class AppEntry extends StatelessWidget {
                   builder: (context, locale) {
                     return MaterialApp.router(
                       title: 'Silverstone',
-                      theme: ThemeContainer.lightTheme.themeData,
-                      darkTheme: ThemeContainer.darkTheme.themeData,
+                      theme: ThemeFactory.lightTheme.themeData,
+                      darkTheme: ThemeFactory.darkTheme.themeData,
                       themeMode: themeMode,
                       routerDelegate: _router.delegate(),
                       routeInformationParser: _router.defaultRouteParser(),

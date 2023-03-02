@@ -22,7 +22,7 @@ class VendorThemeTwoLight extends VendorOneCoreTheme {
       primarySwatch: DefaultPalette.kToDark,
       backgroundColor: DefaultPalette.deepPurpleAccent,
       disabledColor: DefaultPalette.deepPurpleAccent,
-      primaryColor: DefaultPalette.deepPurpleAccent,
+      primaryColor: Colors.green,
       dividerColor: DefaultPalette.deepPurpleAccent,
       unselectedWidgetColor: DefaultPalette.deepPurpleAccent,
       toggleableActiveColor: DefaultPalette.deepPurpleAccent,

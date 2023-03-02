@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:solution_global_provider/solution_global_provider.dart';
 import 'package:solution_starter/core/theme/theme_container.dart';
 
@@ -43,18 +42,17 @@ class SolutionDataTheme {
 
 abstract class SolutionTheme {
   factory SolutionTheme(BuildContext context) {
-    final themeMode = GlobalProvider.of<SolutionTheme>(context).value;
-    ThemeContainer themeValue = Provider.of<ThemeContainer>(context);
+    final themeMode = GlobalProvider.of<ThemeMode>(context).value;
     switch (themeMode) {
       case ThemeMode.light:
-        return themeValue.lightTheme;
+        return ThemeFactory.lightTheme;
       case ThemeMode.dark:
-        return themeValue.darkTheme;
+        return ThemeFactory.darkTheme;
       default:
         if (MediaQuery.of(context).platformBrightness == Brightness.dark) {
-          return themeValue.darkTheme;
+          return ThemeFactory.darkTheme;
         } else {
-          return themeValue.darkTheme;
+          return ThemeFactory.lightTheme;
         }
     }
   }
