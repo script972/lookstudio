@@ -1,5 +1,18 @@
 import 'package:solution_starter/core/failure.dart';
 
+class SavingError extends StorageError{
+  SavingError(super.error, {required super.boxName, required super.boxKey, this.data});
+
+  final dynamic data;
+}
+
+class StorageError extends Failure {
+  StorageError(super.error, {required this.boxName, required this.boxKey});
+
+  final String boxKey;
+  final String boxName;
+}
+
 class NetworkError extends Failure {
   NetworkError({required dynamic error, this.baseUrl, this.path, this.statusCode}) : super(error);
   final String? baseUrl;

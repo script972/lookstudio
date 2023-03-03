@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:solution_global_provider/solution_global_provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:solution_starter/generated/l10n.dart';
+import 'package:solution_starter/presentation/profile_screen/bloc/setting_cubit.dart';
 import 'package:solution_starter/widgets/molecules/button_item.dart';
 
 class ProfileLayout extends StatefulWidget {
@@ -16,13 +17,21 @@ class _ProfileLayoutState extends State<ProfileLayout> {
     super.initState();
   }
 
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(S.of(context).profile),
       ),
-      body: Center(
+      body: BlocConsumer<SettingCubit, SettingState>(
+     listener: (context, state) {
+          
+      },
+     builder: (context, state) {
+       return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -31,7 +40,7 @@ class _ProfileLayoutState extends State<ProfileLayout> {
               children: [
                 ButtonItem(
                   context,
-                  onPressed: () => GlobalProvider.of<Locale>(context).value = const Locale('uk'),
+                  onPressed: () async => context.read<SettingCubit>().saveLocaleConfig('uk'),
                   text: S.current.ukraine,
                 ),
                 const SizedBox(
@@ -39,7 +48,7 @@ class _ProfileLayoutState extends State<ProfileLayout> {
                 ),
                 ButtonItem(
                   context,
-                  onPressed: () => GlobalProvider.of<Locale>(context).value = const Locale('en'),
+                  onPressed: () async => context.read<SettingCubit>().saveLocaleConfig('en'),
                   text: S.current.english,
                 ),
               ],
@@ -49,7 +58,7 @@ class _ProfileLayoutState extends State<ProfileLayout> {
               children: [
                 ButtonItem(
                   context,
-                  onPressed: () => GlobalProvider.of<ThemeMode>(context).value = ThemeMode.light,
+                   onPressed: () async => context.read<SettingCubit>().saveThemeConfig(ThemeMode.light),
                   text: S.current.light,
                 ),
                 const SizedBox(
@@ -57,14 +66,16 @@ class _ProfileLayoutState extends State<ProfileLayout> {
                 ),
                 ButtonItem(
                   context,
-                  onPressed: () => GlobalProvider.of<ThemeMode>(context).value = ThemeMode.dark,
+                   onPressed: () async => context.read<SettingCubit>().saveThemeConfig(ThemeMode.dark),
                   text: S.current.dark,
                 ),
               ],
             ),
           ],
         ),
-      ),
+      );
+  },
+),
     );
   }
 }

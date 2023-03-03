@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:solution_starter/core/theme/theme_extension/size_extension.dart';
+import 'package:solution_starter/core/theme/solution_theme.dart';
 
 class SvgHideModel {
   final String svgPathShow;
@@ -157,12 +157,13 @@ class _InputItemState extends State<InputItem> {
   }
 
   Widget? _suffixIconWidget() {
-    return widget.hideSvgModel != null ? _selectHideIcon() : widget.suffixIconButton;
+    return widget.hideSvgModel != null
+        ? _selectHideIcon()
+        : widget.suffixIconButton;
   }
 
-
   Widget _selectHideIcon() {
-    final sizeTheme = Theme.of(context).extension<SizeExtension>()!;
+    final sizeIcon = SolutionTheme(context).sizeTheme.iconSize;
     return GestureDetector(
       onTap: () {
         _toggleObscure();
@@ -172,13 +173,13 @@ class _InputItemState extends State<InputItem> {
         child: obscureText
             ? SvgPicture.asset(
                 widget.hideSvgModel!.svgPathShow,
-                width: sizeTheme.iconSize,
-                height: sizeTheme.iconSize,
+                width: sizeIcon,
+                height: sizeIcon,
               )
             : SvgPicture.asset(
                 widget.hideSvgModel!.svgPathHide,
-                width: sizeTheme.iconSize,
-                height: sizeTheme.iconSize,
+                width: sizeIcon,
+                height: sizeIcon,
               ),
       ),
     );
