@@ -5,7 +5,7 @@ import 'package:solution_starter/domain/entities/result.dart';
 import 'package:solution_starter/data/model/user.dart';
 import 'package:solution_starter/domain/entities/user_entity.dart';
 import 'package:solution_starter/domain/repository/auth_repository.dart';
-import 'package:solution_starter/domain/use_cases/maper.dart';
+import 'package:solution_starter/domain/use_cases/maper/maper_to_model.dart';
 
 
 class AuthRepositoryImpl extends AuthRepository {
