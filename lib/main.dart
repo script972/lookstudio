@@ -13,7 +13,7 @@ void main(List<String> args) async {
   await configureApp();
   final database = await $FloorAppDatabase.databaseBuilder('app_database.db').build();
   final table = await database.database.rawQuery('SELECT * FROM UserEntity');
-  runApp(AppEntry(database: database, authenticated: [database.userDao.getAllUsers()].isNotEmpty && table.isNotEmpty));
+  runApp(AppEntry(database: database, authenticated: table.isNotEmpty));
 }
 
 Future configureApp() async {

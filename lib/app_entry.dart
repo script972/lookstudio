@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:solution_global_provider/solution_global_provider.dart';
 import 'package:solution_starter/core/theme/theme_container.dart';
 import 'package:solution_starter/data/datasource/local/app_database.dart';
-import 'package:solution_starter/data/datasource/local/storage_helper.dart';
+import 'package:solution_starter/domain/repository/configuration_repository.dart';
 import 'package:solution_starter/generated/l10n.dart';
 import 'package:solution_starter/navigation/app_router.dart';
 import 'package:solution_starter/solution_injection.dart';
@@ -20,13 +20,13 @@ class AppEntry extends StatelessWidget {
 
   Future<ThemeMode> getThemeMode(BuildContext buildContext) async {
     final themeModeValue =
-        Provider.of<StorageHelper>(buildContext).getThemeConfiguration();
+        Provider.of<ConfigurationRepository>(buildContext).getTheme();
     return ThemeMode.values[await themeModeValue ?? 0];
   }
 
   Future<Locale> getLocale(BuildContext buildContext) async {
     final localeValue =
-        Provider.of<StorageHelper>(buildContext).getLocaleConfiguration();
+        Provider.of<ConfigurationRepository>(buildContext).getLocale();
     return Locale(await localeValue ?? 'en');
   }
 
@@ -45,7 +45,7 @@ class AppEntry extends StatelessWidget {
               return GlobalProvider<Locale, Locale>(
                 shouldNotify: (newMode, oldMode) =>
                     newMode.languageCode != oldMode.languageCode,
-                future: const Locale('en', 'US'),
+                future: getLocale(context),
                 initValue: const Locale('en', 'US'),
                 builder: (context, locale) {
                   return MaterialApp.router(
