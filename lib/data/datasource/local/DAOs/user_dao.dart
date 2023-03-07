@@ -1,5 +1,5 @@
 import 'package:floor/floor.dart';
-import 'package:solution_starter/domain/entities/user_entity.dart';
+import 'package:solution_starter/data/model/user_entity.dart';
 
 @dao
 abstract class UserDao {

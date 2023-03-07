@@ -14,7 +14,7 @@ class HiveHelper {
   }
 
   //Get value
-  Future<dynamic> getValue({
+  Future<T> getValue<T>({
     required HiveInterface hive,
     required String boxName,
     required String key,

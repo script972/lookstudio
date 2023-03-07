@@ -33,7 +33,7 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
+  static const FirebaseOptions web = FirebaseOptions( // TODO(Georg): change all these values to actual data
     apiKey: 'AIzaSyCQgQ05lskIbesvWeN5TXrkz_Qovtrhedw',
     appId: '1:371148984128:web:204b89270e3d3d8013b4a5',
     messagingSenderId: '371148984128',

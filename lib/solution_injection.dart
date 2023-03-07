@@ -11,9 +11,10 @@ import 'package:solution_starter/configs/environment/environment_variables.dart'
 import 'package:solution_starter/core/use_case.dart';
 import 'package:solution_starter/data/datasource/local/app_database.dart';
 import 'package:solution_starter/data/datasource/local/facade/auth_store.dart';
+import 'package:solution_starter/data/datasource/local/facade/configuration_storage.dart';
 import 'package:solution_starter/data/datasource/local/hive_auth_store.dart';
-import 'package:solution_starter/data/datasource/local/storage_helper.dart';
-import 'package:solution_starter/data/datasource/local/storage_helper_impl.dart';
+import 'package:solution_starter/domain/repository/configuration_repository.dart';
+import 'package:solution_starter/data/repositories/configuration_repository_impl.dart';
 import 'package:solution_starter/data/datasource/network/api/breeds_api.dart';
 import 'package:solution_starter/data/datasource/network/api/breeds_api_impl.dart';
 import 'package:solution_starter/data/datasource/network/interceptors/token_interceptor.dart';
@@ -28,7 +29,7 @@ import 'package:solution_starter/domain/repository/breeds_repository.dart';
 import 'package:solution_starter/domain/use_cases/breeds_use_case.dart';
 import 'package:solution_starter/utils/hive_helper.dart';
 
-import 'data/datasource/network/services/storage_service/storage_service_hive_impl.dart';
+import 'data/datasource/local/hive_configuration_storage.dart';
 
 class SolutionInjection {
   static List<SingleChildWidget> getDiList(
@@ -54,7 +55,6 @@ class SolutionInjection {
       Provider.value(
         value: HiveHelper(),
       ),
-      Provider.value(value: StorageServiceHiveImpl()),
       Provider.value(value: database),
     ];
   }
@@ -93,6 +93,22 @@ class SolutionInjection {
         ) {
           final HiveInterface hive = Hive;
           return HiveAuthStore(
+            hive: hive,
+            boxPrefix: environmentService.config.hiveBoxPrefix,
+            hiveHelper: hiveHelper,
+          );
+        },
+      ),
+
+      ProxyProvider2<EnvironmentService, HiveHelper, HiveConfigurationStorage>(
+        update: (
+            BuildContext context,
+            EnvironmentService environmentService,
+            HiveHelper hiveHelper,
+            HiveConfigurationStorage? configurationStore,
+            ) {
+          final HiveInterface hive = Hive;
+          return HiveConfigurationStorage(
             hive: hive,
             boxPrefix: environmentService.config.hiveBoxPrefix,
             hiveHelper: hiveHelper,
@@ -144,10 +160,10 @@ class SolutionInjection {
         },
       ),
 
-      ProxyProvider<StorageServiceHiveImpl, StorageHelper>(
-        update: (BuildContext context, StorageServiceHiveImpl storageService,
-            StorageHelper? storageRepo) {
-          return StorageHelperImpl(storageService);
+      ProxyProvider<HiveConfigurationStorage, ConfigurationRepository>(
+        update: (BuildContext context, HiveConfigurationStorage storageService,
+            ConfigurationRepository? storageRepo) {
+          return ConfigurationRepositoryImpl(storageService);
         },
       ),
 

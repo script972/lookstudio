@@ -2,7 +2,7 @@
 
 enum MockType { none, assets, hard }
 
-enum EnvironmentType { PROD, DEV, UAT }
+enum EnvironmentType { PROD, DEV, UAT } // TODO(Georg): change all these values to actual data
 
 class AppConfig {
   /// Used in case environment identifier wasn't provided or incorrect
@@ -11,7 +11,7 @@ class AppConfig {
   /// Set of environment data sets.
   Map<EnvironmentType, EnvironmentValues> get environmentsData => {
         EnvironmentType.DEV: const EnvironmentValues(
-          gatewayUrl: 'https://taas-backend.stg.wattev.net/',
+          gatewayUrl: 'https://taas-backend.stg.wattev.net/', // TODO(Georg): change all these values to actual data
           portalUrl: 'https://user.dev.elevateaccounts.com/',
           hiveBoxPrefix: 'dev_',
         ),
