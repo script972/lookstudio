@@ -15,9 +15,9 @@ class NetworkServiceImpl implements NetworkService {
   }) : _dio = Dio(
     BaseOptions(
       baseUrl: baseUrl,
-      connectTimeout: connectTimeout,
-      receiveTimeout: receiveTimeout,
-      sendTimeout: sendTimeout,
+      connectTimeout: Duration(milliseconds: connectTimeout),
+      receiveTimeout: Duration(milliseconds: receiveTimeout),
+      sendTimeout: Duration(milliseconds: sendTimeout),
     ),
   )..interceptors.addAll([...?interceptors]) {
     _dio.interceptors.add(
@@ -72,9 +72,9 @@ class NetworkServiceImpl implements NetworkService {
     final response = error.response;
     final statusCode = response?.statusCode;
     final networkError = NetworkError(error: cause, baseUrl: baseUrl, path: path, statusCode: statusCode);
-    if (error.type == DioErrorType.response) {
+    if (error.type == DioErrorType.badResponse) {
       return NetworkResponse.failure(networkError);
-    } else if (error.type == DioErrorType.connectTimeout ||
+    } else if (error.type == DioErrorType.connectionTimeout ||
         error.type == DioErrorType.sendTimeout ||
         error.type == DioErrorType.receiveTimeout) {
       return NetworkResponse.failure(networkError);

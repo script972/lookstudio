@@ -109,8 +109,4 @@ flutter_native_splash.yml
 **/macos/**/xcuserdata/
 
 # Genereted code
-*.g.dart
-*.gr.dart
 *.gen.dart
-*.freezed.dart
-lib/generated/**

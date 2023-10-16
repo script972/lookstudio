@@ -13,8 +13,8 @@ class HomeLayout extends StatelessWidget {
       backgroundColor: Colors.lightBlue,
       routes: const [
         BreedsRoute(),
-        ClientsBaseRouter(),
-        ProfileBaseRouter(),
+        ClientsRoute(),
+        ProfileRoute(),
       ],
       bottomNavigationBuilder: (_, tabsRouter) {
         return SalomonBottomBar(
