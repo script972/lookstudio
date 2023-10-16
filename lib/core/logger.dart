@@ -16,7 +16,7 @@ class CustomLogPrinter extends LogPrinter {
       printWrapped(event.message);
       return ['--------------------------------------'];
     } else {
-      var emoji = PrettyPrinter.levelEmojis[event.level]!;
+      var emoji = PrettyPrinter.defaultLevelEmojis[event.level]!;
       return ['$emoji [$className] ${PrettyPrinter.singleDivider} ${event.message}'];
     }
   }

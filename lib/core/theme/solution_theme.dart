@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:solution_global_provider/solution_global_provider.dart';
 import 'package:solution_starter/core/theme/theme_container.dart';
+import 'package:value_provider/value_provider.dart';
 
 class SolutionColorTheme {
   SolutionColorTheme({
@@ -42,7 +42,7 @@ class SolutionDataTheme {
 
 abstract class SolutionTheme {
   factory SolutionTheme(BuildContext context) {
-    final themeMode = GlobalProvider.of<ThemeMode>(context).value;
+    final themeMode = ValueProvider.of<ThemeMode>(context).value;
     switch (themeMode) {
       case ThemeMode.light:
         return ThemeFactory.lightTheme;

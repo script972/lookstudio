@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:provider/provider.dart';
-import 'package:solution_global_provider/solution_global_provider.dart';
 import 'package:solution_starter/core/theme/theme_container.dart';
 import 'package:solution_starter/data/datasource/local/app_database.dart';
 import 'package:solution_starter/domain/repository/configuration_repository.dart';
 import 'package:solution_starter/generated/l10n.dart';
 import 'package:solution_starter/navigation/app_router.dart';
 import 'package:solution_starter/solution_injection.dart';
+import 'package:value_provider/value_provider.dart';
 
 class AppEntry extends StatelessWidget {
   AppEntry({required this.database, super.key, required this.authenticated});
@@ -37,12 +37,12 @@ class AppEntry extends StatelessWidget {
       providers: SolutionInjection.getDiList(context, database),
       child: Builder(
         builder: (BuildContext context) {
-          return GlobalProvider<ThemeMode, ThemeMode>(
+          return ValueProvider<ThemeMode, ThemeMode>(
             shouldNotify: (newMode, oldMode) => newMode.index != oldMode.index,
             future: getThemeMode(context),
             initValue: ThemeMode.system,
             builder: (_, themeMode) {
-              return GlobalProvider<Locale, Locale>(
+              return ValueProvider<Locale, Locale>(
                 shouldNotify: (newMode, oldMode) =>
                     newMode.languageCode != oldMode.languageCode,
                 future: getLocale(context),
