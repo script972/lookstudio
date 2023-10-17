@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -9,37 +10,32 @@ import 'package:solution_starter/configs/environment/environment_helper.dart';
 import 'package:solution_starter/configs/environment/environment_service.dart';
 import 'package:solution_starter/configs/environment/environment_variables.dart';
 import 'package:solution_starter/core/use_case.dart';
-import 'package:solution_starter/data/datasource/local/app_database.dart';
-import 'package:solution_starter/data/datasource/local/facade/auth_store.dart';
-import 'package:solution_starter/data/datasource/local/facade/configuration_storage.dart';
-import 'package:solution_starter/data/datasource/local/hive_auth_store.dart';
-import 'package:solution_starter/domain/repository/configuration_repository.dart';
-import 'package:solution_starter/data/repositories/configuration_repository_impl.dart';
-import 'package:solution_starter/data/datasource/network/api/breeds_api.dart';
-import 'package:solution_starter/data/datasource/network/api/breeds_api_impl.dart';
+import 'package:solution_starter/data/datasource/local/database/app_database.dart';
+import 'package:solution_starter/data/datasource/local/facade/secure_storage_interface.dart';
+import 'package:solution_starter/data/datasource/local/facade/solution_storage_interface.dart';
+import 'package:solution_starter/data/datasource/local/secure_storage.dart';
+import 'package:solution_starter/data/datasource/network/api/breeds/breeds_api_interface.dart';
+import 'package:solution_starter/data/datasource/network/api/breeds/breeds_api.dart';
 import 'package:solution_starter/data/datasource/network/interceptors/token_interceptor.dart';
-import 'package:solution_starter/data/datasource/network/services/authentication_service/authentication_service.dart';
-import 'package:solution_starter/data/datasource/network/services/authentication_service/authentication_service_firebase_impl.dart';
+import 'package:solution_starter/data/datasource/network/api/authentication/authentication_api_interface.dart';
+import 'package:solution_starter/data/datasource/network/api/authentication/authentication_api.dart';
+import 'package:solution_starter/data/datasource/network/services/network_service/network_service_interface.dart';
 import 'package:solution_starter/data/datasource/network/services/network_service/network_service.dart';
-import 'package:solution_starter/data/datasource/network/services/network_service/network_service_impl.dart';
-import 'package:solution_starter/data/repositories/auth_repository_impl.dart';
-import 'package:solution_starter/data/repositories/breeds_repository.dart';
-import 'package:solution_starter/domain/repository/auth_repository.dart';
-import 'package:solution_starter/domain/repository/breeds_repository.dart';
+import 'package:solution_starter/data/repositories/auth_repository.dart';
+import 'package:solution_starter/data/repositories/solution_repository.dart';
+import 'package:solution_starter/domain/repository/auth_repository_interface.dart';
+import 'package:solution_starter/domain/repository/solution_repository_interface.dart';
 import 'package:solution_starter/domain/use_cases/breeds_use_case.dart';
 import 'package:solution_starter/utils/hive_helper.dart';
-
-import 'data/datasource/local/hive_configuration_storage.dart';
+import 'package:solution_starter/data/datasource/local/solution_storage.dart';
 
 class SolutionInjection {
-  static List<SingleChildWidget> getDiList(
-      BuildContext context, AppDatabase database) {
+  static List<SingleChildWidget> getDiList(BuildContext context, AppDatabase database) {
     final SolutionInjection injection = SolutionInjection();
     return injection.diFactory(context, database);
   }
 
-  List<SingleChildWidget> diFactory(
-      BuildContext context, AppDatabase database) {
+  List<SingleChildWidget> diFactory(BuildContext context, AppDatabase database) {
     return [
       ..._buildIndependentServices(database),
       ..._dependentServices(context),
@@ -49,12 +45,9 @@ class SolutionInjection {
   //Feel free to expand this
   List<SingleChildWidget> _buildIndependentServices(AppDatabase database) {
     return [
-      Provider.value(
-        value: AppConfig(),
-      ),
-      Provider.value(
-        value: HiveHelper(),
-      ),
+      Provider.value(value: AppConfig()),
+      Provider.value(value: HiveHelper()),
+      Provider.value(value: const FlutterSecureStorage()),
       Provider.value(value: database),
     ];
   }
@@ -62,9 +55,7 @@ class SolutionInjection {
   List<SingleChildWidget> _dependentServices(BuildContext context) {
     return [
       ProxyProvider<AppConfig, EnvironmentHelper>(
-        update: (BuildContext context, AppConfig appConfig,
-                EnvironmentHelper? greetingService) =>
-            EnvironmentHelper(
+        update: (BuildContext context, AppConfig appConfig, EnvironmentHelper? greetingService) => EnvironmentHelper(
           appConfig: appConfig,
           environmentValue: EnvironmentVariables.environmentValue,
           mockValue: EnvironmentVariables.mockValue,
@@ -84,31 +75,24 @@ class SolutionInjection {
         ),
       ),
 
-      ProxyProvider2<EnvironmentService, HiveHelper, AuthStore>(
+      ProxyProvider<FlutterSecureStorage, ISecureStorage>(
+        update: (
+          BuildContext context,
+          FlutterSecureStorage flutterSecureStorage,
+          ISecureStorage? secureStorage,
+        ) =>
+            SecureStorage(secureStorage: flutterSecureStorage),
+      ),
+
+      ProxyProvider2<EnvironmentService, HiveHelper, SolutionStorage>(
         update: (
           BuildContext context,
           EnvironmentService environmentService,
           HiveHelper hiveHelper,
-          AuthStore? greetingService,
+          SolutionStorage? configurationStore,
         ) {
           final HiveInterface hive = Hive;
-          return HiveAuthStore(
-            hive: hive,
-            boxPrefix: environmentService.config.hiveBoxPrefix,
-            hiveHelper: hiveHelper,
-          );
-        },
-      ),
-
-      ProxyProvider2<EnvironmentService, HiveHelper, HiveConfigurationStorage>(
-        update: (
-            BuildContext context,
-            EnvironmentService environmentService,
-            HiveHelper hiveHelper,
-            HiveConfigurationStorage? configurationStore,
-            ) {
-          final HiveInterface hive = Hive;
-          return HiveConfigurationStorage(
+          return SolutionStorage(
             hive: hive,
             boxPrefix: environmentService.config.hiveBoxPrefix,
             hiveHelper: hiveHelper,
@@ -117,72 +101,63 @@ class SolutionInjection {
       ),
 
       ProxyProvider<AppConfig, EnvironmentHelper>(
-        update: (BuildContext context, AppConfig appConfig,
-                EnvironmentHelper? greetingService) =>
-            EnvironmentHelper(
+        update: (BuildContext context, AppConfig appConfig, EnvironmentHelper? greetingService) => EnvironmentHelper(
           appConfig: appConfig,
           environmentValue: EnvironmentVariables.environmentValue,
           mockValue: EnvironmentVariables.mockValue,
         ),
       ),
 
-      ProxyProvider2<EnvironmentService, AuthStore, NetworkService>(
+      ProxyProvider2<EnvironmentService, ISecureStorage, INetworkService>(
         update: (
           BuildContext context,
           EnvironmentService environmentService,
-          AuthStore authStore,
-          NetworkService? networkService,
+          ISecureStorage authStore,
+          INetworkService? networkService,
         ) {
-          final interceptors = [
-            LogInterceptor(),
-            TokenInterceptor(authStore: authStore)
-          ];
-          return NetworkServiceImpl(
-              baseUrl: environmentService.config.portalUrl,
-              interceptors: interceptors);
+          final interceptors = [LogInterceptor(), TokenInterceptor(authStore: authStore)];
+          return NetworkService(baseUrl: environmentService.config.portalUrl, interceptors: interceptors);
         },
       ),
 
       //Domain services
-      ProxyProvider<NetworkService, AuthenticationService>(
+      ProxyProvider<INetworkService, IAuthenticationApi>(
         // TODO(AndriiD): why we not inject base url here?
-        update: (BuildContext context, NetworkService networkService,
-            AuthenticationService? authService) {
+        update: (BuildContext context, INetworkService networkService, IAuthenticationApi? authService) {
           final firebaseAuth = FirebaseAuth.instance;
-          return AuthServiceFirebaseImplementation(firebaseAuth: firebaseAuth);
+          return AuthenticationApi(firebaseAuth: firebaseAuth);
         },
       ),
-      ProxyProvider2<AuthenticationService, AppDatabase, AuthRepository>(
-        update: (BuildContext context, AuthenticationService authService,
-            AppDatabase dataBase, AuthRepository? facade) {
-          return AuthRepositoryImpl(
-              authService: authService, appDatabase: dataBase);
-        },
-      ),
-
-      ProxyProvider<HiveConfigurationStorage, ConfigurationRepository>(
-        update: (BuildContext context, HiveConfigurationStorage storageService,
-            ConfigurationRepository? storageRepo) {
-          return ConfigurationRepositoryImpl(storageService);
+      ProxyProvider3<IAuthenticationApi, AppDatabase, ISecureStorage, IAuthRepository>(
+        update: (
+          BuildContext context,
+          IAuthenticationApi authService,
+          AppDatabase dataBase,
+          ISecureStorage secureStorage,
+          IAuthRepository? facade,
+        ) {
+          return AuthRepository(authService: authService, appDatabase: dataBase, secureStorage: secureStorage);
         },
       ),
 
-      ProxyProvider<NetworkService, BreedsApi>(
+      ProxyProvider<INetworkService, IBreedsApi>(
         // TODO(AndriiD): we can have different base url for each repository!
-        update: (BuildContext context, NetworkService networkService,
-                BreedsApi? breedsApi) =>
-            BreedsApiImpl(networkService),
+        update: (BuildContext context, INetworkService networkService, IBreedsApi? breedsApi) =>
+            BreedsApi(networkService),
       ),
 
-      ProxyProvider<BreedsApi, BreedsRepository>(
-        update: (BuildContext context, BreedsApi breedsApi,
-                BreedsRepository? breedsRepository) =>
-            BreedsRepositoryImpl(breedsApi),
+      ProxyProvider2<IBreedsApi, ISolutionStorage, ISolutionRepository>(
+        update: (BuildContext context, IBreedsApi breedsApi, ISolutionStorage storage,
+                ISolutionRepository? breedsRepository) =>
+            SolutionRepositoryImpl(api: breedsApi, storage: storage),
       ),
 
-      ProxyProvider<BreedsRepository, BreedsUseCase>(
-        update: (BuildContext context, BreedsRepository breedsRepository,
-                UseCase? breedsUseCase) =>
+      ProxyProvider<ISolutionRepository, BreedsUseCase>(
+        update: (
+          BuildContext context,
+          ISolutionRepository breedsRepository,
+          UseCase? breedsUseCase,
+        ) =>
             BreedsUseCase(breedsRepository),
       ),
     ];

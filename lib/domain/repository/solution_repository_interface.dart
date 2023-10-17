@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:solution_starter/domain/entities/breeds.dart';
 import 'package:solution_starter/domain/entities/result.dart';
 
-abstract class ConfigurationStorage{
+abstract interface class ISolutionRepository {
+  Future<Result<Breeds>> fetchBreeds();
+
   Future<Result<void>> saveTheme(ThemeMode themeMode);
 
   Future<int?> getTheme();
@@ -10,4 +13,3 @@ abstract class ConfigurationStorage{
 
   Future<String?> getLocale();
 }
-

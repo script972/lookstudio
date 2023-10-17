@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:solution_starter/domain/repository/configuration_repository.dart';
+import 'package:solution_starter/domain/repository/solution_repository_interface.dart';
 part 'setting_state.dart';
 part 'setting_cubit.freezed.dart';
 
@@ -34,5 +34,5 @@ class SettingCubit extends Cubit<SettingState>{
        );
      }
 
-  final ConfigurationRepository configurationRepository;
+  final ISolutionRepository configurationRepository;
 }

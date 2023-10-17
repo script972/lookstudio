@@ -1,0 +1,19 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:solution_starter/data/datasource/local/facade/secure_storage_interface.dart';
+import 'package:solution_starter/navigation/app_router.dart';
+
+class AuthGuard extends AutoRouteGuard {
+  AuthGuard({required this.storage});
+
+  final ISecureStorage storage;
+
+  @override
+  void onNavigation(NavigationResolver resolver, StackRouter router) async {
+    final result = await storage.getToken();
+    if (result != null) {
+      resolver.next(true);
+    } else {
+      await router.push(const LoginRoute());
+    }
+  }
+}

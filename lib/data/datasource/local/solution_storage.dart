@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/action_errors.dart';
-import 'package:solution_starter/data/datasource/local/facade/configuration_storage.dart';
+import 'package:solution_starter/data/datasource/local/facade/solution_storage_interface.dart';
 import 'package:solution_starter/domain/entities/result.dart';
 import 'package:solution_starter/utils/hive_helper.dart';
 
-class HiveConfigurationStorage implements ConfigurationStorage {
-  HiveConfigurationStorage({
+class SolutionStorage implements ISolutionStorage {
+  SolutionStorage({
     required HiveInterface hive,
     required String boxPrefix,
     required HiveHelper hiveHelper,

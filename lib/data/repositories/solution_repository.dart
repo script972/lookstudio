@@ -1,0 +1,38 @@
+import 'package:flutter/material.dart';
+import 'package:solution_starter/data/datasource/local/facade/solution_storage_interface.dart';
+import 'package:solution_starter/data/datasource/network/api/breeds/breeds_api_interface.dart';
+import 'package:solution_starter/data/model/breeds_model.dart';
+import 'package:solution_starter/domain/entities/breeds.dart';
+import 'package:solution_starter/domain/entities/result.dart';
+import 'package:solution_starter/domain/repository/solution_repository_interface.dart';
+
+class SolutionRepositoryImpl implements ISolutionRepository {
+  SolutionRepositoryImpl({required IBreedsApi api, required ISolutionStorage storage})
+      : _api = api,
+        _storage = storage;
+
+  final IBreedsApi _api;
+
+  final ISolutionStorage _storage;
+
+  @override
+  Future<Result<Breeds>> fetchBreeds() async {
+    final result = await _api.getBreeds();
+    return result.when(
+      success: Result<BreedsModel>.success,
+      failure: Result.error,
+    );
+  }
+
+  @override
+  Future<int?> getTheme() => _storage.getTheme();
+
+  @override
+  Future<Result<void>> saveTheme(ThemeMode themeMode) => _storage.saveTheme(themeMode);
+
+  @override
+  Future<String?> getLocale() => _storage.getLocale();
+
+  @override
+  Future<Result<void>> saveLocale(String language) => _storage.saveLocale(language);
+}

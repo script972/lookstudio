@@ -1,4 +1,4 @@
-import 'package:solution_starter/data/datasource/network/exchange_models/network_request_body.dart';
+import 'package:dio/dio.dart';
 
 enum NetworkRequestType { get, post, put, delete }
 
@@ -6,16 +6,18 @@ class NetworkRequest {
   const NetworkRequest({
     required this.method,
     required this.path,
-    required this.data,
+    this.data,
     this.queryParams,
     this.headers,
     this.extra,
+    this.formData,
     this.retry = false,
   });
 
   final NetworkRequestType method;
+  final FormData? formData;
   final String path;
-  final NetworkRequestBody data;
+  final dynamic data;
   final Map<String, dynamic>? queryParams;
   final Map<String, String>? headers;
   final Map<String, dynamic>? extra;

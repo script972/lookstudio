@@ -1,4 +1,4 @@
-abstract class AuthStore {
+abstract interface class ISecureStorage {
   Future<void> saveToken({required String token});
 
   Future<String?> getToken();

@@ -12,7 +12,6 @@ class ClientsLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final router = AppRouter();
     final clients = Client.clients;
     return BlocConsumer<ClientCubit, ClientScreenState>(
       listener: (context, state) {

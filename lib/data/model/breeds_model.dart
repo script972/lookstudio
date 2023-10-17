@@ -4,10 +4,7 @@ import 'package:solution_starter/domain/entities/breed_info.dart';
 import 'package:solution_starter/domain/entities/breeds.dart';
 
 class BreedsModel extends Breeds {
-  BreedsModel({
-    required super.breedList,
-    required this.status,
-  });
+  BreedsModel({required super.breedList, required this.status});
 
   factory BreedsModel.fromJson(Map<String, dynamic> json) {
     final List<BreedInfo> dogs = [];

@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logger/logger.dart';
 import 'package:solution_starter/core/logger.dart';
-import 'package:solution_starter/domain/repository/auth_repository.dart';
+import 'package:solution_starter/domain/repository/auth_repository_interface.dart';
 
 part 'login_cubit.freezed.dart';
 part 'login_state.dart';
@@ -14,7 +14,7 @@ class LoginCubit extends Cubit<LoginState> {
     required this.repository,
   }) : super(const LoginState.initial());
   final Logger logger = getLogger('LoginCubit');
-  final AuthRepository repository;
+  final IAuthRepository repository;
 
   void login({
     required String username,
@@ -33,6 +33,7 @@ class LoginCubit extends Cubit<LoginState> {
       error: (error) {
         //TODO(DenisM): Process error states
         emit(const LoginState.successfullyLogin());
+        repository.saveAuthToken("token");
 
       },
       orElse: () {
