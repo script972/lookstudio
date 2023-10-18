@@ -2,11 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/action_errors.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/response.dart';
-import 'package:solution_starter/data/datasource/network/services/authentication_service/authentication_service.dart';
+import 'package:solution_starter/data/datasource/network/api/authentication/authentication_api_interface.dart';
 import 'package:solution_starter/domain/entities/user.dart';
 
-class AuthServiceFirebaseImplementation extends AuthenticationService {
-  AuthServiceFirebaseImplementation({required auth.FirebaseAuth firebaseAuth})
+class AuthenticationApi implements IAuthenticationApi {
+  AuthenticationApi({required auth.FirebaseAuth firebaseAuth})
       : _firebaseAuth = firebaseAuth;
   final auth.FirebaseAuth _firebaseAuth;
 

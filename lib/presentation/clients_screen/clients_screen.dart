@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-import 'package:solution_starter/domain/repository/auth_repository.dart';
+import 'package:solution_starter/domain/repository/auth_repository_interface.dart';
 import 'package:solution_starter/presentation/clients_screen/clients_layout.dart';
 import 'package:solution_starter/presentation/clients_screen/cubit/client_cubit.dart';
 
@@ -15,7 +15,7 @@ class ClientsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final repository = Provider.of<AuthRepository>(context);
+    final repository = Provider.of<IAuthRepository>(context);
     return BlocProvider(
       create: (context) => ClientCubit(repository: repository),
       child: const ClientsLayout(),

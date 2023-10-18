@@ -1,27 +1,28 @@
-import 'package:solution_starter/data/datasource/local/app_database.dart';
+import 'package:solution_starter/data/datasource/local/database/app_database.dart';
+import 'package:solution_starter/data/datasource/local/facade/secure_storage_interface.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/local_errors.dart';
-import 'package:solution_starter/data/datasource/network/services/authentication_service/authentication_service.dart';
+import 'package:solution_starter/data/datasource/network/api/authentication/authentication_api_interface.dart';
 import 'package:solution_starter/domain/entities/result.dart';
 import 'package:solution_starter/domain/entities/user.dart';
 import 'package:solution_starter/data/model/user_entity.dart';
-import 'package:solution_starter/domain/repository/auth_repository.dart';
-import 'package:solution_starter/domain/use_cases/maper/maper_from_model.dart';
-import 'package:solution_starter/domain/use_cases/maper/maper_to_model.dart';
+import 'package:solution_starter/domain/repository/auth_repository_interface.dart';
+import 'package:solution_starter/data/mapper/mapper_from_model.dart';
+import 'package:solution_starter/data/mapper/mapper_to_model.dart';
 
-
-class AuthRepositoryImpl extends AuthRepository {
-  AuthRepositoryImpl({
-    required AuthenticationService authService,
+class AuthRepository implements IAuthRepository {
+  AuthRepository({
+    required IAuthenticationApi authService,
     required AppDatabase appDatabase,
-  })
-      : _authService = authService,
-        _appDatabase = appDatabase;
-  final AuthenticationService _authService;
+    required ISecureStorage secureStorage,
+  })  : _authService = authService,
+        _appDatabase = appDatabase,
+        _secureStorage = secureStorage;
+  final IAuthenticationApi _authService;
   final AppDatabase _appDatabase;
+  final ISecureStorage _secureStorage;
 
   @override
-  Future<Result<User>> login(
-      {required String email, required String password}) async {
+  Future<Result<User>> login({required String email, required String password}) async {
     // Request
     final response = await _authService.login(email, password);
     return response.when(
@@ -31,8 +32,7 @@ class AuthRepositoryImpl extends AuthRepository {
   }
 
   @override
-  Future<Result<User>> register(
-      {required String email, required String password}) async {
+  Future<Result<User>> register({required String email, required String password}) async {
     final response = await _authService.register(email, password);
     return response.when(
       success: Result<User>.success,
@@ -68,19 +68,16 @@ class AuthRepositoryImpl extends AuthRepository {
     return Result.success(users);
   }
 
-
   @override
   Future<void> addUser(User user) async {
     final castModel = ToUserEntity().call(user);
-   await _appDatabase.userDao.insertUser(castModel);
+    await _appDatabase.userDao.insertUser(castModel);
   }
-
-
 
   @override
   Future<void> removeUser(User user) async {
     final castModel = ToUserEntity().call(user);
-     await _appDatabase.userDao.deleteUser(castModel);
+    await _appDatabase.userDao.deleteUser(castModel);
   }
 
   @override
@@ -90,5 +87,6 @@ class AuthRepositoryImpl extends AuthRepository {
     return castModel;
   }
 
-
+  @override
+  Future<void> saveAuthToken(String token) async => _secureStorage.saveToken(token: token);
 }

@@ -19,19 +19,19 @@ mixin _$NetworkResponse<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T data) success,
-    required TResult Function(NetworkError error) failure,
+    required TResult Function(Object error) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? success,
-    TResult? Function(NetworkError error)? failure,
+    TResult? Function(Object error)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? success,
-    TResult Function(NetworkError error)? failure,
+    TResult Function(Object error)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -140,7 +140,7 @@ class _$SuccessImpl<T> implements Success<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T data) success,
-    required TResult Function(NetworkError error) failure,
+    required TResult Function(Object error) failure,
   }) {
     return success(data);
   }
@@ -149,7 +149,7 @@ class _$SuccessImpl<T> implements Success<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? success,
-    TResult? Function(NetworkError error)? failure,
+    TResult? Function(Object error)? failure,
   }) {
     return success?.call(data);
   }
@@ -158,7 +158,7 @@ class _$SuccessImpl<T> implements Success<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? success,
-    TResult Function(NetworkError error)? failure,
+    TResult Function(Object error)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -214,7 +214,7 @@ abstract class _$$FailureImplCopyWith<T, $Res> {
           _$FailureImpl<T> value, $Res Function(_$FailureImpl<T>) then) =
       __$$FailureImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({NetworkError error});
+  $Res call({Object error});
 }
 
 /// @nodoc
@@ -231,10 +231,7 @@ class __$$FailureImplCopyWithImpl<T, $Res>
     Object? error = null,
   }) {
     return _then(_$FailureImpl<T>(
-      null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as NetworkError,
+      null == error ? _value.error : error,
     ));
   }
 }
@@ -245,7 +242,7 @@ class _$FailureImpl<T> implements Failure<T> {
   const _$FailureImpl(this.error);
 
   @override
-  final NetworkError error;
+  final Object error;
 
   @override
   String toString() {
@@ -257,11 +254,12 @@ class _$FailureImpl<T> implements Failure<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FailureImpl<T> &&
-            (identical(other.error, error) || other.error == error));
+            const DeepCollectionEquality().equals(other.error, error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
 
   @JsonKey(ignore: true)
   @override
@@ -273,7 +271,7 @@ class _$FailureImpl<T> implements Failure<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T data) success,
-    required TResult Function(NetworkError error) failure,
+    required TResult Function(Object error) failure,
   }) {
     return failure(error);
   }
@@ -282,7 +280,7 @@ class _$FailureImpl<T> implements Failure<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? success,
-    TResult? Function(NetworkError error)? failure,
+    TResult? Function(Object error)? failure,
   }) {
     return failure?.call(error);
   }
@@ -291,7 +289,7 @@ class _$FailureImpl<T> implements Failure<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? success,
-    TResult Function(NetworkError error)? failure,
+    TResult Function(Object error)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -333,9 +331,9 @@ class _$FailureImpl<T> implements Failure<T> {
 }
 
 abstract class Failure<T> implements NetworkResponse<T> {
-  const factory Failure(final NetworkError error) = _$FailureImpl<T>;
+  const factory Failure(final Object error) = _$FailureImpl<T>;
 
-  NetworkError get error;
+  Object get error;
   @JsonKey(ignore: true)
   _$$FailureImplCopyWith<T, _$FailureImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;

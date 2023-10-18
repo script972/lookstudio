@@ -3,30 +3,27 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:provider/provider.dart';
 import 'package:solution_starter/core/theme/theme_container.dart';
-import 'package:solution_starter/data/datasource/local/app_database.dart';
-import 'package:solution_starter/domain/repository/configuration_repository.dart';
+import 'package:solution_starter/data/datasource/local/database/app_database.dart';
+import 'package:solution_starter/data/datasource/local/secure_storage.dart';
+import 'package:solution_starter/domain/repository/solution_repository_interface.dart';
 import 'package:solution_starter/generated/l10n.dart';
 import 'package:solution_starter/navigation/app_router.dart';
 import 'package:solution_starter/solution_injection.dart';
 import 'package:value_provider/value_provider.dart';
 
 class AppEntry extends StatelessWidget {
-  AppEntry({required this.database, super.key, required this.authenticated});
+  AppEntry({required SecureStorage secureStorage, required AppDatabase database, super.key}) : _router = AppRouter(storage: secureStorage), _database = database;
 
-  final AppDatabase database;
-  final bool authenticated;
-
-  final _router = AppRouter();
+  final AppRouter _router;
+  final AppDatabase _database;
 
   Future<ThemeMode> getThemeMode(BuildContext buildContext) async {
-    final themeModeValue =
-        Provider.of<ConfigurationRepository>(buildContext).getTheme();
+    final themeModeValue = Provider.of<ISolutionRepository>(buildContext).getTheme();
     return ThemeMode.values[await themeModeValue ?? 0];
   }
 
   Future<Locale> getLocale(BuildContext buildContext) async {
-    final localeValue =
-        Provider.of<ConfigurationRepository>(buildContext).getLocale();
+    final localeValue = Provider.of<ISolutionRepository>(buildContext).getLocale();
     return Locale(await localeValue ?? 'en');
   }
 
@@ -34,7 +31,7 @@ class AppEntry extends StatelessWidget {
   Widget build(BuildContext context) {
     FlutterNativeSplash.remove();
     return MultiProvider(
-      providers: SolutionInjection.getDiList(context, database),
+      providers: SolutionInjection.getDiList(context, _database),
       child: Builder(
         builder: (BuildContext context) {
           return ValueProvider<ThemeMode, ThemeMode>(
@@ -43,8 +40,7 @@ class AppEntry extends StatelessWidget {
             initValue: ThemeMode.system,
             builder: (_, themeMode) {
               return ValueProvider<Locale, Locale>(
-                shouldNotify: (newMode, oldMode) =>
-                    newMode.languageCode != oldMode.languageCode,
+                shouldNotify: (newMode, oldMode) => newMode.languageCode != oldMode.languageCode,
                 future: getLocale(context),
                 initValue: const Locale('en', 'US'),
                 builder: (context, locale) {
@@ -53,11 +49,7 @@ class AppEntry extends StatelessWidget {
                     theme: ThemeFactory.lightTheme.themeData,
                     darkTheme: ThemeFactory.darkTheme.themeData,
                     themeMode: themeMode,
-                    routerDelegate: _router.delegate(
-                      initialRoutes: [
-                        authenticated ? const HomeRoute() : const LoginRoute()
-                      ],
-                    ),
+                    routerDelegate: _router.delegate(),
                     routeInformationParser: _router.defaultRouteParser(),
                     localizationsDelegates: const [
                       S.delegate,

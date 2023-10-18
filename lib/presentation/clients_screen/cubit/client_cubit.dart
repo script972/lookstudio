@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:solution_starter/domain/repository/auth_repository.dart';
+import 'package:solution_starter/domain/repository/auth_repository_interface.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'client_screen_state.dart';
 part 'client_cubit.freezed.dart';
@@ -18,6 +18,6 @@ class ClientCubit extends Cubit<ClientScreenState> {
      emit(const ClientScreenState.deleted());
   }
 
-  final AuthRepository repository;
+  final IAuthRepository repository;
 
 }

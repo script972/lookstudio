@@ -1,17 +1,16 @@
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
 import 'package:solution_starter/core/logger.dart';
-import 'package:solution_starter/data/datasource/local/facade/auth_store.dart';
+import 'package:solution_starter/data/datasource/local/facade/secure_storage_interface.dart';
 
 class TokenInterceptor extends Interceptor {
-  // TODO(DenisM): please lock at this Interceptor or add implementation from your previous projects
   TokenInterceptor({
-    required AuthStore authStore,
+    required ISecureStorage authStore,
   }) : _authStore = authStore {
     logger.i('Create TokenInterceptor');
   }
 
-  final AuthStore _authStore;
+  final ISecureStorage _authStore;
 
   final Logger logger = getLogger('TokenInterceptor');
 
@@ -27,7 +26,7 @@ class TokenInterceptor extends Interceptor {
   }
 
   @override
-  void onError(DioError err, ErrorInterceptorHandler handler) async {
+  void onError(DioException err, ErrorInterceptorHandler handler) async {
     logger.i('in onError, code: ${err.response?.statusCode}');
 
     // On Unauthenticated error
