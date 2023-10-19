@@ -1,6 +1,6 @@
 import 'package:solution_starter/data/datasource/network/api/breeds/breeds_api_interface.dart';
-import 'package:solution_starter/data/datasource/network/exchange_models/request.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/response.dart';
+import 'package:solution_starter/data/datasource/network/exchange_models/request.dart';
 import 'package:solution_starter/data/datasource/network/services/network_service/network_service_interface.dart';
 import 'package:solution_starter/data/model/breeds_model.dart';
 

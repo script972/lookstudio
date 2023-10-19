@@ -1,10 +1,38 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:solution_starter/domain/entities/result.dart';
 
-part 'response.freezed.dart';
+sealed class NetworkResponse<T> {
+  NetworkResponse();
 
-@freezed
-class NetworkResponse<T> with _$NetworkResponse<T> {
-  const factory NetworkResponse.success(T data) = Success<T>;
+  Result<T> when({
+    required Result<T> Function(T data) onSuccess,
+    required Result<T> Function(Object error) onError,
+  });
+}
 
-  const factory NetworkResponse.failure(Object error) = Failure;
+class SuccessResponse<T> extends NetworkResponse<T> {
+  SuccessResponse(this.data);
+
+  final T data;
+
+  @override
+  Result<T> when({
+    required Result<T> Function(T data) onSuccess,
+    required Result<T> Function(Object error) onError,
+  }) {
+    return onSuccess(data);
+  }
+}
+
+class ErrorResponse<T> extends NetworkResponse<T> {
+  ErrorResponse(this.error);
+
+  final Object error;
+
+  @override
+  Result<T> when({
+    required Result<T> Function(T data) onSuccess,
+    required Result<T> Function(Object error) onError,
+  }) {
+    return onError(error);
+  }
 }

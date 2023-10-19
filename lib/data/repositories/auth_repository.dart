@@ -25,28 +25,19 @@ class AuthRepository implements IAuthRepository {
   Future<Result<User>> login({required String email, required String password}) async {
     // Request
     final response = await _authService.login(email, password);
-    return response.when(
-      success: Result<User>.success,
-      failure: Result.error,
-    );
+    return response.when(onSuccess: Result<User>.success, onError: Result.error);
   }
 
   @override
   Future<Result<User>> register({required String email, required String password}) async {
     final response = await _authService.register(email, password);
-    return response.when(
-      success: Result<User>.success,
-      failure: Result.error,
-    );
+    return response.when(onSuccess: Result<User>.success, onError: Result.error);
   }
 
   @override
   Future<Result<User>> googleLogin() async {
     final response = await _authService.googleLogin();
-    return response.when(
-      success: Result<User>.success,
-      failure: Result.error,
-    );
+    return response.when(onSuccess: Result<User>.success, onError: Result.error);
   }
 
   @override

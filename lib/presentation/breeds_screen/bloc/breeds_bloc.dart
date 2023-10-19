@@ -16,7 +16,9 @@ class BreedsBloc extends Bloc<BreedsEvent, BreedsState> {
       emit(const BreedsState.loading());
       final results = await _useCase.execute(NoParams());
       results.when(
-        success: (data) => emit(BreedsState.loaded(fetchedDogs: data.breedList)),
+        success: (data) {
+          emit(BreedsState.loaded(fetchedDogs: data.breedList));
+        },
         error: (error) => emit(BreedsState.error(exception: error)),
       );
     });

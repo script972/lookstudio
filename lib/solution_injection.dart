@@ -84,12 +84,12 @@ class SolutionInjection {
             SecureStorage(secureStorage: flutterSecureStorage),
       ),
 
-      ProxyProvider2<EnvironmentService, HiveHelper, SolutionStorage>(
+      ProxyProvider2<EnvironmentService, HiveHelper, ISolutionStorage>(
         update: (
           BuildContext context,
           EnvironmentService environmentService,
           HiveHelper hiveHelper,
-          SolutionStorage? configurationStore,
+          ISolutionStorage? configurationStore,
         ) {
           final HiveInterface hive = Hive;
           return SolutionStorage(
@@ -149,7 +149,7 @@ class SolutionInjection {
       ProxyProvider2<IBreedsApi, ISolutionStorage, ISolutionRepository>(
         update: (BuildContext context, IBreedsApi breedsApi, ISolutionStorage storage,
                 ISolutionRepository? breedsRepository) =>
-            SolutionRepositoryImpl(api: breedsApi, storage: storage),
+            SolutionRepository(api: breedsApi, storage: storage),
       ),
 
       ProxyProvider<ISolutionRepository, BreedsUseCase>(

@@ -1,8 +1,10 @@
+import 'dart:async';
+
 import 'package:dio/dio.dart';
 import 'package:dio_smart_retry/dio_smart_retry.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/action_errors.dart';
-import 'package:solution_starter/data/datasource/network/exchange_models/request.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/response.dart';
+import 'package:solution_starter/data/datasource/network/exchange_models/request.dart';
 import 'package:solution_starter/data/datasource/network/services/network_service/network_service_interface.dart';
 
 class NetworkService implements INetworkService {
@@ -61,19 +63,19 @@ class NetworkService implements INetworkService {
         onReceiveProgress: onReceiveProgress,
       );
       final result = onParse == null ? response.data : onParse(response);
-      return NetworkResponse.success(result);
+      return SuccessResponse<T>(result);
     } on DioException catch (e) {
-      return _parseError<T>(e);
+      final error = _parseError(e);
+      return ErrorResponse(error);
     }
   }
 
-  NetworkResponse<T> _parseError<T>(DioException error) {
+  NetworkError _parseError(DioException error) {
     final cause = error.error;
     final baseUrl = error.requestOptions.baseUrl;
     final path = error.requestOptions.path;
     final response = error.response;
     final statusCode = response?.statusCode;
-    final networkError = NetworkError(error: cause, baseUrl: baseUrl, path: path, statusCode: statusCode);
-    return NetworkResponse.failure(networkError);
+    return NetworkError(error: cause, baseUrl: baseUrl, path: path, statusCode: statusCode);
   }
 }

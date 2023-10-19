@@ -6,8 +6,8 @@ import 'package:solution_starter/domain/entities/breeds.dart';
 import 'package:solution_starter/domain/entities/result.dart';
 import 'package:solution_starter/domain/repository/solution_repository_interface.dart';
 
-class SolutionRepositoryImpl implements ISolutionRepository {
-  SolutionRepositoryImpl({required IBreedsApi api, required ISolutionStorage storage})
+class SolutionRepository implements ISolutionRepository {
+  SolutionRepository({required IBreedsApi api, required ISolutionStorage storage})
       : _api = api,
         _storage = storage;
 
@@ -18,10 +18,7 @@ class SolutionRepositoryImpl implements ISolutionRepository {
   @override
   Future<Result<Breeds>> fetchBreeds() async {
     final result = await _api.getBreeds();
-    return result.when(
-      success: Result<BreedsModel>.success,
-      failure: Result.error,
-    );
+    return result.when(onSuccess: Result<BreedsModel>.success, onError: Result.error);
   }
 
   @override

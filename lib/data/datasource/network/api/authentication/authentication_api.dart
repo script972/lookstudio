@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:solution_starter/data/datasource/network/exchange_models/action_errors.dart';
-import 'package:solution_starter/data/datasource/network/exchange_models/response.dart';
 import 'package:solution_starter/data/datasource/network/api/authentication/authentication_api_interface.dart';
+import 'package:solution_starter/data/datasource/network/exchange_models/response.dart';
 import 'package:solution_starter/domain/entities/user.dart';
 
 class AuthenticationApi implements IAuthenticationApi {
@@ -19,14 +19,14 @@ class AuthenticationApi implements IAuthenticationApi {
         password: password,
       );
     } on auth.FirebaseAuthException catch (e) {
-      return NetworkResponse.failure(UnauthorizedError(error: e));
+      return ErrorResponse(UnauthorizedError(error: e));
     }
     final user = User(
       id: credential.credential?.providerId ?? '',
       email: email,
       loginDate: DateTime.now(),
     );
-    return NetworkResponse.success(user);
+    return SuccessResponse<User>(user);
   }
 
   @override
@@ -39,7 +39,7 @@ class AuthenticationApi implements IAuthenticationApi {
         password: password,
       );
     } on auth.FirebaseAuthException catch (e) {
-      return NetworkResponse.failure(UnauthorizedError(error: e));
+      return ErrorResponse(UnauthorizedError(error: e));
     }
 
     final user = User(
@@ -47,7 +47,7 @@ class AuthenticationApi implements IAuthenticationApi {
       email: email,
       loginDate: DateTime.now(),
     );
-    return NetworkResponse.success(user);
+    return SuccessResponse<User>(user);
   }
 
   @override
@@ -56,13 +56,13 @@ class AuthenticationApi implements IAuthenticationApi {
     try {
       googleAccount = await GoogleSignIn().signIn();
     } catch (e) {
-      return NetworkResponse.failure(UnauthorizedError(error: e));
+      return ErrorResponse(UnauthorizedError(error: e));
     }
     final user = User(
       id: googleAccount?.id ?? '',
       email: googleAccount?.email,
       loginDate: DateTime.now(),
     );
-    return NetworkResponse.success(user);
+    return SuccessResponse<User>(user);
   }
 }
