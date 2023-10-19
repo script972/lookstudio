@@ -122,7 +122,6 @@ class SolutionInjection {
 
       //Domain services
       ProxyProvider<INetworkService, IAuthenticationApi>(
-        // TODO(AndriiD): why we not inject base url here?
         update: (BuildContext context, INetworkService networkService, IAuthenticationApi? authService) {
           final firebaseAuth = FirebaseAuth.instance;
           return AuthenticationApi(firebaseAuth: firebaseAuth);

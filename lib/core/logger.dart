@@ -6,17 +6,18 @@ Logger getLogger(String className) {
 }
 
 class CustomLogPrinter extends LogPrinter {
-  final String className;
-
   CustomLogPrinter(this.className);
+
+  final String className;
 
   @override
   List<String> log(LogEvent event) {
-    if (event.message.length > 1024) {
+    final eventCast = event.message as String;
+    if (eventCast.length > 1024) {
       printWrapped(event.message);
       return ['--------------------------------------'];
     } else {
-      var emoji = PrettyPrinter.defaultLevelEmojis[event.level]!;
+      final emoji = PrettyPrinter.defaultLevelEmojis[event.level]!;
       return ['$emoji [$className] ${PrettyPrinter.singleDivider} ${event.message}'];
     }
   }

@@ -10,7 +10,7 @@ class HomeLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
-      backgroundColor: Colors.lightBlue,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       routes: const [
         BreedsRoute(),
         ClientsRoute(),
