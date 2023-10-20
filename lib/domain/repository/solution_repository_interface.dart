@@ -12,4 +12,6 @@ abstract interface class ISolutionRepository {
   Future<Result<void>> saveLocale(String language);
 
   Future<String?> getLocale();
+
+  Future<void> deleteToken();
 }

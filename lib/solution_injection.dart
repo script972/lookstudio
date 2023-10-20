@@ -145,10 +145,10 @@ class SolutionInjection {
             BreedsApi(networkService),
       ),
 
-      ProxyProvider2<IBreedsApi, ISolutionStorage, ISolutionRepository>(
-        update: (BuildContext context, IBreedsApi breedsApi, ISolutionStorage storage,
+      ProxyProvider3<IBreedsApi, ISolutionStorage, ISecureStorage, ISolutionRepository>(
+        update: (BuildContext context, IBreedsApi breedsApi, ISolutionStorage storage, ISecureStorage secureStorage,
                 ISolutionRepository? breedsRepository) =>
-            SolutionRepository(api: breedsApi, storage: storage),
+            SolutionRepository(api: breedsApi, storage: storage, secureStorage: secureStorage),
       ),
 
       ProxyProvider<ISolutionRepository, BreedsUseCase>(

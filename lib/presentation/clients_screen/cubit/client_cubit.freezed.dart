@@ -19,50 +19,50 @@ mixin _$ClientScreenState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() deleting,
-    required TResult Function() deleted,
+    required TResult Function() loading,
+    required TResult Function(List<User> users) loaded,
     required TResult Function(Object? exception) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? deleting,
-    TResult? Function()? deleted,
+    TResult? Function()? loading,
+    TResult? Function(List<User> users)? loaded,
     TResult? Function(Object? exception)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? deleting,
-    TResult Function()? deleted,
+    TResult Function()? loading,
+    TResult Function(List<User> users)? loaded,
     TResult Function(Object? exception)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Deleting value) deleting,
-    required TResult Function(SuccessfullyDeleted value) deleted,
-    required TResult Function(ErrorState value) error,
+    required TResult Function(ClinetInitialState value) initial,
+    required TResult Function(ClientLoadingState value) loading,
+    required TResult Function(ClientLoadedState value) loaded,
+    required TResult Function(ClientErrorState value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Deleting value)? deleting,
-    TResult? Function(SuccessfullyDeleted value)? deleted,
-    TResult? Function(ErrorState value)? error,
+    TResult? Function(ClinetInitialState value)? initial,
+    TResult? Function(ClientLoadingState value)? loading,
+    TResult? Function(ClientLoadedState value)? loaded,
+    TResult? Function(ClientErrorState value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Deleting value)? deleting,
-    TResult Function(SuccessfullyDeleted value)? deleted,
-    TResult Function(ErrorState value)? error,
+    TResult Function(ClinetInitialState value)? initial,
+    TResult Function(ClientLoadingState value)? loading,
+    TResult Function(ClientLoadedState value)? loaded,
+    TResult Function(ClientErrorState value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -87,25 +87,25 @@ class _$ClientScreenStateCopyWithImpl<$Res, $Val extends ClientScreenState>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$ClinetInitialStateImplCopyWith<$Res> {
+  factory _$$ClinetInitialStateImplCopyWith(_$ClinetInitialStateImpl value,
+          $Res Function(_$ClinetInitialStateImpl) then) =
+      __$$ClinetInitialStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$ClientScreenStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$ClinetInitialStateImplCopyWithImpl<$Res>
+    extends _$ClientScreenStateCopyWithImpl<$Res, _$ClinetInitialStateImpl>
+    implements _$$ClinetInitialStateImplCopyWith<$Res> {
+  __$$ClinetInitialStateImplCopyWithImpl(_$ClinetInitialStateImpl _value,
+      $Res Function(_$ClinetInitialStateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialImpl implements Initial {
-  const _$InitialImpl();
+class _$ClinetInitialStateImpl implements ClinetInitialState {
+  const _$ClinetInitialStateImpl();
 
   @override
   String toString() {
@@ -115,7 +115,7 @@ class _$InitialImpl implements Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType && other is _$ClinetInitialStateImpl);
   }
 
   @override
@@ -125,8 +125,8 @@ class _$InitialImpl implements Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() deleting,
-    required TResult Function() deleted,
+    required TResult Function() loading,
+    required TResult Function(List<User> users) loaded,
     required TResult Function(Object? exception) error,
   }) {
     return initial();
@@ -136,8 +136,8 @@ class _$InitialImpl implements Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? deleting,
-    TResult? Function()? deleted,
+    TResult? Function()? loading,
+    TResult? Function(List<User> users)? loaded,
     TResult? Function(Object? exception)? error,
   }) {
     return initial?.call();
@@ -147,8 +147,8 @@ class _$InitialImpl implements Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? deleting,
-    TResult Function()? deleted,
+    TResult Function()? loading,
+    TResult Function(List<User> users)? loaded,
     TResult Function(Object? exception)? error,
     required TResult orElse(),
   }) {
@@ -161,10 +161,10 @@ class _$InitialImpl implements Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Deleting value) deleting,
-    required TResult Function(SuccessfullyDeleted value) deleted,
-    required TResult Function(ErrorState value) error,
+    required TResult Function(ClinetInitialState value) initial,
+    required TResult Function(ClientLoadingState value) loading,
+    required TResult Function(ClientLoadedState value) loaded,
+    required TResult Function(ClientErrorState value) error,
   }) {
     return initial(this);
   }
@@ -172,10 +172,10 @@ class _$InitialImpl implements Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Deleting value)? deleting,
-    TResult? Function(SuccessfullyDeleted value)? deleted,
-    TResult? Function(ErrorState value)? error,
+    TResult? Function(ClinetInitialState value)? initial,
+    TResult? Function(ClientLoadingState value)? loading,
+    TResult? Function(ClientLoadedState value)? loaded,
+    TResult? Function(ClientErrorState value)? error,
   }) {
     return initial?.call(this);
   }
@@ -183,10 +183,10 @@ class _$InitialImpl implements Initial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Deleting value)? deleting,
-    TResult Function(SuccessfullyDeleted value)? deleted,
-    TResult Function(ErrorState value)? error,
+    TResult Function(ClinetInitialState value)? initial,
+    TResult Function(ClientLoadingState value)? loading,
+    TResult Function(ClientLoadedState value)? loaded,
+    TResult Function(ClientErrorState value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -196,40 +196,40 @@ class _$InitialImpl implements Initial {
   }
 }
 
-abstract class Initial implements ClientScreenState {
-  const factory Initial() = _$InitialImpl;
+abstract class ClinetInitialState implements ClientScreenState {
+  const factory ClinetInitialState() = _$ClinetInitialStateImpl;
 }
 
 /// @nodoc
-abstract class _$$DeletingImplCopyWith<$Res> {
-  factory _$$DeletingImplCopyWith(
-          _$DeletingImpl value, $Res Function(_$DeletingImpl) then) =
-      __$$DeletingImplCopyWithImpl<$Res>;
+abstract class _$$ClientLoadingStateImplCopyWith<$Res> {
+  factory _$$ClientLoadingStateImplCopyWith(_$ClientLoadingStateImpl value,
+          $Res Function(_$ClientLoadingStateImpl) then) =
+      __$$ClientLoadingStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$DeletingImplCopyWithImpl<$Res>
-    extends _$ClientScreenStateCopyWithImpl<$Res, _$DeletingImpl>
-    implements _$$DeletingImplCopyWith<$Res> {
-  __$$DeletingImplCopyWithImpl(
-      _$DeletingImpl _value, $Res Function(_$DeletingImpl) _then)
+class __$$ClientLoadingStateImplCopyWithImpl<$Res>
+    extends _$ClientScreenStateCopyWithImpl<$Res, _$ClientLoadingStateImpl>
+    implements _$$ClientLoadingStateImplCopyWith<$Res> {
+  __$$ClientLoadingStateImplCopyWithImpl(_$ClientLoadingStateImpl _value,
+      $Res Function(_$ClientLoadingStateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$DeletingImpl implements Deleting {
-  const _$DeletingImpl();
+class _$ClientLoadingStateImpl implements ClientLoadingState {
+  const _$ClientLoadingStateImpl();
 
   @override
   String toString() {
-    return 'ClientScreenState.deleting()';
+    return 'ClientScreenState.loading()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$DeletingImpl);
+        (other.runtimeType == runtimeType && other is _$ClientLoadingStateImpl);
   }
 
   @override
@@ -239,35 +239,35 @@ class _$DeletingImpl implements Deleting {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() deleting,
-    required TResult Function() deleted,
+    required TResult Function() loading,
+    required TResult Function(List<User> users) loaded,
     required TResult Function(Object? exception) error,
   }) {
-    return deleting();
+    return loading();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? deleting,
-    TResult? Function()? deleted,
+    TResult? Function()? loading,
+    TResult? Function(List<User> users)? loaded,
     TResult? Function(Object? exception)? error,
   }) {
-    return deleting?.call();
+    return loading?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? deleting,
-    TResult Function()? deleted,
+    TResult Function()? loading,
+    TResult Function(List<User> users)? loaded,
     TResult Function(Object? exception)? error,
     required TResult orElse(),
   }) {
-    if (deleting != null) {
-      return deleting();
+    if (loading != null) {
+      return loading();
     }
     return orElse();
   }
@@ -275,114 +275,146 @@ class _$DeletingImpl implements Deleting {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Deleting value) deleting,
-    required TResult Function(SuccessfullyDeleted value) deleted,
-    required TResult Function(ErrorState value) error,
+    required TResult Function(ClinetInitialState value) initial,
+    required TResult Function(ClientLoadingState value) loading,
+    required TResult Function(ClientLoadedState value) loaded,
+    required TResult Function(ClientErrorState value) error,
   }) {
-    return deleting(this);
+    return loading(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Deleting value)? deleting,
-    TResult? Function(SuccessfullyDeleted value)? deleted,
-    TResult? Function(ErrorState value)? error,
+    TResult? Function(ClinetInitialState value)? initial,
+    TResult? Function(ClientLoadingState value)? loading,
+    TResult? Function(ClientLoadedState value)? loaded,
+    TResult? Function(ClientErrorState value)? error,
   }) {
-    return deleting?.call(this);
+    return loading?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Deleting value)? deleting,
-    TResult Function(SuccessfullyDeleted value)? deleted,
-    TResult Function(ErrorState value)? error,
+    TResult Function(ClinetInitialState value)? initial,
+    TResult Function(ClientLoadingState value)? loading,
+    TResult Function(ClientLoadedState value)? loaded,
+    TResult Function(ClientErrorState value)? error,
     required TResult orElse(),
   }) {
-    if (deleting != null) {
-      return deleting(this);
+    if (loading != null) {
+      return loading(this);
     }
     return orElse();
   }
 }
 
-abstract class Deleting implements ClientScreenState {
-  const factory Deleting() = _$DeletingImpl;
+abstract class ClientLoadingState implements ClientScreenState {
+  const factory ClientLoadingState() = _$ClientLoadingStateImpl;
 }
 
 /// @nodoc
-abstract class _$$SuccessfullyDeletedImplCopyWith<$Res> {
-  factory _$$SuccessfullyDeletedImplCopyWith(_$SuccessfullyDeletedImpl value,
-          $Res Function(_$SuccessfullyDeletedImpl) then) =
-      __$$SuccessfullyDeletedImplCopyWithImpl<$Res>;
+abstract class _$$ClientLoadedStateImplCopyWith<$Res> {
+  factory _$$ClientLoadedStateImplCopyWith(_$ClientLoadedStateImpl value,
+          $Res Function(_$ClientLoadedStateImpl) then) =
+      __$$ClientLoadedStateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<User> users});
 }
 
 /// @nodoc
-class __$$SuccessfullyDeletedImplCopyWithImpl<$Res>
-    extends _$ClientScreenStateCopyWithImpl<$Res, _$SuccessfullyDeletedImpl>
-    implements _$$SuccessfullyDeletedImplCopyWith<$Res> {
-  __$$SuccessfullyDeletedImplCopyWithImpl(_$SuccessfullyDeletedImpl _value,
-      $Res Function(_$SuccessfullyDeletedImpl) _then)
+class __$$ClientLoadedStateImplCopyWithImpl<$Res>
+    extends _$ClientScreenStateCopyWithImpl<$Res, _$ClientLoadedStateImpl>
+    implements _$$ClientLoadedStateImplCopyWith<$Res> {
+  __$$ClientLoadedStateImplCopyWithImpl(_$ClientLoadedStateImpl _value,
+      $Res Function(_$ClientLoadedStateImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? users = null,
+  }) {
+    return _then(_$ClientLoadedStateImpl(
+      null == users
+          ? _value._users
+          : users // ignore: cast_nullable_to_non_nullable
+              as List<User>,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$SuccessfullyDeletedImpl implements SuccessfullyDeleted {
-  const _$SuccessfullyDeletedImpl();
+class _$ClientLoadedStateImpl implements ClientLoadedState {
+  const _$ClientLoadedStateImpl(final List<User> users) : _users = users;
+
+  final List<User> _users;
+  @override
+  List<User> get users {
+    if (_users is EqualUnmodifiableListView) return _users;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_users);
+  }
 
   @override
   String toString() {
-    return 'ClientScreenState.deleted()';
+    return 'ClientScreenState.loaded(users: $users)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SuccessfullyDeletedImpl);
+            other is _$ClientLoadedStateImpl &&
+            const DeepCollectionEquality().equals(other._users, _users));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_users));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ClientLoadedStateImplCopyWith<_$ClientLoadedStateImpl> get copyWith =>
+      __$$ClientLoadedStateImplCopyWithImpl<_$ClientLoadedStateImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() deleting,
-    required TResult Function() deleted,
+    required TResult Function() loading,
+    required TResult Function(List<User> users) loaded,
     required TResult Function(Object? exception) error,
   }) {
-    return deleted();
+    return loaded(users);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? deleting,
-    TResult? Function()? deleted,
+    TResult? Function()? loading,
+    TResult? Function(List<User> users)? loaded,
     TResult? Function(Object? exception)? error,
   }) {
-    return deleted?.call();
+    return loaded?.call(users);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? deleting,
-    TResult Function()? deleted,
+    TResult Function()? loading,
+    TResult Function(List<User> users)? loaded,
     TResult Function(Object? exception)? error,
     required TResult orElse(),
   }) {
-    if (deleted != null) {
-      return deleted();
+    if (loaded != null) {
+      return loaded(users);
     }
     return orElse();
   }
@@ -390,60 +422,66 @@ class _$SuccessfullyDeletedImpl implements SuccessfullyDeleted {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Deleting value) deleting,
-    required TResult Function(SuccessfullyDeleted value) deleted,
-    required TResult Function(ErrorState value) error,
+    required TResult Function(ClinetInitialState value) initial,
+    required TResult Function(ClientLoadingState value) loading,
+    required TResult Function(ClientLoadedState value) loaded,
+    required TResult Function(ClientErrorState value) error,
   }) {
-    return deleted(this);
+    return loaded(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Deleting value)? deleting,
-    TResult? Function(SuccessfullyDeleted value)? deleted,
-    TResult? Function(ErrorState value)? error,
+    TResult? Function(ClinetInitialState value)? initial,
+    TResult? Function(ClientLoadingState value)? loading,
+    TResult? Function(ClientLoadedState value)? loaded,
+    TResult? Function(ClientErrorState value)? error,
   }) {
-    return deleted?.call(this);
+    return loaded?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Deleting value)? deleting,
-    TResult Function(SuccessfullyDeleted value)? deleted,
-    TResult Function(ErrorState value)? error,
+    TResult Function(ClinetInitialState value)? initial,
+    TResult Function(ClientLoadingState value)? loading,
+    TResult Function(ClientLoadedState value)? loaded,
+    TResult Function(ClientErrorState value)? error,
     required TResult orElse(),
   }) {
-    if (deleted != null) {
-      return deleted(this);
+    if (loaded != null) {
+      return loaded(this);
     }
     return orElse();
   }
 }
 
-abstract class SuccessfullyDeleted implements ClientScreenState {
-  const factory SuccessfullyDeleted() = _$SuccessfullyDeletedImpl;
+abstract class ClientLoadedState implements ClientScreenState {
+  const factory ClientLoadedState(final List<User> users) =
+      _$ClientLoadedStateImpl;
+
+  List<User> get users;
+  @JsonKey(ignore: true)
+  _$$ClientLoadedStateImplCopyWith<_$ClientLoadedStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ErrorStateImplCopyWith<$Res> {
-  factory _$$ErrorStateImplCopyWith(
-          _$ErrorStateImpl value, $Res Function(_$ErrorStateImpl) then) =
-      __$$ErrorStateImplCopyWithImpl<$Res>;
+abstract class _$$ClientErrorStateImplCopyWith<$Res> {
+  factory _$$ClientErrorStateImplCopyWith(_$ClientErrorStateImpl value,
+          $Res Function(_$ClientErrorStateImpl) then) =
+      __$$ClientErrorStateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Object? exception});
 }
 
 /// @nodoc
-class __$$ErrorStateImplCopyWithImpl<$Res>
-    extends _$ClientScreenStateCopyWithImpl<$Res, _$ErrorStateImpl>
-    implements _$$ErrorStateImplCopyWith<$Res> {
-  __$$ErrorStateImplCopyWithImpl(
-      _$ErrorStateImpl _value, $Res Function(_$ErrorStateImpl) _then)
+class __$$ClientErrorStateImplCopyWithImpl<$Res>
+    extends _$ClientScreenStateCopyWithImpl<$Res, _$ClientErrorStateImpl>
+    implements _$$ClientErrorStateImplCopyWith<$Res> {
+  __$$ClientErrorStateImplCopyWithImpl(_$ClientErrorStateImpl _value,
+      $Res Function(_$ClientErrorStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -451,7 +489,7 @@ class __$$ErrorStateImplCopyWithImpl<$Res>
   $Res call({
     Object? exception = freezed,
   }) {
-    return _then(_$ErrorStateImpl(
+    return _then(_$ClientErrorStateImpl(
       exception: freezed == exception ? _value.exception : exception,
     ));
   }
@@ -459,8 +497,8 @@ class __$$ErrorStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorStateImpl implements ErrorState {
-  const _$ErrorStateImpl({this.exception});
+class _$ClientErrorStateImpl implements ClientErrorState {
+  const _$ClientErrorStateImpl({this.exception});
 
   @override
   final Object? exception;
@@ -474,7 +512,7 @@ class _$ErrorStateImpl implements ErrorState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ErrorStateImpl &&
+            other is _$ClientErrorStateImpl &&
             const DeepCollectionEquality().equals(other.exception, exception));
   }
 
@@ -485,15 +523,16 @@ class _$ErrorStateImpl implements ErrorState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ErrorStateImplCopyWith<_$ErrorStateImpl> get copyWith =>
-      __$$ErrorStateImplCopyWithImpl<_$ErrorStateImpl>(this, _$identity);
+  _$$ClientErrorStateImplCopyWith<_$ClientErrorStateImpl> get copyWith =>
+      __$$ClientErrorStateImplCopyWithImpl<_$ClientErrorStateImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() deleting,
-    required TResult Function() deleted,
+    required TResult Function() loading,
+    required TResult Function(List<User> users) loaded,
     required TResult Function(Object? exception) error,
   }) {
     return error(exception);
@@ -503,8 +542,8 @@ class _$ErrorStateImpl implements ErrorState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? deleting,
-    TResult? Function()? deleted,
+    TResult? Function()? loading,
+    TResult? Function(List<User> users)? loaded,
     TResult? Function(Object? exception)? error,
   }) {
     return error?.call(exception);
@@ -514,8 +553,8 @@ class _$ErrorStateImpl implements ErrorState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? deleting,
-    TResult Function()? deleted,
+    TResult Function()? loading,
+    TResult Function(List<User> users)? loaded,
     TResult Function(Object? exception)? error,
     required TResult orElse(),
   }) {
@@ -528,10 +567,10 @@ class _$ErrorStateImpl implements ErrorState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Deleting value) deleting,
-    required TResult Function(SuccessfullyDeleted value) deleted,
-    required TResult Function(ErrorState value) error,
+    required TResult Function(ClinetInitialState value) initial,
+    required TResult Function(ClientLoadingState value) loading,
+    required TResult Function(ClientLoadedState value) loaded,
+    required TResult Function(ClientErrorState value) error,
   }) {
     return error(this);
   }
@@ -539,10 +578,10 @@ class _$ErrorStateImpl implements ErrorState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Deleting value)? deleting,
-    TResult? Function(SuccessfullyDeleted value)? deleted,
-    TResult? Function(ErrorState value)? error,
+    TResult? Function(ClinetInitialState value)? initial,
+    TResult? Function(ClientLoadingState value)? loading,
+    TResult? Function(ClientLoadedState value)? loaded,
+    TResult? Function(ClientErrorState value)? error,
   }) {
     return error?.call(this);
   }
@@ -550,10 +589,10 @@ class _$ErrorStateImpl implements ErrorState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Deleting value)? deleting,
-    TResult Function(SuccessfullyDeleted value)? deleted,
-    TResult Function(ErrorState value)? error,
+    TResult Function(ClinetInitialState value)? initial,
+    TResult Function(ClientLoadingState value)? loading,
+    TResult Function(ClientLoadedState value)? loaded,
+    TResult Function(ClientErrorState value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -563,11 +602,12 @@ class _$ErrorStateImpl implements ErrorState {
   }
 }
 
-abstract class ErrorState implements ClientScreenState {
-  const factory ErrorState({final Object? exception}) = _$ErrorStateImpl;
+abstract class ClientErrorState implements ClientScreenState {
+  const factory ClientErrorState({final Object? exception}) =
+      _$ClientErrorStateImpl;
 
   Object? get exception;
   @JsonKey(ignore: true)
-  _$$ErrorStateImplCopyWith<_$ErrorStateImpl> get copyWith =>
+  _$$ClientErrorStateImplCopyWith<_$ClientErrorStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

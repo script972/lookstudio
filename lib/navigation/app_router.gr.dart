@@ -27,7 +27,7 @@ abstract class _$AppRouter extends RootStackRouter {
         routeData: routeData,
         child: ClientInfoScreen(
           key: args.key,
-          clientId: args.clientId,
+          user: args.user,
         ),
       );
     },
@@ -83,13 +83,13 @@ class BreedsRoute extends PageRouteInfo<void> {
 class ClientInfoRoute extends PageRouteInfo<ClientInfoRouteArgs> {
   ClientInfoRoute({
     Key? key,
-    required int clientId,
+    required User user,
     List<PageRouteInfo>? children,
   }) : super(
           ClientInfoRoute.name,
           args: ClientInfoRouteArgs(
             key: key,
-            clientId: clientId,
+            user: user,
           ),
           initialChildren: children,
         );
@@ -103,16 +103,16 @@ class ClientInfoRoute extends PageRouteInfo<ClientInfoRouteArgs> {
 class ClientInfoRouteArgs {
   const ClientInfoRouteArgs({
     this.key,
-    required this.clientId,
+    required this.user,
   });
 
   final Key? key;
 
-  final int clientId;
+  final User user;
 
   @override
   String toString() {
-    return 'ClientInfoRouteArgs{key: $key, clientId: $clientId}';
+    return 'ClientInfoRouteArgs{key: $key, user: $user}';
   }
 }
 

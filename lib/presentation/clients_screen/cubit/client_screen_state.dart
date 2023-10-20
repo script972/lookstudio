@@ -2,11 +2,11 @@ part of 'client_cubit.dart';
 
 @freezed
 class ClientScreenState with _$ClientScreenState {
-  const factory ClientScreenState.initial() = Initial;
+  const factory ClientScreenState.initial() = ClinetInitialState;
 
-  const factory ClientScreenState.deleting() = Deleting;
+  const factory ClientScreenState.loading() = ClientLoadingState;
 
-  const factory ClientScreenState.deleted() = SuccessfullyDeleted;
+  const factory ClientScreenState.loaded(List<User> users) = ClientLoadedState;
 
-  const factory ClientScreenState.error({final Object? exception}) = ErrorState;
+  const factory ClientScreenState.error({final Object? exception}) = ClientErrorState;
 }
