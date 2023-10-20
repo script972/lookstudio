@@ -17,7 +17,11 @@ class SignUpCubit extends Cubit<SignUpState> {
   }) async {
     final response = await _repository.register(email: username, password: password);
     response.maybeWhen(
-      success: (data) => emit(const SignUpState.signUpped()),
+      success: (data) {
+        _repository.saveAuthToken(data.id);
+        _repository.addUser(data);
+        emit(const SignUpState.signUpped());
+      },
       error: (error) => emit(SignUpState.error(exception: error)),
       orElse: () {},
     );
@@ -26,7 +30,11 @@ class SignUpCubit extends Cubit<SignUpState> {
   void googleLogin() async {
     final response = await _repository.googleLogin();
     response.maybeWhen(
-      success: (data) => emit(const SignUpState.signUpped()),
+      success: (data) {
+        _repository.saveAuthToken(data.id);
+        _repository.addUser(data);
+        emit(const SignUpState.signUpped());
+      },
       error: (error) => emit(SignUpState.error(exception: error)),
       orElse: () {},
     );

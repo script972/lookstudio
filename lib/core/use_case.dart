@@ -1,7 +1,7 @@
+import 'dart:async';
+
 abstract class UseCase<Type, Params> {
-  Future<Type> execute(Params params);
+  FutureOr<Type> execute(Params params);
 }
 
-class NoParams  {
-
-}
+class NoParams {}

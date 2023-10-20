@@ -36,6 +36,7 @@ class _ProfileLayoutState extends State<ProfileLayout> {
                   children: [
                     ButtonItem(
                       context,
+                      bgColor: Theme.of(context).colorScheme.onBackground,
                       onPressed: () async {
                         context.read<SettingCubit>().saveLocaleConfig('uk');
                         ValueProvider.of<Locale>(context).value = const Locale('uk');
@@ -47,6 +48,7 @@ class _ProfileLayoutState extends State<ProfileLayout> {
                     ),
                     ButtonItem(
                       context,
+                      bgColor: Theme.of(context).colorScheme.onBackground,
                       onPressed: () async {
                         context.read<SettingCubit>().saveLocaleConfig('en');
                         ValueProvider.of<Locale>(context).value = const Locale('en');
@@ -60,6 +62,7 @@ class _ProfileLayoutState extends State<ProfileLayout> {
                   children: [
                     ButtonItem(
                       context,
+                      bgColor: Theme.of(context).colorScheme.onBackground,
                       onPressed: () async {
                         context.read<SettingCubit>().saveThemeConfig(ThemeMode.light);
                         ValueProvider.of<ThemeMode>(context).value = ThemeMode.light;
@@ -71,6 +74,7 @@ class _ProfileLayoutState extends State<ProfileLayout> {
                     ),
                     ButtonItem(
                       context,
+                      bgColor: Theme.of(context).colorScheme.onBackground,
                       onPressed: () async {
                         context.read<SettingCubit>().saveThemeConfig(ThemeMode.dark);
                         ValueProvider.of<ThemeMode>(context).value = ThemeMode.dark;

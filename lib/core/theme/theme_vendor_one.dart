@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:solution_starter/core/theme/solution_theme.dart';
 import 'package:solution_starter/core/theme/theme_palette/default_palette.dart';
+import 'package:solution_starter/generated/assets/fonts.gen.dart';
 
 abstract class VendorOneCoreTheme implements SolutionTheme {
   @override
@@ -19,256 +20,272 @@ class VendorThemeOneLight extends VendorOneCoreTheme {
   @override
   ThemeData get themeData {
     return ThemeData(
-      primarySwatch: DefaultPalette.kToDark,
-      backgroundColor: DefaultPalette.deepPurpleAccent,
-      disabledColor: DefaultPalette.deepPurpleAccent,
-      primaryColor: DefaultPalette.deepPurpleAccent,
-      dividerColor: DefaultPalette.deepPurpleAccent,
-      unselectedWidgetColor: DefaultPalette.deepPurpleAccent,
-      toggleableActiveColor: DefaultPalette.deepPurpleAccent,
-      hintColor: DefaultPalette.deepPurpleAccent,
+      colorScheme: const ColorScheme.light(
+        brightness: Brightness.light,
+        primary: DefaultPalette.deepPurpleAccent,
+        onPrimary: Colors.white,
+        secondary: Color(0xFF03DAC6),
+        onSecondary: Colors.black,
+        background: Colors.white,
+        onBackground: Color(0xFF333333),
+        surface: Colors.white,
+        onSurface: Color(0xFF333333),
+        error: Color(0xFFB00020),
+        onError: Colors.white,
+      ),
       appBarTheme: const AppBarTheme(
         shadowColor: Colors.black,
         color: DefaultPalette.deepPurpleAccent,
       ),
       iconTheme: const IconThemeData(color: DefaultPalette.deepPurpleAccent),
       inputDecorationTheme: const InputDecorationTheme(
-          errorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent),
-          ),
-          focusedErrorBorder: OutlineInputBorder(
-            borderSide:
-                BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide:
-                BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
-          )),
-      errorColor: DefaultPalette.redAccent,
-      scaffoldBackgroundColor: DefaultPalette.whiteBackground,
-      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        backgroundColor: DefaultPalette.whiteBackground,
-        elevation: 8.0,
-        selectedItemColor: DefaultPalette.whiteBackground,
-        unselectedItemColor: DefaultPalette.whiteBackground,
+        errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
+        ),
       ),
       textTheme: const TextTheme(
-        headline1: TextStyle(
-          color: DefaultPalette.whiteBackground,
-          fontWeight: FontWeight.w400,
-          fontSize: 96,
-          letterSpacing: -1.5,
+        displayLarge: TextStyle(
+          color: DefaultPalette.blackBackground,
+          fontWeight: FontWeight.w700,
+          height: 64 / 57,
+          fontSize: 57,
         ),
-        headline2: TextStyle(
-          color: DefaultPalette.whiteBackground,
-          fontWeight: FontWeight.w400,
-          fontSize: 60,
-          letterSpacing: -0.5,
+        // IMPLEMENTED
+        displayMedium: TextStyle(
+          color: DefaultPalette.blackBackground,
+          fontWeight: FontWeight.w700,
+          fontSize: 45,
+          height: 52 / 45,
         ),
-        headline3: TextStyle(
-          color: DefaultPalette.whiteBackground,
-          fontWeight: FontWeight.w400,
-          fontSize: 48,
-          letterSpacing: 0,
+        displaySmall: TextStyle(
+          color: DefaultPalette.blackBackground,
+          fontWeight: FontWeight.w700,
+          fontSize: 36,
+          height: 44 / 36,
         ),
-        headline4: TextStyle(
-          color: DefaultPalette.whiteBackground,
-          fontWeight: FontWeight.w400,
-          fontSize: 34,
-          letterSpacing: 0,
+        headlineLarge: TextStyle(
+          color: DefaultPalette.blackBackground,
+          fontWeight: FontWeight.w700,
+          height: 44 / 32,
+          fontSize: 32,
         ),
-        headline5: TextStyle(
-          color: DefaultPalette.whiteBackground,
+        headlineMedium: TextStyle(
+          color: DefaultPalette.blackBackground,
+          fontStyle: FontStyle.normal,
+          fontWeight: FontWeight.w700,
+          fontSize: 28,
+          height: 40 / 28,
+        ),
+        headlineSmall: TextStyle(
+          color: DefaultPalette.blackBackground,
+          fontWeight: FontWeight.w700,
+          height: 36 / 24,
           fontSize: 24,
-          letterSpacing: 0.18,
-          fontWeight: FontWeight.w400,
         ),
-        headline6: TextStyle(
-          color: DefaultPalette.whiteBackground,
-          fontSize: 20,
-          letterSpacing: 0.15,
-          fontWeight: FontWeight.w500,
+        titleLarge: TextStyle(
+          color: DefaultPalette.blackBackground,
+          fontWeight: FontWeight.w600,
+          height: 24 / 18,
+          fontSize: 18,
         ),
-        subtitle1: TextStyle(
-          color: DefaultPalette.whiteBackground,
-          fontWeight: FontWeight.w400,
+        titleMedium: TextStyle(
+          color: DefaultPalette.blackBackground,
+          fontWeight: FontWeight.w600,
           fontSize: 16,
-          letterSpacing: 0.15,
+          height: 24 / 16,
         ),
-        subtitle2: TextStyle(
-          color: DefaultPalette.whiteBackground,
+        titleSmall: TextStyle(
+          color: DefaultPalette.blackBackground,
+          fontWeight: FontWeight.w600,
+          fontSize: 14,
+          height: 20 / 14,
+        ),
+        labelLarge: TextStyle(
+          color: DefaultPalette.blackBackground,
           fontWeight: FontWeight.w500,
           fontSize: 14,
-          letterSpacing: 0.1,
+          height: 20 / 14,
         ),
-        bodyText1: TextStyle(
-          color: DefaultPalette.whiteBackground,
-          fontWeight: FontWeight.w400,
-          fontSize: 16,
-          letterSpacing: 0.5,
-        ),
-        bodyText2: TextStyle(
-          color: DefaultPalette.whiteBackground,
-          fontWeight: FontWeight.w400,
-          fontSize: 14,
-          letterSpacing: 0.25,
-        ),
-        button: TextStyle(
-          color: DefaultPalette.whiteBackground,
+        labelMedium: TextStyle(
+          color: DefaultPalette.blackBackground,
           fontWeight: FontWeight.w500,
-          fontSize: 14,
-          letterSpacing: 1.25,
-        ),
-        caption: TextStyle(
-          color: DefaultPalette.whiteBackground,
-          fontWeight: FontWeight.w400, // Normal
           fontSize: 12,
-          letterSpacing: 0.4,
+          height: 18 / 12,
         ),
-        overline: TextStyle(
-          color: DefaultPalette.whiteBackground,
-          fontSize: 10,
-          letterSpacing: 1.5,
+        labelSmall: TextStyle(
+          color: DefaultPalette.blackBackground,
+          fontSize: 11,
           fontWeight: FontWeight.w500,
+          height: 16 / 11,
         ),
-      ).apply(fontFamily: 'Roboto'), // Todo: check generation assets
+        bodyLarge: TextStyle(
+          color: DefaultPalette.blackBackground,
+          fontWeight: FontWeight.w400,
+          fontSize: 16,
+          height: 24 / 16,
+        ),
+        bodyMedium: TextStyle(
+          color: DefaultPalette.blackBackground,
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+          height: 20 / 14,
+        ),
+        bodySmall: TextStyle(
+          color: DefaultPalette.blackBackground,
+          fontWeight: FontWeight.w400,
+          fontSize: 12,
+          height: 18 / 12,
+        ),
+      ).apply(fontFamily: FontFamily.roboto),
     );
   }
 
   @override
-  SolutionAssetsTheme get assetsTheme =>
-      SolutionAssetsTheme(logoImage: 'logo2/', envelopeImage: 'assetsTheme');
+  SolutionAssetsTheme get assetsTheme => SolutionAssetsTheme(logoImage: 'logo2/', envelopeImage: 'assetsTheme');
 
   @override
-  SolutionColorTheme get colorTheme => SolutionColorTheme(
-      gray1Color: Colors.greenAccent, grayColor: Colors.indigo);
+  SolutionColorTheme get colorTheme => SolutionColorTheme(gray1Color: Colors.greenAccent, grayColor: Colors.indigo);
 }
 
 class VendorThemeOneDark extends VendorOneCoreTheme {
   @override
   ThemeData get themeData {
     return ThemeData(
-      primarySwatch: DefaultPalette.kToDark,
-      backgroundColor: DefaultPalette.deepPurpleAccent,
-      disabledColor: DefaultPalette.deepPurpleAccent,
-      primaryColor: DefaultPalette.deepPurpleAccent,
-      dividerColor: DefaultPalette.deepPurpleAccent,
-      unselectedWidgetColor: DefaultPalette.deepPurpleAccent,
-      toggleableActiveColor: DefaultPalette.deepPurpleAccent,
-      hintColor: DefaultPalette.deepPurpleAccent,
+      colorScheme: const ColorScheme.dark(
+        brightness: Brightness.dark,
+        primary: DefaultPalette.pinkAccent,
+        onPrimary: Colors.white,
+        secondary: Color(0xFF03DAC6),
+        onSecondary: Colors.black,
+        background: Color(0xFF121212),
+        onBackground: Color(0xFFE0E0E0),
+        surface: Color(0xFF333333),
+        onSurface: Color(0xFFE0E0E0),
+        error: Color(0xFFB00020),
+        onError: Colors.white,
+      ),
       appBarTheme: const AppBarTheme(
         shadowColor: Colors.black,
-        color: DefaultPalette.deepPurpleAccent,
+        color: DefaultPalette.pinkAccent,
       ),
       iconTheme: const IconThemeData(color: DefaultPalette.deepPurpleAccent),
       inputDecorationTheme: const InputDecorationTheme(
-          errorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent),
-          ),
-          focusedErrorBorder: OutlineInputBorder(
-            borderSide:
-                BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide:
-                BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
-          )),
-      errorColor: DefaultPalette.redAccent,
-      scaffoldBackgroundColor: DefaultPalette.whiteBackground,
-      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        backgroundColor: DefaultPalette.whiteBackground,
-        elevation: 8.0,
-        selectedItemColor: DefaultPalette.whiteBackground,
-        unselectedItemColor: DefaultPalette.whiteBackground,
+        errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
+        ),
       ),
       textTheme: const TextTheme(
-        headline1: TextStyle(
+        displayLarge: TextStyle(
           color: DefaultPalette.whiteBackground,
-          fontWeight: FontWeight.w400,
-          fontSize: 96,
-          letterSpacing: -1.5,
+          fontWeight: FontWeight.w700,
+          height: 64 / 57,
+          fontSize: 57,
         ),
-        headline2: TextStyle(
+        // IMPLEMENTED
+        displayMedium: TextStyle(
           color: DefaultPalette.whiteBackground,
-          fontWeight: FontWeight.w400,
-          fontSize: 60,
-          letterSpacing: -0.5,
+          fontWeight: FontWeight.w700,
+          fontSize: 45,
+          height: 52 / 45,
         ),
-        headline3: TextStyle(
+        displaySmall: TextStyle(
           color: DefaultPalette.whiteBackground,
-          fontWeight: FontWeight.w400,
-          fontSize: 48,
-          letterSpacing: 0,
+          fontWeight: FontWeight.w700,
+          fontSize: 36,
+          height: 44 / 36,
         ),
-        headline4: TextStyle(
+        headlineLarge: TextStyle(
           color: DefaultPalette.whiteBackground,
-          fontWeight: FontWeight.w400,
-          fontSize: 34,
-          letterSpacing: 0,
+          fontWeight: FontWeight.w700,
+          height: 44 / 32,
+          fontSize: 32,
         ),
-        headline5: TextStyle(
+        headlineMedium: TextStyle(
           color: DefaultPalette.whiteBackground,
+          fontStyle: FontStyle.normal,
+          fontWeight: FontWeight.w700,
+          fontSize: 28,
+          height: 40 / 28,
+        ),
+        headlineSmall: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w700,
+          height: 36 / 24,
           fontSize: 24,
-          letterSpacing: 0.18,
-          fontWeight: FontWeight.w400,
         ),
-        headline6: TextStyle(
+        titleLarge: TextStyle(
           color: DefaultPalette.whiteBackground,
-          fontSize: 20,
-          letterSpacing: 0.15,
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w600,
+          height: 24 / 18,
+          fontSize: 18,
         ),
-        subtitle1: TextStyle(
+        titleMedium: TextStyle(
           color: DefaultPalette.whiteBackground,
-          fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.w600,
           fontSize: 16,
-          letterSpacing: 0.15,
+          height: 24 / 16,
         ),
-        subtitle2: TextStyle(
+        titleSmall: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w600,
+          fontSize: 14,
+          height: 20 / 14,
+        ),
+        labelLarge: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontWeight: FontWeight.w500,
           fontSize: 14,
-          letterSpacing: 0.1,
+          height: 20 / 14,
         ),
-        bodyText1: TextStyle(
-          color: DefaultPalette.whiteBackground,
-          fontWeight: FontWeight.w400,
-          fontSize: 16,
-          letterSpacing: 0.5,
-        ),
-        bodyText2: TextStyle(
-          color: DefaultPalette.whiteBackground,
-          fontWeight: FontWeight.w400,
-          fontSize: 14,
-          letterSpacing: 0.25,
-        ),
-        button: TextStyle(
+        labelMedium: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontWeight: FontWeight.w500,
-          fontSize: 14,
-          letterSpacing: 1.25,
-        ),
-        caption: TextStyle(
-          color: DefaultPalette.whiteBackground,
-          fontWeight: FontWeight.w400, // Normal
           fontSize: 12,
-          letterSpacing: 0.4,
+          height: 18 / 12,
         ),
-        overline: TextStyle(
+        labelSmall: TextStyle(
           color: DefaultPalette.whiteBackground,
-          fontSize: 10,
-          letterSpacing: 1.5,
+          fontSize: 11,
           fontWeight: FontWeight.w500,
+          height: 16 / 11,
         ),
-      ).apply(fontFamily: 'Roboto'), // Todo: check generation assets
+        bodyLarge: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w400,
+          fontSize: 16,
+          height: 24 / 16,
+        ),
+        bodyMedium: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+          height: 20 / 14,
+        ),
+        bodySmall: TextStyle(
+          color: DefaultPalette.whiteBackground,
+          fontWeight: FontWeight.w400,
+          fontSize: 12,
+          height: 18 / 12,
+        ),
+      ).apply(fontFamily: FontFamily.roboto),
     );
   }
 
   @override
-  SolutionAssetsTheme get assetsTheme =>
-      SolutionAssetsTheme(logoImage: 'logo/', envelopeImage: 'envelope');
+  SolutionAssetsTheme get assetsTheme => SolutionAssetsTheme(logoImage: 'logo/', envelopeImage: 'envelope');
 
   @override
-  SolutionColorTheme get colorTheme =>
-      SolutionColorTheme(gray1Color: Colors.grey, grayColor: Colors.indigo);
+  SolutionColorTheme get colorTheme => SolutionColorTheme(gray1Color: Colors.grey, grayColor: Colors.indigo);
 }

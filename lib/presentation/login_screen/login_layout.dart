@@ -5,7 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:solution_starter/generated/l10n.dart';
 import 'package:solution_starter/navigation/app_router.dart';
 import 'package:solution_starter/presentation/login_screen/bloc/login_cubit.dart';
-import 'package:solution_starter/presentation/login_screen/login_success_layout.dart';
+import 'package:solution_starter/widgets/pages/login_success_layout.dart';
+import 'package:solution_starter/widgets/organisms/progress.dart';
 
 class LoginLayout extends StatelessWidget {
   const LoginLayout({super.key});
@@ -32,7 +33,7 @@ class LoginLayout extends StatelessWidget {
             buildWhen: (context, state) =>
                 state != const LoginState.successfullyLogin(),
             builder: (context, state) => state.maybeWhen(
-              loading: () => const SizedBox(),
+              loading: () => const Center(child: CircleProgress()),
               //success state with main content
               orElse: () => LoginSuccessLayout(loginState: state),
             ),

@@ -28,13 +28,12 @@ class LoginCubit extends Cubit<LoginState> {
     response.maybeWhen(
       success: (data) {
         repository.addUser(data);
+        repository.saveAuthToken(data.id);
         emit(const LoginState.successfullyLogin());
       },
       error: (error) {
         //TODO(DenisM): Process error states
-        emit(const LoginState.successfullyLogin());
-        repository.saveAuthToken("token");
-
+        emit(const LoginState.wrongCredentialsError());
       },
       orElse: () {
         emit(const LoginState.wrongCredentialsError());
