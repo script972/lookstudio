@@ -39,7 +39,7 @@ class _BreedsLayoutState extends State<BreedsLayout> {
           listener: (BuildContext context, state) {
             state.mapOrNull(
               showInfo: (breedInfo) =>
-                  showSnackBar(context, breedInfo.breedInfo), // TODO(AdnriiD): implement item navigation)
+                  showSnackBar(context, breedInfo.breedInfo),
             );
           },
           builder: (context, state) {

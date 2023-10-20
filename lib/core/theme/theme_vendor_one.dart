@@ -176,15 +176,16 @@ class VendorThemeOneDark extends VendorOneCoreTheme {
       ),
       iconTheme: const IconThemeData(color: DefaultPalette.deepPurpleAccent),
       inputDecorationTheme: const InputDecorationTheme(
-          errorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent),
-          ),
-          focusedErrorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
-          )),
+        errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
+        ),
+      ),
       textTheme: const TextTheme(
         displayLarge: TextStyle(
           color: DefaultPalette.whiteBackground,
