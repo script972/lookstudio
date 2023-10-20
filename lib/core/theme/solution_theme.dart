@@ -62,4 +62,5 @@ abstract class SolutionTheme {
   SolutionColorTheme get colorTheme;
   SolutionSizeTheme get sizeTheme;
   SolutionAssetsTheme get assetsTheme;
+  SolutionDataTheme get dataTheme;
 }

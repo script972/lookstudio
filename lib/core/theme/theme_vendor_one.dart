@@ -142,7 +142,7 @@ class VendorThemeOneLight extends VendorOneCoreTheme {
           fontSize: 12,
           height: 18 / 12,
         ),
-      ).apply(fontFamily: 'Roboto'), // Todo: check generation assets
+      ).apply(fontFamily: FontFamily.roboto),
     );
   }
 
