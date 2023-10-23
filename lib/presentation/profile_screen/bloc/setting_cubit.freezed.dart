@@ -19,7 +19,7 @@ mixin _$SettingState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() savingSettingState,
+    required TResult Function() logoutState,
     required TResult Function() successfullySavingState,
     required TResult Function(Object? exception) errorSavingState,
   }) =>
@@ -27,7 +27,7 @@ mixin _$SettingState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? savingSettingState,
+    TResult? Function()? logoutState,
     TResult? Function()? successfullySavingState,
     TResult? Function(Object? exception)? errorSavingState,
   }) =>
@@ -35,7 +35,7 @@ mixin _$SettingState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? savingSettingState,
+    TResult Function()? logoutState,
     TResult Function()? successfullySavingState,
     TResult Function(Object? exception)? errorSavingState,
     required TResult orElse(),
@@ -43,26 +43,26 @@ mixin _$SettingState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitialState value) initial,
-    required TResult Function(_savingSettingState value) savingSettingState,
-    required TResult Function(_LoadedState value) successfullySavingState,
-    required TResult Function(_ErrorState value) errorSavingState,
+    required TResult Function(InitialSettingState value) initial,
+    required TResult Function(LogoutSettingState value) logoutState,
+    required TResult Function(LoadedSettingState value) successfullySavingState,
+    required TResult Function(ErrorSettingState value) errorSavingState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialState value)? initial,
-    TResult? Function(_savingSettingState value)? savingSettingState,
-    TResult? Function(_LoadedState value)? successfullySavingState,
-    TResult? Function(_ErrorState value)? errorSavingState,
+    TResult? Function(InitialSettingState value)? initial,
+    TResult? Function(LogoutSettingState value)? logoutState,
+    TResult? Function(LoadedSettingState value)? successfullySavingState,
+    TResult? Function(ErrorSettingState value)? errorSavingState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialState value)? initial,
-    TResult Function(_savingSettingState value)? savingSettingState,
-    TResult Function(_LoadedState value)? successfullySavingState,
-    TResult Function(_ErrorState value)? errorSavingState,
+    TResult Function(InitialSettingState value)? initial,
+    TResult Function(LogoutSettingState value)? logoutState,
+    TResult Function(LoadedSettingState value)? successfullySavingState,
+    TResult Function(ErrorSettingState value)? errorSavingState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -87,25 +87,25 @@ class _$SettingStateCopyWithImpl<$Res, $Val extends SettingState>
 }
 
 /// @nodoc
-abstract class _$$InitialStateImplCopyWith<$Res> {
-  factory _$$InitialStateImplCopyWith(
-          _$InitialStateImpl value, $Res Function(_$InitialStateImpl) then) =
-      __$$InitialStateImplCopyWithImpl<$Res>;
+abstract class _$$InitialSettingStateImplCopyWith<$Res> {
+  factory _$$InitialSettingStateImplCopyWith(_$InitialSettingStateImpl value,
+          $Res Function(_$InitialSettingStateImpl) then) =
+      __$$InitialSettingStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialStateImplCopyWithImpl<$Res>
-    extends _$SettingStateCopyWithImpl<$Res, _$InitialStateImpl>
-    implements _$$InitialStateImplCopyWith<$Res> {
-  __$$InitialStateImplCopyWithImpl(
-      _$InitialStateImpl _value, $Res Function(_$InitialStateImpl) _then)
+class __$$InitialSettingStateImplCopyWithImpl<$Res>
+    extends _$SettingStateCopyWithImpl<$Res, _$InitialSettingStateImpl>
+    implements _$$InitialSettingStateImplCopyWith<$Res> {
+  __$$InitialSettingStateImplCopyWithImpl(_$InitialSettingStateImpl _value,
+      $Res Function(_$InitialSettingStateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialStateImpl implements _InitialState {
-  const _$InitialStateImpl();
+class _$InitialSettingStateImpl implements InitialSettingState {
+  const _$InitialSettingStateImpl();
 
   @override
   String toString() {
@@ -115,7 +115,8 @@ class _$InitialStateImpl implements _InitialState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialStateImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$InitialSettingStateImpl);
   }
 
   @override
@@ -125,7 +126,7 @@ class _$InitialStateImpl implements _InitialState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() savingSettingState,
+    required TResult Function() logoutState,
     required TResult Function() successfullySavingState,
     required TResult Function(Object? exception) errorSavingState,
   }) {
@@ -136,7 +137,7 @@ class _$InitialStateImpl implements _InitialState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? savingSettingState,
+    TResult? Function()? logoutState,
     TResult? Function()? successfullySavingState,
     TResult? Function(Object? exception)? errorSavingState,
   }) {
@@ -147,7 +148,7 @@ class _$InitialStateImpl implements _InitialState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? savingSettingState,
+    TResult Function()? logoutState,
     TResult Function()? successfullySavingState,
     TResult Function(Object? exception)? errorSavingState,
     required TResult orElse(),
@@ -161,10 +162,10 @@ class _$InitialStateImpl implements _InitialState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitialState value) initial,
-    required TResult Function(_savingSettingState value) savingSettingState,
-    required TResult Function(_LoadedState value) successfullySavingState,
-    required TResult Function(_ErrorState value) errorSavingState,
+    required TResult Function(InitialSettingState value) initial,
+    required TResult Function(LogoutSettingState value) logoutState,
+    required TResult Function(LoadedSettingState value) successfullySavingState,
+    required TResult Function(ErrorSettingState value) errorSavingState,
   }) {
     return initial(this);
   }
@@ -172,10 +173,10 @@ class _$InitialStateImpl implements _InitialState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialState value)? initial,
-    TResult? Function(_savingSettingState value)? savingSettingState,
-    TResult? Function(_LoadedState value)? successfullySavingState,
-    TResult? Function(_ErrorState value)? errorSavingState,
+    TResult? Function(InitialSettingState value)? initial,
+    TResult? Function(LogoutSettingState value)? logoutState,
+    TResult? Function(LoadedSettingState value)? successfullySavingState,
+    TResult? Function(ErrorSettingState value)? errorSavingState,
   }) {
     return initial?.call(this);
   }
@@ -183,10 +184,10 @@ class _$InitialStateImpl implements _InitialState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialState value)? initial,
-    TResult Function(_savingSettingState value)? savingSettingState,
-    TResult Function(_LoadedState value)? successfullySavingState,
-    TResult Function(_ErrorState value)? errorSavingState,
+    TResult Function(InitialSettingState value)? initial,
+    TResult Function(LogoutSettingState value)? logoutState,
+    TResult Function(LoadedSettingState value)? successfullySavingState,
+    TResult Function(ErrorSettingState value)? errorSavingState,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -196,40 +197,40 @@ class _$InitialStateImpl implements _InitialState {
   }
 }
 
-abstract class _InitialState implements SettingState {
-  const factory _InitialState() = _$InitialStateImpl;
+abstract class InitialSettingState implements SettingState {
+  const factory InitialSettingState() = _$InitialSettingStateImpl;
 }
 
 /// @nodoc
-abstract class _$$savingSettingStateImplCopyWith<$Res> {
-  factory _$$savingSettingStateImplCopyWith(_$savingSettingStateImpl value,
-          $Res Function(_$savingSettingStateImpl) then) =
-      __$$savingSettingStateImplCopyWithImpl<$Res>;
+abstract class _$$LogoutSettingStateImplCopyWith<$Res> {
+  factory _$$LogoutSettingStateImplCopyWith(_$LogoutSettingStateImpl value,
+          $Res Function(_$LogoutSettingStateImpl) then) =
+      __$$LogoutSettingStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$savingSettingStateImplCopyWithImpl<$Res>
-    extends _$SettingStateCopyWithImpl<$Res, _$savingSettingStateImpl>
-    implements _$$savingSettingStateImplCopyWith<$Res> {
-  __$$savingSettingStateImplCopyWithImpl(_$savingSettingStateImpl _value,
-      $Res Function(_$savingSettingStateImpl) _then)
+class __$$LogoutSettingStateImplCopyWithImpl<$Res>
+    extends _$SettingStateCopyWithImpl<$Res, _$LogoutSettingStateImpl>
+    implements _$$LogoutSettingStateImplCopyWith<$Res> {
+  __$$LogoutSettingStateImplCopyWithImpl(_$LogoutSettingStateImpl _value,
+      $Res Function(_$LogoutSettingStateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$savingSettingStateImpl implements _savingSettingState {
-  const _$savingSettingStateImpl();
+class _$LogoutSettingStateImpl implements LogoutSettingState {
+  const _$LogoutSettingStateImpl();
 
   @override
   String toString() {
-    return 'SettingState.savingSettingState()';
+    return 'SettingState.logoutState()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$savingSettingStateImpl);
+        (other.runtimeType == runtimeType && other is _$LogoutSettingStateImpl);
   }
 
   @override
@@ -239,35 +240,35 @@ class _$savingSettingStateImpl implements _savingSettingState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() savingSettingState,
+    required TResult Function() logoutState,
     required TResult Function() successfullySavingState,
     required TResult Function(Object? exception) errorSavingState,
   }) {
-    return savingSettingState();
+    return logoutState();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? savingSettingState,
+    TResult? Function()? logoutState,
     TResult? Function()? successfullySavingState,
     TResult? Function(Object? exception)? errorSavingState,
   }) {
-    return savingSettingState?.call();
+    return logoutState?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? savingSettingState,
+    TResult Function()? logoutState,
     TResult Function()? successfullySavingState,
     TResult Function(Object? exception)? errorSavingState,
     required TResult orElse(),
   }) {
-    if (savingSettingState != null) {
-      return savingSettingState();
+    if (logoutState != null) {
+      return logoutState();
     }
     return orElse();
   }
@@ -275,65 +276,65 @@ class _$savingSettingStateImpl implements _savingSettingState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitialState value) initial,
-    required TResult Function(_savingSettingState value) savingSettingState,
-    required TResult Function(_LoadedState value) successfullySavingState,
-    required TResult Function(_ErrorState value) errorSavingState,
+    required TResult Function(InitialSettingState value) initial,
+    required TResult Function(LogoutSettingState value) logoutState,
+    required TResult Function(LoadedSettingState value) successfullySavingState,
+    required TResult Function(ErrorSettingState value) errorSavingState,
   }) {
-    return savingSettingState(this);
+    return logoutState(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialState value)? initial,
-    TResult? Function(_savingSettingState value)? savingSettingState,
-    TResult? Function(_LoadedState value)? successfullySavingState,
-    TResult? Function(_ErrorState value)? errorSavingState,
+    TResult? Function(InitialSettingState value)? initial,
+    TResult? Function(LogoutSettingState value)? logoutState,
+    TResult? Function(LoadedSettingState value)? successfullySavingState,
+    TResult? Function(ErrorSettingState value)? errorSavingState,
   }) {
-    return savingSettingState?.call(this);
+    return logoutState?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialState value)? initial,
-    TResult Function(_savingSettingState value)? savingSettingState,
-    TResult Function(_LoadedState value)? successfullySavingState,
-    TResult Function(_ErrorState value)? errorSavingState,
+    TResult Function(InitialSettingState value)? initial,
+    TResult Function(LogoutSettingState value)? logoutState,
+    TResult Function(LoadedSettingState value)? successfullySavingState,
+    TResult Function(ErrorSettingState value)? errorSavingState,
     required TResult orElse(),
   }) {
-    if (savingSettingState != null) {
-      return savingSettingState(this);
+    if (logoutState != null) {
+      return logoutState(this);
     }
     return orElse();
   }
 }
 
-abstract class _savingSettingState implements SettingState {
-  const factory _savingSettingState() = _$savingSettingStateImpl;
+abstract class LogoutSettingState implements SettingState {
+  const factory LogoutSettingState() = _$LogoutSettingStateImpl;
 }
 
 /// @nodoc
-abstract class _$$LoadedStateImplCopyWith<$Res> {
-  factory _$$LoadedStateImplCopyWith(
-          _$LoadedStateImpl value, $Res Function(_$LoadedStateImpl) then) =
-      __$$LoadedStateImplCopyWithImpl<$Res>;
+abstract class _$$LoadedSettingStateImplCopyWith<$Res> {
+  factory _$$LoadedSettingStateImplCopyWith(_$LoadedSettingStateImpl value,
+          $Res Function(_$LoadedSettingStateImpl) then) =
+      __$$LoadedSettingStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadedStateImplCopyWithImpl<$Res>
-    extends _$SettingStateCopyWithImpl<$Res, _$LoadedStateImpl>
-    implements _$$LoadedStateImplCopyWith<$Res> {
-  __$$LoadedStateImplCopyWithImpl(
-      _$LoadedStateImpl _value, $Res Function(_$LoadedStateImpl) _then)
+class __$$LoadedSettingStateImplCopyWithImpl<$Res>
+    extends _$SettingStateCopyWithImpl<$Res, _$LoadedSettingStateImpl>
+    implements _$$LoadedSettingStateImplCopyWith<$Res> {
+  __$$LoadedSettingStateImplCopyWithImpl(_$LoadedSettingStateImpl _value,
+      $Res Function(_$LoadedSettingStateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$LoadedStateImpl implements _LoadedState {
-  const _$LoadedStateImpl();
+class _$LoadedSettingStateImpl implements LoadedSettingState {
+  const _$LoadedSettingStateImpl();
 
   @override
   String toString() {
@@ -343,7 +344,7 @@ class _$LoadedStateImpl implements _LoadedState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadedStateImpl);
+        (other.runtimeType == runtimeType && other is _$LoadedSettingStateImpl);
   }
 
   @override
@@ -353,7 +354,7 @@ class _$LoadedStateImpl implements _LoadedState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() savingSettingState,
+    required TResult Function() logoutState,
     required TResult Function() successfullySavingState,
     required TResult Function(Object? exception) errorSavingState,
   }) {
@@ -364,7 +365,7 @@ class _$LoadedStateImpl implements _LoadedState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? savingSettingState,
+    TResult? Function()? logoutState,
     TResult? Function()? successfullySavingState,
     TResult? Function(Object? exception)? errorSavingState,
   }) {
@@ -375,7 +376,7 @@ class _$LoadedStateImpl implements _LoadedState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? savingSettingState,
+    TResult Function()? logoutState,
     TResult Function()? successfullySavingState,
     TResult Function(Object? exception)? errorSavingState,
     required TResult orElse(),
@@ -389,10 +390,10 @@ class _$LoadedStateImpl implements _LoadedState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitialState value) initial,
-    required TResult Function(_savingSettingState value) savingSettingState,
-    required TResult Function(_LoadedState value) successfullySavingState,
-    required TResult Function(_ErrorState value) errorSavingState,
+    required TResult Function(InitialSettingState value) initial,
+    required TResult Function(LogoutSettingState value) logoutState,
+    required TResult Function(LoadedSettingState value) successfullySavingState,
+    required TResult Function(ErrorSettingState value) errorSavingState,
   }) {
     return successfullySavingState(this);
   }
@@ -400,10 +401,10 @@ class _$LoadedStateImpl implements _LoadedState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialState value)? initial,
-    TResult? Function(_savingSettingState value)? savingSettingState,
-    TResult? Function(_LoadedState value)? successfullySavingState,
-    TResult? Function(_ErrorState value)? errorSavingState,
+    TResult? Function(InitialSettingState value)? initial,
+    TResult? Function(LogoutSettingState value)? logoutState,
+    TResult? Function(LoadedSettingState value)? successfullySavingState,
+    TResult? Function(ErrorSettingState value)? errorSavingState,
   }) {
     return successfullySavingState?.call(this);
   }
@@ -411,10 +412,10 @@ class _$LoadedStateImpl implements _LoadedState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialState value)? initial,
-    TResult Function(_savingSettingState value)? savingSettingState,
-    TResult Function(_LoadedState value)? successfullySavingState,
-    TResult Function(_ErrorState value)? errorSavingState,
+    TResult Function(InitialSettingState value)? initial,
+    TResult Function(LogoutSettingState value)? logoutState,
+    TResult Function(LoadedSettingState value)? successfullySavingState,
+    TResult Function(ErrorSettingState value)? errorSavingState,
     required TResult orElse(),
   }) {
     if (successfullySavingState != null) {
@@ -424,25 +425,25 @@ class _$LoadedStateImpl implements _LoadedState {
   }
 }
 
-abstract class _LoadedState implements SettingState {
-  const factory _LoadedState() = _$LoadedStateImpl;
+abstract class LoadedSettingState implements SettingState {
+  const factory LoadedSettingState() = _$LoadedSettingStateImpl;
 }
 
 /// @nodoc
-abstract class _$$ErrorStateImplCopyWith<$Res> {
-  factory _$$ErrorStateImplCopyWith(
-          _$ErrorStateImpl value, $Res Function(_$ErrorStateImpl) then) =
-      __$$ErrorStateImplCopyWithImpl<$Res>;
+abstract class _$$ErrorSettingStateImplCopyWith<$Res> {
+  factory _$$ErrorSettingStateImplCopyWith(_$ErrorSettingStateImpl value,
+          $Res Function(_$ErrorSettingStateImpl) then) =
+      __$$ErrorSettingStateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Object? exception});
 }
 
 /// @nodoc
-class __$$ErrorStateImplCopyWithImpl<$Res>
-    extends _$SettingStateCopyWithImpl<$Res, _$ErrorStateImpl>
-    implements _$$ErrorStateImplCopyWith<$Res> {
-  __$$ErrorStateImplCopyWithImpl(
-      _$ErrorStateImpl _value, $Res Function(_$ErrorStateImpl) _then)
+class __$$ErrorSettingStateImplCopyWithImpl<$Res>
+    extends _$SettingStateCopyWithImpl<$Res, _$ErrorSettingStateImpl>
+    implements _$$ErrorSettingStateImplCopyWith<$Res> {
+  __$$ErrorSettingStateImplCopyWithImpl(_$ErrorSettingStateImpl _value,
+      $Res Function(_$ErrorSettingStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -450,7 +451,7 @@ class __$$ErrorStateImplCopyWithImpl<$Res>
   $Res call({
     Object? exception = freezed,
   }) {
-    return _then(_$ErrorStateImpl(
+    return _then(_$ErrorSettingStateImpl(
       exception: freezed == exception ? _value.exception : exception,
     ));
   }
@@ -458,8 +459,8 @@ class __$$ErrorStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorStateImpl implements _ErrorState {
-  const _$ErrorStateImpl({this.exception});
+class _$ErrorSettingStateImpl implements ErrorSettingState {
+  const _$ErrorSettingStateImpl({this.exception});
 
   @override
   final Object? exception;
@@ -473,7 +474,7 @@ class _$ErrorStateImpl implements _ErrorState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ErrorStateImpl &&
+            other is _$ErrorSettingStateImpl &&
             const DeepCollectionEquality().equals(other.exception, exception));
   }
 
@@ -484,14 +485,15 @@ class _$ErrorStateImpl implements _ErrorState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ErrorStateImplCopyWith<_$ErrorStateImpl> get copyWith =>
-      __$$ErrorStateImplCopyWithImpl<_$ErrorStateImpl>(this, _$identity);
+  _$$ErrorSettingStateImplCopyWith<_$ErrorSettingStateImpl> get copyWith =>
+      __$$ErrorSettingStateImplCopyWithImpl<_$ErrorSettingStateImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() savingSettingState,
+    required TResult Function() logoutState,
     required TResult Function() successfullySavingState,
     required TResult Function(Object? exception) errorSavingState,
   }) {
@@ -502,7 +504,7 @@ class _$ErrorStateImpl implements _ErrorState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? savingSettingState,
+    TResult? Function()? logoutState,
     TResult? Function()? successfullySavingState,
     TResult? Function(Object? exception)? errorSavingState,
   }) {
@@ -513,7 +515,7 @@ class _$ErrorStateImpl implements _ErrorState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? savingSettingState,
+    TResult Function()? logoutState,
     TResult Function()? successfullySavingState,
     TResult Function(Object? exception)? errorSavingState,
     required TResult orElse(),
@@ -527,10 +529,10 @@ class _$ErrorStateImpl implements _ErrorState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitialState value) initial,
-    required TResult Function(_savingSettingState value) savingSettingState,
-    required TResult Function(_LoadedState value) successfullySavingState,
-    required TResult Function(_ErrorState value) errorSavingState,
+    required TResult Function(InitialSettingState value) initial,
+    required TResult Function(LogoutSettingState value) logoutState,
+    required TResult Function(LoadedSettingState value) successfullySavingState,
+    required TResult Function(ErrorSettingState value) errorSavingState,
   }) {
     return errorSavingState(this);
   }
@@ -538,10 +540,10 @@ class _$ErrorStateImpl implements _ErrorState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialState value)? initial,
-    TResult? Function(_savingSettingState value)? savingSettingState,
-    TResult? Function(_LoadedState value)? successfullySavingState,
-    TResult? Function(_ErrorState value)? errorSavingState,
+    TResult? Function(InitialSettingState value)? initial,
+    TResult? Function(LogoutSettingState value)? logoutState,
+    TResult? Function(LoadedSettingState value)? successfullySavingState,
+    TResult? Function(ErrorSettingState value)? errorSavingState,
   }) {
     return errorSavingState?.call(this);
   }
@@ -549,10 +551,10 @@ class _$ErrorStateImpl implements _ErrorState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialState value)? initial,
-    TResult Function(_savingSettingState value)? savingSettingState,
-    TResult Function(_LoadedState value)? successfullySavingState,
-    TResult Function(_ErrorState value)? errorSavingState,
+    TResult Function(InitialSettingState value)? initial,
+    TResult Function(LogoutSettingState value)? logoutState,
+    TResult Function(LoadedSettingState value)? successfullySavingState,
+    TResult Function(ErrorSettingState value)? errorSavingState,
     required TResult orElse(),
   }) {
     if (errorSavingState != null) {
@@ -562,11 +564,12 @@ class _$ErrorStateImpl implements _ErrorState {
   }
 }
 
-abstract class _ErrorState implements SettingState {
-  const factory _ErrorState({final Object? exception}) = _$ErrorStateImpl;
+abstract class ErrorSettingState implements SettingState {
+  const factory ErrorSettingState({final Object? exception}) =
+      _$ErrorSettingStateImpl;
 
   Object? get exception;
   @JsonKey(ignore: true)
-  _$$ErrorStateImplCopyWith<_$ErrorStateImpl> get copyWith =>
+  _$$ErrorSettingStateImplCopyWith<_$ErrorSettingStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

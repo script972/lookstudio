@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:solution_starter/data/datasource/local/facade/secure_storage_interface.dart';
 import 'package:solution_starter/data/datasource/local/facade/solution_storage_interface.dart';
 import 'package:solution_starter/data/datasource/network/api/breeds/breeds_api_interface.dart';
 import 'package:solution_starter/data/model/breeds_model.dart';
@@ -7,13 +8,19 @@ import 'package:solution_starter/domain/entities/result.dart';
 import 'package:solution_starter/domain/repository/solution_repository_interface.dart';
 
 class SolutionRepository implements ISolutionRepository {
-  SolutionRepository({required IBreedsApi api, required ISolutionStorage storage})
-      : _api = api,
-        _storage = storage;
+  SolutionRepository({
+    required IBreedsApi api,
+    required ISolutionStorage storage,
+    required ISecureStorage secureStorage,
+  })  : _api = api,
+        _storage = storage,
+        _secureStorage = secureStorage;
 
   final IBreedsApi _api;
 
   final ISolutionStorage _storage;
+
+  final ISecureStorage _secureStorage;
 
   @override
   Future<Result<Breeds>> fetchBreeds() async {
@@ -32,4 +39,7 @@ class SolutionRepository implements ISolutionRepository {
 
   @override
   Future<Result<void>> saveLocale(String language) => _storage.saveLocale(language);
+
+  @override
+  Future<void> deleteToken() => _secureStorage.removeToken();
 }

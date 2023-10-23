@@ -48,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "incorrectUsernameOrPassword":
             MessageLookupByLibrary.simpleMessage("Не вірний email або пароль"),
         "light": MessageLookupByLibrary.simpleMessage("Світла"),
+        "logout": MessageLookupByLibrary.simpleMessage("Вихід"),
         "not_have_an_account": MessageLookupByLibrary.simpleMessage(
             "Ще не маєте облікового запису?"),
         "ok": MessageLookupByLibrary.simpleMessage("ok"),

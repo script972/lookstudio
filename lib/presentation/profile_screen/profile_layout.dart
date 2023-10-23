@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:solution_starter/generated/l10n.dart';
+import 'package:solution_starter/navigation/app_router.dart';
 import 'package:solution_starter/presentation/profile_screen/bloc/setting_cubit.dart';
 import 'package:solution_starter/widgets/molecules/button_item.dart';
 import 'package:value_provider/value_provider.dart';
@@ -25,7 +27,14 @@ class _ProfileLayoutState extends State<ProfileLayout> {
         title: Text(S.of(context).profile),
       ),
       body: BlocConsumer<SettingCubit, SettingState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          state.maybeWhen(
+              logoutState: () => context.router.pushAndPopUntil(
+                const LoginRoute(),
+                predicate: (route) => false,
+              ),
+              orElse: () => {});
+        },
         builder: (context, state) {
           return Center(
             child: Column(
@@ -82,6 +91,15 @@ class _ProfileLayoutState extends State<ProfileLayout> {
                       text: S.current.dark,
                     ),
                   ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 32),
+                  child: ButtonItem(
+                    context,
+                    bgColor: Theme.of(context).colorScheme.onBackground,
+                    onPressed: () => context.read<SettingCubit>().logOutUser(),
+                    text: S.of(context).logout,
+                  ),
                 ),
               ],
             ),

@@ -9,6 +9,8 @@ import 'package:solution_starter/presentation/home_screen/home_screen.dart';
 import 'package:solution_starter/presentation/login_screen/login_screen.dart';
 import 'package:solution_starter/presentation/profile_screen/profile_screen.dart';
 import 'package:solution_starter/presentation/sign_up_screen/sign_up_screen.dart';
+import 'package:solution_starter/domain/entities/user.dart';
+
 
 part 'app_router.gr.dart';
 

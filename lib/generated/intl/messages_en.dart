@@ -48,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "incorrectUsernameOrPassword": MessageLookupByLibrary.simpleMessage(
             "incorrect username or password"),
         "light": MessageLookupByLibrary.simpleMessage("Light"),
+        "logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "not_have_an_account":
             MessageLookupByLibrary.simpleMessage("Don`t have an account yet?"),
         "ok": MessageLookupByLibrary.simpleMessage("ok"),
