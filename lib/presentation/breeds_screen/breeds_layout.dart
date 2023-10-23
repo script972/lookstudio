@@ -4,6 +4,7 @@ import 'package:solution_starter/domain/entities/breed_info.dart';
 import 'package:solution_starter/generated/l10n.dart';
 import 'package:solution_starter/presentation/breeds_screen/bloc/breeds_bloc.dart';
 import 'package:solution_starter/widgets/organisms/home_list.dart';
+import 'package:solution_starter/widgets/organisms/progress.dart';
 
 class BreedsLayout extends StatefulWidget {
   const BreedsLayout({super.key});
@@ -44,19 +45,31 @@ class _BreedsLayoutState extends State<BreedsLayout> {
           },
           builder: (context, state) {
             return state.maybeWhen(
-              initial: () => const Center(
-                child: SizedBox(),
+              orElse: () => const SizedBox(),
+              loading: () => const Center(child: CircleProgress()),
+              loaded: (data) => DogBreedListWidget(
+                breeds: data,
+                onRefresh: () async {
+                  context.read<BreedsBloc>().add(const BreedsEvent.refresh());
+                },
+                onLoading:  () async {
+                  context.read<BreedsBloc>().add(const BreedsEvent.loading());
+                },
+                onContractClick: (breedInfo) async {
+                  showSnackBar(context, breedInfo);
+                },
               ),
-              loading: () => const Center(
-                child: CircularProgressIndicator(),
-              ),
-              loaded: (breeds) => DogBreedListWidget(breeds: breeds),
-              error: (error) => Center(
-                child: Text('$error'),
-              ),
-              showInfo: (_, breeds) => DogBreedListWidget(breeds: breeds),
-              orElse: () => const Center(
-                child: Text('text'),
+              error: (error, data) => DogBreedListWidget(
+                breeds: data,
+                onRefresh: () async {
+                  context.read<BreedsBloc>().add(const BreedsEvent.refresh());
+                },
+                onLoading:  () async {
+                  context.read<BreedsBloc>().add(const BreedsEvent.loading());
+                },
+                onContractClick: (breedInfo) async {
+                  showSnackBar(context, breedInfo);
+                },
               ),
             );
           },
