@@ -19,18 +19,24 @@ mixin _$BreedsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loaded,
+    required TResult Function() loading,
+    required TResult Function() refresh,
     required TResult Function(BreedInfo breedInfo) showInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loaded,
+    TResult? Function()? loading,
+    TResult? Function()? refresh,
     TResult? Function(BreedInfo breedInfo)? showInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loaded,
+    TResult Function()? loading,
+    TResult Function()? refresh,
     TResult Function(BreedInfo breedInfo)? showInfo,
     required TResult orElse(),
   }) =>
@@ -38,18 +44,24 @@ mixin _$BreedsEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LoadedEvent value) loaded,
+    required TResult Function(LoadingEvent value) loading,
+    required TResult Function(RefreshEvent value) refresh,
     required TResult Function(ShowInfoEvent value) showInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadedEvent value)? loaded,
+    TResult? Function(LoadingEvent value)? loading,
+    TResult? Function(RefreshEvent value)? refresh,
     TResult? Function(ShowInfoEvent value)? showInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadedEvent value)? loaded,
+    TResult Function(LoadingEvent value)? loading,
+    TResult Function(RefreshEvent value)? refresh,
     TResult Function(ShowInfoEvent value)? showInfo,
     required TResult orElse(),
   }) =>
@@ -113,6 +125,8 @@ class _$LoadedEventImpl implements LoadedEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loaded,
+    required TResult Function() loading,
+    required TResult Function() refresh,
     required TResult Function(BreedInfo breedInfo) showInfo,
   }) {
     return loaded();
@@ -122,6 +136,8 @@ class _$LoadedEventImpl implements LoadedEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loaded,
+    TResult? Function()? loading,
+    TResult? Function()? refresh,
     TResult? Function(BreedInfo breedInfo)? showInfo,
   }) {
     return loaded?.call();
@@ -131,6 +147,8 @@ class _$LoadedEventImpl implements LoadedEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loaded,
+    TResult Function()? loading,
+    TResult Function()? refresh,
     TResult Function(BreedInfo breedInfo)? showInfo,
     required TResult orElse(),
   }) {
@@ -144,6 +162,8 @@ class _$LoadedEventImpl implements LoadedEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LoadedEvent value) loaded,
+    required TResult Function(LoadingEvent value) loading,
+    required TResult Function(RefreshEvent value) refresh,
     required TResult Function(ShowInfoEvent value) showInfo,
   }) {
     return loaded(this);
@@ -153,6 +173,8 @@ class _$LoadedEventImpl implements LoadedEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadedEvent value)? loaded,
+    TResult? Function(LoadingEvent value)? loading,
+    TResult? Function(RefreshEvent value)? refresh,
     TResult? Function(ShowInfoEvent value)? showInfo,
   }) {
     return loaded?.call(this);
@@ -162,6 +184,8 @@ class _$LoadedEventImpl implements LoadedEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadedEvent value)? loaded,
+    TResult Function(LoadingEvent value)? loading,
+    TResult Function(RefreshEvent value)? refresh,
     TResult Function(ShowInfoEvent value)? showInfo,
     required TResult orElse(),
   }) {
@@ -174,6 +198,234 @@ class _$LoadedEventImpl implements LoadedEvent {
 
 abstract class LoadedEvent implements BreedsEvent {
   const factory LoadedEvent() = _$LoadedEventImpl;
+}
+
+/// @nodoc
+abstract class _$$LoadingEventImplCopyWith<$Res> {
+  factory _$$LoadingEventImplCopyWith(
+          _$LoadingEventImpl value, $Res Function(_$LoadingEventImpl) then) =
+      __$$LoadingEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadingEventImplCopyWithImpl<$Res>
+    extends _$BreedsEventCopyWithImpl<$Res, _$LoadingEventImpl>
+    implements _$$LoadingEventImplCopyWith<$Res> {
+  __$$LoadingEventImplCopyWithImpl(
+      _$LoadingEventImpl _value, $Res Function(_$LoadingEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadingEventImpl implements LoadingEvent {
+  const _$LoadingEventImpl();
+
+  @override
+  String toString() {
+    return 'BreedsEvent.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadingEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loaded,
+    required TResult Function() loading,
+    required TResult Function() refresh,
+    required TResult Function(BreedInfo breedInfo) showInfo,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loaded,
+    TResult? Function()? loading,
+    TResult? Function()? refresh,
+    TResult? Function(BreedInfo breedInfo)? showInfo,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loaded,
+    TResult Function()? loading,
+    TResult Function()? refresh,
+    TResult Function(BreedInfo breedInfo)? showInfo,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoadedEvent value) loaded,
+    required TResult Function(LoadingEvent value) loading,
+    required TResult Function(RefreshEvent value) refresh,
+    required TResult Function(ShowInfoEvent value) showInfo,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LoadedEvent value)? loaded,
+    TResult? Function(LoadingEvent value)? loading,
+    TResult? Function(RefreshEvent value)? refresh,
+    TResult? Function(ShowInfoEvent value)? showInfo,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoadedEvent value)? loaded,
+    TResult Function(LoadingEvent value)? loading,
+    TResult Function(RefreshEvent value)? refresh,
+    TResult Function(ShowInfoEvent value)? showInfo,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LoadingEvent implements BreedsEvent {
+  const factory LoadingEvent() = _$LoadingEventImpl;
+}
+
+/// @nodoc
+abstract class _$$RefreshEventImplCopyWith<$Res> {
+  factory _$$RefreshEventImplCopyWith(
+          _$RefreshEventImpl value, $Res Function(_$RefreshEventImpl) then) =
+      __$$RefreshEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RefreshEventImplCopyWithImpl<$Res>
+    extends _$BreedsEventCopyWithImpl<$Res, _$RefreshEventImpl>
+    implements _$$RefreshEventImplCopyWith<$Res> {
+  __$$RefreshEventImplCopyWithImpl(
+      _$RefreshEventImpl _value, $Res Function(_$RefreshEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$RefreshEventImpl implements RefreshEvent {
+  const _$RefreshEventImpl();
+
+  @override
+  String toString() {
+    return 'BreedsEvent.refresh()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$RefreshEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loaded,
+    required TResult Function() loading,
+    required TResult Function() refresh,
+    required TResult Function(BreedInfo breedInfo) showInfo,
+  }) {
+    return refresh();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loaded,
+    TResult? Function()? loading,
+    TResult? Function()? refresh,
+    TResult? Function(BreedInfo breedInfo)? showInfo,
+  }) {
+    return refresh?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loaded,
+    TResult Function()? loading,
+    TResult Function()? refresh,
+    TResult Function(BreedInfo breedInfo)? showInfo,
+    required TResult orElse(),
+  }) {
+    if (refresh != null) {
+      return refresh();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoadedEvent value) loaded,
+    required TResult Function(LoadingEvent value) loading,
+    required TResult Function(RefreshEvent value) refresh,
+    required TResult Function(ShowInfoEvent value) showInfo,
+  }) {
+    return refresh(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LoadedEvent value)? loaded,
+    TResult? Function(LoadingEvent value)? loading,
+    TResult? Function(RefreshEvent value)? refresh,
+    TResult? Function(ShowInfoEvent value)? showInfo,
+  }) {
+    return refresh?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoadedEvent value)? loaded,
+    TResult Function(LoadingEvent value)? loading,
+    TResult Function(RefreshEvent value)? refresh,
+    TResult Function(ShowInfoEvent value)? showInfo,
+    required TResult orElse(),
+  }) {
+    if (refresh != null) {
+      return refresh(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RefreshEvent implements BreedsEvent {
+  const factory RefreshEvent() = _$RefreshEventImpl;
 }
 
 /// @nodoc
@@ -242,6 +494,8 @@ class _$ShowInfoEventImpl implements ShowInfoEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loaded,
+    required TResult Function() loading,
+    required TResult Function() refresh,
     required TResult Function(BreedInfo breedInfo) showInfo,
   }) {
     return showInfo(breedInfo);
@@ -251,6 +505,8 @@ class _$ShowInfoEventImpl implements ShowInfoEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loaded,
+    TResult? Function()? loading,
+    TResult? Function()? refresh,
     TResult? Function(BreedInfo breedInfo)? showInfo,
   }) {
     return showInfo?.call(breedInfo);
@@ -260,6 +516,8 @@ class _$ShowInfoEventImpl implements ShowInfoEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loaded,
+    TResult Function()? loading,
+    TResult Function()? refresh,
     TResult Function(BreedInfo breedInfo)? showInfo,
     required TResult orElse(),
   }) {
@@ -273,6 +531,8 @@ class _$ShowInfoEventImpl implements ShowInfoEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LoadedEvent value) loaded,
+    required TResult Function(LoadingEvent value) loading,
+    required TResult Function(RefreshEvent value) refresh,
     required TResult Function(ShowInfoEvent value) showInfo,
   }) {
     return showInfo(this);
@@ -282,6 +542,8 @@ class _$ShowInfoEventImpl implements ShowInfoEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadedEvent value)? loaded,
+    TResult? Function(LoadingEvent value)? loading,
+    TResult? Function(RefreshEvent value)? refresh,
     TResult? Function(ShowInfoEvent value)? showInfo,
   }) {
     return showInfo?.call(this);
@@ -291,6 +553,8 @@ class _$ShowInfoEventImpl implements ShowInfoEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadedEvent value)? loaded,
+    TResult Function(LoadingEvent value)? loading,
+    TResult Function(RefreshEvent value)? refresh,
     TResult Function(ShowInfoEvent value)? showInfo,
     required TResult orElse(),
   }) {
@@ -320,7 +584,8 @@ mixin _$BreedsState {
     required TResult Function(List<BreedInfo> fetchedDogs) loaded,
     required TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)
         showInfo,
-    required TResult Function(Object? exception) error,
+    required TResult Function(Object? exception, List<BreedInfo> fetchedDogs)
+        error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -330,7 +595,7 @@ mixin _$BreedsState {
     TResult? Function(List<BreedInfo> fetchedDogs)? loaded,
     TResult? Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
         showInfo,
-    TResult? Function(Object? exception)? error,
+    TResult? Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -340,7 +605,7 @@ mixin _$BreedsState {
     TResult Function(List<BreedInfo> fetchedDogs)? loaded,
     TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
         showInfo,
-    TResult Function(Object? exception)? error,
+    TResult Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -435,7 +700,8 @@ class _$InitialStateImpl implements _InitialState {
     required TResult Function(List<BreedInfo> fetchedDogs) loaded,
     required TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)
         showInfo,
-    required TResult Function(Object? exception) error,
+    required TResult Function(Object? exception, List<BreedInfo> fetchedDogs)
+        error,
   }) {
     return initial();
   }
@@ -448,7 +714,7 @@ class _$InitialStateImpl implements _InitialState {
     TResult? Function(List<BreedInfo> fetchedDogs)? loaded,
     TResult? Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
         showInfo,
-    TResult? Function(Object? exception)? error,
+    TResult? Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
   }) {
     return initial?.call();
   }
@@ -461,7 +727,7 @@ class _$InitialStateImpl implements _InitialState {
     TResult Function(List<BreedInfo> fetchedDogs)? loaded,
     TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
         showInfo,
-    TResult Function(Object? exception)? error,
+    TResult Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -558,7 +824,8 @@ class _$LoadingStateImpl implements _LoadingState {
     required TResult Function(List<BreedInfo> fetchedDogs) loaded,
     required TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)
         showInfo,
-    required TResult Function(Object? exception) error,
+    required TResult Function(Object? exception, List<BreedInfo> fetchedDogs)
+        error,
   }) {
     return loading();
   }
@@ -571,7 +838,7 @@ class _$LoadingStateImpl implements _LoadingState {
     TResult? Function(List<BreedInfo> fetchedDogs)? loaded,
     TResult? Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
         showInfo,
-    TResult? Function(Object? exception)? error,
+    TResult? Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
   }) {
     return loading?.call();
   }
@@ -584,7 +851,7 @@ class _$LoadingStateImpl implements _LoadingState {
     TResult Function(List<BreedInfo> fetchedDogs)? loaded,
     TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
         showInfo,
-    TResult Function(Object? exception)? error,
+    TResult Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -715,7 +982,8 @@ class _$LoadedStateImpl implements _LoadedState {
     required TResult Function(List<BreedInfo> fetchedDogs) loaded,
     required TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)
         showInfo,
-    required TResult Function(Object? exception) error,
+    required TResult Function(Object? exception, List<BreedInfo> fetchedDogs)
+        error,
   }) {
     return loaded(fetchedDogs);
   }
@@ -728,7 +996,7 @@ class _$LoadedStateImpl implements _LoadedState {
     TResult? Function(List<BreedInfo> fetchedDogs)? loaded,
     TResult? Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
         showInfo,
-    TResult? Function(Object? exception)? error,
+    TResult? Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
   }) {
     return loaded?.call(fetchedDogs);
   }
@@ -741,7 +1009,7 @@ class _$LoadedStateImpl implements _LoadedState {
     TResult Function(List<BreedInfo> fetchedDogs)? loaded,
     TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
         showInfo,
-    TResult Function(Object? exception)? error,
+    TResult Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -888,7 +1156,8 @@ class _$ShowInfoImpl implements _ShowInfo {
     required TResult Function(List<BreedInfo> fetchedDogs) loaded,
     required TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)
         showInfo,
-    required TResult Function(Object? exception) error,
+    required TResult Function(Object? exception, List<BreedInfo> fetchedDogs)
+        error,
   }) {
     return showInfo(breedInfo, fetchedDogs);
   }
@@ -901,7 +1170,7 @@ class _$ShowInfoImpl implements _ShowInfo {
     TResult? Function(List<BreedInfo> fetchedDogs)? loaded,
     TResult? Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
         showInfo,
-    TResult? Function(Object? exception)? error,
+    TResult? Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
   }) {
     return showInfo?.call(breedInfo, fetchedDogs);
   }
@@ -914,7 +1183,7 @@ class _$ShowInfoImpl implements _ShowInfo {
     TResult Function(List<BreedInfo> fetchedDogs)? loaded,
     TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
         showInfo,
-    TResult Function(Object? exception)? error,
+    TResult Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
     required TResult orElse(),
   }) {
     if (showInfo != null) {
@@ -982,7 +1251,7 @@ abstract class _$$ErrorStateImplCopyWith<$Res> {
           _$ErrorStateImpl value, $Res Function(_$ErrorStateImpl) then) =
       __$$ErrorStateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Object? exception});
+  $Res call({Object? exception, List<BreedInfo> fetchedDogs});
 }
 
 /// @nodoc
@@ -997,9 +1266,14 @@ class __$$ErrorStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? exception = freezed,
+    Object? fetchedDogs = null,
   }) {
     return _then(_$ErrorStateImpl(
       exception: freezed == exception ? _value.exception : exception,
+      fetchedDogs: null == fetchedDogs
+          ? _value._fetchedDogs
+          : fetchedDogs // ignore: cast_nullable_to_non_nullable
+              as List<BreedInfo>,
     ));
   }
 }
@@ -1007,14 +1281,23 @@ class __$$ErrorStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ErrorStateImpl implements _ErrorState {
-  const _$ErrorStateImpl({this.exception});
+  const _$ErrorStateImpl(
+      {this.exception, required final List<BreedInfo> fetchedDogs})
+      : _fetchedDogs = fetchedDogs;
 
   @override
   final Object? exception;
+  final List<BreedInfo> _fetchedDogs;
+  @override
+  List<BreedInfo> get fetchedDogs {
+    if (_fetchedDogs is EqualUnmodifiableListView) return _fetchedDogs;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_fetchedDogs);
+  }
 
   @override
   String toString() {
-    return 'BreedsState.error(exception: $exception)';
+    return 'BreedsState.error(exception: $exception, fetchedDogs: $fetchedDogs)';
   }
 
   @override
@@ -1022,12 +1305,16 @@ class _$ErrorStateImpl implements _ErrorState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ErrorStateImpl &&
-            const DeepCollectionEquality().equals(other.exception, exception));
+            const DeepCollectionEquality().equals(other.exception, exception) &&
+            const DeepCollectionEquality()
+                .equals(other._fetchedDogs, _fetchedDogs));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(exception));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(exception),
+      const DeepCollectionEquality().hash(_fetchedDogs));
 
   @JsonKey(ignore: true)
   @override
@@ -1043,9 +1330,10 @@ class _$ErrorStateImpl implements _ErrorState {
     required TResult Function(List<BreedInfo> fetchedDogs) loaded,
     required TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)
         showInfo,
-    required TResult Function(Object? exception) error,
+    required TResult Function(Object? exception, List<BreedInfo> fetchedDogs)
+        error,
   }) {
-    return error(exception);
+    return error(exception, fetchedDogs);
   }
 
   @override
@@ -1056,9 +1344,9 @@ class _$ErrorStateImpl implements _ErrorState {
     TResult? Function(List<BreedInfo> fetchedDogs)? loaded,
     TResult? Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
         showInfo,
-    TResult? Function(Object? exception)? error,
+    TResult? Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
   }) {
-    return error?.call(exception);
+    return error?.call(exception, fetchedDogs);
   }
 
   @override
@@ -1069,11 +1357,11 @@ class _$ErrorStateImpl implements _ErrorState {
     TResult Function(List<BreedInfo> fetchedDogs)? loaded,
     TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
         showInfo,
-    TResult Function(Object? exception)? error,
+    TResult Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(exception);
+      return error(exception, fetchedDogs);
     }
     return orElse();
   }
@@ -1120,9 +1408,12 @@ class _$ErrorStateImpl implements _ErrorState {
 }
 
 abstract class _ErrorState implements BreedsState {
-  const factory _ErrorState({final Object? exception}) = _$ErrorStateImpl;
+  const factory _ErrorState(
+      {final Object? exception,
+      required final List<BreedInfo> fetchedDogs}) = _$ErrorStateImpl;
 
   Object? get exception;
+  List<BreedInfo> get fetchedDogs;
   @JsonKey(ignore: true)
   _$$ErrorStateImplCopyWith<_$ErrorStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
