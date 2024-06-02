@@ -19,13 +19,10 @@ class VendorThemeTwoLight extends VendorOneCoreTheme {
   @override
   ThemeData get themeData {
     return ThemeData(
-      primarySwatch: DefaultPalette.kToDark,
-      backgroundColor: DefaultPalette.deepPurpleAccent,
       disabledColor: DefaultPalette.deepPurpleAccent,
       primaryColor: Colors.green,
       dividerColor: DefaultPalette.deepPurpleAccent,
       unselectedWidgetColor: DefaultPalette.deepPurpleAccent,
-      toggleableActiveColor: DefaultPalette.deepPurpleAccent,
       hintColor: DefaultPalette.deepPurpleAccent,
       appBarTheme: const AppBarTheme(
         shadowColor: Colors.black,
@@ -44,7 +41,7 @@ class VendorThemeTwoLight extends VendorOneCoreTheme {
             borderSide:
                 BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
           )),
-      errorColor: DefaultPalette.redAccent,
+      cardColor: DefaultPalette.redAccent,
       scaffoldBackgroundColor: DefaultPalette.whiteBackground,
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: DefaultPalette.whiteBackground,
@@ -53,85 +50,135 @@ class VendorThemeTwoLight extends VendorOneCoreTheme {
         unselectedItemColor: DefaultPalette.whiteBackground,
       ),
       textTheme: const TextTheme(
-        headline1: TextStyle(
+        displayLarge: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontWeight: FontWeight.w400,
           fontSize: 96,
           letterSpacing: -1.5,
         ),
-        headline2: TextStyle(
+        displayMedium: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontWeight: FontWeight.w400,
           fontSize: 60,
           letterSpacing: -0.5,
         ),
-        headline3: TextStyle(
+        displaySmall: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontWeight: FontWeight.w400,
           fontSize: 48,
           letterSpacing: 0,
         ),
-        headline4: TextStyle(
+        headlineMedium: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontWeight: FontWeight.w400,
           fontSize: 34,
           letterSpacing: 0,
         ),
-        headline5: TextStyle(
+        headlineSmall: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontSize: 24,
           letterSpacing: 0.18,
           fontWeight: FontWeight.w400,
         ),
-        headline6: TextStyle(
+        titleLarge: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontSize: 20,
           letterSpacing: 0.15,
           fontWeight: FontWeight.w500,
         ),
-        subtitle1: TextStyle(
+        titleMedium: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontWeight: FontWeight.w400,
           fontSize: 16,
           letterSpacing: 0.15,
         ),
-        subtitle2: TextStyle(
+        titleSmall: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontWeight: FontWeight.w500,
           fontSize: 14,
           letterSpacing: 0.1,
         ),
-        bodyText1: TextStyle(
+        bodyLarge: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontWeight: FontWeight.w400,
           fontSize: 16,
           letterSpacing: 0.5,
         ),
-        bodyText2: TextStyle(
+        bodyMedium: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontWeight: FontWeight.w400,
           fontSize: 14,
           letterSpacing: 0.25,
         ),
-        button: TextStyle(
+        labelLarge: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontWeight: FontWeight.w500,
           fontSize: 14,
           letterSpacing: 1.25,
         ),
-        caption: TextStyle(
+        bodySmall: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontWeight: FontWeight.w400, // Normal
           fontSize: 12,
           letterSpacing: 0.4,
         ),
-        overline: TextStyle(
+        labelSmall: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontSize: 10,
           letterSpacing: 1.5,
           fontWeight: FontWeight.w500,
         ),
-      ).apply(fontFamily: 'Roboto'), // Todo: check generation assets
+      ).apply(fontFamily: 'Roboto'),
+      checkboxTheme: CheckboxThemeData(
+        fillColor: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return DefaultPalette.deepPurpleAccent;
+          }
+          return null;
+        }),
+      ),
+      radioTheme: RadioThemeData(
+        fillColor: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return DefaultPalette.deepPurpleAccent;
+          }
+          return null;
+        }),
+      ),
+      switchTheme: SwitchThemeData(
+        thumbColor: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return DefaultPalette.deepPurpleAccent;
+          }
+          return null;
+        }),
+        trackColor: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return DefaultPalette.deepPurpleAccent;
+          }
+          return null;
+        }),
+      ),
+      colorScheme: ColorScheme.fromSwatch(primarySwatch: DefaultPalette.kToDark)
+          .copyWith(
+              background: DefaultPalette
+                  .deepPurpleAccent), // Todo: check generation assets
     );
   }
 
@@ -148,13 +195,10 @@ class VendorThemeTwoDark extends VendorOneCoreTheme {
   @override
   ThemeData get themeData {
     return ThemeData(
-      primarySwatch: DefaultPalette.kToDark,
-      backgroundColor: DefaultPalette.deepPurpleAccent,
       disabledColor: DefaultPalette.deepPurpleAccent,
       primaryColor: DefaultPalette.deepPurpleAccent,
       dividerColor: DefaultPalette.deepPurpleAccent,
       unselectedWidgetColor: DefaultPalette.deepPurpleAccent,
-      toggleableActiveColor: DefaultPalette.deepPurpleAccent,
       hintColor: DefaultPalette.deepPurpleAccent,
       appBarTheme: const AppBarTheme(
         shadowColor: Colors.black,
@@ -173,7 +217,6 @@ class VendorThemeTwoDark extends VendorOneCoreTheme {
             borderSide:
                 BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
           )),
-      errorColor: DefaultPalette.redAccent,
       scaffoldBackgroundColor: DefaultPalette.whiteBackground,
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: DefaultPalette.whiteBackground,
@@ -182,85 +225,135 @@ class VendorThemeTwoDark extends VendorOneCoreTheme {
         unselectedItemColor: DefaultPalette.whiteBackground,
       ),
       textTheme: const TextTheme(
-        headline1: TextStyle(
+        displayLarge: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontWeight: FontWeight.w400,
           fontSize: 96,
           letterSpacing: -1.5,
         ),
-        headline2: TextStyle(
+        displayMedium: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontWeight: FontWeight.w400,
           fontSize: 60,
           letterSpacing: -0.5,
         ),
-        headline3: TextStyle(
+        displaySmall: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontWeight: FontWeight.w400,
           fontSize: 48,
           letterSpacing: 0,
         ),
-        headline4: TextStyle(
+        headlineMedium: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontWeight: FontWeight.w400,
           fontSize: 34,
           letterSpacing: 0,
         ),
-        headline5: TextStyle(
+        headlineSmall: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontSize: 24,
           letterSpacing: 0.18,
           fontWeight: FontWeight.w400,
         ),
-        headline6: TextStyle(
+        titleLarge: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontSize: 20,
           letterSpacing: 0.15,
           fontWeight: FontWeight.w500,
         ),
-        subtitle1: TextStyle(
+        titleMedium: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontWeight: FontWeight.w400,
           fontSize: 16,
           letterSpacing: 0.15,
         ),
-        subtitle2: TextStyle(
+        titleSmall: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontWeight: FontWeight.w500,
           fontSize: 14,
           letterSpacing: 0.1,
         ),
-        bodyText1: TextStyle(
+        bodyLarge: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontWeight: FontWeight.w400,
           fontSize: 16,
           letterSpacing: 0.5,
         ),
-        bodyText2: TextStyle(
+        bodyMedium: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontWeight: FontWeight.w400,
           fontSize: 14,
           letterSpacing: 0.25,
         ),
-        button: TextStyle(
+        labelLarge: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontWeight: FontWeight.w500,
           fontSize: 14,
           letterSpacing: 1.25,
         ),
-        caption: TextStyle(
+        bodySmall: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontWeight: FontWeight.w400, // Normal
           fontSize: 12,
           letterSpacing: 0.4,
         ),
-        overline: TextStyle(
+        labelSmall: TextStyle(
           color: DefaultPalette.whiteBackground,
           fontSize: 10,
           letterSpacing: 1.5,
           fontWeight: FontWeight.w500,
         ),
-      ).apply(fontFamily: 'Roboto'), // Todo: check generation assets
+      ).apply(fontFamily: 'Roboto'),
+      checkboxTheme: CheckboxThemeData(
+        fillColor: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return DefaultPalette.deepPurpleAccent;
+          }
+          return null;
+        }),
+      ),
+      radioTheme: RadioThemeData(
+        fillColor: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return DefaultPalette.deepPurpleAccent;
+          }
+          return null;
+        }),
+      ),
+      switchTheme: SwitchThemeData(
+        thumbColor: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return DefaultPalette.deepPurpleAccent;
+          }
+          return null;
+        }),
+        trackColor: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return DefaultPalette.deepPurpleAccent;
+          }
+          return null;
+        }),
+      ),
+      colorScheme: ColorScheme.fromSwatch(primarySwatch: DefaultPalette.kToDark)
+          .copyWith(background: DefaultPalette.deepPurpleAccent)
+          .copyWith(
+              error: DefaultPalette.redAccent), // Todo: check generation assets
     );
   }
 

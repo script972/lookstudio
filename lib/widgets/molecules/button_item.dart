@@ -145,7 +145,7 @@ class ButtonItem extends TextButton {
           borderRadius: BorderRadius.circular(radius),
           side: BorderSide(
             color: emergency
-                ? Theme.of(context).errorColor
+                ? Theme.of(context).colorScheme.error
                 : forceBgColor ?? Theme.of(context).primaryColor,
             width: 2,
           ),
@@ -182,7 +182,7 @@ class ButtonItem extends TextButton {
     switch (backgroundType) {
       case BackgroundType.empty:
         return MaterialStateProperty.all<Color>(
-            Theme.of(context).backgroundColor);
+            Theme.of(context).colorScheme.background);
       case BackgroundType.fill:
         return MaterialStateProperty.all<Color>(Theme.of(context).primaryColor);
       case BackgroundType.tertiary:
