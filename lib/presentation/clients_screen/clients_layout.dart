@@ -2,11 +2,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'dart:math' as math;
-import 'package:solution_starter/generated/l10n.dart';
-import 'package:solution_starter/navigation/app_router.dart';
-import 'package:solution_starter/presentation/clients_screen/cubit/client_cubit.dart';
-import 'package:solution_starter/widgets/molecules/client_avatar.dart';
-import 'package:solution_starter/widgets/organisms/progress.dart';
+
+import '../../generated/l10n.dart';
+import '../../navigation/app_router.dart';
+import '../../widgets/molecules/client_avatar.dart';
+import '../../widgets/organisms/progress.dart';
+import 'cubit/client_cubit.dart';
 
 class ClientsLayout extends StatelessWidget {
   const ClientsLayout({super.key});
@@ -48,11 +49,13 @@ class ClientsLayout extends StatelessWidget {
                         return ClientAvatar(
                           avatarColor: Color((math.Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(1.0),
                           clientName: 'client${users[index].id}',
-                          onAvatarTap: () => context.router.push(
-                            ClientInfoRoute(
-                              user: users[index],
-                            ),
-                          ),
+                          onAvatarTap: () {
+                            /*context.router.push(
+                              ClientInfoRoute(
+                                user: users[index],
+                              ),
+                            );*/
+                          },
                         );
                       },
                     ),

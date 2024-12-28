@@ -1,7 +1,8 @@
 import 'dart:convert';
 
-import 'package:solution_starter/domain/entities/breed_info.dart';
-import 'package:solution_starter/domain/entities/breeds.dart';
+import '../../domain/model/breed_info.dart';
+import '../../domain/model/breeds.dart';
+
 
 class BreedsModel extends Breeds {
   BreedsModel({required super.breedList, required this.status});

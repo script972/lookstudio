@@ -6,7 +6,7 @@ enum EnvironmentType { PROD, DEV, UAT } // TODO(Georg): change all these values 
 
 class AppConfig {
   /// Used in case environment identifier wasn't provided or incorrect
-  EnvironmentType defaultEnvironment = EnvironmentType.DEV;
+  EnvironmentType defaultEnvironment = EnvironmentType.UAT;
 
   /// Set of environment data sets.
   Map<EnvironmentType, EnvironmentValues> get environmentsData => {

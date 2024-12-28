@@ -1,12 +1,13 @@
+import 'package:aircode_starter/widgets/organisms/progress.dart';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:solution_starter/domain/entities/breed_info.dart';
-import 'package:solution_starter/generated/assets/assets.gen.dart';
 import 'package:flutter_list_view/flutter_list_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:solution_starter/generated/l10n.dart';
-import 'package:solution_starter/widgets/molecules/breed_cell.dart';
-import 'package:solution_starter/widgets/organisms/progress.dart';
+
+import '../../domain/model/breed_info.dart';
+import '../../generated/assets/assets.gen.dart';
+import '../../generated/l10n.dart';
+import '../molecules/breed_cell.dart';
 
 class DogBreedListWidget extends StatefulWidget {
   const DogBreedListWidget({

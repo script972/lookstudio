@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:solution_starter/domain/entities/breed_info.dart';
-import 'package:solution_starter/generated/l10n.dart';
-import 'package:solution_starter/presentation/breeds_screen/bloc/breeds_bloc.dart';
-import 'package:solution_starter/widgets/organisms/home_list.dart';
-import 'package:solution_starter/widgets/organisms/progress.dart';
+
+import '../../domain/model/breed_info.dart';
+import '../../generated/l10n.dart';
+import '../../widgets/organisms/home_list.dart';
+import '../../widgets/organisms/progress.dart';
+import 'bloc/breeds_bloc.dart';
 
 class BreedsLayout extends StatefulWidget {
   const BreedsLayout({super.key});

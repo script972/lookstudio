@@ -3,8 +3,9 @@ import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-import 'package:solution_starter/core/logger.dart';
-import 'package:solution_starter/widgets/tokens/spacing.dart';
+
+import '../../core/logger.dart';
+import '../tokens/spacing.dart';
 
 class BaseScaffold extends StatefulWidget {
   final Widget body;
@@ -68,13 +69,13 @@ class _BaseScaffoldState extends State<BaseScaffold> with TickerProviderStateMix
 
     var connectivityResult = Connectivity().checkConnectivity();
     connectivityResult.then((value) {
-      logger.i('Network connection current status ${value.name}');
-      connectivityAction(value);
+      logger.i('Network connection current status ${value[0].name}');
+      connectivityAction(value[0]);
     });
 
-    subscription = Connectivity().onConnectivityChanged.listen((ConnectivityResult connectivityResult) {
-      logger.i('Network connection change status ${connectivityResult.name}');
-      connectivityAction(connectivityResult);
+    subscription = Connectivity().onConnectivityChanged.listen((List<ConnectivityResult> result) {
+      logger.i('Network connection current status ${result[0].name}');
+      connectivityAction(result[0]);
     });
   }
 
@@ -146,11 +147,11 @@ class _BaseScaffoldState extends State<BaseScaffold> with TickerProviderStateMix
         ),
         height: MediaQuery.of(context).padding.top + 36,
         width: double.infinity,
-        child: Center(
+        child: const Center(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.end,
-            children: const [
+            children: [
               Padding(
                 padding: EdgeInsets.only(bottom: Spacing.defaultPadding),
                 child: Text(

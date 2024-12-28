@@ -1,4 +1,4 @@
-import 'package:solution_starter/core/failure.dart';
+import '../../../../core/failure.dart';
 
 class SavingError extends StorageError{
   SavingError(super.error, {required super.boxName, required super.boxKey, this.data});

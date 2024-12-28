@@ -1,4 +1,5 @@
-import 'package:solution_starter/core/failure.dart';
+
+import '../../../../core/failure.dart';
 
 class DataBaseError extends Failure {
   DataBaseError({

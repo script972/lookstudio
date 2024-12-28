@@ -3,8 +3,10 @@ import 'dart:ui';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logger/logger.dart';
-import 'package:solution_starter/core/logger.dart';
-import 'package:solution_starter/domain/repository/auth_repository_interface.dart';
+
+import '../../../core/logger.dart';
+import '../../../domain/repository/auth_repository_interface.dart';
+
 
 part 'login_cubit.freezed.dart';
 part 'login_state.dart';

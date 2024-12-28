@@ -1,20 +1,21 @@
-import 'package:solution_starter/domain/entities/result.dart';
-import 'package:solution_starter/domain/entities/user.dart';
+
+import '../model/result.dart';
+import '../model/user_model.dart';
 
 abstract interface class IAuthRepository {
-  Future<Result<User>> register({required String email, required String password});
+  Future<Result<UserModel>> register({required String email, required String password});
 
-  Future<Result<User>> login({required String email, required String password});
+  Future<Result<UserModel>> login({required String email, required String password});
 
-  Future<Result<User>> googleLogin();
+  Future<Result<UserModel>> googleLogin();
 
-  Future<void> removeUser(User user);
+  Future<void> removeUser(UserModel user);
 
-  Future<void> addUser(User user);
+  Future<void> addUser(UserModel user);
 
-  Future<Result<List<User>>> getSavedUsers();
+  Future<Result<List<UserModel>>> getSavedUsers();
 
-  Future<User?> getInsertUser();
+  Future<UserModel?> getInsertUser();
 
   Future<void> saveAuthToken(String token);
 }

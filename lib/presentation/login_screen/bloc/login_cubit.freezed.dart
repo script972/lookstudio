@@ -12,7 +12,7 @@ part of 'login_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$LoginState {
@@ -108,6 +108,9 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -124,6 +127,9 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -137,7 +143,7 @@ class _$InitialImpl implements Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
@@ -262,6 +268,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -275,7 +284,7 @@ class _$LoadingImpl implements Loading {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$LoadingImpl);
   }
@@ -400,6 +409,9 @@ class __$$SuccessfullyLoginImplCopyWithImpl<$Res>
   __$$SuccessfullyLoginImplCopyWithImpl(_$SuccessfullyLoginImpl _value,
       $Res Function(_$SuccessfullyLoginImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -413,7 +425,7 @@ class _$SuccessfullyLoginImpl implements SuccessfullyLogin {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$SuccessfullyLoginImpl);
   }
@@ -541,6 +553,8 @@ class __$$UnknownErrorImplCopyWithImpl<$Res>
       _$UnknownErrorImpl _value, $Res Function(_$UnknownErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -576,7 +590,7 @@ class _$UnknownErrorImpl implements UnknownError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UnknownErrorImpl &&
@@ -588,7 +602,9 @@ class _$UnknownErrorImpl implements UnknownError {
   @override
   int get hashCode => Object.hash(runtimeType, message, retryCallback);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UnknownErrorImplCopyWith<_$UnknownErrorImpl> get copyWith =>
@@ -700,7 +716,10 @@ abstract class UnknownError implements LoginState {
 
   String? get message;
   VoidCallback get retryCallback;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UnknownErrorImplCopyWith<_$UnknownErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -722,6 +741,8 @@ class __$$FieldIsEmptyErrorImplCopyWithImpl<$Res>
       $Res Function(_$FieldIsEmptyErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -760,7 +781,7 @@ class _$FieldIsEmptyErrorImpl implements FieldIsEmptyError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FieldIsEmptyErrorImpl &&
@@ -774,7 +795,9 @@ class _$FieldIsEmptyErrorImpl implements FieldIsEmptyError {
   int get hashCode =>
       Object.hash(runtimeType, isUsernameEmpty, isPasswordEmpty);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FieldIsEmptyErrorImplCopyWith<_$FieldIsEmptyErrorImpl> get copyWith =>
@@ -887,7 +910,10 @@ abstract class FieldIsEmptyError implements LoginState {
 
   bool get isUsernameEmpty;
   bool get isPasswordEmpty;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FieldIsEmptyErrorImplCopyWith<_$FieldIsEmptyErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -906,6 +932,9 @@ class __$$WrongCredentialsImplCopyWithImpl<$Res>
   __$$WrongCredentialsImplCopyWithImpl(_$WrongCredentialsImpl _value,
       $Res Function(_$WrongCredentialsImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -919,7 +948,7 @@ class _$WrongCredentialsImpl implements WrongCredentials {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$WrongCredentialsImpl);
   }
@@ -1047,6 +1076,8 @@ class __$$EmailNotVerifiedImplCopyWithImpl<$Res>
       $Res Function(_$EmailNotVerifiedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1083,7 +1114,7 @@ class _$EmailNotVerifiedImpl implements EmailNotVerified {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EmailNotVerifiedImpl &&
@@ -1096,7 +1127,9 @@ class _$EmailNotVerifiedImpl implements EmailNotVerified {
   @override
   int get hashCode => Object.hash(runtimeType, username, password);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EmailNotVerifiedImplCopyWith<_$EmailNotVerifiedImpl> get copyWith =>
@@ -1209,7 +1242,10 @@ abstract class EmailNotVerified implements LoginState {
 
   String get username;
   String get password;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EmailNotVerifiedImplCopyWith<_$EmailNotVerifiedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

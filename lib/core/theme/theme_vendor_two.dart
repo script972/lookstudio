@@ -1,6 +1,6 @@
+import 'package:aircode_starter/core/theme/solution_theme.dart';
+import 'package:aircode_starter/core/theme/theme_palette/default_palette.dart';
 import 'package:flutter/material.dart';
-import 'package:solution_starter/core/theme/solution_theme.dart';
-import 'package:solution_starter/core/theme/theme_palette/default_palette.dart';
 
 abstract class VendorOneCoreTheme implements SolutionTheme {
   @override

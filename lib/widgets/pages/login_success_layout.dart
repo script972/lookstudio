@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:solution_starter/widgets/templates/form_validation.dart';
-import 'package:solution_starter/generated/l10n.dart';
-import 'package:solution_starter/presentation/login_screen/bloc/login_cubit.dart';
-import 'package:solution_starter/widgets/molecules/button_item.dart';
-import 'package:solution_starter/widgets/molecules/input_item.dart';
-import 'package:solution_starter/widgets/molecules/not_have_account.dart';
+
+import '../../generated/l10n.dart';
+import '../../presentation/login_screen/bloc/login_cubit.dart';
+import '../molecules/button_item.dart';
+import '../molecules/input_item.dart';
+import '../molecules/not_have_account.dart';
+import '../templates/form_validation.dart';
 
 class LoginSuccessLayout extends StatefulWidget {
   const LoginSuccessLayout({super.key, required this.loginState});

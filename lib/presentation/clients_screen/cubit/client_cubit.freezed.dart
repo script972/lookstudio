@@ -12,7 +12,7 @@ part of 'client_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ClientScreenState {
@@ -20,7 +20,7 @@ mixin _$ClientScreenState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<User> users) loaded,
+    required TResult Function(List<UserModel> users) loaded,
     required TResult Function(Object? exception) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$ClientScreenState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<User> users)? loaded,
+    TResult? Function(List<UserModel> users)? loaded,
     TResult? Function(Object? exception)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$ClientScreenState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<User> users)? loaded,
+    TResult Function(List<UserModel> users)? loaded,
     TResult Function(Object? exception)? error,
     required TResult orElse(),
   }) =>
@@ -84,6 +84,9 @@ class _$ClientScreenStateCopyWithImpl<$Res, $Val extends ClientScreenState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ClientScreenState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -100,6 +103,9 @@ class __$$ClinetInitialStateImplCopyWithImpl<$Res>
   __$$ClinetInitialStateImplCopyWithImpl(_$ClinetInitialStateImpl _value,
       $Res Function(_$ClinetInitialStateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ClientScreenState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -113,7 +119,7 @@ class _$ClinetInitialStateImpl implements ClinetInitialState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$ClinetInitialStateImpl);
   }
@@ -126,7 +132,7 @@ class _$ClinetInitialStateImpl implements ClinetInitialState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<User> users) loaded,
+    required TResult Function(List<UserModel> users) loaded,
     required TResult Function(Object? exception) error,
   }) {
     return initial();
@@ -137,7 +143,7 @@ class _$ClinetInitialStateImpl implements ClinetInitialState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<User> users)? loaded,
+    TResult? Function(List<UserModel> users)? loaded,
     TResult? Function(Object? exception)? error,
   }) {
     return initial?.call();
@@ -148,7 +154,7 @@ class _$ClinetInitialStateImpl implements ClinetInitialState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<User> users)? loaded,
+    TResult Function(List<UserModel> users)? loaded,
     TResult Function(Object? exception)? error,
     required TResult orElse(),
   }) {
@@ -214,6 +220,9 @@ class __$$ClientLoadingStateImplCopyWithImpl<$Res>
   __$$ClientLoadingStateImplCopyWithImpl(_$ClientLoadingStateImpl _value,
       $Res Function(_$ClientLoadingStateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ClientScreenState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -227,7 +236,7 @@ class _$ClientLoadingStateImpl implements ClientLoadingState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$ClientLoadingStateImpl);
   }
@@ -240,7 +249,7 @@ class _$ClientLoadingStateImpl implements ClientLoadingState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<User> users) loaded,
+    required TResult Function(List<UserModel> users) loaded,
     required TResult Function(Object? exception) error,
   }) {
     return loading();
@@ -251,7 +260,7 @@ class _$ClientLoadingStateImpl implements ClientLoadingState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<User> users)? loaded,
+    TResult? Function(List<UserModel> users)? loaded,
     TResult? Function(Object? exception)? error,
   }) {
     return loading?.call();
@@ -262,7 +271,7 @@ class _$ClientLoadingStateImpl implements ClientLoadingState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<User> users)? loaded,
+    TResult Function(List<UserModel> users)? loaded,
     TResult Function(Object? exception)? error,
     required TResult orElse(),
   }) {
@@ -320,7 +329,7 @@ abstract class _$$ClientLoadedStateImplCopyWith<$Res> {
           $Res Function(_$ClientLoadedStateImpl) then) =
       __$$ClientLoadedStateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<User> users});
+  $Res call({List<UserModel> users});
 }
 
 /// @nodoc
@@ -331,6 +340,8 @@ class __$$ClientLoadedStateImplCopyWithImpl<$Res>
       $Res Function(_$ClientLoadedStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ClientScreenState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -340,7 +351,7 @@ class __$$ClientLoadedStateImplCopyWithImpl<$Res>
       null == users
           ? _value._users
           : users // ignore: cast_nullable_to_non_nullable
-              as List<User>,
+              as List<UserModel>,
     ));
   }
 }
@@ -348,11 +359,11 @@ class __$$ClientLoadedStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ClientLoadedStateImpl implements ClientLoadedState {
-  const _$ClientLoadedStateImpl(final List<User> users) : _users = users;
+  const _$ClientLoadedStateImpl(final List<UserModel> users) : _users = users;
 
-  final List<User> _users;
+  final List<UserModel> _users;
   @override
-  List<User> get users {
+  List<UserModel> get users {
     if (_users is EqualUnmodifiableListView) return _users;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_users);
@@ -364,7 +375,7 @@ class _$ClientLoadedStateImpl implements ClientLoadedState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ClientLoadedStateImpl &&
@@ -375,7 +386,9 @@ class _$ClientLoadedStateImpl implements ClientLoadedState {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_users));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ClientScreenState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ClientLoadedStateImplCopyWith<_$ClientLoadedStateImpl> get copyWith =>
@@ -387,7 +400,7 @@ class _$ClientLoadedStateImpl implements ClientLoadedState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<User> users) loaded,
+    required TResult Function(List<UserModel> users) loaded,
     required TResult Function(Object? exception) error,
   }) {
     return loaded(users);
@@ -398,7 +411,7 @@ class _$ClientLoadedStateImpl implements ClientLoadedState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<User> users)? loaded,
+    TResult? Function(List<UserModel> users)? loaded,
     TResult? Function(Object? exception)? error,
   }) {
     return loaded?.call(users);
@@ -409,7 +422,7 @@ class _$ClientLoadedStateImpl implements ClientLoadedState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<User> users)? loaded,
+    TResult Function(List<UserModel> users)? loaded,
     TResult Function(Object? exception)? error,
     required TResult orElse(),
   }) {
@@ -458,11 +471,14 @@ class _$ClientLoadedStateImpl implements ClientLoadedState {
 }
 
 abstract class ClientLoadedState implements ClientScreenState {
-  const factory ClientLoadedState(final List<User> users) =
+  const factory ClientLoadedState(final List<UserModel> users) =
       _$ClientLoadedStateImpl;
 
-  List<User> get users;
-  @JsonKey(ignore: true)
+  List<UserModel> get users;
+
+  /// Create a copy of ClientScreenState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ClientLoadedStateImplCopyWith<_$ClientLoadedStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -484,6 +500,8 @@ class __$$ClientErrorStateImplCopyWithImpl<$Res>
       $Res Function(_$ClientErrorStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ClientScreenState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -509,7 +527,7 @@ class _$ClientErrorStateImpl implements ClientErrorState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ClientErrorStateImpl &&
@@ -520,7 +538,9 @@ class _$ClientErrorStateImpl implements ClientErrorState {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(exception));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ClientScreenState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ClientErrorStateImplCopyWith<_$ClientErrorStateImpl> get copyWith =>
@@ -532,7 +552,7 @@ class _$ClientErrorStateImpl implements ClientErrorState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<User> users) loaded,
+    required TResult Function(List<UserModel> users) loaded,
     required TResult Function(Object? exception) error,
   }) {
     return error(exception);
@@ -543,7 +563,7 @@ class _$ClientErrorStateImpl implements ClientErrorState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<User> users)? loaded,
+    TResult? Function(List<UserModel> users)? loaded,
     TResult? Function(Object? exception)? error,
   }) {
     return error?.call(exception);
@@ -554,7 +574,7 @@ class _$ClientErrorStateImpl implements ClientErrorState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<User> users)? loaded,
+    TResult Function(List<UserModel> users)? loaded,
     TResult Function(Object? exception)? error,
     required TResult orElse(),
   }) {
@@ -607,7 +627,10 @@ abstract class ClientErrorState implements ClientScreenState {
       _$ClientErrorStateImpl;
 
   Object? get exception;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ClientScreenState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ClientErrorStateImplCopyWith<_$ClientErrorStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

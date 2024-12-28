@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:solution_starter/data/datasource/local/facade/secure_storage_interface.dart';
-import 'package:solution_starter/navigation/app_router.dart';
+
+import '../data/datasource/local/facade/secure_storage_interface.dart';
+import 'app_router.dart';
 
 class AuthGuard extends AutoRouteGuard {
   AuthGuard({required this.storage});

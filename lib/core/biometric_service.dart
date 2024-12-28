@@ -2,8 +2,9 @@ import 'dart:io';
 
 import 'package:local_auth/local_auth.dart';
 import 'package:logger/logger.dart';
-import 'package:solution_starter/core/logger.dart';
-import 'package:solution_starter/generated/l10n.dart';
+
+import '../generated/l10n.dart';
+import 'logger.dart';
 
 enum BiometricTypeShort { fingerprint, faceId, none }
 

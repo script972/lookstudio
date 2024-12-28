@@ -1,10 +1,10 @@
+import 'package:aircode_starter/presentation/sign_up_screen/sign_up_layout.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-import 'package:solution_starter/domain/repository/auth_repository_interface.dart';
-import 'package:solution_starter/presentation/sign_up_screen/cubit/sign_up_cubit.dart';
-import 'package:solution_starter/presentation/sign_up_screen/sign_up_layout.dart';
+import '../../domain/repository/auth_repository_interface.dart';
+import 'cubit/sign_up_cubit.dart';
 @RoutePage()
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});

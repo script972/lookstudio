@@ -2,9 +2,10 @@ import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logger/logger.dart';
-import 'package:solution_starter/core/logger.dart';
 import 'package:upgrader/upgrader.dart';
 import 'package:version/version.dart';
+
+import '../logger.dart';
 
 part 'app_update_aware_cubit.freezed.dart';
 part 'app_update_aware_state.dart';
@@ -31,7 +32,7 @@ class AppUpdateAwareCubit extends Cubit<AppUpdateAwareState> {
       final Version minSupportedVersion = Version.parse(_firebaseRemoteConfig.getString('min_supported_version'));
       _logger.i('minSupportedVersion: $minSupportedVersion');
       // Get current version
-      final Version currentVersion = Version.parse(_upgrader.currentInstalledVersion()!);
+      final Version currentVersion = Version.parse(_upgrader.currentInstalledVersion!);
       _logger.i('currentVersion: $currentVersion');
 
       // Check for hard update

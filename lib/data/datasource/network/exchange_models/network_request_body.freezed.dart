@@ -12,7 +12,7 @@ part of 'network_request_body.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$NetworkRequestBody {
@@ -78,6 +78,9 @@ class _$NetworkRequestBodyCopyWithImpl<$Res, $Val extends NetworkRequestBody>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of NetworkRequestBody
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -94,6 +97,9 @@ class __$$EmptyImplCopyWithImpl<$Res>
   __$$EmptyImplCopyWithImpl(
       _$EmptyImpl _value, $Res Function(_$EmptyImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of NetworkRequestBody
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -107,7 +113,7 @@ class _$EmptyImpl implements Empty {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$EmptyImpl);
   }
@@ -204,6 +210,8 @@ class __$$JsonImplCopyWithImpl<$Res>
   __$$JsonImplCopyWithImpl(_$JsonImpl _value, $Res Function(_$JsonImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of NetworkRequestBody
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -237,7 +245,7 @@ class _$JsonImpl implements Json {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$JsonImpl &&
@@ -248,7 +256,9 @@ class _$JsonImpl implements Json {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of NetworkRequestBody
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$JsonImplCopyWith<_$JsonImpl> get copyWith =>
@@ -327,7 +337,10 @@ abstract class Json implements NetworkRequestBody {
   const factory Json(final Map<String, dynamic> data) = _$JsonImpl;
 
   Map<String, dynamic> get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of NetworkRequestBody
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$JsonImplCopyWith<_$JsonImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -348,6 +361,8 @@ class __$$TextImplCopyWithImpl<$Res>
   __$$TextImplCopyWithImpl(_$TextImpl _value, $Res Function(_$TextImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of NetworkRequestBody
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -376,7 +391,7 @@ class _$TextImpl implements Text {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TextImpl &&
@@ -386,7 +401,9 @@ class _$TextImpl implements Text {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of NetworkRequestBody
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TextImplCopyWith<_$TextImpl> get copyWith =>
@@ -465,7 +482,10 @@ abstract class Text implements NetworkRequestBody {
   const factory Text(final String data) = _$TextImpl;
 
   String get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of NetworkRequestBody
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TextImplCopyWith<_$TextImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

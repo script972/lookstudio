@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:solution_starter/widgets/molecules/button_item.dart';
+
+import '../molecules/button_item.dart';
 
 const Key dialogKey = Key('modalDialogRootKey');
 const Key iconKey = Key('modalDialogIconKey');

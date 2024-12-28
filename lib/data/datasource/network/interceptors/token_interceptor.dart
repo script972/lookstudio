@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
-import 'package:solution_starter/core/logger.dart';
-import 'package:solution_starter/data/datasource/local/facade/secure_storage_interface.dart';
+
+import '../../../../core/logger.dart';
+import '../../local/facade/secure_storage_interface.dart';
 
 class TokenInterceptor extends Interceptor {
   TokenInterceptor({

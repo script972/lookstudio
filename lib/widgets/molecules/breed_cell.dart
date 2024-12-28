@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:solution_starter/domain/entities/breed_info.dart';
-import 'package:solution_starter/generated/assets/assets.gen.dart';
+
+import '../../domain/model/breed_info.dart';
+import '../../generated/assets/assets.gen.dart';
 
 class BreedCellWidget extends StatelessWidget {
   const BreedCellWidget({super.key, required this.breed, required this.onContractClick});

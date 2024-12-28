@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:solution_starter/data/datasource/network/exchange_models/action_errors.dart';
-import 'package:solution_starter/data/datasource/local/facade/solution_storage_interface.dart';
-import 'package:solution_starter/domain/entities/result.dart';
-import 'package:solution_starter/utils/hive_helper.dart';
+
+import '../../../domain/model/result.dart';
+import '../../../utils/hive_helper.dart';
+import '../network/exchange_models/action_errors.dart';
+import 'facade/solution_storage_interface.dart';
 
 class SolutionStorage implements ISolutionStorage {
   SolutionStorage({

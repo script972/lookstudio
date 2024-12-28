@@ -1,8 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
-import 'package:solution_starter/generated/l10n.dart';
-import 'package:solution_starter/navigation/app_router.dart';
+
+import '../../generated/l10n.dart';
+import '../../navigation/app_router.dart';
 
 class HomeLayout extends StatelessWidget {
   const HomeLayout({super.key});

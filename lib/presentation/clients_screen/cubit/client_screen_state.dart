@@ -6,7 +6,7 @@ class ClientScreenState with _$ClientScreenState {
 
   const factory ClientScreenState.loading() = ClientLoadingState;
 
-  const factory ClientScreenState.loaded(List<User> users) = ClientLoadedState;
+  const factory ClientScreenState.loaded(List<UserModel> users) = ClientLoadedState;
 
   const factory ClientScreenState.error({final Object? exception}) = ClientErrorState;
 }

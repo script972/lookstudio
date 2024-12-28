@@ -2,9 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-import 'package:solution_starter/domain/repository/auth_repository_interface.dart';
-import 'package:solution_starter/presentation/login_screen/bloc/login_cubit.dart';
-import 'package:solution_starter/presentation/login_screen/login_layout.dart';
+
+import '../../domain/repository/auth_repository_interface.dart';
+import 'bloc/login_cubit.dart';
+import 'login_layout.dart';
 
 @RoutePage()
 class LoginScreen extends StatelessWidget {

@@ -1,5 +1,5 @@
-import 'package:solution_starter/generated/l10n.dart';
-import 'package:solution_starter/presentation/login_screen/bloc/login_cubit.dart';
+import '../../generated/l10n.dart';
+import '../../presentation/login_screen/bloc/login_cubit.dart';
 
 
 abstract class FormValidation{

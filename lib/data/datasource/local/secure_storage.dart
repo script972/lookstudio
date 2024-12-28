@@ -1,5 +1,6 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:solution_starter/data/datasource/local/facade/secure_storage_interface.dart';
+
+import 'facade/secure_storage_interface.dart';
 
 class SecureStorage implements ISecureStorage {
   SecureStorage({required secureStorage}) : _secureStorage = secureStorage;

@@ -1,8 +1,9 @@
-import 'package:solution_starter/core/use_case.dart';
-import 'package:solution_starter/domain/entities/breed_info.dart';
-import 'package:solution_starter/domain/use_cases/breeds_use_case.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../core/use_case.dart';
+import '../../../domain/model/breed_info.dart';
+import '../../../domain/use_cases/breeds_use_case.dart';
 
 part 'breeds_event.dart';
 

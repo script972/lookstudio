@@ -12,7 +12,7 @@ part of 'breeds_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$BreedsEvent {
@@ -84,6 +84,9 @@ class _$BreedsEventCopyWithImpl<$Res, $Val extends BreedsEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of BreedsEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -100,6 +103,9 @@ class __$$LoadedEventImplCopyWithImpl<$Res>
   __$$LoadedEventImplCopyWithImpl(
       _$LoadedEventImpl _value, $Res Function(_$LoadedEventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of BreedsEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -113,7 +119,7 @@ class _$LoadedEventImpl implements LoadedEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$LoadedEventImpl);
   }
@@ -214,6 +220,9 @@ class __$$LoadingEventImplCopyWithImpl<$Res>
   __$$LoadingEventImplCopyWithImpl(
       _$LoadingEventImpl _value, $Res Function(_$LoadingEventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of BreedsEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -227,7 +236,7 @@ class _$LoadingEventImpl implements LoadingEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$LoadingEventImpl);
   }
@@ -328,6 +337,9 @@ class __$$RefreshEventImplCopyWithImpl<$Res>
   __$$RefreshEventImplCopyWithImpl(
       _$RefreshEventImpl _value, $Res Function(_$RefreshEventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of BreedsEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -341,7 +353,7 @@ class _$RefreshEventImpl implements RefreshEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$RefreshEventImpl);
   }
@@ -445,6 +457,8 @@ class __$$ShowInfoEventImplCopyWithImpl<$Res>
       _$ShowInfoEventImpl _value, $Res Function(_$ShowInfoEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of BreedsEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -473,7 +487,7 @@ class _$ShowInfoEventImpl implements ShowInfoEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ShowInfoEventImpl &&
@@ -484,7 +498,9 @@ class _$ShowInfoEventImpl implements ShowInfoEvent {
   @override
   int get hashCode => Object.hash(runtimeType, breedInfo);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BreedsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ShowInfoEventImplCopyWith<_$ShowInfoEventImpl> get copyWith =>
@@ -570,7 +586,10 @@ abstract class ShowInfoEvent implements BreedsEvent {
       _$ShowInfoEventImpl;
 
   BreedInfo get breedInfo;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BreedsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ShowInfoEventImplCopyWith<_$ShowInfoEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -655,6 +674,9 @@ class _$BreedsStateCopyWithImpl<$Res, $Val extends BreedsState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of BreedsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -671,6 +693,9 @@ class __$$InitialStateImplCopyWithImpl<$Res>
   __$$InitialStateImplCopyWithImpl(
       _$InitialStateImpl _value, $Res Function(_$InitialStateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of BreedsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -684,7 +709,7 @@ class _$InitialStateImpl implements _InitialState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$InitialStateImpl);
   }
@@ -795,6 +820,9 @@ class __$$LoadingStateImplCopyWithImpl<$Res>
   __$$LoadingStateImplCopyWithImpl(
       _$LoadingStateImpl _value, $Res Function(_$LoadingStateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of BreedsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -808,7 +836,7 @@ class _$LoadingStateImpl implements _LoadingState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$LoadingStateImpl);
   }
@@ -922,6 +950,8 @@ class __$$LoadedStateImplCopyWithImpl<$Res>
       _$LoadedStateImpl _value, $Res Function(_$LoadedStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of BreedsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -956,7 +986,7 @@ class _$LoadedStateImpl implements _LoadedState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadedStateImpl &&
@@ -968,7 +998,9 @@ class _$LoadedStateImpl implements _LoadedState {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_fetchedDogs));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BreedsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadedStateImplCopyWith<_$LoadedStateImpl> get copyWith =>
@@ -1064,7 +1096,10 @@ abstract class _LoadedState implements BreedsState {
       _$LoadedStateImpl;
 
   List<BreedInfo> get fetchedDogs;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BreedsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadedStateImplCopyWith<_$LoadedStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1086,6 +1121,8 @@ class __$$ShowInfoImplCopyWithImpl<$Res>
       _$ShowInfoImpl _value, $Res Function(_$ShowInfoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of BreedsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1128,7 +1165,7 @@ class _$ShowInfoImpl implements _ShowInfo {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ShowInfoImpl &&
@@ -1142,7 +1179,9 @@ class _$ShowInfoImpl implements _ShowInfo {
   int get hashCode => Object.hash(runtimeType, breedInfo,
       const DeepCollectionEquality().hash(_fetchedDogs));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BreedsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ShowInfoImplCopyWith<_$ShowInfoImpl> get copyWith =>
@@ -1240,7 +1279,10 @@ abstract class _ShowInfo implements BreedsState {
 
   BreedInfo get breedInfo;
   List<BreedInfo> get fetchedDogs;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BreedsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ShowInfoImplCopyWith<_$ShowInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1262,6 +1304,8 @@ class __$$ErrorStateImplCopyWithImpl<$Res>
       _$ErrorStateImpl _value, $Res Function(_$ErrorStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of BreedsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1301,7 +1345,7 @@ class _$ErrorStateImpl implements _ErrorState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ErrorStateImpl &&
@@ -1316,7 +1360,9 @@ class _$ErrorStateImpl implements _ErrorState {
       const DeepCollectionEquality().hash(exception),
       const DeepCollectionEquality().hash(_fetchedDogs));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BreedsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorStateImplCopyWith<_$ErrorStateImpl> get copyWith =>
@@ -1414,7 +1460,10 @@ abstract class _ErrorState implements BreedsState {
 
   Object? get exception;
   List<BreedInfo> get fetchedDogs;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BreedsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorStateImplCopyWith<_$ErrorStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

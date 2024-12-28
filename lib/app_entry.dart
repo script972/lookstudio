@@ -1,15 +1,16 @@
+import 'package:aircode_starter/generated/l10n.dart';
+import 'package:aircode_starter/solution_injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:provider/provider.dart';
-import 'package:solution_starter/core/theme/theme_container.dart';
-import 'package:solution_starter/data/datasource/local/database/app_database.dart';
-import 'package:solution_starter/data/datasource/local/secure_storage.dart';
-import 'package:solution_starter/domain/repository/solution_repository_interface.dart';
-import 'package:solution_starter/generated/l10n.dart';
-import 'package:solution_starter/navigation/app_router.dart';
-import 'package:solution_starter/solution_injection.dart';
 import 'package:value_provider/value_provider.dart';
+
+import 'core/theme/theme_container.dart';
+import 'data/datasource/local/database/app_database.dart';
+import 'data/datasource/local/secure_storage.dart';
+import 'domain/repository/solution_repository_interface.dart';
+import 'navigation/app_router.dart';
 
 class AppEntry extends StatelessWidget {
   AppEntry(

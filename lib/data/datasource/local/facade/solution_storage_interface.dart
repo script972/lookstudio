@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:solution_starter/domain/entities/result.dart';
+
+import '../../../../domain/model/result.dart';
+
 
 abstract interface class ISolutionStorage {
   Future<Result<void>> saveTheme(ThemeMode themeMode);

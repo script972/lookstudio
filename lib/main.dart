@@ -4,11 +4,12 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:logger/logger.dart';
-import 'package:solution_starter/app_entry.dart';
-import 'package:solution_starter/core/firebase_options.dart';
-import 'package:solution_starter/core/logger.dart';
-import 'package:solution_starter/data/datasource/local/database/app_database.dart';
-import 'package:solution_starter/data/datasource/local/secure_storage.dart';
+
+import 'app_entry.dart';
+import 'core/firebase_options.dart';
+import 'core/logger.dart';
+import 'data/datasource/local/database/app_database.dart';
+import 'data/datasource/local/secure_storage.dart';
 
 void main(List<String> args) async {
   await configureApp();

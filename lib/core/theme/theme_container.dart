@@ -1,7 +1,8 @@
-import 'package:solution_starter/configs/environment/environment_variables.dart';
-import 'package:solution_starter/core/theme/solution_theme.dart';
-import 'package:solution_starter/core/theme/theme_vendor_one.dart';
-import 'package:solution_starter/core/theme/theme_vendor_two.dart';
+import 'package:aircode_starter/core/theme/solution_theme.dart';
+import 'package:aircode_starter/core/theme/theme_vendor_one.dart';
+import 'package:aircode_starter/core/theme/theme_vendor_two.dart';
+
+import '../../configs/environment/environment_variables.dart';
 
 abstract class ThemeFactory {
   static SolutionTheme get lightTheme => _vendorTheme.lightTheme;

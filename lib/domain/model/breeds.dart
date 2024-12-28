@@ -1,4 +1,4 @@
-import 'package:solution_starter/domain/entities/breed_info.dart';
+import 'breed_info.dart';
 
 class Breeds {
   Breeds({required this.breedList});

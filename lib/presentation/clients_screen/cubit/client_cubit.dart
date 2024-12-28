@@ -1,9 +1,10 @@
 import 'dart:math';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:solution_starter/domain/entities/user.dart';
-import 'package:solution_starter/domain/repository/auth_repository_interface.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../../../domain/model/user_model.dart';
+import '../../../domain/repository/auth_repository_interface.dart';
 
 part 'client_screen_state.dart';
 
@@ -14,7 +15,7 @@ class ClientCubit extends Cubit<ClientScreenState> {
     fetchClients();
   }
 
-  List<User> tempUsers = [];
+  List<UserModel> tempUsers = [];
   final random = Random();
 
   void fetchClients() async {
@@ -33,7 +34,7 @@ class ClientCubit extends Cubit<ClientScreenState> {
     emit(const ClientScreenState.loading());
 
     final id = String.fromCharCodes(List.generate(10, (index) => random.nextInt(33) + 89));
-    await repository.addUser(User(id: id, loginDate: DateTime.now()));
+    await repository.addUser(UserModel(id: id, loginDate: DateTime.now()));
     final users = await repository.getSavedUsers();
     users.when(
       success: (data) {

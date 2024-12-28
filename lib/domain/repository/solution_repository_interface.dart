@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:solution_starter/domain/entities/breeds.dart';
-import 'package:solution_starter/domain/entities/result.dart';
+
+import '../model/breeds.dart';
+import '../model/result.dart';
 
 abstract interface class ISolutionRepository {
   Future<Result<Breeds>> fetchBreeds();

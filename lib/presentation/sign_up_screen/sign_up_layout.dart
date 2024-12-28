@@ -2,12 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:solution_starter/generated/l10n.dart';
-import 'package:solution_starter/navigation/app_router.dart';
-import 'package:solution_starter/presentation/sign_up_screen/cubit/sign_up_cubit.dart';
-import 'package:solution_starter/widgets/molecules/already_have_account.dart';
-import 'package:solution_starter/widgets/molecules/button_item.dart';
-import 'package:solution_starter/widgets/molecules/input_item.dart';
+
+import '../../generated/l10n.dart';
+import '../../navigation/app_router.dart';
+import '../../widgets/molecules/already_have_account.dart';
+import '../../widgets/molecules/button_item.dart';
+import '../../widgets/molecules/input_item.dart';
+import 'cubit/sign_up_cubit.dart';
 
 class SignUpLayout extends StatefulWidget {
   const SignUpLayout({super.key});

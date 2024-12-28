@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dialogs/flutter_dialogs.dart';
-import 'package:launch_review/launch_review.dart';
-import 'package:solution_starter/generated/l10n.dart';
-import 'package:solution_starter/widgets/templates/dialog_model.dart';
+
+import '../../generated/l10n.dart';
+import '../templates/dialog_model.dart';
 
 class _CommonDialogKey {
   static const Key yesLogOutKey = Key('yesLogOutKey');
@@ -103,7 +103,7 @@ void showSoftUpdateDialog({required BuildContext context}) {
         // title: S.of(context).updateNow.toBookStyleCapitalization(),
         title: 'todo',
         callback: () {
-          LaunchReview.launch(writeReview: false);
+         // LaunchReview.launch(writeReview: false);
           AutoRouter.of(context).pop();
         },
       ),

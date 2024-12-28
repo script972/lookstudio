@@ -1,3 +1,10 @@
+import 'package:aircode_starter/configs/app_config.dart';
+import 'package:aircode_starter/configs/environment/environment_helper.dart';
+import 'package:aircode_starter/configs/environment/environment_service.dart';
+import 'package:aircode_starter/configs/environment/environment_variables.dart';
+import 'package:aircode_starter/data/datasource/local/database/app_database.dart';
+import 'package:aircode_starter/data/datasource/network/services/network_service/network_service.dart';
+import 'package:aircode_starter/utils/hive_helper.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -5,29 +12,24 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
-import 'package:solution_starter/configs/app_config.dart';
-import 'package:solution_starter/configs/environment/environment_helper.dart';
-import 'package:solution_starter/configs/environment/environment_service.dart';
-import 'package:solution_starter/configs/environment/environment_variables.dart';
-import 'package:solution_starter/core/use_case.dart';
-import 'package:solution_starter/data/datasource/local/database/app_database.dart';
-import 'package:solution_starter/data/datasource/local/facade/secure_storage_interface.dart';
-import 'package:solution_starter/data/datasource/local/facade/solution_storage_interface.dart';
-import 'package:solution_starter/data/datasource/local/secure_storage.dart';
-import 'package:solution_starter/data/datasource/network/api/breeds/breeds_api_interface.dart';
-import 'package:solution_starter/data/datasource/network/api/breeds/breeds_api.dart';
-import 'package:solution_starter/data/datasource/network/interceptors/token_interceptor.dart';
-import 'package:solution_starter/data/datasource/network/api/authentication/authentication_api_interface.dart';
-import 'package:solution_starter/data/datasource/network/api/authentication/authentication_api.dart';
-import 'package:solution_starter/data/datasource/network/services/network_service/network_service_interface.dart';
-import 'package:solution_starter/data/datasource/network/services/network_service/network_service.dart';
-import 'package:solution_starter/data/repositories/auth_repository.dart';
-import 'package:solution_starter/data/repositories/solution_repository.dart';
-import 'package:solution_starter/domain/repository/auth_repository_interface.dart';
-import 'package:solution_starter/domain/repository/solution_repository_interface.dart';
-import 'package:solution_starter/domain/use_cases/breeds_use_case.dart';
-import 'package:solution_starter/utils/hive_helper.dart';
-import 'package:solution_starter/data/datasource/local/solution_storage.dart';
+
+import 'core/use_case.dart';
+import 'data/datasource/local/facade/secure_storage_interface.dart';
+import 'data/datasource/local/facade/solution_storage_interface.dart';
+import 'data/datasource/local/secure_storage.dart';
+import 'data/datasource/local/solution_storage.dart';
+import 'data/datasource/network/api/authentication/authentication_api.dart';
+import 'data/datasource/network/api/authentication/authentication_api_interface.dart';
+import 'data/datasource/network/api/breeds/breeds_api.dart';
+import 'data/datasource/network/api/breeds/breeds_api_interface.dart';
+import 'data/datasource/network/interceptors/token_interceptor.dart';
+import 'data/datasource/network/services/network_service/auth_networking_service.dart';
+import 'data/datasource/network/services/network_service/network_service_interface.dart';
+import 'data/repositories/auth_repository.dart';
+import 'data/repositories/solution_repository.dart';
+import 'domain/repository/auth_repository_interface.dart';
+import 'domain/repository/solution_repository_interface.dart';
+import 'domain/use_cases/breeds_use_case.dart';
 
 class SolutionInjection {
   static List<SingleChildWidget> getDiList(BuildContext context, AppDatabase database) {
@@ -116,7 +118,7 @@ class SolutionInjection {
           INetworkService? networkService,
         ) {
           final interceptors = [LogInterceptor(), TokenInterceptor(authStore: authStore)];
-          return NetworkService(baseUrl: environmentService.config.portalUrl, interceptors: interceptors);
+          return AuthNetworkService(baseUrl: environmentService.config.portalUrl, /*interceptors: interceptors*/);
         },
       ),
 
@@ -140,7 +142,6 @@ class SolutionInjection {
       ),
 
       ProxyProvider<INetworkService, IBreedsApi>(
-        // TODO(AndriiD): we can have different base url for each repository!
         update: (BuildContext context, INetworkService networkService, IBreedsApi? breedsApi) =>
             BreedsApi(networkService),
       ),

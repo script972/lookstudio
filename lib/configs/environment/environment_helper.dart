@@ -1,4 +1,4 @@
-import 'package:solution_starter/configs/app_config.dart';
+import '../app_config.dart';
 
 class EnvironmentHelper {
   EnvironmentHelper({

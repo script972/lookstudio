@@ -2,11 +2,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:solution_starter/generated/l10n.dart';
-import 'package:solution_starter/navigation/app_router.dart';
-import 'package:solution_starter/presentation/login_screen/bloc/login_cubit.dart';
-import 'package:solution_starter/widgets/pages/login_success_layout.dart';
-import 'package:solution_starter/widgets/organisms/progress.dart';
+
+import '../../generated/l10n.dart';
+import '../../navigation/app_router.dart';
+import '../../widgets/organisms/progress.dart';
+import '../../widgets/pages/login_success_layout.dart';
+import 'bloc/login_cubit.dart';
 
 class LoginLayout extends StatelessWidget {
   const LoginLayout({super.key});

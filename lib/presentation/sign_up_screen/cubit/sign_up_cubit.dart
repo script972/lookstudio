@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:solution_starter/domain/repository/auth_repository_interface.dart';
+
+import '../../../domain/repository/auth_repository_interface.dart';
 
 part 'sign_up_state.dart';
 

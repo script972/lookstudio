@@ -12,7 +12,7 @@ part of 'setting_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$SettingState {
@@ -84,6 +84,9 @@ class _$SettingStateCopyWithImpl<$Res, $Val extends SettingState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of SettingState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -100,6 +103,9 @@ class __$$InitialSettingStateImplCopyWithImpl<$Res>
   __$$InitialSettingStateImplCopyWithImpl(_$InitialSettingStateImpl _value,
       $Res Function(_$InitialSettingStateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of SettingState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -113,7 +119,7 @@ class _$InitialSettingStateImpl implements InitialSettingState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InitialSettingStateImpl);
@@ -215,6 +221,9 @@ class __$$LogoutSettingStateImplCopyWithImpl<$Res>
   __$$LogoutSettingStateImplCopyWithImpl(_$LogoutSettingStateImpl _value,
       $Res Function(_$LogoutSettingStateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of SettingState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -228,7 +237,7 @@ class _$LogoutSettingStateImpl implements LogoutSettingState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$LogoutSettingStateImpl);
   }
@@ -329,6 +338,9 @@ class __$$LoadedSettingStateImplCopyWithImpl<$Res>
   __$$LoadedSettingStateImplCopyWithImpl(_$LoadedSettingStateImpl _value,
       $Res Function(_$LoadedSettingStateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of SettingState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -342,7 +354,7 @@ class _$LoadedSettingStateImpl implements LoadedSettingState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$LoadedSettingStateImpl);
   }
@@ -446,6 +458,8 @@ class __$$ErrorSettingStateImplCopyWithImpl<$Res>
       $Res Function(_$ErrorSettingStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SettingState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -471,7 +485,7 @@ class _$ErrorSettingStateImpl implements ErrorSettingState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ErrorSettingStateImpl &&
@@ -482,7 +496,9 @@ class _$ErrorSettingStateImpl implements ErrorSettingState {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(exception));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SettingState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorSettingStateImplCopyWith<_$ErrorSettingStateImpl> get copyWith =>
@@ -569,7 +585,10 @@ abstract class ErrorSettingState implements SettingState {
       _$ErrorSettingStateImpl;
 
   Object? get exception;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SettingState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorSettingStateImplCopyWith<_$ErrorSettingStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

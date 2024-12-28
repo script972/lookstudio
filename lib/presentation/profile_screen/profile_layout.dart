@@ -1,11 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:solution_starter/generated/l10n.dart';
-import 'package:solution_starter/navigation/app_router.dart';
-import 'package:solution_starter/presentation/profile_screen/bloc/setting_cubit.dart';
-import 'package:solution_starter/widgets/molecules/button_item.dart';
 import 'package:value_provider/value_provider.dart';
+
+import '../../generated/l10n.dart';
+import '../../navigation/app_router.dart';
+import '../../widgets/molecules/button_item.dart';
+import 'bloc/setting_cubit.dart';
 
 class ProfileLayout extends StatefulWidget {
   const ProfileLayout({super.key});

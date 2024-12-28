@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:solution_starter/data/datasource/local/facade/secure_storage_interface.dart';
-import 'package:solution_starter/data/datasource/local/facade/solution_storage_interface.dart';
-import 'package:solution_starter/data/datasource/network/api/breeds/breeds_api_interface.dart';
-import 'package:solution_starter/data/model/breeds_model.dart';
-import 'package:solution_starter/domain/entities/breeds.dart';
-import 'package:solution_starter/domain/entities/result.dart';
-import 'package:solution_starter/domain/repository/solution_repository_interface.dart';
+
+import '../../domain/model/breeds.dart';
+import '../../domain/model/result.dart';
+import '../../domain/repository/solution_repository_interface.dart';
+import '../datasource/local/facade/secure_storage_interface.dart';
+import '../datasource/local/facade/solution_storage_interface.dart';
+import '../datasource/network/api/breeds/breeds_api_interface.dart';
+import '../entity/breeds_model.dart';
 
 class SolutionRepository implements ISolutionRepository {
   SolutionRepository({

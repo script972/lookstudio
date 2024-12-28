@@ -1,4 +1,4 @@
-import 'package:solution_starter/domain/entities/result.dart';
+import '../../../../domain/model/result.dart';
 
 sealed class NetworkResponse<T> {
   NetworkResponse();

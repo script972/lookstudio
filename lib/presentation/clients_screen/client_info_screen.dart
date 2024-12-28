@@ -1,20 +1,18 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
-import 'package:solution_starter/domain/entities/user.dart';
-import 'package:solution_starter/widgets/molecules/client_avatar.dart';
 
-@RoutePage()
+import '../../domain/model/user_model.dart';
+import '../../widgets/molecules/client_avatar.dart';
+
+/*@RoutePage()*/
 class ClientInfoScreen extends StatelessWidget {
-  const ClientInfoScreen({
-    super.key,
-   required this.user,
-  });
+   ClientInfoScreen({ required this.user,});
 
-  final User user;
+   final UserModel user;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       // backgroundColor: client.color,
       body: Center(
         child: Column(
@@ -22,7 +20,8 @@ class ClientInfoScreen extends StatelessWidget {
           children: [
             ClientAvatar(
               avatarColor: Colors.white,
-              clientName: 'client${user.id}',
+              clientName: 'client',
+              //clientName: 'client${user.id}',
             )
           ],
         ),

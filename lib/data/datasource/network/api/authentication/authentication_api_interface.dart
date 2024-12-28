@@ -1,16 +1,17 @@
-import 'package:solution_starter/data/datasource/network/exchange_models/response.dart';
-import 'package:solution_starter/domain/entities/user.dart';
+import 'package:aircode_starter/domain/model/user_model.dart';
+
+import '../../exchange_models/response.dart';
 
 abstract interface class IAuthenticationApi {
-  Future<NetworkResponse<User>> register(
+  Future<NetworkResponse<UserModel>> register(
       String email,
       String password,
       );
 
-  Future<NetworkResponse<User>> login(
+  Future<NetworkResponse<UserModel>> login(
       String email,
       String password,
       );
 
-  Future<NetworkResponse<User>> googleLogin();
+  Future<NetworkResponse<UserModel>> googleLogin();
 }
