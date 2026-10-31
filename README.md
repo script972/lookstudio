@@ -78,11 +78,10 @@ After changing ARB files in `lib/l10n/`:
 dart run intl_utils:generate
 ```
 
-Assets (`lib/generated/assets`) are produced by the `flutter_gen` CLI, which is not part of `build_runner` in this repo (`flutter_gen_runner` is not a dependency). After adding or changing assets, regenerate them (output and integrations are configured in the `flutter_gen` section of `pubspec.yaml`):
+Assets (`lib/generated/assets`) are produced by the `flutter_gen` CLI (a dev dependency, so the pinned version is used), which is not part of `build_runner` in this repo (`flutter_gen_runner` is not a dependency). After adding or changing assets, regenerate them (output and integrations are configured in the `flutter_gen` section of `pubspec.yaml`):
 
 ```bash
-dart pub global activate flutter_gen
-fluttergen -c pubspec.yaml
+dart run flutter_gen:flutter_gen -c pubspec.yaml
 ```
 
 The other old steps (`brew install fluttergen`, `flutter upgrade build_runner`) are not required.
@@ -107,7 +106,7 @@ Build-time options are passed with `--dart-define` (see `lib/configs/environment
 | `MOCK` | `none`, `assets`, `hard` | `none` |
 | `vendorThemeConfiguration` | integer theme variant | `1` |
 
-Values are matched case-insensitively. Unrecognized `ENV` values silently fall back to `uat`, and unrecognized `MOCK` values to `none`, so check spelling.
+The `ENV` and `MOCK` values are matched case-insensitively (the define names themselves, including `vendorThemeConfiguration`, are case-sensitive). Unrecognized `ENV` values silently fall back to `uat`, and unrecognized `MOCK` values to `none`, so check spelling.
 
 Example:
 
@@ -125,7 +124,7 @@ flutter build apk --debug  # for Android-affecting changes
 
 ## Configuration
 
-- Per-environment URLs and Hive box prefixes: `lib/configs/app_config.dart`. **Note:** these URLs are still template placeholders (marked `TODO`) and are not real LookStudio endpoints; replace them before relying on network calls.
+- Per-environment URLs and Hive box prefixes: `lib/configs/app_config.dart`. **Note:** these URLs are all still template placeholders (not every one carries a `TODO` marker) and are not real LookStudio endpoints; replace them before relying on network calls.
 - Firebase files (committed to the repo, so no extra setup is needed to build): `android/app/google-services.json`, `ios/Runner/GoogleService-Info.plist`, `lib/core/firebase_options.dart`. Regenerate with `flutterfire configure --project=lookstudio-a459b`.
 - Do not commit new secrets, tokens or API keys.
 
