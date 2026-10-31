@@ -1,6 +1,6 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
+// coverage:ignore-file
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'breeds_bloc.dart';
@@ -9,54 +9,46 @@ part of 'breeds_bloc.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$BreedsEvent {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loaded,
-    required TResult Function() loading,
-    required TResult Function() refresh,
-    required TResult Function(BreedInfo breedInfo) showInfo,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loaded,
-    TResult? Function()? loading,
-    TResult? Function()? refresh,
-    TResult? Function(BreedInfo breedInfo)? showInfo,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loaded,
-    TResult Function()? loading,
-    TResult Function()? refresh,
-    TResult Function(BreedInfo breedInfo)? showInfo,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LoadedEvent value) loaded,
-    required TResult Function(LoadingEvent value) loading,
-    required TResult Function(RefreshEvent value) refresh,
-    required TResult Function(ShowInfoEvent value) showInfo,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LoadedEvent value)? loaded,
-    TResult? Function(LoadingEvent value)? loading,
-    TResult? Function(RefreshEvent value)? refresh,
-    TResult? Function(ShowInfoEvent value)? showInfo,
-  }) =>
-      throw _privateConstructorUsedError;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is BreedsEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'BreedsEvent()';
+  }
+}
+
+/// @nodoc
+class $BreedsEventCopyWith<$Res> {
+  $BreedsEventCopyWith(BreedsEvent _, $Res Function(BreedsEvent) __);
+}
+
+/// Adds pattern-matching-related methods to [BreedsEvent].
+extension BreedsEventPatterns on BreedsEvent {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadedEvent value)? loaded,
@@ -64,409 +56,317 @@ mixin _$BreedsEvent {
     TResult Function(RefreshEvent value)? refresh,
     TResult Function(ShowInfoEvent value)? showInfo,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) {
+    final _that = this;
+    switch (_that) {
+      case LoadedEvent() when loaded != null:
+        return loaded(_that);
+      case LoadingEvent() when loading != null:
+        return loading(_that);
+      case RefreshEvent() when refresh != null:
+        return refresh(_that);
+      case ShowInfoEvent() when showInfo != null:
+        return showInfo(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoadedEvent value) loaded,
+    required TResult Function(LoadingEvent value) loading,
+    required TResult Function(RefreshEvent value) refresh,
+    required TResult Function(ShowInfoEvent value) showInfo,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case LoadedEvent():
+        return loaded(_that);
+      case LoadingEvent():
+        return loading(_that);
+      case RefreshEvent():
+        return refresh(_that);
+      case ShowInfoEvent():
+        return showInfo(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LoadedEvent value)? loaded,
+    TResult? Function(LoadingEvent value)? loading,
+    TResult? Function(RefreshEvent value)? refresh,
+    TResult? Function(ShowInfoEvent value)? showInfo,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case LoadedEvent() when loaded != null:
+        return loaded(_that);
+      case LoadingEvent() when loading != null:
+        return loading(_that);
+      case RefreshEvent() when refresh != null:
+        return refresh(_that);
+      case ShowInfoEvent() when showInfo != null:
+        return showInfo(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loaded,
+    TResult Function()? loading,
+    TResult Function()? refresh,
+    TResult Function(BreedInfo breedInfo)? showInfo,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case LoadedEvent() when loaded != null:
+        return loaded();
+      case LoadingEvent() when loading != null:
+        return loading();
+      case RefreshEvent() when refresh != null:
+        return refresh();
+      case ShowInfoEvent() when showInfo != null:
+        return showInfo(_that.breedInfo);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loaded,
+    required TResult Function() loading,
+    required TResult Function() refresh,
+    required TResult Function(BreedInfo breedInfo) showInfo,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case LoadedEvent():
+        return loaded();
+      case LoadingEvent():
+        return loading();
+      case RefreshEvent():
+        return refresh();
+      case ShowInfoEvent():
+        return showInfo(_that.breedInfo);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loaded,
+    TResult? Function()? loading,
+    TResult? Function()? refresh,
+    TResult? Function(BreedInfo breedInfo)? showInfo,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case LoadedEvent() when loaded != null:
+        return loaded();
+      case LoadingEvent() when loading != null:
+        return loading();
+      case RefreshEvent() when refresh != null:
+        return refresh();
+      case ShowInfoEvent() when showInfo != null:
+        return showInfo(_that.breedInfo);
+      case _:
+        return null;
+    }
+  }
 }
 
 /// @nodoc
-abstract class $BreedsEventCopyWith<$Res> {
-  factory $BreedsEventCopyWith(
-          BreedsEvent value, $Res Function(BreedsEvent) then) =
-      _$BreedsEventCopyWithImpl<$Res, BreedsEvent>;
-}
 
-/// @nodoc
-class _$BreedsEventCopyWithImpl<$Res, $Val extends BreedsEvent>
-    implements $BreedsEventCopyWith<$Res> {
-  _$BreedsEventCopyWithImpl(this._value, this._then);
+class LoadedEvent implements BreedsEvent {
+  const LoadedEvent();
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is LoadedEvent);
+  }
 
-  /// Create a copy of BreedsEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$LoadedEventImplCopyWith<$Res> {
-  factory _$$LoadedEventImplCopyWith(
-          _$LoadedEventImpl value, $Res Function(_$LoadedEventImpl) then) =
-      __$$LoadedEventImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadedEventImplCopyWithImpl<$Res>
-    extends _$BreedsEventCopyWithImpl<$Res, _$LoadedEventImpl>
-    implements _$$LoadedEventImplCopyWith<$Res> {
-  __$$LoadedEventImplCopyWithImpl(
-      _$LoadedEventImpl _value, $Res Function(_$LoadedEventImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of BreedsEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$LoadedEventImpl implements LoadedEvent {
-  const _$LoadedEventImpl();
+  @override
+  int get hashCode => runtimeType.hashCode;
 
   @override
   String toString() {
     return 'BreedsEvent.loaded()';
   }
+}
+
+/// @nodoc
+
+class LoadingEvent implements BreedsEvent {
+  const LoadingEvent();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadedEventImpl);
+        (other.runtimeType == runtimeType && other is LoadingEvent);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loaded,
-    required TResult Function() loading,
-    required TResult Function() refresh,
-    required TResult Function(BreedInfo breedInfo) showInfo,
-  }) {
-    return loaded();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loaded,
-    TResult? Function()? loading,
-    TResult? Function()? refresh,
-    TResult? Function(BreedInfo breedInfo)? showInfo,
-  }) {
-    return loaded?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loaded,
-    TResult Function()? loading,
-    TResult Function()? refresh,
-    TResult Function(BreedInfo breedInfo)? showInfo,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LoadedEvent value) loaded,
-    required TResult Function(LoadingEvent value) loading,
-    required TResult Function(RefreshEvent value) refresh,
-    required TResult Function(ShowInfoEvent value) showInfo,
-  }) {
-    return loaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LoadedEvent value)? loaded,
-    TResult? Function(LoadingEvent value)? loading,
-    TResult? Function(RefreshEvent value)? refresh,
-    TResult? Function(ShowInfoEvent value)? showInfo,
-  }) {
-    return loaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoadedEvent value)? loaded,
-    TResult Function(LoadingEvent value)? loading,
-    TResult Function(RefreshEvent value)? refresh,
-    TResult Function(ShowInfoEvent value)? showInfo,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LoadedEvent implements BreedsEvent {
-  const factory LoadedEvent() = _$LoadedEventImpl;
-}
-
-/// @nodoc
-abstract class _$$LoadingEventImplCopyWith<$Res> {
-  factory _$$LoadingEventImplCopyWith(
-          _$LoadingEventImpl value, $Res Function(_$LoadingEventImpl) then) =
-      __$$LoadingEventImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadingEventImplCopyWithImpl<$Res>
-    extends _$BreedsEventCopyWithImpl<$Res, _$LoadingEventImpl>
-    implements _$$LoadingEventImplCopyWith<$Res> {
-  __$$LoadingEventImplCopyWithImpl(
-      _$LoadingEventImpl _value, $Res Function(_$LoadingEventImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of BreedsEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$LoadingEventImpl implements LoadingEvent {
-  const _$LoadingEventImpl();
 
   @override
   String toString() {
     return 'BreedsEvent.loading()';
   }
+}
+
+/// @nodoc
+
+class RefreshEvent implements BreedsEvent {
+  const RefreshEvent();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingEventImpl);
+        (other.runtimeType == runtimeType && other is RefreshEvent);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loaded,
-    required TResult Function() loading,
-    required TResult Function() refresh,
-    required TResult Function(BreedInfo breedInfo) showInfo,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loaded,
-    TResult? Function()? loading,
-    TResult? Function()? refresh,
-    TResult? Function(BreedInfo breedInfo)? showInfo,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loaded,
-    TResult Function()? loading,
-    TResult Function()? refresh,
-    TResult Function(BreedInfo breedInfo)? showInfo,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LoadedEvent value) loaded,
-    required TResult Function(LoadingEvent value) loading,
-    required TResult Function(RefreshEvent value) refresh,
-    required TResult Function(ShowInfoEvent value) showInfo,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LoadedEvent value)? loaded,
-    TResult? Function(LoadingEvent value)? loading,
-    TResult? Function(RefreshEvent value)? refresh,
-    TResult? Function(ShowInfoEvent value)? showInfo,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoadedEvent value)? loaded,
-    TResult Function(LoadingEvent value)? loading,
-    TResult Function(RefreshEvent value)? refresh,
-    TResult Function(ShowInfoEvent value)? showInfo,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LoadingEvent implements BreedsEvent {
-  const factory LoadingEvent() = _$LoadingEventImpl;
-}
-
-/// @nodoc
-abstract class _$$RefreshEventImplCopyWith<$Res> {
-  factory _$$RefreshEventImplCopyWith(
-          _$RefreshEventImpl value, $Res Function(_$RefreshEventImpl) then) =
-      __$$RefreshEventImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$RefreshEventImplCopyWithImpl<$Res>
-    extends _$BreedsEventCopyWithImpl<$Res, _$RefreshEventImpl>
-    implements _$$RefreshEventImplCopyWith<$Res> {
-  __$$RefreshEventImplCopyWithImpl(
-      _$RefreshEventImpl _value, $Res Function(_$RefreshEventImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of BreedsEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$RefreshEventImpl implements RefreshEvent {
-  const _$RefreshEventImpl();
 
   @override
   String toString() {
     return 'BreedsEvent.refresh()';
   }
+}
+
+/// @nodoc
+
+class ShowInfoEvent implements BreedsEvent {
+  const ShowInfoEvent({required this.breedInfo});
+
+  final BreedInfo breedInfo;
+
+  /// Create a copy of BreedsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ShowInfoEventCopyWith<ShowInfoEvent> get copyWith =>
+      _$ShowInfoEventCopyWithImpl<ShowInfoEvent>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$RefreshEventImpl);
+        (other.runtimeType == runtimeType &&
+            other is ShowInfoEvent &&
+            (identical(other.breedInfo, breedInfo) ||
+                other.breedInfo == breedInfo));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loaded,
-    required TResult Function() loading,
-    required TResult Function() refresh,
-    required TResult Function(BreedInfo breedInfo) showInfo,
-  }) {
-    return refresh();
+  int get hashCode {
+    return Object.hash(runtimeType, breedInfo);
   }
 
   @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loaded,
-    TResult? Function()? loading,
-    TResult? Function()? refresh,
-    TResult? Function(BreedInfo breedInfo)? showInfo,
-  }) {
-    return refresh?.call();
+  String toString() {
+    return 'BreedsEvent.showInfo(breedInfo: $breedInfo)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loaded,
-    TResult Function()? loading,
-    TResult Function()? refresh,
-    TResult Function(BreedInfo breedInfo)? showInfo,
-    required TResult orElse(),
-  }) {
-    if (refresh != null) {
-      return refresh();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LoadedEvent value) loaded,
-    required TResult Function(LoadingEvent value) loading,
-    required TResult Function(RefreshEvent value) refresh,
-    required TResult Function(ShowInfoEvent value) showInfo,
-  }) {
-    return refresh(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LoadedEvent value)? loaded,
-    TResult? Function(LoadingEvent value)? loading,
-    TResult? Function(RefreshEvent value)? refresh,
-    TResult? Function(ShowInfoEvent value)? showInfo,
-  }) {
-    return refresh?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoadedEvent value)? loaded,
-    TResult Function(LoadingEvent value)? loading,
-    TResult Function(RefreshEvent value)? refresh,
-    TResult Function(ShowInfoEvent value)? showInfo,
-    required TResult orElse(),
-  }) {
-    if (refresh != null) {
-      return refresh(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class RefreshEvent implements BreedsEvent {
-  const factory RefreshEvent() = _$RefreshEventImpl;
 }
 
 /// @nodoc
-abstract class _$$ShowInfoEventImplCopyWith<$Res> {
-  factory _$$ShowInfoEventImplCopyWith(
-          _$ShowInfoEventImpl value, $Res Function(_$ShowInfoEventImpl) then) =
-      __$$ShowInfoEventImplCopyWithImpl<$Res>;
+abstract mixin class $ShowInfoEventCopyWith<$Res>
+    implements $BreedsEventCopyWith<$Res> {
+  factory $ShowInfoEventCopyWith(
+          ShowInfoEvent value, $Res Function(ShowInfoEvent) _then) =
+      _$ShowInfoEventCopyWithImpl;
   @useResult
   $Res call({BreedInfo breedInfo});
 }
 
 /// @nodoc
-class __$$ShowInfoEventImplCopyWithImpl<$Res>
-    extends _$BreedsEventCopyWithImpl<$Res, _$ShowInfoEventImpl>
-    implements _$$ShowInfoEventImplCopyWith<$Res> {
-  __$$ShowInfoEventImplCopyWithImpl(
-      _$ShowInfoEventImpl _value, $Res Function(_$ShowInfoEventImpl) _then)
-      : super(_value, _then);
+class _$ShowInfoEventCopyWithImpl<$Res>
+    implements $ShowInfoEventCopyWith<$Res> {
+  _$ShowInfoEventCopyWithImpl(this._self, this._then);
+
+  final ShowInfoEvent _self;
+  final $Res Function(ShowInfoEvent) _then;
 
   /// Create a copy of BreedsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? breedInfo = null,
   }) {
-    return _then(_$ShowInfoEventImpl(
+    return _then(ShowInfoEvent(
       breedInfo: null == breedInfo
-          ? _value.breedInfo
+          ? _self.breedInfo
           : breedInfo // ignore: cast_nullable_to_non_nullable
               as BreedInfo,
     ));
@@ -474,149 +374,154 @@ class __$$ShowInfoEventImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-class _$ShowInfoEventImpl implements ShowInfoEvent {
-  const _$ShowInfoEventImpl({required this.breedInfo});
-
-  @override
-  final BreedInfo breedInfo;
-
-  @override
-  String toString() {
-    return 'BreedsEvent.showInfo(breedInfo: $breedInfo)';
-  }
-
+mixin _$BreedsState {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ShowInfoEventImpl &&
-            (identical(other.breedInfo, breedInfo) ||
-                other.breedInfo == breedInfo));
+        (other.runtimeType == runtimeType && other is BreedsState);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, breedInfo);
-
-  /// Create a copy of BreedsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ShowInfoEventImplCopyWith<_$ShowInfoEventImpl> get copyWith =>
-      __$$ShowInfoEventImplCopyWithImpl<_$ShowInfoEventImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loaded,
-    required TResult Function() loading,
-    required TResult Function() refresh,
-    required TResult Function(BreedInfo breedInfo) showInfo,
-  }) {
-    return showInfo(breedInfo);
+  String toString() {
+    return 'BreedsState()';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loaded,
-    TResult? Function()? loading,
-    TResult? Function()? refresh,
-    TResult? Function(BreedInfo breedInfo)? showInfo,
-  }) {
-    return showInfo?.call(breedInfo);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loaded,
-    TResult Function()? loading,
-    TResult Function()? refresh,
-    TResult Function(BreedInfo breedInfo)? showInfo,
-    required TResult orElse(),
-  }) {
-    if (showInfo != null) {
-      return showInfo(breedInfo);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LoadedEvent value) loaded,
-    required TResult Function(LoadingEvent value) loading,
-    required TResult Function(RefreshEvent value) refresh,
-    required TResult Function(ShowInfoEvent value) showInfo,
-  }) {
-    return showInfo(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LoadedEvent value)? loaded,
-    TResult? Function(LoadingEvent value)? loading,
-    TResult? Function(RefreshEvent value)? refresh,
-    TResult? Function(ShowInfoEvent value)? showInfo,
-  }) {
-    return showInfo?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoadedEvent value)? loaded,
-    TResult Function(LoadingEvent value)? loading,
-    TResult Function(RefreshEvent value)? refresh,
-    TResult Function(ShowInfoEvent value)? showInfo,
-    required TResult orElse(),
-  }) {
-    if (showInfo != null) {
-      return showInfo(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ShowInfoEvent implements BreedsEvent {
-  const factory ShowInfoEvent({required final BreedInfo breedInfo}) =
-      _$ShowInfoEventImpl;
-
-  BreedInfo get breedInfo;
-
-  /// Create a copy of BreedsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ShowInfoEventImplCopyWith<_$ShowInfoEventImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-mixin _$BreedsState {
+class $BreedsStateCopyWith<$Res> {
+  $BreedsStateCopyWith(BreedsState _, $Res Function(BreedsState) __);
+}
+
+/// Adds pattern-matching-related methods to [BreedsState].
+extension BreedsStatePatterns on BreedsState {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<BreedInfo> fetchedDogs) loaded,
-    required TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)
-        showInfo,
-    required TResult Function(Object? exception, List<BreedInfo> fetchedDogs)
-        error,
-  }) =>
-      throw _privateConstructorUsedError;
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialState value)? initial,
+    TResult Function(_LoadingState value)? loading,
+    TResult Function(_LoadedState value)? loaded,
+    TResult Function(_ShowInfo value)? showInfo,
+    TResult Function(_ErrorState value)? error,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _InitialState() when initial != null:
+        return initial(_that);
+      case _LoadingState() when loading != null:
+        return loading(_that);
+      case _LoadedState() when loaded != null:
+        return loaded(_that);
+      case _ShowInfo() when showInfo != null:
+        return showInfo(_that);
+      case _ErrorState() when error != null:
+        return error(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(List<BreedInfo> fetchedDogs)? loaded,
-    TResult? Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
-        showInfo,
-    TResult? Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
-  }) =>
-      throw _privateConstructorUsedError;
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialState value) initial,
+    required TResult Function(_LoadingState value) loading,
+    required TResult Function(_LoadedState value) loaded,
+    required TResult Function(_ShowInfo value) showInfo,
+    required TResult Function(_ErrorState value) error,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _InitialState():
+        return initial(_that);
+      case _LoadingState():
+        return loading(_that);
+      case _LoadedState():
+        return loaded(_that);
+      case _ShowInfo():
+        return showInfo(_that);
+      case _ErrorState():
+        return error(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitialState value)? initial,
+    TResult? Function(_LoadingState value)? loading,
+    TResult? Function(_LoadedState value)? loaded,
+    TResult? Function(_ShowInfo value)? showInfo,
+    TResult? Function(_ErrorState value)? error,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _InitialState() when initial != null:
+        return initial(_that);
+      case _LoadingState() when loading != null:
+        return loading(_that);
+      case _LoadedState() when loaded != null:
+        return loaded(_that);
+      case _ShowInfo() when showInfo != null:
+        return showInfo(_that);
+      case _ErrorState() when error != null:
+        return error(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -626,516 +531,210 @@ mixin _$BreedsState {
         showInfo,
     TResult Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _InitialState() when initial != null:
+        return initial();
+      case _LoadingState() when loading != null:
+        return loading();
+      case _LoadedState() when loaded != null:
+        return loaded(_that.fetchedDogs);
+      case _ShowInfo() when showInfo != null:
+        return showInfo(_that.breedInfo, _that.fetchedDogs);
+      case _ErrorState() when error != null:
+        return error(_that.exception, _that.fetchedDogs);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_InitialState value) initial,
-    required TResult Function(_LoadingState value) loading,
-    required TResult Function(_LoadedState value) loaded,
-    required TResult Function(_ShowInfo value) showInfo,
-    required TResult Function(_ErrorState value) error,
-  }) =>
-      throw _privateConstructorUsedError;
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<BreedInfo> fetchedDogs) loaded,
+    required TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)
+        showInfo,
+    required TResult Function(Object? exception, List<BreedInfo> fetchedDogs)
+        error,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _InitialState():
+        return initial();
+      case _LoadingState():
+        return loading();
+      case _LoadedState():
+        return loaded(_that.fetchedDogs);
+      case _ShowInfo():
+        return showInfo(_that.breedInfo, _that.fetchedDogs);
+      case _ErrorState():
+        return error(_that.exception, _that.fetchedDogs);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialState value)? initial,
-    TResult? Function(_LoadingState value)? loading,
-    TResult? Function(_LoadedState value)? loaded,
-    TResult? Function(_ShowInfo value)? showInfo,
-    TResult? Function(_ErrorState value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialState value)? initial,
-    TResult Function(_LoadingState value)? loading,
-    TResult Function(_LoadedState value)? loaded,
-    TResult Function(_ShowInfo value)? showInfo,
-    TResult Function(_ErrorState value)? error,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $BreedsStateCopyWith<$Res> {
-  factory $BreedsStateCopyWith(
-          BreedsState value, $Res Function(BreedsState) then) =
-      _$BreedsStateCopyWithImpl<$Res, BreedsState>;
-}
-
-/// @nodoc
-class _$BreedsStateCopyWithImpl<$Res, $Val extends BreedsState>
-    implements $BreedsStateCopyWith<$Res> {
-  _$BreedsStateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of BreedsState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$InitialStateImplCopyWith<$Res> {
-  factory _$$InitialStateImplCopyWith(
-          _$InitialStateImpl value, $Res Function(_$InitialStateImpl) then) =
-      __$$InitialStateImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$InitialStateImplCopyWithImpl<$Res>
-    extends _$BreedsStateCopyWithImpl<$Res, _$InitialStateImpl>
-    implements _$$InitialStateImplCopyWith<$Res> {
-  __$$InitialStateImplCopyWithImpl(
-      _$InitialStateImpl _value, $Res Function(_$InitialStateImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of BreedsState
-  /// with the given fields replaced by the non-null parameter values.
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<BreedInfo> fetchedDogs)? loaded,
+    TResult? Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
+        showInfo,
+    TResult? Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _InitialState() when initial != null:
+        return initial();
+      case _LoadingState() when loading != null:
+        return loading();
+      case _LoadedState() when loaded != null:
+        return loaded(_that.fetchedDogs);
+      case _ShowInfo() when showInfo != null:
+        return showInfo(_that.breedInfo, _that.fetchedDogs);
+      case _ErrorState() when error != null:
+        return error(_that.exception, _that.fetchedDogs);
+      case _:
+        return null;
+    }
+  }
 }
 
 /// @nodoc
 
-class _$InitialStateImpl implements _InitialState {
-  const _$InitialStateImpl();
+class _InitialState implements BreedsState {
+  const _InitialState();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _InitialState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
 
   @override
   String toString() {
     return 'BreedsState.initial()';
   }
+}
+
+/// @nodoc
+
+class _LoadingState implements BreedsState {
+  const _LoadingState();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialStateImpl);
+        (other.runtimeType == runtimeType && other is _LoadingState);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<BreedInfo> fetchedDogs) loaded,
-    required TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)
-        showInfo,
-    required TResult Function(Object? exception, List<BreedInfo> fetchedDogs)
-        error,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(List<BreedInfo> fetchedDogs)? loaded,
-    TResult? Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
-        showInfo,
-    TResult? Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<BreedInfo> fetchedDogs)? loaded,
-    TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
-        showInfo,
-    TResult Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_InitialState value) initial,
-    required TResult Function(_LoadingState value) loading,
-    required TResult Function(_LoadedState value) loaded,
-    required TResult Function(_ShowInfo value) showInfo,
-    required TResult Function(_ErrorState value) error,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialState value)? initial,
-    TResult? Function(_LoadingState value)? loading,
-    TResult? Function(_LoadedState value)? loaded,
-    TResult? Function(_ShowInfo value)? showInfo,
-    TResult? Function(_ErrorState value)? error,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialState value)? initial,
-    TResult Function(_LoadingState value)? loading,
-    TResult Function(_LoadedState value)? loaded,
-    TResult Function(_ShowInfo value)? showInfo,
-    TResult Function(_ErrorState value)? error,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _InitialState implements BreedsState {
-  const factory _InitialState() = _$InitialStateImpl;
-}
-
-/// @nodoc
-abstract class _$$LoadingStateImplCopyWith<$Res> {
-  factory _$$LoadingStateImplCopyWith(
-          _$LoadingStateImpl value, $Res Function(_$LoadingStateImpl) then) =
-      __$$LoadingStateImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadingStateImplCopyWithImpl<$Res>
-    extends _$BreedsStateCopyWithImpl<$Res, _$LoadingStateImpl>
-    implements _$$LoadingStateImplCopyWith<$Res> {
-  __$$LoadingStateImplCopyWithImpl(
-      _$LoadingStateImpl _value, $Res Function(_$LoadingStateImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of BreedsState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$LoadingStateImpl implements _LoadingState {
-  const _$LoadingStateImpl();
 
   @override
   String toString() {
     return 'BreedsState.loading()';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingStateImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<BreedInfo> fetchedDogs) loaded,
-    required TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)
-        showInfo,
-    required TResult Function(Object? exception, List<BreedInfo> fetchedDogs)
-        error,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(List<BreedInfo> fetchedDogs)? loaded,
-    TResult? Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
-        showInfo,
-    TResult? Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<BreedInfo> fetchedDogs)? loaded,
-    TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
-        showInfo,
-    TResult Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_InitialState value) initial,
-    required TResult Function(_LoadingState value) loading,
-    required TResult Function(_LoadedState value) loaded,
-    required TResult Function(_ShowInfo value) showInfo,
-    required TResult Function(_ErrorState value) error,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialState value)? initial,
-    TResult? Function(_LoadingState value)? loading,
-    TResult? Function(_LoadedState value)? loaded,
-    TResult? Function(_ShowInfo value)? showInfo,
-    TResult? Function(_ErrorState value)? error,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialState value)? initial,
-    TResult Function(_LoadingState value)? loading,
-    TResult Function(_LoadedState value)? loaded,
-    TResult Function(_ShowInfo value)? showInfo,
-    TResult Function(_ErrorState value)? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _LoadingState implements BreedsState {
-  const factory _LoadingState() = _$LoadingStateImpl;
-}
-
-/// @nodoc
-abstract class _$$LoadedStateImplCopyWith<$Res> {
-  factory _$$LoadedStateImplCopyWith(
-          _$LoadedStateImpl value, $Res Function(_$LoadedStateImpl) then) =
-      __$$LoadedStateImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({List<BreedInfo> fetchedDogs});
-}
-
-/// @nodoc
-class __$$LoadedStateImplCopyWithImpl<$Res>
-    extends _$BreedsStateCopyWithImpl<$Res, _$LoadedStateImpl>
-    implements _$$LoadedStateImplCopyWith<$Res> {
-  __$$LoadedStateImplCopyWithImpl(
-      _$LoadedStateImpl _value, $Res Function(_$LoadedStateImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of BreedsState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? fetchedDogs = null,
-  }) {
-    return _then(_$LoadedStateImpl(
-      fetchedDogs: null == fetchedDogs
-          ? _value._fetchedDogs
-          : fetchedDogs // ignore: cast_nullable_to_non_nullable
-              as List<BreedInfo>,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$LoadedStateImpl implements _LoadedState {
-  const _$LoadedStateImpl({required final List<BreedInfo> fetchedDogs})
+class _LoadedState implements BreedsState {
+  const _LoadedState({required List<BreedInfo> fetchedDogs})
       : _fetchedDogs = fetchedDogs;
 
   final List<BreedInfo> _fetchedDogs;
-  @override
   List<BreedInfo> get fetchedDogs {
     if (_fetchedDogs is EqualUnmodifiableListView) return _fetchedDogs;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_fetchedDogs);
+  }
+
+  /// Create a copy of BreedsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$LoadedStateCopyWith<_LoadedState> get copyWith =>
+      __$LoadedStateCopyWithImpl<_LoadedState>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _LoadedState &&
+            const DeepCollectionEquality()
+                .equals(other.fetchedDogs, _fetchedDogs));
+  }
+
+  @override
+  int get hashCode {
+    return Object.hash(
+        runtimeType, const DeepCollectionEquality().hash(_fetchedDogs));
   }
 
   @override
   String toString() {
     return 'BreedsState.loaded(fetchedDogs: $fetchedDogs)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LoadedStateImpl &&
-            const DeepCollectionEquality()
-                .equals(other._fetchedDogs, _fetchedDogs));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_fetchedDogs));
-
-  /// Create a copy of BreedsState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LoadedStateImplCopyWith<_$LoadedStateImpl> get copyWith =>
-      __$$LoadedStateImplCopyWithImpl<_$LoadedStateImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<BreedInfo> fetchedDogs) loaded,
-    required TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)
-        showInfo,
-    required TResult Function(Object? exception, List<BreedInfo> fetchedDogs)
-        error,
-  }) {
-    return loaded(fetchedDogs);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(List<BreedInfo> fetchedDogs)? loaded,
-    TResult? Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
-        showInfo,
-    TResult? Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
-  }) {
-    return loaded?.call(fetchedDogs);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<BreedInfo> fetchedDogs)? loaded,
-    TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
-        showInfo,
-    TResult Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(fetchedDogs);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_InitialState value) initial,
-    required TResult Function(_LoadingState value) loading,
-    required TResult Function(_LoadedState value) loaded,
-    required TResult Function(_ShowInfo value) showInfo,
-    required TResult Function(_ErrorState value) error,
-  }) {
-    return loaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialState value)? initial,
-    TResult? Function(_LoadingState value)? loading,
-    TResult? Function(_LoadedState value)? loaded,
-    TResult? Function(_ShowInfo value)? showInfo,
-    TResult? Function(_ErrorState value)? error,
-  }) {
-    return loaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialState value)? initial,
-    TResult Function(_LoadingState value)? loading,
-    TResult Function(_LoadedState value)? loaded,
-    TResult Function(_ShowInfo value)? showInfo,
-    TResult Function(_ErrorState value)? error,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _LoadedState implements BreedsState {
-  const factory _LoadedState({required final List<BreedInfo> fetchedDogs}) =
-      _$LoadedStateImpl;
-
-  List<BreedInfo> get fetchedDogs;
-
-  /// Create a copy of BreedsState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LoadedStateImplCopyWith<_$LoadedStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ShowInfoImplCopyWith<$Res> {
-  factory _$$ShowInfoImplCopyWith(
-          _$ShowInfoImpl value, $Res Function(_$ShowInfoImpl) then) =
-      __$$ShowInfoImplCopyWithImpl<$Res>;
+abstract mixin class _$LoadedStateCopyWith<$Res>
+    implements $BreedsStateCopyWith<$Res> {
+  factory _$LoadedStateCopyWith(
+          _LoadedState value, $Res Function(_LoadedState) _then) =
+      __$LoadedStateCopyWithImpl;
   @useResult
-  $Res call({BreedInfo breedInfo, List<BreedInfo> fetchedDogs});
+  $Res call({List<BreedInfo> fetchedDogs});
 }
 
 /// @nodoc
-class __$$ShowInfoImplCopyWithImpl<$Res>
-    extends _$BreedsStateCopyWithImpl<$Res, _$ShowInfoImpl>
-    implements _$$ShowInfoImplCopyWith<$Res> {
-  __$$ShowInfoImplCopyWithImpl(
-      _$ShowInfoImpl _value, $Res Function(_$ShowInfoImpl) _then)
-      : super(_value, _then);
+class __$LoadedStateCopyWithImpl<$Res> implements _$LoadedStateCopyWith<$Res> {
+  __$LoadedStateCopyWithImpl(this._self, this._then);
+
+  final _LoadedState _self;
+  final $Res Function(_LoadedState) _then;
 
   /// Create a copy of BreedsState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
-    Object? breedInfo = null,
     Object? fetchedDogs = null,
   }) {
-    return _then(_$ShowInfoImpl(
-      breedInfo: null == breedInfo
-          ? _value.breedInfo
-          : breedInfo // ignore: cast_nullable_to_non_nullable
-              as BreedInfo,
+    return _then(_LoadedState(
       fetchedDogs: null == fetchedDogs
-          ? _value._fetchedDogs
+          ? _self._fetchedDogs
           : fetchedDogs // ignore: cast_nullable_to_non_nullable
               as List<BreedInfo>,
     ));
@@ -1144,178 +743,79 @@ class __$$ShowInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ShowInfoImpl implements _ShowInfo {
-  const _$ShowInfoImpl(
-      {required this.breedInfo, required final List<BreedInfo> fetchedDogs})
+class _ShowInfo implements BreedsState {
+  const _ShowInfo(
+      {required this.breedInfo, required List<BreedInfo> fetchedDogs})
       : _fetchedDogs = fetchedDogs;
 
-  @override
   final BreedInfo breedInfo;
   final List<BreedInfo> _fetchedDogs;
-  @override
   List<BreedInfo> get fetchedDogs {
     if (_fetchedDogs is EqualUnmodifiableListView) return _fetchedDogs;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_fetchedDogs);
+  }
+
+  /// Create a copy of BreedsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ShowInfoCopyWith<_ShowInfo> get copyWith =>
+      __$ShowInfoCopyWithImpl<_ShowInfo>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ShowInfo &&
+            (identical(other.breedInfo, breedInfo) ||
+                other.breedInfo == breedInfo) &&
+            const DeepCollectionEquality()
+                .equals(other.fetchedDogs, _fetchedDogs));
+  }
+
+  @override
+  int get hashCode {
+    return Object.hash(runtimeType, breedInfo,
+        const DeepCollectionEquality().hash(_fetchedDogs));
   }
 
   @override
   String toString() {
     return 'BreedsState.showInfo(breedInfo: $breedInfo, fetchedDogs: $fetchedDogs)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ShowInfoImpl &&
-            (identical(other.breedInfo, breedInfo) ||
-                other.breedInfo == breedInfo) &&
-            const DeepCollectionEquality()
-                .equals(other._fetchedDogs, _fetchedDogs));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, breedInfo,
-      const DeepCollectionEquality().hash(_fetchedDogs));
-
-  /// Create a copy of BreedsState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ShowInfoImplCopyWith<_$ShowInfoImpl> get copyWith =>
-      __$$ShowInfoImplCopyWithImpl<_$ShowInfoImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<BreedInfo> fetchedDogs) loaded,
-    required TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)
-        showInfo,
-    required TResult Function(Object? exception, List<BreedInfo> fetchedDogs)
-        error,
-  }) {
-    return showInfo(breedInfo, fetchedDogs);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(List<BreedInfo> fetchedDogs)? loaded,
-    TResult? Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
-        showInfo,
-    TResult? Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
-  }) {
-    return showInfo?.call(breedInfo, fetchedDogs);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<BreedInfo> fetchedDogs)? loaded,
-    TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
-        showInfo,
-    TResult Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
-    required TResult orElse(),
-  }) {
-    if (showInfo != null) {
-      return showInfo(breedInfo, fetchedDogs);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_InitialState value) initial,
-    required TResult Function(_LoadingState value) loading,
-    required TResult Function(_LoadedState value) loaded,
-    required TResult Function(_ShowInfo value) showInfo,
-    required TResult Function(_ErrorState value) error,
-  }) {
-    return showInfo(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialState value)? initial,
-    TResult? Function(_LoadingState value)? loading,
-    TResult? Function(_LoadedState value)? loaded,
-    TResult? Function(_ShowInfo value)? showInfo,
-    TResult? Function(_ErrorState value)? error,
-  }) {
-    return showInfo?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialState value)? initial,
-    TResult Function(_LoadingState value)? loading,
-    TResult Function(_LoadedState value)? loaded,
-    TResult Function(_ShowInfo value)? showInfo,
-    TResult Function(_ErrorState value)? error,
-    required TResult orElse(),
-  }) {
-    if (showInfo != null) {
-      return showInfo(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ShowInfo implements BreedsState {
-  const factory _ShowInfo(
-      {required final BreedInfo breedInfo,
-      required final List<BreedInfo> fetchedDogs}) = _$ShowInfoImpl;
-
-  BreedInfo get breedInfo;
-  List<BreedInfo> get fetchedDogs;
-
-  /// Create a copy of BreedsState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ShowInfoImplCopyWith<_$ShowInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ErrorStateImplCopyWith<$Res> {
-  factory _$$ErrorStateImplCopyWith(
-          _$ErrorStateImpl value, $Res Function(_$ErrorStateImpl) then) =
-      __$$ErrorStateImplCopyWithImpl<$Res>;
+abstract mixin class _$ShowInfoCopyWith<$Res>
+    implements $BreedsStateCopyWith<$Res> {
+  factory _$ShowInfoCopyWith(_ShowInfo value, $Res Function(_ShowInfo) _then) =
+      __$ShowInfoCopyWithImpl;
   @useResult
-  $Res call({Object? exception, List<BreedInfo> fetchedDogs});
+  $Res call({BreedInfo breedInfo, List<BreedInfo> fetchedDogs});
 }
 
 /// @nodoc
-class __$$ErrorStateImplCopyWithImpl<$Res>
-    extends _$BreedsStateCopyWithImpl<$Res, _$ErrorStateImpl>
-    implements _$$ErrorStateImplCopyWith<$Res> {
-  __$$ErrorStateImplCopyWithImpl(
-      _$ErrorStateImpl _value, $Res Function(_$ErrorStateImpl) _then)
-      : super(_value, _then);
+class __$ShowInfoCopyWithImpl<$Res> implements _$ShowInfoCopyWith<$Res> {
+  __$ShowInfoCopyWithImpl(this._self, this._then);
+
+  final _ShowInfo _self;
+  final $Res Function(_ShowInfo) _then;
 
   /// Create a copy of BreedsState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
-    Object? exception = freezed,
+    Object? breedInfo = null,
     Object? fetchedDogs = null,
   }) {
-    return _then(_$ErrorStateImpl(
-      exception: freezed == exception ? _value.exception : exception,
+    return _then(_ShowInfo(
+      breedInfo: null == breedInfo
+          ? _self.breedInfo
+          : breedInfo // ignore: cast_nullable_to_non_nullable
+              as BreedInfo,
       fetchedDogs: null == fetchedDogs
-          ? _value._fetchedDogs
+          ? _self._fetchedDogs
           : fetchedDogs // ignore: cast_nullable_to_non_nullable
               as List<BreedInfo>,
     ));
@@ -1324,146 +824,81 @@ class __$$ErrorStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorStateImpl implements _ErrorState {
-  const _$ErrorStateImpl(
-      {this.exception, required final List<BreedInfo> fetchedDogs})
+class _ErrorState implements BreedsState {
+  const _ErrorState({this.exception, required List<BreedInfo> fetchedDogs})
       : _fetchedDogs = fetchedDogs;
 
-  @override
   final Object? exception;
   final List<BreedInfo> _fetchedDogs;
-  @override
   List<BreedInfo> get fetchedDogs {
     if (_fetchedDogs is EqualUnmodifiableListView) return _fetchedDogs;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_fetchedDogs);
   }
 
-  @override
-  String toString() {
-    return 'BreedsState.error(exception: $exception, fetchedDogs: $fetchedDogs)';
-  }
+  /// Create a copy of BreedsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ErrorStateCopyWith<_ErrorState> get copyWith =>
+      __$ErrorStateCopyWithImpl<_ErrorState>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ErrorStateImpl &&
+            other is _ErrorState &&
             const DeepCollectionEquality().equals(other.exception, exception) &&
             const DeepCollectionEquality()
-                .equals(other._fetchedDogs, _fetchedDogs));
+                .equals(other.fetchedDogs, _fetchedDogs));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(exception),
-      const DeepCollectionEquality().hash(_fetchedDogs));
+  int get hashCode {
+    return Object.hash(
+        runtimeType,
+        const DeepCollectionEquality().hash(exception),
+        const DeepCollectionEquality().hash(_fetchedDogs));
+  }
+
+  @override
+  String toString() {
+    return 'BreedsState.error(exception: $exception, fetchedDogs: $fetchedDogs)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$ErrorStateCopyWith<$Res>
+    implements $BreedsStateCopyWith<$Res> {
+  factory _$ErrorStateCopyWith(
+          _ErrorState value, $Res Function(_ErrorState) _then) =
+      __$ErrorStateCopyWithImpl;
+  @useResult
+  $Res call({Object? exception, List<BreedInfo> fetchedDogs});
+}
+
+/// @nodoc
+class __$ErrorStateCopyWithImpl<$Res> implements _$ErrorStateCopyWith<$Res> {
+  __$ErrorStateCopyWithImpl(this._self, this._then);
+
+  final _ErrorState _self;
+  final $Res Function(_ErrorState) _then;
 
   /// Create a copy of BreedsState
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
   @pragma('vm:prefer-inline')
-  _$$ErrorStateImplCopyWith<_$ErrorStateImpl> get copyWith =>
-      __$$ErrorStateImplCopyWithImpl<_$ErrorStateImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<BreedInfo> fetchedDogs) loaded,
-    required TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)
-        showInfo,
-    required TResult Function(Object? exception, List<BreedInfo> fetchedDogs)
-        error,
+  $Res call({
+    Object? exception = freezed,
+    Object? fetchedDogs = null,
   }) {
-    return error(exception, fetchedDogs);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(List<BreedInfo> fetchedDogs)? loaded,
-    TResult? Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
-        showInfo,
-    TResult? Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
-  }) {
-    return error?.call(exception, fetchedDogs);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<BreedInfo> fetchedDogs)? loaded,
-    TResult Function(BreedInfo breedInfo, List<BreedInfo> fetchedDogs)?
-        showInfo,
-    TResult Function(Object? exception, List<BreedInfo> fetchedDogs)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(exception, fetchedDogs);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_InitialState value) initial,
-    required TResult Function(_LoadingState value) loading,
-    required TResult Function(_LoadedState value) loaded,
-    required TResult Function(_ShowInfo value) showInfo,
-    required TResult Function(_ErrorState value) error,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialState value)? initial,
-    TResult? Function(_LoadingState value)? loading,
-    TResult? Function(_LoadedState value)? loaded,
-    TResult? Function(_ShowInfo value)? showInfo,
-    TResult? Function(_ErrorState value)? error,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialState value)? initial,
-    TResult Function(_LoadingState value)? loading,
-    TResult Function(_LoadedState value)? loaded,
-    TResult Function(_ShowInfo value)? showInfo,
-    TResult Function(_ErrorState value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
+    return _then(_ErrorState(
+      exception: freezed == exception ? _self.exception : exception,
+      fetchedDogs: null == fetchedDogs
+          ? _self._fetchedDogs
+          : fetchedDogs // ignore: cast_nullable_to_non_nullable
+              as List<BreedInfo>,
+    ));
   }
 }
 
-abstract class _ErrorState implements BreedsState {
-  const factory _ErrorState(
-      {final Object? exception,
-      required final List<BreedInfo> fetchedDogs}) = _$ErrorStateImpl;
-
-  Object? get exception;
-  List<BreedInfo> get fetchedDogs;
-
-  /// Create a copy of BreedsState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ErrorStateImplCopyWith<_$ErrorStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

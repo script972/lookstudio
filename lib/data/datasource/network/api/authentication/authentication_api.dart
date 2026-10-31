@@ -56,7 +56,9 @@ class AuthenticationApi implements IAuthenticationApi {
   Future<NetworkResponse<UserModel>> googleLogin() async {
     GoogleSignInAccount? googleAccount;
     try {
-      googleAccount = await GoogleSignIn().signIn();
+      final googleSignIn = GoogleSignIn.instance;
+      await googleSignIn.initialize();
+      googleAccount = await googleSignIn.authenticate();
     } catch (e) {
       return ErrorResponse(UnauthorizedError(error: e));
     }

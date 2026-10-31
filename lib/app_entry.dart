@@ -58,8 +58,7 @@ class AppEntry extends StatelessWidget {
                     theme: ThemeFactory.lightTheme.themeData,
                     darkTheme: ThemeFactory.darkTheme.themeData,
                     themeMode: themeMode,
-                    routerDelegate: _router.delegate(),
-                    routeInformationParser: _router.defaultRouteParser(),
+                    routerConfig: _router.config(),
                     localizationsDelegates: const [
                       S.delegate,
                       GlobalMaterialLocalizations.delegate,

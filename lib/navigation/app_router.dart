@@ -15,7 +15,7 @@ import 'auth_guard.dart';
 part 'app_router.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Screen,Route')
-class AppRouter extends _$AppRouter {
+class AppRouter extends RootStackRouter {
   AppRouter({required storage}) : _storage = storage;
 
   final ISecureStorage _storage;

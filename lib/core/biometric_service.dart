@@ -78,7 +78,7 @@ class BiometricService {
 
     final bool didAuthenticate = await _auth.authenticate(
       localizedReason: promptMessage,
-      options: const AuthenticationOptions(biometricOnly: true),
+      biometricOnly: true,
     );
 
     _logger.i('didAuthenticate: $didAuthenticate');

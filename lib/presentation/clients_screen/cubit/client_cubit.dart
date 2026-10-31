@@ -1,3 +1,4 @@
+import 'package:aircode_starter/domain/model/result.dart';
 import 'dart:math';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -46,6 +47,7 @@ class ClientCubit extends Cubit<ClientScreenState> {
   }
 
   void deleteUserFromDb() async {
+    if (tempUsers.isEmpty) return;
     emit(const ClientScreenState.loading());
     await repository.removeUser(tempUsers.last);
     final users = await repository.getSavedUsers();

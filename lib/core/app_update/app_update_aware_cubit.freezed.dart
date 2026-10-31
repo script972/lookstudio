@@ -1,6 +1,6 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
+// coverage:ignore-file
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'app_update_aware_cubit.dart';
@@ -9,410 +9,284 @@ part of 'app_update_aware_cubit.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AppUpdateAwareState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() hardUpdateRequired,
-    required TResult Function() softUpdateAvailable,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? hardUpdateRequired,
-    TResult? Function()? softUpdateAvailable,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? hardUpdateRequired,
-    TResult Function()? softUpdateAvailable,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(HardUpdateRequired value) hardUpdateRequired,
-    required TResult Function(SoftUpdateAvailable value) softUpdateAvailable,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(HardUpdateRequired value)? hardUpdateRequired,
-    TResult? Function(SoftUpdateAvailable value)? softUpdateAvailable,
-  }) =>
-      throw _privateConstructorUsedError;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is AppUpdateAwareState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'AppUpdateAwareState()';
+  }
+}
+
+/// @nodoc
+class $AppUpdateAwareStateCopyWith<$Res> {
+  $AppUpdateAwareStateCopyWith(
+      AppUpdateAwareState _, $Res Function(AppUpdateAwareState) __);
+}
+
+/// Adds pattern-matching-related methods to [AppUpdateAwareState].
+extension AppUpdateAwareStatePatterns on AppUpdateAwareState {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(HardUpdateRequired value)? hardUpdateRequired,
     TResult Function(SoftUpdateAvailable value)? softUpdateAvailable,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) {
+    final _that = this;
+    switch (_that) {
+      case Initial() when initial != null:
+        return initial(_that);
+      case HardUpdateRequired() when hardUpdateRequired != null:
+        return hardUpdateRequired(_that);
+      case SoftUpdateAvailable() when softUpdateAvailable != null:
+        return softUpdateAvailable(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(HardUpdateRequired value) hardUpdateRequired,
+    required TResult Function(SoftUpdateAvailable value) softUpdateAvailable,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case Initial():
+        return initial(_that);
+      case HardUpdateRequired():
+        return hardUpdateRequired(_that);
+      case SoftUpdateAvailable():
+        return softUpdateAvailable(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(HardUpdateRequired value)? hardUpdateRequired,
+    TResult? Function(SoftUpdateAvailable value)? softUpdateAvailable,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case Initial() when initial != null:
+        return initial(_that);
+      case HardUpdateRequired() when hardUpdateRequired != null:
+        return hardUpdateRequired(_that);
+      case SoftUpdateAvailable() when softUpdateAvailable != null:
+        return softUpdateAvailable(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? hardUpdateRequired,
+    TResult Function()? softUpdateAvailable,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case Initial() when initial != null:
+        return initial();
+      case HardUpdateRequired() when hardUpdateRequired != null:
+        return hardUpdateRequired();
+      case SoftUpdateAvailable() when softUpdateAvailable != null:
+        return softUpdateAvailable();
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() hardUpdateRequired,
+    required TResult Function() softUpdateAvailable,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case Initial():
+        return initial();
+      case HardUpdateRequired():
+        return hardUpdateRequired();
+      case SoftUpdateAvailable():
+        return softUpdateAvailable();
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? hardUpdateRequired,
+    TResult? Function()? softUpdateAvailable,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case Initial() when initial != null:
+        return initial();
+      case HardUpdateRequired() when hardUpdateRequired != null:
+        return hardUpdateRequired();
+      case SoftUpdateAvailable() when softUpdateAvailable != null:
+        return softUpdateAvailable();
+      case _:
+        return null;
+    }
+  }
 }
 
 /// @nodoc
-abstract class $AppUpdateAwareStateCopyWith<$Res> {
-  factory $AppUpdateAwareStateCopyWith(
-          AppUpdateAwareState value, $Res Function(AppUpdateAwareState) then) =
-      _$AppUpdateAwareStateCopyWithImpl<$Res, AppUpdateAwareState>;
-}
 
-/// @nodoc
-class _$AppUpdateAwareStateCopyWithImpl<$Res, $Val extends AppUpdateAwareState>
-    implements $AppUpdateAwareStateCopyWith<$Res> {
-  _$AppUpdateAwareStateCopyWithImpl(this._value, this._then);
+class Initial implements AppUpdateAwareState {
+  const Initial();
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Initial);
+  }
 
-  /// Create a copy of AppUpdateAwareState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$AppUpdateAwareStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AppUpdateAwareState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$InitialImpl implements Initial {
-  const _$InitialImpl();
+  @override
+  int get hashCode => runtimeType.hashCode;
 
   @override
   String toString() {
     return 'AppUpdateAwareState.initial()';
   }
+}
+
+/// @nodoc
+
+class HardUpdateRequired implements AppUpdateAwareState {
+  const HardUpdateRequired();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType && other is HardUpdateRequired);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() hardUpdateRequired,
-    required TResult Function() softUpdateAvailable,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? hardUpdateRequired,
-    TResult? Function()? softUpdateAvailable,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? hardUpdateRequired,
-    TResult Function()? softUpdateAvailable,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(HardUpdateRequired value) hardUpdateRequired,
-    required TResult Function(SoftUpdateAvailable value) softUpdateAvailable,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(HardUpdateRequired value)? hardUpdateRequired,
-    TResult? Function(SoftUpdateAvailable value)? softUpdateAvailable,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(HardUpdateRequired value)? hardUpdateRequired,
-    TResult Function(SoftUpdateAvailable value)? softUpdateAvailable,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Initial implements AppUpdateAwareState {
-  const factory Initial() = _$InitialImpl;
-}
-
-/// @nodoc
-abstract class _$$HardUpdateRequiredImplCopyWith<$Res> {
-  factory _$$HardUpdateRequiredImplCopyWith(_$HardUpdateRequiredImpl value,
-          $Res Function(_$HardUpdateRequiredImpl) then) =
-      __$$HardUpdateRequiredImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$HardUpdateRequiredImplCopyWithImpl<$Res>
-    extends _$AppUpdateAwareStateCopyWithImpl<$Res, _$HardUpdateRequiredImpl>
-    implements _$$HardUpdateRequiredImplCopyWith<$Res> {
-  __$$HardUpdateRequiredImplCopyWithImpl(_$HardUpdateRequiredImpl _value,
-      $Res Function(_$HardUpdateRequiredImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AppUpdateAwareState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$HardUpdateRequiredImpl implements HardUpdateRequired {
-  const _$HardUpdateRequiredImpl();
 
   @override
   String toString() {
     return 'AppUpdateAwareState.hardUpdateRequired()';
   }
+}
+
+/// @nodoc
+
+class SoftUpdateAvailable implements AppUpdateAwareState {
+  const SoftUpdateAvailable();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$HardUpdateRequiredImpl);
+        (other.runtimeType == runtimeType && other is SoftUpdateAvailable);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() hardUpdateRequired,
-    required TResult Function() softUpdateAvailable,
-  }) {
-    return hardUpdateRequired();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? hardUpdateRequired,
-    TResult? Function()? softUpdateAvailable,
-  }) {
-    return hardUpdateRequired?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? hardUpdateRequired,
-    TResult Function()? softUpdateAvailable,
-    required TResult orElse(),
-  }) {
-    if (hardUpdateRequired != null) {
-      return hardUpdateRequired();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(HardUpdateRequired value) hardUpdateRequired,
-    required TResult Function(SoftUpdateAvailable value) softUpdateAvailable,
-  }) {
-    return hardUpdateRequired(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(HardUpdateRequired value)? hardUpdateRequired,
-    TResult? Function(SoftUpdateAvailable value)? softUpdateAvailable,
-  }) {
-    return hardUpdateRequired?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(HardUpdateRequired value)? hardUpdateRequired,
-    TResult Function(SoftUpdateAvailable value)? softUpdateAvailable,
-    required TResult orElse(),
-  }) {
-    if (hardUpdateRequired != null) {
-      return hardUpdateRequired(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class HardUpdateRequired implements AppUpdateAwareState {
-  const factory HardUpdateRequired() = _$HardUpdateRequiredImpl;
-}
-
-/// @nodoc
-abstract class _$$SoftUpdateAvailableImplCopyWith<$Res> {
-  factory _$$SoftUpdateAvailableImplCopyWith(_$SoftUpdateAvailableImpl value,
-          $Res Function(_$SoftUpdateAvailableImpl) then) =
-      __$$SoftUpdateAvailableImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$SoftUpdateAvailableImplCopyWithImpl<$Res>
-    extends _$AppUpdateAwareStateCopyWithImpl<$Res, _$SoftUpdateAvailableImpl>
-    implements _$$SoftUpdateAvailableImplCopyWith<$Res> {
-  __$$SoftUpdateAvailableImplCopyWithImpl(_$SoftUpdateAvailableImpl _value,
-      $Res Function(_$SoftUpdateAvailableImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AppUpdateAwareState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$SoftUpdateAvailableImpl implements SoftUpdateAvailable {
-  const _$SoftUpdateAvailableImpl();
 
   @override
   String toString() {
     return 'AppUpdateAwareState.softUpdateAvailable()';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SoftUpdateAvailableImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() hardUpdateRequired,
-    required TResult Function() softUpdateAvailable,
-  }) {
-    return softUpdateAvailable();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? hardUpdateRequired,
-    TResult? Function()? softUpdateAvailable,
-  }) {
-    return softUpdateAvailable?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? hardUpdateRequired,
-    TResult Function()? softUpdateAvailable,
-    required TResult orElse(),
-  }) {
-    if (softUpdateAvailable != null) {
-      return softUpdateAvailable();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(HardUpdateRequired value) hardUpdateRequired,
-    required TResult Function(SoftUpdateAvailable value) softUpdateAvailable,
-  }) {
-    return softUpdateAvailable(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(HardUpdateRequired value)? hardUpdateRequired,
-    TResult? Function(SoftUpdateAvailable value)? softUpdateAvailable,
-  }) {
-    return softUpdateAvailable?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(HardUpdateRequired value)? hardUpdateRequired,
-    TResult Function(SoftUpdateAvailable value)? softUpdateAvailable,
-    required TResult orElse(),
-  }) {
-    if (softUpdateAvailable != null) {
-      return softUpdateAvailable(this);
-    }
-    return orElse();
-  }
 }
 
-abstract class SoftUpdateAvailable implements AppUpdateAwareState {
-  const factory SoftUpdateAvailable() = _$SoftUpdateAvailableImpl;
-}
+// dart format on

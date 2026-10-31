@@ -1,3 +1,4 @@
+import 'package:aircode_starter/domain/model/result.dart';
 import 'dart:ui';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
