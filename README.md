@@ -68,6 +68,8 @@ flutter pub get
 dart run build_runner build
 ```
 
+If `build_runner` stops with "Conflicting outputs", use `dart run build_runner build --delete-conflicting-outputs`.
+
 Run `dart run build_runner build` again after changing any `@freezed`, `@AutoRouterConfig`, `@RoutePage`, Floor or `flutter_gen` input, and commit the output.
 
 After changing ARB files in `lib/l10n/`:
@@ -105,6 +107,8 @@ Build-time options are passed with `--dart-define` (see `lib/configs/environment
 | `MOCK` | `none`, `assets`, `hard` | `none` |
 | `vendorThemeConfiguration` | integer theme variant | `1` |
 
+Unrecognized `ENV` values silently fall back to `uat`, and unrecognized `MOCK` values to `none`, so check spelling.
+
 Example:
 
 ```bash
@@ -122,14 +126,14 @@ flutter build apk --debug  # for Android-affecting changes
 ## Configuration
 
 - Per-environment URLs and Hive box prefixes: `lib/configs/app_config.dart`.
-- Firebase files (referenced by path only): `android/app/google-services.json`, `ios/Runner/GoogleService-Info.plist`, `lib/core/firebase_options.dart`. Regenerate with `flutterfire configure --project=lookstudio-a459b`.
+- Firebase files (committed to the repo, so no extra setup is needed to build): `android/app/google-services.json`, `ios/Runner/GoogleService-Info.plist`, `lib/core/firebase_options.dart`. Regenerate with `flutterfire configure --project=lookstudio-a459b`.
 - Do not commit new secrets, tokens or API keys.
 
 ## Platform notes
 
 Android (see `android/settings.gradle`, `android/app/build.gradle`, `android/gradle/wrapper/gradle-wrapper.properties`):
 
-- Gradle 9.6.0, Android Gradle Plugin 9.5.0, Kotlin 2.4.21
+- Gradle 9.6.0, Android Gradle Plugin 9.5.0, Kotlin 2.4.21 (Built-in Kotlin; `android/settings.gradle` still declares `org.jetbrains.kotlin.android` with `apply false`, but `app/build.gradle` does not apply it)
 - `compileSdk = 37`, `minSdk = 26`
 - `android.newDsl=false` in `android/gradle.properties` must stay until Flutter supports the new AGP DSL.
 - Do not rename the package or app id without updating the Firebase configs, the iOS URL scheme in `ios/Runner/Info.plist`, and `MainActivity`'s package.
