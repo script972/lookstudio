@@ -4,7 +4,7 @@
 
 - **App name:** `lookstudio` (Flutter package name)
 - **App id / bundle id:** `com.lookstudio.app`
-- **Targeted platforms:** Android, iOS, web. The `linux`, `macos` and `windows` folders exist but are **not** targeted.
+- **Targeted platforms:** Android, iOS, web (Firebase options are configured for all three in `lib/core/firebase_options.dart`). The `linux`, `macos` and `windows` folders exist but are **not** targeted.
 - **Backend:** Firebase project `lookstudio-a459b` (Auth with email/password and Google, Remote Config). Other HTTP calls go through `dio`.
 
 Detailed architecture and coding rules live in [CLAUDE.md](CLAUDE.md).
@@ -107,7 +107,7 @@ Build-time options are passed with `--dart-define` (see `lib/configs/environment
 | `MOCK` | `none`, `assets`, `hard` | `none` |
 | `vendorThemeConfiguration` | integer theme variant | `1` |
 
-Unrecognized `ENV` values silently fall back to `uat`, and unrecognized `MOCK` values to `none`, so check spelling.
+Values are matched case-insensitively. Unrecognized `ENV` values silently fall back to `uat`, and unrecognized `MOCK` values to `none`, so check spelling.
 
 Example:
 
@@ -125,7 +125,7 @@ flutter build apk --debug  # for Android-affecting changes
 
 ## Configuration
 
-- Per-environment URLs and Hive box prefixes: `lib/configs/app_config.dart`.
+- Per-environment URLs and Hive box prefixes: `lib/configs/app_config.dart`. **Note:** these URLs are still template placeholders (marked `TODO`) and are not real LookStudio endpoints; replace them before relying on network calls.
 - Firebase files (committed to the repo, so no extra setup is needed to build): `android/app/google-services.json`, `ios/Runner/GoogleService-Info.plist`, `lib/core/firebase_options.dart`. Regenerate with `flutterfire configure --project=lookstudio-a459b`.
 - Do not commit new secrets, tokens or API keys.
 
