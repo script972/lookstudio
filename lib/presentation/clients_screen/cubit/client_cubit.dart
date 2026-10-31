@@ -1,4 +1,4 @@
-import 'package:aircode_starter/domain/model/result.dart';
+import 'package:lookstudio/domain/model/result.dart';
 import 'dart:math';
 
 import 'package:flutter_bloc/flutter_bloc.dart';

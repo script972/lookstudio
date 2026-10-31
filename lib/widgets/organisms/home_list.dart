@@ -1,4 +1,4 @@
-import 'package:aircode_starter/widgets/organisms/progress.dart';
+import 'package:lookstudio/widgets/organisms/progress.dart';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_list_view/flutter_list_view.dart';

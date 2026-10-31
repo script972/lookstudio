@@ -1,4 +1,4 @@
-import 'package:aircode_starter/presentation/profile_screen/profile_layout.dart';
+import 'package:lookstudio/presentation/profile_screen/profile_layout.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

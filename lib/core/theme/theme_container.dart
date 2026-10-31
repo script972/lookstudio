@@ -1,6 +1,6 @@
-import 'package:aircode_starter/core/theme/solution_theme.dart';
-import 'package:aircode_starter/core/theme/theme_vendor_one.dart';
-import 'package:aircode_starter/core/theme/theme_vendor_two.dart';
+import 'package:lookstudio/core/theme/solution_theme.dart';
+import 'package:lookstudio/core/theme/theme_vendor_one.dart';
+import 'package:lookstudio/core/theme/theme_vendor_two.dart';
 
 import '../../configs/environment/environment_variables.dart';
 

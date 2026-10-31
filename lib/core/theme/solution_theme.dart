@@ -1,4 +1,4 @@
-import 'package:aircode_starter/core/theme/theme_container.dart';
+import 'package:lookstudio/core/theme/theme_container.dart';
 import 'package:flutter/material.dart';
 import 'package:value_provider/value_provider.dart';
 

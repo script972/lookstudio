@@ -1,10 +1,10 @@
-import 'package:aircode_starter/configs/app_config.dart';
-import 'package:aircode_starter/configs/environment/environment_helper.dart';
-import 'package:aircode_starter/configs/environment/environment_service.dart';
-import 'package:aircode_starter/configs/environment/environment_variables.dart';
-import 'package:aircode_starter/data/datasource/local/database/app_database.dart';
-import 'package:aircode_starter/data/datasource/network/services/network_service/network_service.dart';
-import 'package:aircode_starter/utils/hive_helper.dart';
+import 'package:lookstudio/configs/app_config.dart';
+import 'package:lookstudio/configs/environment/environment_helper.dart';
+import 'package:lookstudio/configs/environment/environment_service.dart';
+import 'package:lookstudio/configs/environment/environment_variables.dart';
+import 'package:lookstudio/data/datasource/local/database/app_database.dart';
+import 'package:lookstudio/data/datasource/network/services/network_service/network_service.dart';
+import 'package:lookstudio/utils/hive_helper.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

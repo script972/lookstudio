@@ -3,21 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>838263498405-8jc4f2j5p27iklfgm6q5kl9gqknlv5it.apps.googleusercontent.com</string>
+	<string>737058307719-slhq58me4f650imi2cc3uf8pa9m73e2n.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.838263498405-8jc4f2j5p27iklfgm6q5kl9gqknlv5it</string>
+	<string>com.googleusercontent.apps.737058307719-slhq58me4f650imi2cc3uf8pa9m73e2n</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>737058307719-uk2icu8dip0oleg5ceqokmkun3kdqsrd.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAp_6EU2S02bptamhxgsElQDy6wGE7yKxU</string>
+	<string>AIzaSyCd4HfDi25vBJ3Wy_UYTLX0kODVdpzW0s8</string>
 	<key>GCM_SENDER_ID</key>
-	<string>838263498405</string>
+	<string>737058307719</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.solutionStarter</string>
+	<string>com.lookstudio.app</string>
 	<key>PROJECT_ID</key>
-	<string>solution-starter</string>
+	<string>lookstudio-a459b</string>
 	<key>STORAGE_BUCKET</key>
-	<string>solution-starter.appspot.com</string>
+	<string>lookstudio-a459b.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:838263498405:ios:1fe3672e39c56a10244f4c</string>
+	<string>1:737058307719:ios:50e8b5df2655980f9b0222</string>
 </dict>
 </plist>

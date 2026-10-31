@@ -33,29 +33,29 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions( // TODO(Georg): change all these values to actual data
-    apiKey: 'AIzaSyCQgQ05lskIbesvWeN5TXrkz_Qovtrhedw',
-    appId: '1:371148984128:web:204b89270e3d3d8013b4a5',
-    messagingSenderId: '371148984128',
-    projectId: 'solution-starter-35b1b',
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyDDsMO7Kq5Azo2WujyiWVjOIE40JO4OmcQ',
+    appId: '1:737058307719:web:d40abf716f4de3cc9b0222',
+    messagingSenderId: '737058307719',
+    projectId: 'lookstudio-a459b',
+    authDomain: 'lookstudio-a459b.firebaseapp.com',
+    storageBucket: 'lookstudio-a459b.firebasestorage.app',
+    measurementId: 'G-TXLXRTV1X0',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBX-mMI3H8B1Y0sZac0lDvBPfxWo_fRtVM',
-    appId: '1:838263498405:android:da87e79a7b2f86a0244f4c',
-    messagingSenderId: '838263498405',
-    projectId: 'solution-starter',
-    storageBucket: 'solution-starter.appspot.com',
+    apiKey: 'AIzaSyDIXmOwb881x15qyg-Law2jQ013wD8O_ck',
+    appId: '1:737058307719:android:7bd440921d0791989b0222',
+    messagingSenderId: '737058307719',
+    projectId: 'lookstudio-a459b',
+    storageBucket: 'lookstudio-a459b.firebasestorage.app',
   );
-
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAp_6EU2S02bptamhxgsElQDy6wGE7yKxU',
-    appId: '1:838263498405:ios:1fe3672e39c56a10244f4c',
-    messagingSenderId: '838263498405',
-    projectId: 'solution-starter',
-    storageBucket: 'solution-starter.appspot.com',
-    androidClientId: '838263498405-28dmrs178tthvja3bc65el5c64fv31uh.apps.googleusercontent.com',
-    iosClientId: '838263498405-8jc4f2j5p27iklfgm6q5kl9gqknlv5it.apps.googleusercontent.com',
-    iosBundleId: 'com.example.solutionStarter',
+    apiKey: 'AIzaSyCd4HfDi25vBJ3Wy_UYTLX0kODVdpzW0s8',
+    appId: '1:737058307719:ios:50e8b5df2655980f9b0222',
+    messagingSenderId: '737058307719',
+    projectId: 'lookstudio-a459b',
+    storageBucket: 'lookstudio-a459b.firebasestorage.app',
+    iosBundleId: 'com.lookstudio.app',
   );
 }

@@ -1,4 +1,4 @@
-package com.example.solution_starter
+package com.lookstudio.app
 
 import io.flutter.embedding.android.FlutterActivity
 

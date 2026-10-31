@@ -1,5 +1,5 @@
-import 'package:aircode_starter/generated/l10n.dart';
-import 'package:aircode_starter/solution_injection.dart';
+import 'package:lookstudio/generated/l10n.dart';
+import 'package:lookstudio/solution_injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';

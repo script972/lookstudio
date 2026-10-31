@@ -1,4 +1,4 @@
-import 'package:aircode_starter/domain/model/user_model.dart';
+import 'package:lookstudio/domain/model/user_model.dart';
 
 import '../../core/mapper.dart';
 import '../entity/user_entity.dart';

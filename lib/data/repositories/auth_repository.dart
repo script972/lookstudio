@@ -1,5 +1,5 @@
-import 'package:aircode_starter/data/entity/user_entity.dart';
-import 'package:aircode_starter/domain/model/user_model.dart';
+import 'package:lookstudio/data/entity/user_entity.dart';
+import 'package:lookstudio/domain/model/user_model.dart';
 
 import '../../domain/model/result.dart';
 import '../../domain/repository/auth_repository_interface.dart';

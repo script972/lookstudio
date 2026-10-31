@@ -1,5 +1,5 @@
-import 'package:aircode_starter/core/theme/solution_theme.dart';
-import 'package:aircode_starter/core/theme/theme_palette/default_palette.dart';
+import 'package:lookstudio/core/theme/solution_theme.dart';
+import 'package:lookstudio/core/theme/theme_palette/default_palette.dart';
 import 'package:flutter/material.dart';
 
 abstract class VendorOneCoreTheme implements SolutionTheme {
