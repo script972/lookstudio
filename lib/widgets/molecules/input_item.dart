@@ -19,6 +19,7 @@ class InputItem extends StatefulWidget {
   final String? Function(String?, BuildContext context)? validateFunction;
   final void Function(String)? onChanged;
   final String? value;
+  final TextEditingController? controller;
   final String? errorText;
   final int maxLines;
   final List<TextInputFormatter>? textInputFormatters;
@@ -32,6 +33,8 @@ class InputItem extends StatefulWidget {
   final String? assistText;
   final bool obscureText;
   final Key? errorKey;
+  final TextInputType? keyboardType;
+  final TextInputAction textInputAction;
 
   //hide field functionallity
   final SvgHideModel? hideSvgModel;
@@ -45,6 +48,7 @@ class InputItem extends StatefulWidget {
     this.validateFunction,
     this.onChanged,
     this.value,
+    this.controller,
     super.key,
     this.errorText,
     this.onFieldSubmitted,
@@ -62,6 +66,8 @@ class InputItem extends StatefulWidget {
     this.style,
     this.errorKey,
     this.hideSvgModel,
+    this.keyboardType,
+    this.textInputAction = TextInputAction.next,
   });
 
   @override
@@ -69,7 +75,7 @@ class InputItem extends StatefulWidget {
 }
 
 class _InputItemState extends State<InputItem> {
-  final TextEditingController _controller = TextEditingController();
+  late final TextEditingController _controller = widget.controller ?? TextEditingController();
   bool obscureText = false;
 
   @override
@@ -115,7 +121,8 @@ class _InputItemState extends State<InputItem> {
           },
           style: widget.style,
           minLines: 1,
-          textInputAction: TextInputAction.next,
+          textInputAction: widget.textInputAction,
+          keyboardType: widget.keyboardType,
           onEditingComplete: widget.onEditingComplete,
           autofillHints: widget.autofillHints,
           obscureText: obscureText,
@@ -188,7 +195,7 @@ class _InputItemState extends State<InputItem> {
 
   @override
   void dispose() {
-    _controller.dispose();
+    if (widget.controller == null) _controller.dispose();
     super.dispose();
   }
 }

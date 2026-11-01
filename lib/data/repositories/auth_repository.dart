@@ -7,6 +7,7 @@ import '../datasource/local/database/app_database.dart';
 import '../datasource/local/facade/secure_storage_interface.dart';
 import '../datasource/network/api/authentication/authentication_api_interface.dart';
 import '../datasource/network/exchange_models/local_errors.dart';
+import '../mapper/auth_error_mapper.dart';
 import '../mapper/user_mapper.dart';
 
 class AuthRepository implements IAuthRepository {
@@ -25,19 +26,28 @@ class AuthRepository implements IAuthRepository {
   Future<Result<UserModel>> login({required String email, required String password}) async {
     // Request
     final response = await _authService.login(email, password);
-    return response.when(onSuccess: Result<UserModel>.success, onError: Result.error);
+    return response.when(
+        onSuccess: Result<UserModel>.success,
+        onError: (error) => Result<UserModel>.error(mapAuthError(error)),
+      );
   }
 
   @override
   Future<Result<UserModel>> register({required String email, required String password}) async {
     final response = await _authService.register(email, password);
-    return response.when(onSuccess: Result<UserModel>.success, onError: Result.error);
+    return response.when(
+        onSuccess: Result<UserModel>.success,
+        onError: (error) => Result<UserModel>.error(mapAuthError(error)),
+      );
   }
 
   @override
   Future<Result<UserModel>> googleLogin() async {
     final response = await _authService.googleLogin();
-    return response.when(onSuccess: Result<UserModel>.success, onError: Result.error);
+    return response.when(
+        onSuccess: Result<UserModel>.success,
+        onError: (error) => Result<UserModel>.error(mapAuthError(error)),
+      );
   }
 
   @override

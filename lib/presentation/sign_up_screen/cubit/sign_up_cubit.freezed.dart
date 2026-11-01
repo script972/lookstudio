@@ -51,22 +51,25 @@ extension SignUpStatePatterns on SignUpState {
 
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialState value)? initial,
-    TResult Function(_LoadingState value)? loading,
-    TResult Function(_SuccessfullySignUpState value)? signUpped,
-    TResult Function(_ErrorState value)? error,
+    TResult Function(SignUpInitial value)? initial,
+    TResult Function(SignUpLoading value)? loading,
+    TResult Function(SignUpSuccess value)? signUpped,
+    TResult Function(SignUpValidationError value)? validationError,
+    TResult Function(SignUpAuthError value)? authError,
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
-      case _InitialState() when initial != null:
+      case SignUpInitial() when initial != null:
         return initial(_that);
-      case _LoadingState() when loading != null:
+      case SignUpLoading() when loading != null:
         return loading(_that);
-      case _SuccessfullySignUpState() when signUpped != null:
+      case SignUpSuccess() when signUpped != null:
         return signUpped(_that);
-      case _ErrorState() when error != null:
-        return error(_that);
+      case SignUpValidationError() when validationError != null:
+        return validationError(_that);
+      case SignUpAuthError() when authError != null:
+        return authError(_that);
       case _:
         return orElse();
     }
@@ -87,21 +90,24 @@ extension SignUpStatePatterns on SignUpState {
 
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitialState value) initial,
-    required TResult Function(_LoadingState value) loading,
-    required TResult Function(_SuccessfullySignUpState value) signUpped,
-    required TResult Function(_ErrorState value) error,
+    required TResult Function(SignUpInitial value) initial,
+    required TResult Function(SignUpLoading value) loading,
+    required TResult Function(SignUpSuccess value) signUpped,
+    required TResult Function(SignUpValidationError value) validationError,
+    required TResult Function(SignUpAuthError value) authError,
   }) {
     final _that = this;
     switch (_that) {
-      case _InitialState():
+      case SignUpInitial():
         return initial(_that);
-      case _LoadingState():
+      case SignUpLoading():
         return loading(_that);
-      case _SuccessfullySignUpState():
+      case SignUpSuccess():
         return signUpped(_that);
-      case _ErrorState():
-        return error(_that);
+      case SignUpValidationError():
+        return validationError(_that);
+      case SignUpAuthError():
+        return authError(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -121,21 +127,24 @@ extension SignUpStatePatterns on SignUpState {
 
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialState value)? initial,
-    TResult? Function(_LoadingState value)? loading,
-    TResult? Function(_SuccessfullySignUpState value)? signUpped,
-    TResult? Function(_ErrorState value)? error,
+    TResult? Function(SignUpInitial value)? initial,
+    TResult? Function(SignUpLoading value)? loading,
+    TResult? Function(SignUpSuccess value)? signUpped,
+    TResult? Function(SignUpValidationError value)? validationError,
+    TResult? Function(SignUpAuthError value)? authError,
   }) {
     final _that = this;
     switch (_that) {
-      case _InitialState() when initial != null:
+      case SignUpInitial() when initial != null:
         return initial(_that);
-      case _LoadingState() when loading != null:
+      case SignUpLoading() when loading != null:
         return loading(_that);
-      case _SuccessfullySignUpState() when signUpped != null:
+      case SignUpSuccess() when signUpped != null:
         return signUpped(_that);
-      case _ErrorState() when error != null:
-        return error(_that);
+      case SignUpValidationError() when validationError != null:
+        return validationError(_that);
+      case SignUpAuthError() when authError != null:
+        return authError(_that);
       case _:
         return null;
     }
@@ -158,19 +167,23 @@ extension SignUpStatePatterns on SignUpState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? signUpped,
-    TResult Function(Object? exception)? error,
+    TResult Function(EmailError? emailError, PasswordError? passwordError)?
+        validationError,
+    TResult Function(AuthFailureType type)? authError,
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
-      case _InitialState() when initial != null:
+      case SignUpInitial() when initial != null:
         return initial();
-      case _LoadingState() when loading != null:
+      case SignUpLoading() when loading != null:
         return loading();
-      case _SuccessfullySignUpState() when signUpped != null:
+      case SignUpSuccess() when signUpped != null:
         return signUpped();
-      case _ErrorState() when error != null:
-        return error(_that.exception);
+      case SignUpValidationError() when validationError != null:
+        return validationError(_that.emailError, _that.passwordError);
+      case SignUpAuthError() when authError != null:
+        return authError(_that.type);
       case _:
         return orElse();
     }
@@ -194,18 +207,23 @@ extension SignUpStatePatterns on SignUpState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() signUpped,
-    required TResult Function(Object? exception) error,
+    required TResult Function(
+            EmailError? emailError, PasswordError? passwordError)
+        validationError,
+    required TResult Function(AuthFailureType type) authError,
   }) {
     final _that = this;
     switch (_that) {
-      case _InitialState():
+      case SignUpInitial():
         return initial();
-      case _LoadingState():
+      case SignUpLoading():
         return loading();
-      case _SuccessfullySignUpState():
+      case SignUpSuccess():
         return signUpped();
-      case _ErrorState():
-        return error(_that.exception);
+      case SignUpValidationError():
+        return validationError(_that.emailError, _that.passwordError);
+      case SignUpAuthError():
+        return authError(_that.type);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -228,18 +246,22 @@ extension SignUpStatePatterns on SignUpState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? signUpped,
-    TResult? Function(Object? exception)? error,
+    TResult? Function(EmailError? emailError, PasswordError? passwordError)?
+        validationError,
+    TResult? Function(AuthFailureType type)? authError,
   }) {
     final _that = this;
     switch (_that) {
-      case _InitialState() when initial != null:
+      case SignUpInitial() when initial != null:
         return initial();
-      case _LoadingState() when loading != null:
+      case SignUpLoading() when loading != null:
         return loading();
-      case _SuccessfullySignUpState() when signUpped != null:
+      case SignUpSuccess() when signUpped != null:
         return signUpped();
-      case _ErrorState() when error != null:
-        return error(_that.exception);
+      case SignUpValidationError() when validationError != null:
+        return validationError(_that.emailError, _that.passwordError);
+      case SignUpAuthError() when authError != null:
+        return authError(_that.type);
       case _:
         return null;
     }
@@ -248,13 +270,13 @@ extension SignUpStatePatterns on SignUpState {
 
 /// @nodoc
 
-class _InitialState implements SignUpState {
-  const _InitialState();
+class SignUpInitial implements SignUpState {
+  const SignUpInitial();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _InitialState);
+        (other.runtimeType == runtimeType && other is SignUpInitial);
   }
 
   @override
@@ -268,13 +290,13 @@ class _InitialState implements SignUpState {
 
 /// @nodoc
 
-class _LoadingState implements SignUpState {
-  const _LoadingState();
+class SignUpLoading implements SignUpState {
+  const SignUpLoading();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _LoadingState);
+        (other.runtimeType == runtimeType && other is SignUpLoading);
   }
 
   @override
@@ -288,13 +310,13 @@ class _LoadingState implements SignUpState {
 
 /// @nodoc
 
-class _SuccessfullySignUpState implements SignUpState {
-  const _SuccessfullySignUpState();
+class SignUpSuccess implements SignUpState {
+  const SignUpSuccess();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _SuccessfullySignUpState);
+        (other.runtimeType == runtimeType && other is SignUpSuccess);
   }
 
   @override
@@ -308,63 +330,142 @@ class _SuccessfullySignUpState implements SignUpState {
 
 /// @nodoc
 
-class _ErrorState implements SignUpState {
-  const _ErrorState({this.exception});
+class SignUpValidationError implements SignUpState {
+  const SignUpValidationError({this.emailError, this.passwordError});
 
-  final Object? exception;
+  final EmailError? emailError;
+  final PasswordError? passwordError;
 
   /// Create a copy of SignUpState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$ErrorStateCopyWith<_ErrorState> get copyWith =>
-      __$ErrorStateCopyWithImpl<_ErrorState>(this, _$identity);
+  $SignUpValidationErrorCopyWith<SignUpValidationError> get copyWith =>
+      _$SignUpValidationErrorCopyWithImpl<SignUpValidationError>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ErrorState &&
-            const DeepCollectionEquality().equals(other.exception, exception));
+            other is SignUpValidationError &&
+            (identical(other.emailError, emailError) ||
+                other.emailError == emailError) &&
+            (identical(other.passwordError, passwordError) ||
+                other.passwordError == passwordError));
   }
 
   @override
   int get hashCode {
-    return Object.hash(
-        runtimeType, const DeepCollectionEquality().hash(exception));
+    return Object.hash(runtimeType, emailError, passwordError);
   }
 
   @override
   String toString() {
-    return 'SignUpState.error(exception: $exception)';
+    return 'SignUpState.validationError(emailError: $emailError, passwordError: $passwordError)';
   }
 }
 
 /// @nodoc
-abstract mixin class _$ErrorStateCopyWith<$Res>
+abstract mixin class $SignUpValidationErrorCopyWith<$Res>
     implements $SignUpStateCopyWith<$Res> {
-  factory _$ErrorStateCopyWith(
-          _ErrorState value, $Res Function(_ErrorState) _then) =
-      __$ErrorStateCopyWithImpl;
+  factory $SignUpValidationErrorCopyWith(SignUpValidationError value,
+          $Res Function(SignUpValidationError) _then) =
+      _$SignUpValidationErrorCopyWithImpl;
   @useResult
-  $Res call({Object? exception});
+  $Res call({EmailError? emailError, PasswordError? passwordError});
 }
 
 /// @nodoc
-class __$ErrorStateCopyWithImpl<$Res> implements _$ErrorStateCopyWith<$Res> {
-  __$ErrorStateCopyWithImpl(this._self, this._then);
+class _$SignUpValidationErrorCopyWithImpl<$Res>
+    implements $SignUpValidationErrorCopyWith<$Res> {
+  _$SignUpValidationErrorCopyWithImpl(this._self, this._then);
 
-  final _ErrorState _self;
-  final $Res Function(_ErrorState) _then;
+  final SignUpValidationError _self;
+  final $Res Function(SignUpValidationError) _then;
 
   /// Create a copy of SignUpState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? exception = freezed,
+    Object? emailError = freezed,
+    Object? passwordError = freezed,
   }) {
-    return _then(_ErrorState(
-      exception: freezed == exception ? _self.exception : exception,
+    return _then(SignUpValidationError(
+      emailError: freezed == emailError
+          ? _self.emailError
+          : emailError // ignore: cast_nullable_to_non_nullable
+              as EmailError?,
+      passwordError: freezed == passwordError
+          ? _self.passwordError
+          : passwordError // ignore: cast_nullable_to_non_nullable
+              as PasswordError?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class SignUpAuthError implements SignUpState {
+  const SignUpAuthError(this.type);
+
+  final AuthFailureType type;
+
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SignUpAuthErrorCopyWith<SignUpAuthError> get copyWith =>
+      _$SignUpAuthErrorCopyWithImpl<SignUpAuthError>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SignUpAuthError &&
+            (identical(other.type, type) || other.type == type));
+  }
+
+  @override
+  int get hashCode {
+    return Object.hash(runtimeType, type);
+  }
+
+  @override
+  String toString() {
+    return 'SignUpState.authError(type: $type)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $SignUpAuthErrorCopyWith<$Res>
+    implements $SignUpStateCopyWith<$Res> {
+  factory $SignUpAuthErrorCopyWith(
+          SignUpAuthError value, $Res Function(SignUpAuthError) _then) =
+      _$SignUpAuthErrorCopyWithImpl;
+  @useResult
+  $Res call({AuthFailureType type});
+}
+
+/// @nodoc
+class _$SignUpAuthErrorCopyWithImpl<$Res>
+    implements $SignUpAuthErrorCopyWith<$Res> {
+  _$SignUpAuthErrorCopyWithImpl(this._self, this._then);
+
+  final SignUpAuthError _self;
+  final $Res Function(SignUpAuthError) _then;
+
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+  }) {
+    return _then(SignUpAuthError(
+      null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as AuthFailureType,
     ));
   }
 }

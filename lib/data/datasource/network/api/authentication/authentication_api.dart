@@ -13,43 +13,51 @@ class AuthenticationApi implements IAuthenticationApi {
   final auth.FirebaseAuth _firebaseAuth;
 
   @override
-  Future<NetworkResponse<UserModel>> login(String email, String password) async {
-    auth.UserCredential? credential;
-    try {
-      credential = await _firebaseAuth.signInWithEmailAndPassword(
-        email: email,
-        password: password,
+  Future<NetworkResponse<UserModel>> login(String email, String password) =>
+      _authenticate(
+        email,
+        () => _firebaseAuth.signInWithEmailAndPassword(email: email.trim(), password: password),
       );
-    } on auth.FirebaseAuthException catch (e) {
-      return ErrorResponse(UnauthorizedError(error: e));
-    }
-    final user = UserModel(
-      id: credential.credential?.providerId ?? '',
-      email: email,
-      loginDate: DateTime.now(),
-    );
-    return SuccessResponse<UserModel>(user);
-  }
 
   @override
-  Future<NetworkResponse<UserModel>> register(String email, String password) async {
-    auth.UserCredential? credential;
+  Future<NetworkResponse<UserModel>> register(String email, String password) =>
+      _authenticate(
+        email,
+        () => _firebaseAuth.createUserWithEmailAndPassword(email: email.trim(), password: password),
+      );
 
+  Future<NetworkResponse<UserModel>> _authenticate(
+    String email,
+    Future<auth.UserCredential> Function() request,
+  ) async {
     try {
-      credential = await _firebaseAuth.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
+      final credential = await request();
+      final firebaseUser = credential.user;
+      if (firebaseUser == null) {
+        return ErrorResponse(UnexpectedError(error: 'Firebase returned no user'));
+      }
+      String? token;
+      try {
+        token = await firebaseUser.getIdToken();
+      } catch (_) {
+        // The uid is used as the token when the ID token is unavailable.
+      }
+      return SuccessResponse<UserModel>(
+        UserModel(
+          id: firebaseUser.uid,
+          email: email.trim(),
+          token: token,
+          loginDate: DateTime.now(),
+        ),
       );
     } on auth.FirebaseAuthException catch (e) {
-      return ErrorResponse(UnauthorizedError(error: e));
+      if (e.code == 'network-request-failed') {
+        return ErrorResponse(ConnectionError(error: e));
+      }
+      return ErrorResponse(UnauthorizedError(error: e, code: e.code));
+    } catch (e) {
+      return ErrorResponse(UnexpectedError(error: e));
     }
-
-    final user = UserModel(
-      id: credential.credential?.providerId ?? '',
-      email: email,
-      loginDate: DateTime.now(),
-    );
-    return SuccessResponse<UserModel>(user);
   }
 
   @override
@@ -59,14 +67,23 @@ class AuthenticationApi implements IAuthenticationApi {
       final googleSignIn = GoogleSignIn.instance;
       await googleSignIn.initialize();
       googleAccount = await googleSignIn.authenticate();
+    } on GoogleSignInException catch (e) {
+      final cancelled = e.code == GoogleSignInExceptionCode.canceled;
+      return ErrorResponse(UnauthorizedError(error: e, code: cancelled ? authCancelledCode : null));
     } catch (e) {
       return ErrorResponse(UnauthorizedError(error: e));
     }
-    final user = UserModel(
-      id: googleAccount?.id ?? '',
-      email: googleAccount?.email,
-      loginDate: DateTime.now(),
+    final account = googleAccount;
+    if (account == null || account.id.isEmpty) {
+      return ErrorResponse(UnexpectedError(error: 'Google returned no account'));
+    }
+    final idToken = account.authentication.idToken;
+    if (idToken == null) {
+      return ErrorResponse(UnexpectedError(error: 'Google returned no ID token'));
+    }
+    return _authenticate(
+      account.email,
+      () => _firebaseAuth.signInWithCredential(auth.GoogleAuthProvider.credential(idToken: idToken)),
     );
-    return SuccessResponse<UserModel>(user);
   }
 }

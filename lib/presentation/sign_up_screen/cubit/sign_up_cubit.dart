@@ -1,7 +1,12 @@
-import 'package:lookstudio/domain/model/result.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:logger/logger.dart';
+import 'package:lookstudio/domain/model/result.dart';
+import 'package:lookstudio/domain/model/user_model.dart';
 
+import '../../../core/logger.dart';
+import '../../../domain/model/auth_failure.dart';
+import '../../../domain/model/auth_validators.dart';
 import '../../../domain/repository/auth_repository_interface.dart';
 
 part 'sign_up_state.dart';
@@ -12,33 +17,57 @@ class SignUpCubit extends Cubit<SignUpState> {
   SignUpCubit(this._repository) : super(const SignUpState.initial());
 
   final IAuthRepository _repository;
+  final Logger _logger = getLogger('SignUpCubit');
 
-  void signUp({
-    required String username,
+  bool get _isLoading => state is SignUpLoading;
+
+  Future<void> signUp({
+    required String email,
     required String password,
   }) async {
-    final response = await _repository.register(email: username, password: password);
-    response.maybeWhen(
-      success: (data) {
-        _repository.saveAuthToken(data.id);
-        _repository.addUser(data);
-        emit(const SignUpState.signUpped());
-      },
-      error: (error) => emit(SignUpState.error(exception: error)),
-      orElse: () {},
-    );
+    if (_isLoading) return;
+    final trimmedEmail = email.trim();
+    final emailError = validateEmail(trimmedEmail);
+    final passwordError = validatePassword(password);
+    if (emailError != null || passwordError != null) {
+      emit(SignUpState.validationError(emailError: emailError, passwordError: passwordError));
+      return;
+    }
+    emit(const SignUpState.loading());
+    await _handle(await _repository.register(email: trimmedEmail, password: password));
   }
 
-  void googleLogin() async {
-    final response = await _repository.googleLogin();
-    response.maybeWhen(
-      success: (data) {
-        _repository.saveAuthToken(data.id);
-        _repository.addUser(data);
+  Future<void> googleLogin() async {
+    if (_isLoading) return;
+    emit(const SignUpState.loading());
+    await _handle(await _repository.googleLogin());
+  }
+
+  Future<void> _handle(Result<UserModel> response) async {
+    if (isClosed) return;
+    switch (response) {
+      case Success(:final data):
+        try {
+          await _repository.saveAuthToken(data.token ?? data.id);
+        } catch (e) {
+          _logger.w('Failed to save auth token: $e');
+          if (!isClosed) emit(const SignUpState.authError(AuthFailureType.unknown));
+          return;
+        }
+        try {
+          await _repository.addUser(data);
+        } catch (e) {
+          _logger.w('Failed to persist user: $e');
+        }
+        if (isClosed) return;
         emit(const SignUpState.signUpped());
-      },
-      error: (error) => emit(SignUpState.error(exception: error)),
-      orElse: () {},
-    );
+      case Error(:final error):
+        _logger.w('Sign up failed: $error');
+        final type = error is AuthFailureType ? error : AuthFailureType.unknown;
+        // Dismissing the Google dialog is not a failure.
+        emit(type == AuthFailureType.cancelled
+            ? const SignUpState.initial()
+            : SignUpState.authError(type));
+    }
   }
 }
