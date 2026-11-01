@@ -54,10 +54,8 @@ extension LoginStatePatterns on LoginState {
     TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(SuccessfullyLogin value)? successfullyLogin,
-    TResult Function(UnknownError value)? unknownError,
-    TResult Function(FieldIsEmptyError value)? fieldIsEmptyError,
-    TResult Function(WrongCredentials value)? wrongCredentialsError,
-    TResult Function(EmailNotVerified value)? emailNotVerified,
+    TResult Function(ValidationError value)? validationError,
+    TResult Function(AuthError value)? authError,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -68,14 +66,10 @@ extension LoginStatePatterns on LoginState {
         return loading(_that);
       case SuccessfullyLogin() when successfullyLogin != null:
         return successfullyLogin(_that);
-      case UnknownError() when unknownError != null:
-        return unknownError(_that);
-      case FieldIsEmptyError() when fieldIsEmptyError != null:
-        return fieldIsEmptyError(_that);
-      case WrongCredentials() when wrongCredentialsError != null:
-        return wrongCredentialsError(_that);
-      case EmailNotVerified() when emailNotVerified != null:
-        return emailNotVerified(_that);
+      case ValidationError() when validationError != null:
+        return validationError(_that);
+      case AuthError() when authError != null:
+        return authError(_that);
       case _:
         return orElse();
     }
@@ -99,10 +93,8 @@ extension LoginStatePatterns on LoginState {
     required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(SuccessfullyLogin value) successfullyLogin,
-    required TResult Function(UnknownError value) unknownError,
-    required TResult Function(FieldIsEmptyError value) fieldIsEmptyError,
-    required TResult Function(WrongCredentials value) wrongCredentialsError,
-    required TResult Function(EmailNotVerified value) emailNotVerified,
+    required TResult Function(ValidationError value) validationError,
+    required TResult Function(AuthError value) authError,
   }) {
     final _that = this;
     switch (_that) {
@@ -112,14 +104,10 @@ extension LoginStatePatterns on LoginState {
         return loading(_that);
       case SuccessfullyLogin():
         return successfullyLogin(_that);
-      case UnknownError():
-        return unknownError(_that);
-      case FieldIsEmptyError():
-        return fieldIsEmptyError(_that);
-      case WrongCredentials():
-        return wrongCredentialsError(_that);
-      case EmailNotVerified():
-        return emailNotVerified(_that);
+      case ValidationError():
+        return validationError(_that);
+      case AuthError():
+        return authError(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -142,10 +130,8 @@ extension LoginStatePatterns on LoginState {
     TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(SuccessfullyLogin value)? successfullyLogin,
-    TResult? Function(UnknownError value)? unknownError,
-    TResult? Function(FieldIsEmptyError value)? fieldIsEmptyError,
-    TResult? Function(WrongCredentials value)? wrongCredentialsError,
-    TResult? Function(EmailNotVerified value)? emailNotVerified,
+    TResult? Function(ValidationError value)? validationError,
+    TResult? Function(AuthError value)? authError,
   }) {
     final _that = this;
     switch (_that) {
@@ -155,14 +141,10 @@ extension LoginStatePatterns on LoginState {
         return loading(_that);
       case SuccessfullyLogin() when successfullyLogin != null:
         return successfullyLogin(_that);
-      case UnknownError() when unknownError != null:
-        return unknownError(_that);
-      case FieldIsEmptyError() when fieldIsEmptyError != null:
-        return fieldIsEmptyError(_that);
-      case WrongCredentials() when wrongCredentialsError != null:
-        return wrongCredentialsError(_that);
-      case EmailNotVerified() when emailNotVerified != null:
-        return emailNotVerified(_that);
+      case ValidationError() when validationError != null:
+        return validationError(_that);
+      case AuthError() when authError != null:
+        return authError(_that);
       case _:
         return null;
     }
@@ -185,11 +167,9 @@ extension LoginStatePatterns on LoginState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? successfullyLogin,
-    TResult Function(String? message, VoidCallback retryCallback)? unknownError,
-    TResult Function(bool isUsernameEmpty, bool isPasswordEmpty)?
-        fieldIsEmptyError,
-    TResult Function()? wrongCredentialsError,
-    TResult Function(String username, String password)? emailNotVerified,
+    TResult Function(EmailError? emailError, PasswordError? passwordError)?
+        validationError,
+    TResult Function(AuthFailureType type)? authError,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -200,14 +180,10 @@ extension LoginStatePatterns on LoginState {
         return loading();
       case SuccessfullyLogin() when successfullyLogin != null:
         return successfullyLogin();
-      case UnknownError() when unknownError != null:
-        return unknownError(_that.message, _that.retryCallback);
-      case FieldIsEmptyError() when fieldIsEmptyError != null:
-        return fieldIsEmptyError(_that.isUsernameEmpty, _that.isPasswordEmpty);
-      case WrongCredentials() when wrongCredentialsError != null:
-        return wrongCredentialsError();
-      case EmailNotVerified() when emailNotVerified != null:
-        return emailNotVerified(_that.username, _that.password);
+      case ValidationError() when validationError != null:
+        return validationError(_that.emailError, _that.passwordError);
+      case AuthError() when authError != null:
+        return authError(_that.type);
       case _:
         return orElse();
     }
@@ -231,13 +207,10 @@ extension LoginStatePatterns on LoginState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() successfullyLogin,
-    required TResult Function(String? message, VoidCallback retryCallback)
-        unknownError,
-    required TResult Function(bool isUsernameEmpty, bool isPasswordEmpty)
-        fieldIsEmptyError,
-    required TResult Function() wrongCredentialsError,
-    required TResult Function(String username, String password)
-        emailNotVerified,
+    required TResult Function(
+            EmailError? emailError, PasswordError? passwordError)
+        validationError,
+    required TResult Function(AuthFailureType type) authError,
   }) {
     final _that = this;
     switch (_that) {
@@ -247,14 +220,10 @@ extension LoginStatePatterns on LoginState {
         return loading();
       case SuccessfullyLogin():
         return successfullyLogin();
-      case UnknownError():
-        return unknownError(_that.message, _that.retryCallback);
-      case FieldIsEmptyError():
-        return fieldIsEmptyError(_that.isUsernameEmpty, _that.isPasswordEmpty);
-      case WrongCredentials():
-        return wrongCredentialsError();
-      case EmailNotVerified():
-        return emailNotVerified(_that.username, _that.password);
+      case ValidationError():
+        return validationError(_that.emailError, _that.passwordError);
+      case AuthError():
+        return authError(_that.type);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -277,12 +246,9 @@ extension LoginStatePatterns on LoginState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? successfullyLogin,
-    TResult? Function(String? message, VoidCallback retryCallback)?
-        unknownError,
-    TResult? Function(bool isUsernameEmpty, bool isPasswordEmpty)?
-        fieldIsEmptyError,
-    TResult? Function()? wrongCredentialsError,
-    TResult? Function(String username, String password)? emailNotVerified,
+    TResult? Function(EmailError? emailError, PasswordError? passwordError)?
+        validationError,
+    TResult? Function(AuthFailureType type)? authError,
   }) {
     final _that = this;
     switch (_that) {
@@ -292,14 +258,10 @@ extension LoginStatePatterns on LoginState {
         return loading();
       case SuccessfullyLogin() when successfullyLogin != null:
         return successfullyLogin();
-      case UnknownError() when unknownError != null:
-        return unknownError(_that.message, _that.retryCallback);
-      case FieldIsEmptyError() when fieldIsEmptyError != null:
-        return fieldIsEmptyError(_that.isUsernameEmpty, _that.isPasswordEmpty);
-      case WrongCredentials() when wrongCredentialsError != null:
-        return wrongCredentialsError();
-      case EmailNotVerified() when emailNotVerified != null:
-        return emailNotVerified(_that.username, _that.password);
+      case ValidationError() when validationError != null:
+        return validationError(_that.emailError, _that.passwordError);
+      case AuthError() when authError != null:
+        return authError(_that.type);
       case _:
         return null;
     }
@@ -368,246 +330,139 @@ class SuccessfullyLogin implements LoginState {
 
 /// @nodoc
 
-class UnknownError implements LoginState {
-  const UnknownError({this.message, required this.retryCallback});
+class ValidationError implements LoginState {
+  const ValidationError({this.emailError, this.passwordError});
 
-  final String? message;
-  final VoidCallback retryCallback;
+  final EmailError? emailError;
+  final PasswordError? passwordError;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  $UnknownErrorCopyWith<UnknownError> get copyWith =>
-      _$UnknownErrorCopyWithImpl<UnknownError>(this, _$identity);
+  $ValidationErrorCopyWith<ValidationError> get copyWith =>
+      _$ValidationErrorCopyWithImpl<ValidationError>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is UnknownError &&
-            (identical(other.message, message) || other.message == message) &&
-            (identical(other.retryCallback, retryCallback) ||
-                other.retryCallback == retryCallback));
+            other is ValidationError &&
+            (identical(other.emailError, emailError) ||
+                other.emailError == emailError) &&
+            (identical(other.passwordError, passwordError) ||
+                other.passwordError == passwordError));
   }
 
   @override
   int get hashCode {
-    return Object.hash(runtimeType, message, retryCallback);
+    return Object.hash(runtimeType, emailError, passwordError);
   }
 
   @override
   String toString() {
-    return 'LoginState.unknownError(message: $message, retryCallback: $retryCallback)';
+    return 'LoginState.validationError(emailError: $emailError, passwordError: $passwordError)';
   }
 }
 
 /// @nodoc
-abstract mixin class $UnknownErrorCopyWith<$Res>
+abstract mixin class $ValidationErrorCopyWith<$Res>
     implements $LoginStateCopyWith<$Res> {
-  factory $UnknownErrorCopyWith(
-          UnknownError value, $Res Function(UnknownError) _then) =
-      _$UnknownErrorCopyWithImpl;
+  factory $ValidationErrorCopyWith(
+          ValidationError value, $Res Function(ValidationError) _then) =
+      _$ValidationErrorCopyWithImpl;
   @useResult
-  $Res call({String? message, VoidCallback retryCallback});
+  $Res call({EmailError? emailError, PasswordError? passwordError});
 }
 
 /// @nodoc
-class _$UnknownErrorCopyWithImpl<$Res> implements $UnknownErrorCopyWith<$Res> {
-  _$UnknownErrorCopyWithImpl(this._self, this._then);
+class _$ValidationErrorCopyWithImpl<$Res>
+    implements $ValidationErrorCopyWith<$Res> {
+  _$ValidationErrorCopyWithImpl(this._self, this._then);
 
-  final UnknownError _self;
-  final $Res Function(UnknownError) _then;
+  final ValidationError _self;
+  final $Res Function(ValidationError) _then;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? message = freezed,
-    Object? retryCallback = null,
+    Object? emailError = freezed,
+    Object? passwordError = freezed,
   }) {
-    return _then(UnknownError(
-      message: freezed == message
-          ? _self.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
-      retryCallback: null == retryCallback
-          ? _self.retryCallback
-          : retryCallback // ignore: cast_nullable_to_non_nullable
-              as VoidCallback,
+    return _then(ValidationError(
+      emailError: freezed == emailError
+          ? _self.emailError
+          : emailError // ignore: cast_nullable_to_non_nullable
+              as EmailError?,
+      passwordError: freezed == passwordError
+          ? _self.passwordError
+          : passwordError // ignore: cast_nullable_to_non_nullable
+              as PasswordError?,
     ));
   }
 }
 
 /// @nodoc
 
-class FieldIsEmptyError implements LoginState {
-  const FieldIsEmptyError(
-      {this.isUsernameEmpty = false, this.isPasswordEmpty = false});
+class AuthError implements LoginState {
+  const AuthError(this.type);
 
-  @JsonKey()
-  final bool isUsernameEmpty;
-  @JsonKey()
-  final bool isPasswordEmpty;
+  final AuthFailureType type;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  $FieldIsEmptyErrorCopyWith<FieldIsEmptyError> get copyWith =>
-      _$FieldIsEmptyErrorCopyWithImpl<FieldIsEmptyError>(this, _$identity);
+  $AuthErrorCopyWith<AuthError> get copyWith =>
+      _$AuthErrorCopyWithImpl<AuthError>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is FieldIsEmptyError &&
-            (identical(other.isUsernameEmpty, isUsernameEmpty) ||
-                other.isUsernameEmpty == isUsernameEmpty) &&
-            (identical(other.isPasswordEmpty, isPasswordEmpty) ||
-                other.isPasswordEmpty == isPasswordEmpty));
+            other is AuthError &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @override
   int get hashCode {
-    return Object.hash(runtimeType, isUsernameEmpty, isPasswordEmpty);
+    return Object.hash(runtimeType, type);
   }
 
   @override
   String toString() {
-    return 'LoginState.fieldIsEmptyError(isUsernameEmpty: $isUsernameEmpty, isPasswordEmpty: $isPasswordEmpty)';
+    return 'LoginState.authError(type: $type)';
   }
 }
 
 /// @nodoc
-abstract mixin class $FieldIsEmptyErrorCopyWith<$Res>
+abstract mixin class $AuthErrorCopyWith<$Res>
     implements $LoginStateCopyWith<$Res> {
-  factory $FieldIsEmptyErrorCopyWith(
-          FieldIsEmptyError value, $Res Function(FieldIsEmptyError) _then) =
-      _$FieldIsEmptyErrorCopyWithImpl;
+  factory $AuthErrorCopyWith(AuthError value, $Res Function(AuthError) _then) =
+      _$AuthErrorCopyWithImpl;
   @useResult
-  $Res call({bool isUsernameEmpty, bool isPasswordEmpty});
+  $Res call({AuthFailureType type});
 }
 
 /// @nodoc
-class _$FieldIsEmptyErrorCopyWithImpl<$Res>
-    implements $FieldIsEmptyErrorCopyWith<$Res> {
-  _$FieldIsEmptyErrorCopyWithImpl(this._self, this._then);
+class _$AuthErrorCopyWithImpl<$Res> implements $AuthErrorCopyWith<$Res> {
+  _$AuthErrorCopyWithImpl(this._self, this._then);
 
-  final FieldIsEmptyError _self;
-  final $Res Function(FieldIsEmptyError) _then;
+  final AuthError _self;
+  final $Res Function(AuthError) _then;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? isUsernameEmpty = null,
-    Object? isPasswordEmpty = null,
+    Object? type = null,
   }) {
-    return _then(FieldIsEmptyError(
-      isUsernameEmpty: null == isUsernameEmpty
-          ? _self.isUsernameEmpty
-          : isUsernameEmpty // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isPasswordEmpty: null == isPasswordEmpty
-          ? _self.isPasswordEmpty
-          : isPasswordEmpty // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-
-class WrongCredentials implements LoginState {
-  const WrongCredentials();
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is WrongCredentials);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  String toString() {
-    return 'LoginState.wrongCredentialsError()';
-  }
-}
-
-/// @nodoc
-
-class EmailNotVerified implements LoginState {
-  const EmailNotVerified({required this.username, required this.password});
-
-  final String username;
-  final String password;
-
-  /// Create a copy of LoginState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  $EmailNotVerifiedCopyWith<EmailNotVerified> get copyWith =>
-      _$EmailNotVerifiedCopyWithImpl<EmailNotVerified>(this, _$identity);
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is EmailNotVerified &&
-            (identical(other.username, username) ||
-                other.username == username) &&
-            (identical(other.password, password) ||
-                other.password == password));
-  }
-
-  @override
-  int get hashCode {
-    return Object.hash(runtimeType, username, password);
-  }
-
-  @override
-  String toString() {
-    return 'LoginState.emailNotVerified(username: $username, password: $password)';
-  }
-}
-
-/// @nodoc
-abstract mixin class $EmailNotVerifiedCopyWith<$Res>
-    implements $LoginStateCopyWith<$Res> {
-  factory $EmailNotVerifiedCopyWith(
-          EmailNotVerified value, $Res Function(EmailNotVerified) _then) =
-      _$EmailNotVerifiedCopyWithImpl;
-  @useResult
-  $Res call({String username, String password});
-}
-
-/// @nodoc
-class _$EmailNotVerifiedCopyWithImpl<$Res>
-    implements $EmailNotVerifiedCopyWith<$Res> {
-  _$EmailNotVerifiedCopyWithImpl(this._self, this._then);
-
-  final EmailNotVerified _self;
-  final $Res Function(EmailNotVerified) _then;
-
-  /// Create a copy of LoginState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  $Res call({
-    Object? username = null,
-    Object? password = null,
-  }) {
-    return _then(EmailNotVerified(
-      username: null == username
-          ? _self.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _self.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
+    return _then(AuthError(
+      null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as AuthFailureType,
     ));
   }
 }

@@ -32,6 +32,8 @@ class InputItem extends StatefulWidget {
   final String? assistText;
   final bool obscureText;
   final Key? errorKey;
+  final TextInputType? keyboardType;
+  final TextInputAction textInputAction;
 
   //hide field functionallity
   final SvgHideModel? hideSvgModel;
@@ -62,6 +64,8 @@ class InputItem extends StatefulWidget {
     this.style,
     this.errorKey,
     this.hideSvgModel,
+    this.keyboardType,
+    this.textInputAction = TextInputAction.next,
   });
 
   @override
@@ -115,7 +119,8 @@ class _InputItemState extends State<InputItem> {
           },
           style: widget.style,
           minLines: 1,
-          textInputAction: TextInputAction.next,
+          textInputAction: widget.textInputAction,
+          keyboardType: widget.keyboardType,
           onEditingComplete: widget.onEditingComplete,
           autofillHints: widget.autofillHints,
           obscureText: obscureText,

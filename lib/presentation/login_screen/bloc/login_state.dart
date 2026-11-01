@@ -8,15 +8,10 @@ class LoginState with _$LoginState {
 
   const factory LoginState.successfullyLogin() = SuccessfullyLogin;
 
-  const factory LoginState.unknownError({
-    String? message,
-    required VoidCallback retryCallback,
-  }) = UnknownError;
+  const factory LoginState.validationError({
+    EmailError? emailError,
+    PasswordError? passwordError,
+  }) = ValidationError;
 
-  const factory LoginState.fieldIsEmptyError({
-    @Default(false) bool isUsernameEmpty,
-    @Default(false) bool isPasswordEmpty,
-  }) = FieldIsEmptyError;
-  const factory LoginState.wrongCredentialsError() = WrongCredentials;
-  const factory LoginState.emailNotVerified({required String username, required String password}) = EmailNotVerified;
+  const factory LoginState.authError(AuthFailureType type) = AuthError;
 }

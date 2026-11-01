@@ -28,7 +28,7 @@ class AppRouter extends RootStackRouter {
           page: HomeRoute.page,
           path: HomeScreen.path,
           initial: true,
-          //guards: [AuthGuard(storage: _storage)],
+          guards: [AuthGuard(storage: _storage)],
           children: [
             AutoRoute(
               page: BreedsRoute.page,
