@@ -28,9 +28,15 @@ class ConnectionError extends NetworkError {
 }
 
 class UnauthorizedError extends NetworkError {
-  UnauthorizedError({required super.error});
+  UnauthorizedError({required super.error, this.code});
+
+  /// `FirebaseAuthException.code`, when the failure came from Firebase Auth.
+  final String? code;
 }
 
 class UnexpectedError extends NetworkError {
   UnexpectedError({required super.error});
 }
+
+/// `UnauthorizedError.code` used when the user dismissed a sign-in dialog.
+const authCancelledCode = 'cancelled';
