@@ -22,48 +22,80 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "already_have_an_account":
-            MessageLookupByLibrary.simpleMessage("Already have an account?"),
-        "at": MessageLookupByLibrary.simpleMessage("at"),
-        "biometric_faceId": MessageLookupByLibrary.simpleMessage("faceId"),
-        "biometric_faceUnlock":
-            MessageLookupByLibrary.simpleMessage("faceUnlock"),
-        "biometric_fingerprint":
-            MessageLookupByLibrary.simpleMessage("fingerprint"),
-        "biometric_touchId": MessageLookupByLibrary.simpleMessage("touchId"),
-        "breed_list": MessageLookupByLibrary.simpleMessage("Breed list"),
-        "breeds": MessageLookupByLibrary.simpleMessage("Breeds"),
-        "charge_registration":
-            MessageLookupByLibrary.simpleMessage("Charge registration"),
-        "clients": MessageLookupByLibrary.simpleMessage("Clients"),
-        "dark": MessageLookupByLibrary.simpleMessage("Dark"),
-        "dialog_error": MessageLookupByLibrary.simpleMessage("Error"),
-        "dialog_host_unavailable_please_try_again_later":
-            MessageLookupByLibrary.simpleMessage(
-                "Host unavailable please try again later"),
-        "dialog_newVersionAvailable":
-            MessageLookupByLibrary.simpleMessage("New version available"),
-        "english": MessageLookupByLibrary.simpleMessage("English"),
-        "expectation": MessageLookupByLibrary.simpleMessage("Expectation"),
-        "incorrectUsernameOrPassword": MessageLookupByLibrary.simpleMessage(
-            "incorrect username or password"),
-        "light": MessageLookupByLibrary.simpleMessage("Light"),
-        "logout": MessageLookupByLibrary.simpleMessage("Logout"),
-        "not_have_an_account":
-            MessageLookupByLibrary.simpleMessage("Don`t have an account yet?"),
-        "ok": MessageLookupByLibrary.simpleMessage("ok"),
-        "paid": MessageLookupByLibrary.simpleMessage("Charge login"),
-        "password": MessageLookupByLibrary.simpleMessage("Password"),
-        "passwordShouldntBeEmpty": MessageLookupByLibrary.simpleMessage(
-            "Password should not be empty"),
-        "profile": MessageLookupByLibrary.simpleMessage("Profile"),
-        "sign_in": MessageLookupByLibrary.simpleMessage("Sign in"),
-        "sign_in_with_google":
-            MessageLookupByLibrary.simpleMessage("Sign in with Google"),
-        "sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
-        "ukraine": MessageLookupByLibrary.simpleMessage("Ukrainian"),
-        "username": MessageLookupByLibrary.simpleMessage("Username"),
-        "usernameShouldntBeEmpty":
-            MessageLookupByLibrary.simpleMessage("Username should not be empty")
-      };
+    "already_have_an_account": MessageLookupByLibrary.simpleMessage(
+      "Already have an account?",
+    ),
+    "at": MessageLookupByLibrary.simpleMessage("at"),
+    "authErrorEmailInUse": MessageLookupByLibrary.simpleMessage(
+      "An account with this email already exists",
+    ),
+    "authErrorNetwork": MessageLookupByLibrary.simpleMessage(
+      "No connection. Check your internet and try again",
+    ),
+    "authErrorTooManyRequests": MessageLookupByLibrary.simpleMessage(
+      "Too many attempts. Try again later",
+    ),
+    "authErrorUnknown": MessageLookupByLibrary.simpleMessage(
+      "Something went wrong",
+    ),
+    "authErrorUserDisabled": MessageLookupByLibrary.simpleMessage(
+      "This account has been disabled",
+    ),
+    "authErrorUserNotFound": MessageLookupByLibrary.simpleMessage(
+      "No account found for this email",
+    ),
+    "authErrorWrongCredentials": MessageLookupByLibrary.simpleMessage(
+      "Incorrect email or password",
+    ),
+    "biometric_faceId": MessageLookupByLibrary.simpleMessage("faceId"),
+    "biometric_faceUnlock": MessageLookupByLibrary.simpleMessage("faceUnlock"),
+    "biometric_fingerprint": MessageLookupByLibrary.simpleMessage(
+      "fingerprint",
+    ),
+    "biometric_touchId": MessageLookupByLibrary.simpleMessage("touchId"),
+    "breed_list": MessageLookupByLibrary.simpleMessage("Breed list"),
+    "breeds": MessageLookupByLibrary.simpleMessage("Breeds"),
+    "clients": MessageLookupByLibrary.simpleMessage("Clients"),
+    "dark": MessageLookupByLibrary.simpleMessage("Dark"),
+    "dialog_error": MessageLookupByLibrary.simpleMessage("Error"),
+    "dialog_host_unavailable_please_try_again_later":
+        MessageLookupByLibrary.simpleMessage(
+          "Host unavailable please try again later",
+        ),
+    "dialog_newVersionAvailable": MessageLookupByLibrary.simpleMessage(
+      "New version available",
+    ),
+    "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "emailInvalid": MessageLookupByLibrary.simpleMessage("Enter a valid email"),
+    "emailShouldntBeEmpty": MessageLookupByLibrary.simpleMessage(
+      "Email should not be empty",
+    ),
+    "english": MessageLookupByLibrary.simpleMessage("English"),
+    "expectation": MessageLookupByLibrary.simpleMessage("Expectation"),
+    "light": MessageLookupByLibrary.simpleMessage("Light"),
+    "login": MessageLookupByLibrary.simpleMessage("Login"),
+    "loginTitle": MessageLookupByLibrary.simpleMessage("Login"),
+    "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+    "not_have_an_account": MessageLookupByLibrary.simpleMessage(
+      "Don`t have an account yet?",
+    ),
+    "ok": MessageLookupByLibrary.simpleMessage("ok"),
+    "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "passwordShouldntBeEmpty": MessageLookupByLibrary.simpleMessage(
+      "Password should not be empty",
+    ),
+    "passwordTooShort": MessageLookupByLibrary.simpleMessage(
+      "Password must be at least 6 characters",
+    ),
+    "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+    "register": MessageLookupByLibrary.simpleMessage("Register"),
+    "registerTitle": MessageLookupByLibrary.simpleMessage("Register"),
+    "retry": MessageLookupByLibrary.simpleMessage("Retry"),
+    "sign_in": MessageLookupByLibrary.simpleMessage("Sign in"),
+    "sign_in_with_google": MessageLookupByLibrary.simpleMessage(
+      "Sign in with Google",
+    ),
+    "sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
+    "ukraine": MessageLookupByLibrary.simpleMessage("Ukrainian"),
+  };
 }
