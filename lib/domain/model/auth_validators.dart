@@ -16,7 +16,11 @@ EmailError? validateEmail(String email) {
   return null;
 }
 
-/// The password is not trimmed; its length is counted as typed.
+/// Login only requires a non-empty password so existing accounts are never locked out.
+PasswordError? validateLoginPassword(String password) =>
+    password.isEmpty ? PasswordError.empty : null;
+
+/// Sign-up rule. The password is not trimmed; its length is counted as typed.
 PasswordError? validatePassword(String password) {
   if (password.isEmpty) return PasswordError.empty;
   if (password.length < minPasswordLength) return PasswordError.tooShort;

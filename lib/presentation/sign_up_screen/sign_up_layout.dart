@@ -26,21 +26,18 @@ class SignUpLayout extends StatelessWidget {
           ),
           body: BlocConsumer<SignUpCubit, SignUpState>(
             listener: (context, state) {
-              if (state == const SignUpState.signUpped()) {
+              if (state is SignUpSuccess) {
                 TextInput.finishAutofillContext();
                 context.router.replace(const HomeRoute());
               }
             },
             builder: (context, state) {
-              final validation = state.whenOrNull(
-                validationError: (emailError, passwordError) => (emailError, passwordError),
-              );
               return AuthForm(
                 submitText: S.of(context).register,
-                isLoading: state == const SignUpState.loading(),
-                emailError: validation?.$1,
-                passwordError: validation?.$2,
-                failure: state.whenOrNull(authError: (type) => type),
+                isLoading: state is SignUpLoading,
+                emailError: state is SignUpValidationError ? state.emailError : null,
+                passwordError: state is SignUpValidationError ? state.passwordError : null,
+                failure: state is SignUpAuthError ? state.type : null,
                 onSubmit: (email, password) =>
                     context.read<SignUpCubit>().signUp(email: email, password: password),
                 extra: FloatingActionButton.extended(

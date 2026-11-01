@@ -19,6 +19,7 @@ class InputItem extends StatefulWidget {
   final String? Function(String?, BuildContext context)? validateFunction;
   final void Function(String)? onChanged;
   final String? value;
+  final TextEditingController? controller;
   final String? errorText;
   final int maxLines;
   final List<TextInputFormatter>? textInputFormatters;
@@ -47,6 +48,7 @@ class InputItem extends StatefulWidget {
     this.validateFunction,
     this.onChanged,
     this.value,
+    this.controller,
     super.key,
     this.errorText,
     this.onFieldSubmitted,
@@ -73,7 +75,7 @@ class InputItem extends StatefulWidget {
 }
 
 class _InputItemState extends State<InputItem> {
-  final TextEditingController _controller = TextEditingController();
+  late final TextEditingController _controller = widget.controller ?? TextEditingController();
   bool obscureText = false;
 
   @override
@@ -193,7 +195,7 @@ class _InputItemState extends State<InputItem> {
 
   @override
   void dispose() {
-    _controller.dispose();
+    if (widget.controller == null) _controller.dispose();
     super.dispose();
   }
 }

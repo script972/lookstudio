@@ -4,7 +4,6 @@ import 'package:logger/logger.dart';
 import 'package:lookstudio/domain/model/result.dart';
 
 import '../../../core/logger.dart';
-import '../../../data/mapper/auth_error_mapper.dart';
 import '../../../domain/model/auth_failure.dart';
 import '../../../domain/model/auth_validators.dart';
 import '../../../domain/repository/auth_repository_interface.dart';
@@ -26,7 +25,7 @@ class LoginCubit extends Cubit<LoginState> {
     if (state is Loading) return;
     final trimmedEmail = email.trim();
     final emailError = validateEmail(trimmedEmail);
-    final passwordError = validatePassword(password);
+    final passwordError = validateLoginPassword(password);
     if (emailError != null || passwordError != null) {
       emit(LoginState.validationError(emailError: emailError, passwordError: passwordError));
       return;
@@ -39,6 +38,12 @@ class LoginCubit extends Cubit<LoginState> {
       case Success(:final data):
         try {
           await repository.saveAuthToken(data.token ?? data.id);
+        } catch (e) {
+          logger.w('Failed to save auth token: $e');
+          if (!isClosed) emit(const LoginState.authError(AuthFailureType.unknown));
+          return;
+        }
+        try {
           await repository.addUser(data);
         } catch (e) {
           // Failing to persist the user must not block the login.
@@ -48,7 +53,7 @@ class LoginCubit extends Cubit<LoginState> {
         emit(const LoginState.successfullyLogin());
       case Error(:final error):
         logger.w('Login failed: $error');
-        emit(LoginState.authError(mapAuthError(error)));
+        emit(LoginState.authError(error is AuthFailureType ? error : AuthFailureType.unknown));
     }
   }
 }

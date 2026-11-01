@@ -73,11 +73,17 @@ class AuthenticationApi implements IAuthenticationApi {
     } catch (e) {
       return ErrorResponse(UnauthorizedError(error: e));
     }
-    final user = UserModel(
-      id: googleAccount?.id ?? '',
-      email: googleAccount?.email,
-      loginDate: DateTime.now(),
+    final account = googleAccount;
+    if (account == null || account.id.isEmpty) {
+      return ErrorResponse(UnexpectedError(error: 'Google returned no account'));
+    }
+    final idToken = account.authentication.idToken;
+    if (idToken == null) {
+      return ErrorResponse(UnexpectedError(error: 'Google returned no ID token'));
+    }
+    return _authenticate(
+      account.email,
+      () => _firebaseAuth.signInWithCredential(auth.GoogleAuthProvider.credential(idToken: idToken)),
     );
-    return SuccessResponse<UserModel>(user);
   }
 }

@@ -5,7 +5,6 @@ import 'package:lookstudio/domain/model/result.dart';
 import 'package:lookstudio/domain/model/user_model.dart';
 
 import '../../../core/logger.dart';
-import '../../../data/mapper/auth_error_mapper.dart';
 import '../../../domain/model/auth_failure.dart';
 import '../../../domain/model/auth_validators.dart';
 import '../../../domain/repository/auth_repository_interface.dart';
@@ -20,7 +19,7 @@ class SignUpCubit extends Cubit<SignUpState> {
   final IAuthRepository _repository;
   final Logger _logger = getLogger('SignUpCubit');
 
-  bool get _isLoading => state == const SignUpState.loading();
+  bool get _isLoading => state is SignUpLoading;
 
   Future<void> signUp({
     required String email,
@@ -50,6 +49,12 @@ class SignUpCubit extends Cubit<SignUpState> {
       case Success(:final data):
         try {
           await _repository.saveAuthToken(data.token ?? data.id);
+        } catch (e) {
+          _logger.w('Failed to save auth token: $e');
+          if (!isClosed) emit(const SignUpState.authError(AuthFailureType.unknown));
+          return;
+        }
+        try {
           await _repository.addUser(data);
         } catch (e) {
           _logger.w('Failed to persist user: $e');
@@ -58,7 +63,7 @@ class SignUpCubit extends Cubit<SignUpState> {
         emit(const SignUpState.signUpped());
       case Error(:final error):
         _logger.w('Sign up failed: $error');
-        final type = mapAuthError(error);
+        final type = error is AuthFailureType ? error : AuthFailureType.unknown;
         // Dismissing the Google dialog is not a failure.
         emit(type == AuthFailureType.cancelled
             ? const SignUpState.initial()

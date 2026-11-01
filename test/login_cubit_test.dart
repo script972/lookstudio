@@ -21,11 +21,11 @@ void main() {
 
   test('invalid input emits validationError and skips the repository',
       () async {
-    await cubit.login(email: '', password: '123');
+    await cubit.login(email: '', password: '');
     await pumpEventQueue();
     expect(states, [
       const LoginState.validationError(
-          emailError: EmailError.empty, passwordError: PasswordError.tooShort),
+          emailError: EmailError.empty, passwordError: PasswordError.empty),
     ]);
     expect(repo.calls, 0);
   });

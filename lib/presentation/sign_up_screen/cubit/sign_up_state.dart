@@ -2,16 +2,16 @@ part of 'sign_up_cubit.dart';
 
 @freezed
 class SignUpState with _$SignUpState {
-  const factory SignUpState.initial() = _InitialState;
+  const factory SignUpState.initial() = SignUpInitial;
 
-  const factory SignUpState.loading() = _LoadingState;
+  const factory SignUpState.loading() = SignUpLoading;
 
-  const factory SignUpState.signUpped() = _SuccessfullySignUpState;
+  const factory SignUpState.signUpped() = SignUpSuccess;
 
   const factory SignUpState.validationError({
     EmailError? emailError,
     PasswordError? passwordError,
-  }) = _ValidationErrorState;
+  }) = SignUpValidationError;
 
-  const factory SignUpState.authError(AuthFailureType type) = _AuthErrorState;
+  const factory SignUpState.authError(AuthFailureType type) = SignUpAuthError;
 }

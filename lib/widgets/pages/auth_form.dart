@@ -40,15 +40,23 @@ class AuthForm extends StatefulWidget {
   State<AuthForm> createState() => _AuthFormState();
 }
 
+const _retryable = {
+  AuthFailureType.unknown,
+  AuthFailureType.network,
+  AuthFailureType.tooManyRequests,
+};
+
 class _AuthFormState extends State<AuthForm> {
-  String _email = '';
-  String _password = '';
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   final FocusNode _emailFocusNode = FocusNode();
   final FocusNode _passwordFocusNode = FocusNode();
 
   @override
   void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
     _emailFocusNode.dispose();
     _passwordFocusNode.dispose();
     super.dispose();
@@ -56,7 +64,7 @@ class _AuthFormState extends State<AuthForm> {
 
   void _submit() {
     if (widget.isLoading) return;
-    widget.onSubmit(_email, _password);
+    widget.onSubmit(_emailController.text, _passwordController.text);
   }
 
   @override
@@ -74,23 +82,23 @@ class _AuthFormState extends State<AuthForm> {
                 children: [
                   Text(S.of(context).email),
                   InputItem(
+                    controller: _emailController,
                     focusNode: _emailFocusNode,
                     hintText: S.of(context).email,
                     keyboardType: TextInputType.emailAddress,
                     errorText: emailErrorText(context, widget.emailError),
                     onEditingComplete: _passwordFocusNode.requestFocus,
-                    onChanged: (value) => _email = value,
                     autofillHints: const [AutofillHints.email],
                   ),
                   Text(S.of(context).password),
                   InputItem(
+                    controller: _passwordController,
                     focusNode: _passwordFocusNode,
                     hintText: S.of(context).password,
                     obscureText: true,
                     textInputAction: TextInputAction.done,
                     errorText: passwordErrorText(context, widget.passwordError),
                     onFieldSubmitted: (_) => _submit(),
-                    onChanged: (value) => _password = value,
                     autofillHints: const [AutofillHints.password],
                   ),
                   if (failure != null) ...[
@@ -98,7 +106,7 @@ class _AuthFormState extends State<AuthForm> {
                       authFailureText(context, failure),
                       style: TextStyle(color: theme.colorScheme.error),
                     ),
-                    if (failure == AuthFailureType.unknown)
+                    if (_retryable.contains(failure))
                       TextButton(onPressed: _submit, child: Text(S.of(context).retry)),
                   ],
                   const SizedBox(height: Spacing.defaultPadding * 2),

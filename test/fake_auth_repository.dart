@@ -1,4 +1,5 @@
 import 'package:lookstudio/data/datasource/network/exchange_models/action_errors.dart';
+import 'package:lookstudio/data/mapper/auth_error_mapper.dart';
 import 'package:lookstudio/domain/model/result.dart';
 import 'package:lookstudio/domain/model/user_model.dart';
 import 'package:lookstudio/domain/repository/auth_repository_interface.dart';
@@ -17,7 +18,7 @@ class FakeAuthRepository implements IAuthRepository {
   }
 
   void failWith(String code) =>
-      response = Result.error(UnauthorizedError(error: 'e', code: code));
+      response = Result.error(mapAuthError(UnauthorizedError(error: 'e', code: code)));
 
   @override
   Future<Result<UserModel>> login(
