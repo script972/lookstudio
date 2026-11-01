@@ -18,29 +18,28 @@ class LoginLayout extends StatelessWidget {
       onTap: () {
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle.dark,
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text(S.of(context).loginTitle),
-          ),
-          body: BlocConsumer<LoginCubit, LoginState>(
-            listener: (context, state) {
-              if (state is SuccessfullyLogin) {
-                TextInput.finishAutofillContext();
-                context.router.replace(const HomeRoute());
-              }
-            },
-            builder: (context, state) => AuthForm(
-              submitText: S.of(context).login,
-              isLoading: state is Loading,
-              emailError: state is ValidationError ? state.emailError : null,
-              passwordError: state is ValidationError ? state.passwordError : null,
-              failure: state is AuthError ? state.type : null,
-              onSubmit: (email, password) =>
-                  context.read<LoginCubit>().login(email: email, password: password),
-              footer: const NotHaveAccount(),
-            ),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(S.of(context).loginTitle),
+        ),
+        body: BlocConsumer<LoginCubit, LoginState>(
+          listener: (context, state) {
+            if (state is SuccessfullyLogin) {
+              TextInput.finishAutofillContext();
+              context.router.replace(const HomeRoute());
+            }
+          },
+          builder: (context, state) => AuthForm(
+            submitText: S.of(context).login,
+            isLoading: state is Loading,
+            emailError: state is ValidationError ? state.emailError : null,
+            passwordError:
+                state is ValidationError ? state.passwordError : null,
+            failure: state is AuthError ? state.type : null,
+            onSubmit: (email, password) => context
+                .read<LoginCubit>()
+                .login(email: email, password: password),
+            footer: const NotHaveAccount(),
           ),
         ),
       ),

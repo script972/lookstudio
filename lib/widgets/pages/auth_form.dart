@@ -81,6 +81,7 @@ class _AuthFormState extends State<AuthForm> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(S.of(context).email),
+                  const SizedBox(height: Spacing.defaultPadding),
                   InputItem(
                     controller: _emailController,
                     focusNode: _emailFocusNode,
@@ -90,7 +91,9 @@ class _AuthFormState extends State<AuthForm> {
                     onEditingComplete: _passwordFocusNode.requestFocus,
                     autofillHints: const [AutofillHints.email],
                   ),
+                  const SizedBox(height: Spacing.defaultPadding * 2),
                   Text(S.of(context).password),
+                  const SizedBox(height: Spacing.defaultPadding),
                   InputItem(
                     controller: _passwordController,
                     focusNode: _passwordFocusNode,
@@ -102,6 +105,7 @@ class _AuthFormState extends State<AuthForm> {
                     autofillHints: const [AutofillHints.password],
                   ),
                   if (failure != null) ...[
+                    const SizedBox(height: Spacing.defaultPadding),
                     Text(
                       authFailureText(context, failure),
                       style: TextStyle(color: theme.colorScheme.error),
